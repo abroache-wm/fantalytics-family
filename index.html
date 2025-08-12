@@ -1,0 +1,1341 @@
+// Load JSON file automatically
+        window.addEventListener('DOMContentLoaded', function() {
+            fetch('espn_fantasy_complete_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load data file');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    leagueData = data;
+                    processLeagueData();
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                    initializeDashboard();
+                })
+                .catch(error => {<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Football Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #151923;
+            --bg-accent: #1e2433;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a9c4;
+            --accent-blue: #4a9eff;
+            --accent-green: #4ade80;
+            --accent-red: #ef4444;
+            --accent-yellow: #fbbf24;
+            --accent-purple: #a78bfa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            background: var(--bg-secondary);
+            border: 2px solid transparent;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-tab:hover {
+            background: var(--bg-accent);
+            border-color: var(--accent-blue);
+        }
+
+        .nav-tab.active {
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-trend {
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .trend-up {
+            color: var(--accent-green);
+        }
+
+        .trend-down {
+            color: var(--accent-red);
+        }
+
+        .chart-container {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            height: 400px;
+            position: relative;
+        }
+
+        .table-container {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--bg-accent);
+        }
+
+        th {
+            background: var(--bg-accent);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr:hover {
+            background: var(--bg-accent);
+        }
+
+        .owner-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .owner-info h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .owner-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .mini-stat {
+            text-align: center;
+        }
+
+        .mini-stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .mini-stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .h2h-grid {
+            display: grid;
+            gap: 2px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        .h2h-cell {
+            background: var(--bg-accent);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            min-width: 80px;
+        }
+
+        .h2h-cell.header {
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }
+
+        .h2h-cell.win {
+            background: rgba(74, 222, 128, 0.2);
+            color: var(--accent-green);
+        }
+
+        .h2h-cell.loss {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-red);
+        }
+
+        .loader {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-upload-btn {
+            background: var(--accent-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .file-upload-btn:hover {
+            background: var(--accent-purple);
+        }
+
+        .power-ranking {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rank-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .filter-controls {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        select {
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            border: 1px solid var(--accent-blue);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fantasy Football Analytics Dashboard</h1>
+            <p class="subtitle">Complete League History Analysis</p>
+        </header>
+
+        <div id="loadingMessage" class="loader">Loading league data...</div>
+
+        <div id="mainContent" style="display: none;">
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="overview">Overview</div>
+                <div class="nav-tab" data-tab="owners">Owner Analysis</div>
+                <div class="nav-tab" data-tab="h2h">Head-to-Head</div>
+                <div class="nav-tab" data-tab="records">Records & Awards</div>
+                <div class="nav-tab" data-tab="power">Power Rankings</div>
+                <div class="nav-tab" data-tab="luck">Luck Analysis</div>
+                <div class="nav-tab" data-tab="trends">Season Trends</div>
+                <div class="nav-tab" data-tab="playoffs">Playoff Analysis</div>
+            </div>
+
+            <div class="tab-content active" id="overview">
+                <div class="stats-grid" id="overviewStats"></div>
+                <div class="chart-container">
+                    <canvas id="seasonPointsChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <h2>All-Time Standings</h2>
+                    <table id="allTimeStandings"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="owners">
+                <div class="filter-controls">
+                    <label>Select Owner:
+                        <select id="ownerSelect">
+                            <option value="">All Owners</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="ownerCards"></div>
+            </div>
+
+            <div class="tab-content" id="h2h">
+                <h2>Head-to-Head Records</h2>
+                <p class="subtitle">Win-Loss records between all owners</p>
+                <div id="h2hMatrix"></div>
+            </div>
+
+            <div class="tab-content" id="records">
+                <div class="stats-grid" id="recordsGrid"></div>
+                <div class="table-container">
+                    <h2>Championship History</h2>
+                    <table id="championshipTable"></table>
+                </div>
+                <div class="table-container">
+                    <h2>Season Finishes</h2>
+                    <table id="finishesTable"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="power">
+                <h2>Power Rankings</h2>
+                <p class="subtitle">Algorithm-based rankings considering multiple factors</p>
+                <div id="powerRankings"></div>
+            </div>
+
+            <div class="tab-content" id="luck">
+                <h2>Luck Analysis</h2>
+                <p class="subtitle">How lucky or unlucky has each owner been?</p>
+                <div class="chart-container">
+                    <canvas id="luckChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <table id="luckTable"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="trends">
+                <div class="filter-controls">
+                    <label>Metric:
+                        <select id="trendMetric">
+                            <option value="points">Points Scored</option>
+                            <option value="wins">Wins</option>
+                            <option value="ppg">Points Per Game</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trendsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="tab-content" id="playoffs">
+                <div class="stats-grid" id="playoffStats"></div>
+                <div class="table-container">
+                    <h2>Playoff Performance</h2>
+                    <table id="playoffTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global data storage
+        let leagueData = {};
+        let processedData = {
+            owners: {},
+            matchups: [],
+            standings: [],
+            championships: [],
+            powerRankings: [],
+            h2hRecords: {},
+            luckAnalysis: {}
+        };
+
+        // Load JSON file automatically
+        window.addEventListener('DOMContentLoaded', function() {
+            fetch('espn_fantasy_complete_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load data file');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    leagueData = data;
+                    processLeagueData();
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                    initializeDashboard();
+                })
+                .catch(error => {
+                    document.getElementById('loadingMessage').innerHTML =
+                        '<div class="error">Error loading data: ' + error.message +
+                        '<br>Make sure espn_fantasy_complete_data.json is in the same directory.</div>';
+                    console.error('Error:', error);
+                });
+        });
+
+        function processLeagueData() {
+            // Extract all matchups and organize by owner
+            Object.keys(leagueData).forEach(year => {
+                const yearData = leagueData[year];
+                const yearNum = parseInt(year);
+
+                // Create owner mapping for this year
+                const teamToOwner = {};
+                yearData.teams.forEach(team => {
+                    const member = yearData.members.find(m => m.id === team.primaryOwner);
+                    if (member) {
+                        const ownerName = `${member.firstName} ${member.lastName}`;
+                        teamToOwner[team.id] = ownerName;
+
+                        // Initialize owner data if not exists
+                        if (!processedData.owners[ownerName]) {
+                            processedData.owners[ownerName] = {
+                                name: ownerName,
+                                teams: [],
+                                seasons: [],
+                                totalWins: 0,
+                                totalLosses: 0,
+                                totalPointsFor: 0,
+                                totalPointsAgainst: 0,
+                                championships: 0,
+                                playoffAppearances: 0,
+                                matchups: [],
+                                finishes: {}
+                            };
+                        }
+
+                        // Add team info
+                        processedData.owners[ownerName].teams.push({
+                            year: yearNum,
+                            teamName: team.name,
+                            teamId: team.id
+                        });
+
+                        // Add season stats
+                        const record = team.record?.overall || {};
+                        processedData.owners[ownerName].seasons.push({
+                            year: yearNum,
+                            wins: record.wins || 0,
+                            losses: record.losses || 0,
+                            pointsFor: record.pointsFor || 0,
+                            pointsAgainst: record.pointsAgainst || 0,
+                            playoffSeed: team.playoffSeed || 99,
+                            finalRank: team.rankCalculatedFinal || 99
+                        });
+
+                        processedData.owners[ownerName].totalWins += record.wins || 0;
+                        processedData.owners[ownerName].totalLosses += record.losses || 0;
+                        processedData.owners[ownerName].totalPointsFor += record.pointsFor || 0;
+                        processedData.owners[ownerName].totalPointsAgainst += record.pointsAgainst || 0;
+
+                        if (team.rankCalculatedFinal === 1) {
+                            processedData.owners[ownerName].championships++;
+                            processedData.championships.push({
+                                year: yearNum,
+                                owner: ownerName,
+                                teamName: team.name
+                            });
+                        }
+
+                        if (team.playoffSeed && team.playoffSeed <= 8) {
+                            processedData.owners[ownerName].playoffAppearances++;
+                        }
+
+                        processedData.owners[ownerName].finishes[yearNum] = team.rankCalculatedFinal || 99;
+                    }
+                });
+
+                // Process matchups
+                yearData.schedule.forEach(game => {
+                    if (game.winner) {
+                        const homeOwner = teamToOwner[game.home.teamId];
+                        const awayOwner = teamToOwner[game.away.teamId];
+
+                        if (homeOwner && awayOwner) {
+                            const week = game.matchupPeriodId;
+                            const homeScore = game.home.pointsByScoringPeriod?.[week] || game.home.totalPoints || 0;
+                            const awayScore = game.away.pointsByScoringPeriod?.[week] || game.away.totalPoints || 0;
+
+                            const matchup = {
+                                year: yearNum,
+                                week: week,
+                                homeOwner: homeOwner,
+                                awayOwner: awayOwner,
+                                homeScore: homeScore,
+                                awayScore: awayScore,
+                                winner: game.winner === 'HOME' ? homeOwner : awayOwner,
+                                isPlayoff: game.playoffTierType !== 'NONE'
+                            };
+
+                            processedData.matchups.push(matchup);
+                            processedData.owners[homeOwner].matchups.push(matchup);
+                            processedData.owners[awayOwner].matchups.push(matchup);
+                        }
+                    }
+                });
+            });
+
+            // Calculate H2H records
+            calculateH2HRecords();
+
+            // Calculate power rankings
+            calculatePowerRankings();
+
+            // Calculate luck analysis
+            calculateLuckAnalysis();
+        }
+
+        function calculateH2HRecords() {
+            // Initialize H2H matrix
+            const owners = Object.keys(processedData.owners);
+            owners.forEach(owner1 => {
+                processedData.h2hRecords[owner1] = {};
+                owners.forEach(owner2 => {
+                    if (owner1 !== owner2) {
+                        processedData.h2hRecords[owner1][owner2] = { wins: 0, losses: 0 };
+                    }
+                });
+            });
+
+            // Calculate records
+            processedData.matchups.forEach(matchup => {
+                const winner = matchup.winner;
+                const loser = matchup.homeOwner === winner ? matchup.awayOwner : matchup.homeOwner;
+
+                if (processedData.h2hRecords[winner] && processedData.h2hRecords[winner][loser]) {
+                    processedData.h2hRecords[winner][loser].wins++;
+                    processedData.h2hRecords[loser][winner].losses++;
+                }
+            });
+        }
+
+        function calculatePowerRankings() {
+            const rankings = Object.keys(processedData.owners).map(ownerName => {
+                const owner = processedData.owners[ownerName];
+                const totalGames = owner.totalWins + owner.totalLosses;
+                const winPct = totalGames > 0 ? owner.totalWins / totalGames : 0;
+                const avgPointsFor = totalGames > 0 ? owner.totalPointsFor / totalGames : 0;
+                const avgPointsAgainst = totalGames > 0 ? owner.totalPointsAgainst / totalGames : 0;
+                const pointDiff = avgPointsFor - avgPointsAgainst;
+
+                // Calculate consistency
+                const seasonPoints = owner.seasons.map(s => s.pointsFor / (s.wins + s.losses));
+                const avgPPG = seasonPoints.reduce((a, b) => a + b, 0) / seasonPoints.length;
+                const variance = seasonPoints.reduce((sum, ppg) => sum + Math.pow(ppg - avgPPG, 2), 0) / seasonPoints.length;
+                const consistency = 1 / (1 + Math.sqrt(variance) / avgPPG);
+
+                // Calculate recent performance (last 2 years weighted more)
+                const recentSeasons = owner.seasons.slice(-2);
+                const recentWinPct = recentSeasons.length > 0 ?
+                    recentSeasons.reduce((sum, s) => sum + s.wins, 0) /
+                    recentSeasons.reduce((sum, s) => sum + s.wins + s.losses, 0) : 0;
+
+                // Power score formula
+                const powerScore = (
+                    winPct * 0.3 +
+                    (avgPointsFor / 120) * 0.25 +  // Normalize to ~1.0
+                    (pointDiff / 10) * 0.15 +       // Normalize point differential
+                    consistency * 0.15 +
+                    recentWinPct * 0.1 +
+                    (owner.championships / owner.seasons.length) * 0.05
+                ) * 100;
+
+                return {
+                    owner: ownerName,
+                    powerScore: powerScore,
+                    winPct: winPct,
+                    avgPointsFor: avgPointsFor,
+                    avgPointsAgainst: avgPointsAgainst,
+                    consistency: consistency,
+                    championships: owner.championships,
+                    playoffPct: owner.playoffAppearances / owner.seasons.length
+                };
+            });
+
+            processedData.powerRankings = rankings.sort((a, b) => b.powerScore - a.powerScore);
+        }
+
+        function calculateLuckAnalysis() {
+            Object.keys(processedData.owners).forEach(ownerName => {
+                const owner = processedData.owners[ownerName];
+                let expectedWins = 0;
+                let actualWins = owner.totalWins;
+
+                // Calculate expected wins based on points scored
+                owner.seasons.forEach(season => {
+                    const year = season.year;
+                    const yearData = leagueData[year];
+
+                    // Get all teams' weekly scores for this season
+                    const weeklyScores = {};
+                    yearData.schedule.forEach(game => {
+                        const week = game.matchupPeriodId;
+                        if (!weeklyScores[week]) weeklyScores[week] = [];
+
+                        if (game.home.pointsByScoringPeriod?.[week]) {
+                            weeklyScores[week].push(game.home.pointsByScoringPeriod[week]);
+                        }
+                        if (game.away.pointsByScoringPeriod?.[week]) {
+                            weeklyScores[week].push(game.away.pointsByScoringPeriod[week]);
+                        }
+                    });
+
+                    // Calculate expected wins for this owner this season
+                    const ownerMatchups = processedData.matchups.filter(m =>
+                        m.year === year && (m.homeOwner === ownerName || m.awayOwner === ownerName)
+                    );
+
+                    ownerMatchups.forEach(matchup => {
+                        const ownerScore = matchup.homeOwner === ownerName ? matchup.homeScore : matchup.awayScore;
+                        const weekScores = weeklyScores[matchup.week] || [];
+                        const beatenTeams = weekScores.filter(score => ownerScore > score).length;
+                        const totalTeams = weekScores.length;
+
+                        if (totalTeams > 0) {
+                            expectedWins += beatenTeams / totalTeams;
+                        }
+                    });
+                });
+
+                processedData.luckAnalysis[ownerName] = {
+                    actualWins: actualWins,
+                    expectedWins: expectedWins,
+                    luckDiff: actualWins - expectedWins,
+                    luckPct: expectedWins > 0 ? (actualWins - expectedWins) / expectedWins : 0
+                };
+            });
+        }
+
+        function initializeDashboard() {
+            // Setup tab navigation
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab).classList.add('active');
+
+                    // Load tab-specific content
+                    switch(this.dataset.tab) {
+                        case 'overview': loadOverview(); break;
+                        case 'owners': loadOwners(); break;
+                        case 'h2h': loadH2H(); break;
+                        case 'records': loadRecords(); break;
+                        case 'power': loadPowerRankings(); break;
+                        case 'luck': loadLuckAnalysis(); break;
+                        case 'trends': loadTrends(); break;
+                        case 'playoffs': loadPlayoffs(); break;
+                    }
+                });
+            });
+
+            // Load initial tab
+            loadOverview();
+        }
+
+        function loadOverview() {
+            // Calculate overview stats
+            const totalGames = processedData.matchups.length;
+            const totalPoints = processedData.matchups.reduce((sum, m) => sum + m.homeScore + m.awayScore, 0);
+            const avgPoints = totalPoints / (totalGames * 2);
+
+            const highestScore = Math.max(...processedData.matchups.map(m => Math.max(m.homeScore, m.awayScore)));
+            const highestScoreGame = processedData.matchups.find(m =>
+                m.homeScore === highestScore || m.awayScore === highestScore
+            );
+
+            const closestGame = processedData.matchups.reduce((closest, game) => {
+                const margin = Math.abs(game.homeScore - game.awayScore);
+                const closestMargin = Math.abs(closest.homeScore - closest.awayScore);
+                return margin < closestMargin ? game : closest;
+            });
+
+            // Display overview stats
+            const statsHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">Total Games Played</div>
+                    <div class="stat-value">${totalGames.toLocaleString()}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Score</div>
+                    <div class="stat-value">${avgPoints.toFixed(1)}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Highest Score</div>
+                    <div class="stat-value">${highestScore.toFixed(1)}</div>
+                    <div class="stat-trend">${highestScoreGame.winner} (Week ${highestScoreGame.week}, ${highestScoreGame.year})</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Closest Game</div>
+                    <div class="stat-value">${Math.abs(closestGame.homeScore - closestGame.awayScore).toFixed(1)} pts</div>
+                    <div class="stat-trend">${closestGame.homeOwner} vs ${closestGame.awayOwner}</div>
+                </div>
+            `;
+            document.getElementById('overviewStats').innerHTML = statsHTML;
+
+            // Create season points chart
+            createSeasonPointsChart();
+
+            // Create all-time standings table
+            createAllTimeStandingsTable();
+        }
+
+        function createSeasonPointsChart() {
+            const ctx = document.getElementById('seasonPointsChart').getContext('2d');
+
+            // Prepare data
+            const years = [...new Set(processedData.matchups.map(m => m.year))].sort();
+            const ownerNames = Object.keys(processedData.owners);
+
+            const datasets = ownerNames.map((owner, index) => {
+                const data = years.map(year => {
+                    const season = processedData.owners[owner].seasons.find(s => s.year === year);
+                    return season ? season.pointsFor : 0;
+                });
+
+                return {
+                    label: owner,
+                    data: data,
+                    borderColor: `hsl(${index * 360 / ownerNames.length}, 70%, 50%)`,
+                    backgroundColor: `hsla(${index * 360 / ownerNames.length}, 70%, 50%, 0.1)`,
+                    tension: 0.3
+                };
+            });
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Total Points by Season',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createAllTimeStandingsTable() {
+            const standings = Object.keys(processedData.owners).map(ownerName => {
+                const owner = processedData.owners[ownerName];
+                const totalGames = owner.totalWins + owner.totalLosses;
+                return {
+                    name: ownerName,
+                    wins: owner.totalWins,
+                    losses: owner.totalLosses,
+                    winPct: totalGames > 0 ? (owner.totalWins / totalGames).toFixed(3) : '.000',
+                    pointsFor: owner.totalPointsFor.toFixed(1),
+                    pointsAgainst: owner.totalPointsAgainst.toFixed(1),
+                    pointDiff: (owner.totalPointsFor - owner.totalPointsAgainst).toFixed(1),
+                    championships: owner.championships,
+                    playoffs: owner.playoffAppearances
+                };
+            }).sort((a, b) => parseFloat(b.winPct) - parseFloat(a.winPct));
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Owner</th>
+                        <th>W-L</th>
+                        <th>Win %</th>
+                        <th>PF</th>
+                        <th>PA</th>
+                        <th>Diff</th>
+                        <th>Ships</th>
+                        <th>Playoffs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${standings.map(owner => `
+                        <tr>
+                            <td>${owner.name}</td>
+                            <td>${owner.wins}-${owner.losses}</td>
+                            <td>${owner.winPct}</td>
+                            <td>${owner.pointsFor}</td>
+                            <td>${owner.pointsAgainst}</td>
+                            <td class="${parseFloat(owner.pointDiff) > 0 ? 'trend-up' : 'trend-down'}">${owner.pointDiff}</td>
+                            <td>${owner.championships}</td>
+                            <td>${owner.playoffs}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('allTimeStandings').innerHTML = tableHTML;
+        }
+
+        function loadOwners() {
+            // Populate owner select
+            const select = document.getElementById('ownerSelect');
+            select.innerHTML = '<option value="">All Owners</option>';
+            Object.keys(processedData.owners).forEach(owner => {
+                select.innerHTML += `<option value="${owner}">${owner}</option>`;
+            });
+
+            select.addEventListener('change', displayOwnerCards);
+            displayOwnerCards();
+        }
+
+        function displayOwnerCards() {
+            const selectedOwner = document.getElementById('ownerSelect').value;
+            const owners = selectedOwner ? [selectedOwner] : Object.keys(processedData.owners);
+
+            const cardsHTML = owners.map(ownerName => {
+                const owner = processedData.owners[ownerName];
+                const totalGames = owner.totalWins + owner.totalLosses;
+                const avgPPG = totalGames > 0 ? owner.totalPointsFor / totalGames : 0;
+                const winPct = totalGames > 0 ? owner.totalWins / totalGames : 0;
+
+                return `
+                    <div class="owner-card">
+                        <div class="owner-info">
+                            <h3>${ownerName}</h3>
+                            <p>Active Seasons: ${owner.seasons.length}</p>
+                            <p>Team Names: ${[...new Set(owner.teams.map(t => t.teamName))].join(', ')}</p>
+                        </div>
+                        <div class="owner-stats">
+                            <div class="mini-stat">
+                                <div class="mini-stat-value">${owner.totalWins}-${owner.totalLosses}</div>
+                                <div class="mini-stat-label">Record</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="mini-stat-value">${(winPct * 100).toFixed(1)}%</div>
+                                <div class="mini-stat-label">Win %</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="mini-stat-value">${avgPPG.toFixed(1)}</div>
+                                <div class="mini-stat-label">PPG</div>
+                            </div>
+                            <div class="mini-stat">
+                                <div class="mini-stat-value">${owner.championships}</div>
+                                <div class="mini-stat-label">Championships</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('ownerCards').innerHTML = cardsHTML;
+        }
+
+        function loadH2H() {
+            const owners = Object.keys(processedData.owners).sort();
+
+            // Create grid
+            let gridHTML = `<div class="h2h-grid" style="grid-template-columns: auto repeat(${owners.length}, 1fr);">`;
+
+            // Header row
+            gridHTML += '<div class="h2h-cell header"></div>';
+            owners.forEach(owner => {
+                gridHTML += `<div class="h2h-cell header">${owner.split(' ')[0]}</div>`;
+            });
+
+            // Data rows
+            owners.forEach(owner1 => {
+                gridHTML += `<div class="h2h-cell header">${owner1}</div>`;
+                owners.forEach(owner2 => {
+                    if (owner1 === owner2) {
+                        gridHTML += '<div class="h2h-cell">-</div>';
+                    } else {
+                        const record = processedData.h2hRecords[owner1][owner2];
+                        const wins = record.wins;
+                        const losses = record.losses;
+                        const total = wins + losses;
+                        const winPct = total > 0 ? wins / total : 0;
+
+                        let cellClass = 'h2h-cell';
+                        if (winPct > 0.5) cellClass += ' win';
+                        else if (winPct < 0.5) cellClass += ' loss';
+
+                        gridHTML += `<div class="${cellClass}">${wins}-${losses}</div>`;
+                    }
+                });
+            });
+
+            gridHTML += '</div>';
+            document.getElementById('h2hMatrix').innerHTML = gridHTML;
+        }
+
+        function loadRecords() {
+            // Single game records
+            const highestScore = processedData.matchups.reduce((max, m) => {
+                const score = Math.max(m.homeScore, m.awayScore);
+                return score > max.score ? {
+                    score: score,
+                    owner: m.homeScore > m.awayScore ? m.homeOwner : m.awayOwner,
+                    opponent: m.homeScore > m.awayScore ? m.awayOwner : m.homeOwner,
+                    year: m.year,
+                    week: m.week
+                } : max;
+            }, { score: 0 });
+
+            const lowestScore = processedData.matchups.reduce((min, m) => {
+                const score = Math.min(m.homeScore, m.awayScore);
+                return score < min.score ? {
+                    score: score,
+                    owner: m.homeScore < m.awayScore ? m.homeOwner : m.awayOwner,
+                    opponent: m.homeScore < m.awayScore ? m.awayOwner : m.homeOwner,
+                    year: m.year,
+                    week: m.week
+                } : min;
+            }, { score: 999 });
+
+            const biggestBlowout = processedData.matchups.reduce((max, m) => {
+                const margin = Math.abs(m.homeScore - m.awayScore);
+                return margin > max.margin ? {
+                    margin: margin,
+                    winner: m.homeScore > m.awayScore ? m.homeOwner : m.awayOwner,
+                    loser: m.homeScore > m.awayScore ? m.awayOwner : m.homeOwner,
+                    score: `${Math.max(m.homeScore, m.awayScore).toFixed(1)}-${Math.min(m.homeScore, m.awayScore).toFixed(1)}`,
+                    year: m.year,
+                    week: m.week
+                } : max;
+            }, { margin: 0 });
+
+            // Display records
+            const recordsHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">Highest Score</div>
+                    <div class="stat-value">${highestScore.score.toFixed(1)}</div>
+                    <div class="stat-trend">${highestScore.owner} vs ${highestScore.opponent}</div>
+                    <div class="stat-trend">Week ${highestScore.week}, ${highestScore.year}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Lowest Score</div>
+                    <div class="stat-value">${lowestScore.score.toFixed(1)}</div>
+                    <div class="stat-trend">${lowestScore.owner} vs ${lowestScore.opponent}</div>
+                    <div class="stat-trend">Week ${lowestScore.week}, ${lowestScore.year}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Biggest Blowout</div>
+                    <div class="stat-value">${biggestBlowout.margin.toFixed(1)} pts</div>
+                    <div class="stat-trend">${biggestBlowout.winner} def. ${biggestBlowout.loser}</div>
+                    <div class="stat-trend">${biggestBlowout.score} (Week ${biggestBlowout.week}, ${biggestBlowout.year})</div>
+                </div>
+            `;
+            document.getElementById('recordsGrid').innerHTML = recordsHTML;
+
+            // Championship table
+            const champHTML = `
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Champion</th>
+                        <th>Team Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${processedData.championships.map(champ => `
+                        <tr>
+                            <td>${champ.year}</td>
+                            <td>${champ.owner}</td>
+                            <td>${champ.teamName}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            document.getElementById('championshipTable').innerHTML = champHTML;
+
+            // Season finishes table
+            createFinishesTable();
+        }
+
+        function createFinishesTable() {
+            const years = [...new Set(processedData.matchups.map(m => m.year))].sort();
+            const owners = Object.keys(processedData.owners).sort();
+
+            let tableHTML = '<thead><tr><th>Owner</th>';
+            years.forEach(year => tableHTML += `<th>${year}</th>`);
+            tableHTML += '</tr></thead><tbody>';
+
+            owners.forEach(owner => {
+                tableHTML += `<tr><td>${owner}</td>`;
+                years.forEach(year => {
+                    const finish = processedData.owners[owner].finishes[year];
+                    let cellClass = '';
+                    if (finish === 1) cellClass = 'trend-up';
+                    else if (finish > 8) cellClass = 'trend-down';
+
+                    tableHTML += `<td class="${cellClass}">${finish || '-'}</td>`;
+                });
+                tableHTML += '</tr>';
+            });
+
+            tableHTML += '</tbody>';
+            document.getElementById('finishesTable').innerHTML = tableHTML;
+        }
+
+        function loadPowerRankings() {
+            const rankingsHTML = processedData.powerRankings.map((ranking, index) => `
+                <div class="power-ranking">
+                    <div class="rank-number">#${index + 1}</div>
+                    <h3>${ranking.owner}</h3>
+                    <div class="owner-stats">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">${ranking.powerScore.toFixed(1)}</div>
+                            <div class="mini-stat-label">Power Score</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">${(ranking.winPct * 100).toFixed(1)}%</div>
+                            <div class="mini-stat-label">Win %</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">${ranking.avgPointsFor.toFixed(1)}</div>
+                            <div class="mini-stat-label">PPG</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">${(ranking.consistency * 100).toFixed(0)}%</div>
+                            <div class="mini-stat-label">Consistency</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('powerRankings').innerHTML = rankingsHTML;
+        }
+
+        function loadLuckAnalysis() {
+            const ctx = document.getElementById('luckChart').getContext('2d');
+
+            const luckData = Object.keys(processedData.luckAnalysis).map(owner => ({
+                owner: owner,
+                ...processedData.luckAnalysis[owner]
+            })).sort((a, b) => b.luckDiff - a.luckDiff);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: luckData.map(d => d.owner),
+                    datasets: [{
+                        label: 'Luck Differential (Actual - Expected Wins)',
+                        data: luckData.map(d => d.luckDiff),
+                        backgroundColor: luckData.map(d => d.luckDiff > 0 ? 'rgba(74, 222, 128, 0.6)' : 'rgba(239, 68, 68, 0.6)'),
+                        borderColor: luckData.map(d => d.luckDiff > 0 ? '#4ade80' : '#ef4444'),
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Luck Analysis: Actual vs Expected Wins',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+
+            // Luck table
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Owner</th>
+                        <th>Actual Wins</th>
+                        <th>Expected Wins</th>
+                        <th>Luck Diff</th>
+                        <th>Luck %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${luckData.map(data => `
+                        <tr>
+                            <td>${data.owner}</td>
+                            <td>${data.actualWins}</td>
+                            <td>${data.expectedWins.toFixed(1)}</td>
+                            <td class="${data.luckDiff > 0 ? 'trend-up' : 'trend-down'}">${data.luckDiff > 0 ? '+' : ''}${data.luckDiff.toFixed(1)}</td>
+                            <td class="${data.luckPct > 0 ? 'trend-up' : 'trend-down'}">${data.luckPct > 0 ? '+' : ''}${(data.luckPct * 100).toFixed(1)}%</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            document.getElementById('luckTable').innerHTML = tableHTML;
+        }
+
+        function loadTrends() {
+            const metric = document.getElementById('trendMetric').value;
+            updateTrendsChart(metric);
+
+            document.getElementById('trendMetric').addEventListener('change', (e) => {
+                updateTrendsChart(e.target.value);
+            });
+        }
+
+        function updateTrendsChart(metric) {
+            const ctx = document.getElementById('trendsChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            const years = [...new Set(processedData.matchups.map(m => m.year))].sort();
+            const ownerNames = Object.keys(processedData.owners);
+
+            const datasets = ownerNames.map((owner, index) => {
+                const data = years.map(year => {
+                    const season = processedData.owners[owner].seasons.find(s => s.year === year);
+                    if (!season) return 0;
+
+                    switch(metric) {
+                        case 'points': return season.pointsFor;
+                        case 'wins': return season.wins;
+                        case 'ppg': return season.pointsFor / (season.wins + season.losses);
+                        default: return 0;
+                    }
+                });
+
+                return {
+                    label: owner,
+                    data: data,
+                    borderColor: `hsl(${index * 360 / ownerNames.length}, 70%, 50%)`,
+                    backgroundColor: `hsla(${index * 360 / ownerNames.length}, 70%, 50%, 0.1)`,
+                    tension: 0.3
+                };
+            });
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: `${metric === 'points' ? 'Total Points' : metric === 'wins' ? 'Wins' : 'Points Per Game'} by Season`,
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function loadPlayoffs() {
+            // Calculate playoff stats
+            const playoffGames = processedData.matchups.filter(m => m.isPlayoff);
+            const playoffStats = {};
+
+            Object.keys(processedData.owners).forEach(owner => {
+                const ownerPlayoffGames = playoffGames.filter(m =>
+                    m.homeOwner === owner || m.awayOwner === owner
+                );
+
+                const wins = ownerPlayoffGames.filter(m => m.winner === owner).length;
+                const losses = ownerPlayoffGames.length - wins;
+
+                playoffStats[owner] = {
+                    games: ownerPlayoffGames.length,
+                    wins: wins,
+                    losses: losses,
+                    winPct: ownerPlayoffGames.length > 0 ? wins / ownerPlayoffGames.length : 0,
+                    appearances: processedData.owners[owner].playoffAppearances,
+                    championships: processedData.owners[owner].championships
+                };
+            });
+
+            // Display playoff overview
+            const totalPlayoffGames = playoffGames.length;
+            const avgPlayoffScore = playoffGames.reduce((sum, g) => sum + g.homeScore + g.awayScore, 0) / (totalPlayoffGames * 2);
+
+            const statsHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">Total Playoff Games</div>
+                    <div class="stat-value">${totalPlayoffGames}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Avg Playoff Score</div>
+                    <div class="stat-value">${avgPlayoffScore.toFixed(1)}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Most Championships</div>
+                    <div class="stat-value">${Math.max(...Object.values(playoffStats).map(s => s.championships))}</div>
+                </div>
+            `;
+            document.getElementById('playoffStats').innerHTML = statsHTML;
+
+            // Playoff performance table
+            const sortedStats = Object.entries(playoffStats)
+                .sort((a, b) => b[1].winPct - a[1].winPct);
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Owner</th>
+                        <th>Appearances</th>
+                        <th>W-L</th>
+                        <th>Win %</th>
+                        <th>Championships</th>
+                        <th>Title %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${sortedStats.map(([owner, stats]) => `
+                        <tr>
+                            <td>${owner}</td>
+                            <td>${stats.appearances}</td>
+                            <td>${stats.wins}-${stats.losses}</td>
+                            <td>${(stats.winPct * 100).toFixed(1)}%</td>
+                            <td>${stats.championships}</td>
+                            <td>${stats.appearances > 0 ? (stats.championships / stats.appearances * 100).toFixed(1) : '0.0'}%</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            document.getElementById('playoffTable').innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
