@@ -460,7 +460,7 @@
         window.addEventListener('DOMContentLoaded', async function() {
             try {
                 // Load draft data first
-                const draftResponse = await fetch('espn_fantasy_draft_data.json');
+                const draftResponse = await fetch('espn_fantasy_complete_data.json');
                 if (!draftResponse.ok) {
                     throw new Error('Failed to load draft data file');
                 }
@@ -479,7 +479,7 @@
             } catch (error) {
                 document.getElementById('loadingMessage').innerHTML =
                     '<div class="error">Error loading data: ' + error.message +
-                    '<br>Make sure espn_fantasy_draft_data.json is in the same directory.</div>';
+                    '<br>Make sure espn_fantasy_complete_data.json is in the same directory.</div>';
                 console.error('Error:', error);
             }
         });
