@@ -459,7 +459,7 @@
         // Load data automatically
         window.addEventListener('DOMContentLoaded', async function() {
             try {
-                // Load draft data first
+                 // Load draft data first
                 const draftResponse = await fetch('espn_fantasy_draft_data.json');
                 if (!draftResponse.ok) {
                     throw new Error('Failed to load draft data file');
@@ -467,7 +467,7 @@
                 draftData = await draftResponse.json();
 
                 // Also load complete data for additional context
-                const leagueResponse = await fetch('espn_fantasy_complete_data.json');
+                const leagueResponse = await fetch('espn_fantasy_complete_data.json');  // <-- FIXED
                 if (leagueResponse.ok) {
                     leagueData = await leagueResponse.json();
                 }
