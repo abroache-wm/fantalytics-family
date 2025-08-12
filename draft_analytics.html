@@ -467,7 +467,7 @@
                 draftData = await draftResponse.json();
 
                 // Also load complete data for additional context
-                const leagueResponse = await fetch('espn_fantasy_draft_data.json');
+                const leagueResponse = await fetch('espn_fantasy_complete_data.json');
                 if (leagueResponse.ok) {
                     leagueData = await leagueResponse.json();
                 }
