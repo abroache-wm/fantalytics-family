@@ -928,9 +928,6 @@ function updateValueAnalysis(){
 }
 
 function createValueChart(year, picks){
-  const expectations = processedData.historicalExpectations[year];
-  if (!expectations && year !== Math.min(...Object.keys(processedData.byYear).map(Number))) return;
-
   const rounds = Array.from({length:16}, (_,i)=>i+1);
   const actual = rounds.map(r => {
     const rPicks = picks.filter(p => p.round === r);
@@ -942,17 +939,41 @@ function createValueChart(year, picks){
       backgroundColor:'rgba(74,158,255,.1)', fill:true, borderWidth:3 }
   ];
 
-  if (expectations) {
-    const expected = rounds.map(r => expectations.byRound?.[r]?.mean || 0);
-    const p75 = rounds.map(r => expectations.byRound?.[r]?.p75 || 0);
-    const p25 = rounds.map(r => expectations.byRound?.[r]?.p25 || 0);
+  // Calculate historical expectations from all prior years
+  const years = Object.keys(processedData.byYear).map(Number).sort();
+  const priorYears = years.filter(y => y < year);
+
+  if (priorYears.length > 0) {
+    // Calculate expectations directly from prior years' data
+    const expected = [];
+    const p75vals = [];
+    const p25vals = [];
+
+    rounds.forEach(round => {
+      const roundValues = [];
+      priorYears.forEach(y => {
+        const yearRoundPicks = (processedData.byYear[y] || []).filter(p => p.round === round);
+        roundValues.push(...yearRoundPicks.map(p => p.actualValue));
+      });
+
+      if (roundValues.length > 0) {
+        expected.push(safeAvg(roundValues));
+        p75vals.push(percentile(roundValues, 75));
+        p25vals.push(percentile(roundValues, 25));
+      } else {
+        // Fallback values if no data
+        expected.push(Math.max(0, 200 - round * 12));
+        p75vals.push(Math.max(0, 220 - round * 12));
+        p25vals.push(Math.max(0, 180 - round * 12));
+      }
+    });
 
     datasets.unshift(
       { label:'Historical Average', data:expected, borderColor:'rgba(251,146,60,.8)',
         borderDash:[5,5], fill:false },
-      { label:'75th Percentile', data:p75, borderColor:'rgba(74,222,128,.4)',
+      { label:'75th Percentile', data:p75vals, borderColor:'rgba(74,222,128,.4)',
         borderDash:[3,3], fill:false },
-      { label:'25th Percentile', data:p25, borderColor:'rgba(239,68,68,.4)',
+      { label:'25th Percentile', data:p25vals, borderColor:'rgba(239,68,68,.4)',
         borderDash:[3,3], fill:false }
     );
   }
