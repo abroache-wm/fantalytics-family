@@ -818,54 +818,60 @@
         }
 
         function calculateLuckAnalysis() {
-            Object.keys(processedData.owners).forEach(ownerName => {
-                const owner = processedData.owners[ownerName];
-                let expectedWins = 0;
-                let actualWins = owner.totalWins;
+    Object.keys(processedData.owners).forEach(ownerName => {
+        const owner = processedData.owners[ownerName];
+        let expectedWins = 0;
+        let actualWins = owner.totalWins;
 
-                // Calculate expected wins based on points scored
-                owner.seasons.forEach(season => {
-                    const year = season.year;
-                    const yearData = leagueData[year];
+        // Calculate expected wins based on points scored
+        owner.seasons.forEach(season => {
+            const year = season.year;
+            const yearData = leagueData[year];
 
-                    // Get all teams' weekly scores for this season
-                    const weeklyScores = {};
-                    yearData.schedule.forEach(game => {
-                        const week = game.matchupPeriodId;
-                        if (!weeklyScores[week]) weeklyScores[week] = [];
+            // Get all teams' weekly scores for this season
+            const weeklyScores = {};
+            yearData.schedule.forEach(game => {
+                const week = game.matchupPeriodId;
+                if (!weeklyScores[week]) weeklyScores[week] = [];
 
-                        if (game.home.pointsByScoringPeriod?.[week]) {
-                            weeklyScores[week].push(game.home.pointsByScoringPeriod[week]);
-                        }
-                        if (game.away.pointsByScoringPeriod?.[week]) {
-                            weeklyScores[week].push(game.away.pointsByScoringPeriod[week]);
-                        }
-                    });
-
-                    // Calculate expected wins for this owner this season
-                    const ownerMatchups = processedData.matchups.filter(m =>
-                        m.year === year && (m.homeOwner === ownerName || m.awayOwner === ownerName) && !m.isPlayoff
-                    );
-
-                    ownerMatchups.forEach(matchup => {
-                        const ownerScore = matchup.homeOwner === ownerName ? matchup.homeScore : matchup.awayScore;
-                        const weekScores = weeklyScores[matchup.week] || [];
-                        const beatenTeams = weekScores.filter(score => ownerScore > score).length;
-                        const totalTeams = weekScores.length;
-
-                        if (totalTeams > 0) {
-                            expectedWins += beatenTeams / totalTeams;
-                        }
-                    });
-                });
-
-                processedData.luckAnalysis[ownerName] = {
-                    actualWins: actualWins,
-                    expectedWins: expectedWins,
-                    luckDiff: actualWins - expectedWins,
-                    luckPct: expectedWins > 0 ? (actualWins - expectedWins) / expectedWins : 0
-                };
+                if (game.home.pointsByScoringPeriod?.[week]) {
+                    weeklyScores[week].push(game.home.pointsByScoringPeriod[week]);
+                }
+                if (game.away.pointsByScoringPeriod?.[week]) {
+                    weeklyScores[week].push(game.away.pointsByScoringPeriod[week]);
+                }
             });
+
+            // Calculate expected wins for this owner this season
+            const ownerMatchups = processedData.matchups.filter(m =>
+                m.year === year && (m.homeOwner === ownerName || m.awayOwner === ownerName) && !m.isPlayoff
+            );
+
+            ownerMatchups.forEach(matchup => {
+                const ownerScore = matchup.homeOwner === ownerName ? matchup.homeScore : matchup.awayScore;
+                const weekScores = weeklyScores[matchup.week] || [];
+
+                // Remove the owner's own score from the pool
+                const otherTeamScores = weekScores.filter(score => Math.abs(score - ownerScore) > 0.01);
+
+                if (otherTeamScores.length > 0) {
+                    // Calculate win probability: what percentage of other teams would this score have beaten?
+                    const beatenTeams = otherTeamScores.filter(score => ownerScore > score).length;
+                    const winProbability = beatenTeams / otherTeamScores.length;
+
+                    // Each week's expected wins is the probability of winning
+                    expectedWins += winProbability;
+                }
+            });
+        });
+
+        processedData.luckAnalysis[ownerName] = {
+            actualWins: actualWins,
+            expectedWins: expectedWins,
+            luckDiff: actualWins - expectedWins,
+            luckPct: expectedWins > 0 ? ((actualWins - expectedWins) / expectedWins) * 100 : 0
+        };
+        });
         }
 
         function initializeDashboard() {
