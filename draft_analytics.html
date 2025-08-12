@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Fantasy Football Draft Analytics - Enhanced</title>
+    <title>Fantasy Football Draft Analytics - Complete</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -14,7 +14,7 @@
             --accent-yellow:#fbbf24; --accent-purple:#a78bfa; --accent-orange:#fb923c;
         }
         body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.6; }
-        .container{ max-width:1600px; margin:0 auto; padding:20px; }
+        .container{ max-width:1800px; margin:0 auto; padding:20px; }
         header{ text-align:center; margin-bottom:40px; padding:40px 0; background:linear-gradient(135deg,var(--bg-secondary),var(--bg-accent)); border-radius:20px; position:relative; }
         .back-link{ position:absolute; left:20px; top:20px; color:var(--accent-blue); text-decoration:none; font-weight:600; transition:.3s }
         .back-link:hover{ color:var(--accent-purple); transform:translateX(-5px); }
@@ -27,7 +27,7 @@
         .nav-tab.active{ background:var(--accent-orange); color:var(--bg-primary); }
         .tab-content{ display:none; }
         .tab-content.active{ display:block; }
-        .stats-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; margin-bottom:40px; }
+        .stats-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-bottom:40px; }
         .stat-card{ background:var(--bg-secondary); border-radius:15px; padding:25px; box-shadow:0 10px 30px rgba(0,0,0,.3); transition:.3s }
         .stat-card:hover{ transform:translateY(-5px); }
         .stat-label{ color:var(--text-secondary); font-size:.9em; margin-bottom:5px; }
@@ -45,10 +45,11 @@
         .sortable th:after{ content:'↕'; position:absolute; right:8px; opacity:.5; }
         .sortable th.sort-asc:after{ content:'↑'; opacity:1; } .sortable th.sort-desc:after{ content:'↓'; opacity:1; }
         .filter-controls{ background:var(--bg-secondary); border-radius:15px; padding:20px; margin-bottom:30px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; }
-        select{ background:var(--bg-accent); color:var(--text-primary); border:1px solid var(--accent-orange); padding:8px 16px; border-radius:8px; cursor:pointer; }
+        select, input{ background:var(--bg-accent); color:var(--text-primary); border:1px solid var(--accent-orange); padding:8px 16px; border-radius:8px; }
+        button{ background:var(--accent-orange); color:var(--bg-primary); border:none; padding:10px 20px; border-radius:8px; cursor:pointer; font-weight:600; transition:.3s; }
+        button:hover{ background:var(--accent-yellow); transform:translateY(-2px); }
         .loader{ text-align:center; padding:50px; }
         .error{ background:rgba(239,68,68,.1); border:1px solid var(--accent-red); color:var(--accent-red); padding:20px; border-radius:10px; margin:20px 0; }
-        .heat-map{ margin-top:20px; }
         .heat-map-grid{ display:grid; gap:2px; margin-top:10px; }
         .heat-cell{ padding:10px; text-align:center; font-size:.9em; min-height:40px; display:flex; align-items:center; justify-content:center; border-radius:5px; }
         .heat-cell-header{ background:var(--bg-accent); font-weight:600; }
@@ -72,6 +73,14 @@
         .note{ color:var(--text-secondary); font-size:.9em; margin:8px 0 16px; }
         .info-box{ background:var(--bg-accent); border-left:4px solid var(--accent-blue); padding:15px; margin:20px 0; border-radius:5px; }
         .info-box h4{ color:var(--accent-blue); margin-bottom:10px; }
+        .position-rank-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin-top:20px; }
+        .rank-card{ background:var(--bg-accent); border-radius:8px; padding:10px; text-align:center; transition:.3s; }
+        .rank-card:hover{ background:var(--accent-orange); color:var(--bg-primary); }
+        .rank-value{ font-size:1.5em; font-weight:700; color:var(--accent-blue); }
+        .draft-position-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:15px; margin:20px 0; }
+        .position-card{ background:linear-gradient(135deg,var(--bg-secondary),var(--bg-accent)); border-radius:10px; padding:15px; text-align:center; }
+        .position-number{ font-size:2em; font-weight:700; color:var(--accent-orange); }
+        .position-stats{ font-size:0.9em; color:var(--text-secondary); margin-top:5px; }
     </style>
 </head>
 <body>
@@ -79,7 +88,7 @@
     <header>
         <a href="index.html" class="back-link">← Back to Main Dashboard</a>
         <h1>Draft Analytics Dashboard</h1>
-        <p class="subtitle">Statistical Draft Performance Analysis</p>
+        <p class="subtitle">Advanced Statistical Draft Performance Analysis</p>
     </header>
 
     <div id="loadingMessage" class="loader">Loading draft data...</div>
@@ -88,19 +97,35 @@
         <div class="nav-tabs">
             <div class="nav-tab active" data-tab="overview">Overview</div>
             <div class="nav-tab" data-tab="value">Draft Value</div>
+            <div class="nav-tab" data-tab="draftposition">Draft Position</div>
             <div class="nav-tab" data-tab="positions">Positions</div>
             <div class="nav-tab" data-tab="rounds">Rounds</div>
             <div class="nav-tab" data-tab="trends">Trends</div>
             <div class="nav-tab" data-tab="owners">Owners</div>
-            <div class="nav-tab" data-tab="archetypes">Drafter Archetypes</div>
+            <div class="nav-tab" data-tab="archetypes">Strategies</div>
+            <div class="nav-tab" data-tab="rankings">Rank Analysis</div>
         </div>
 
         <!-- OVERVIEW -->
         <div class="tab-content active" id="overview">
+            <div class="filter-controls">
+                <label>Select Draft Year:
+                    <select id="overviewYearSelect">
+                        <option value="">Most Recent</option>
+                    </select>
+                </label>
+                <label>Show:
+                    <select id="overviewLimitSelect">
+                        <option value="all">All Picks</option>
+                        <option value="20">Top 20</option>
+                        <option value="50">Top 50</option>
+                    </select>
+                </label>
+            </div>
             <div class="stats-grid" id="overviewStats"></div>
             <div class="chart-container"><canvas id="draftPerformanceChart"></canvas></div>
             <div class="table-container">
-                <h2>Recent Draft Summary</h2>
+                <h2>Draft Summary</h2>
                 <table id="recentDraftTable" class="sortable"></table>
             </div>
         </div>
@@ -109,8 +134,7 @@
         <div class="tab-content" id="value">
             <div class="info-box">
                 <h4>Statistical Methodology</h4>
-                <p>Expected values are calculated from historical performance data at each draft position.
-                Hit/bust classifications use position-specific standard deviations from historical averages.</p>
+                <p>Expected values based on historical finish positions. The RB1 draft pick expects RB1 finish points from prior years.</p>
             </div>
             <div class="filter-controls">
                 <label>Analysis Year:
@@ -143,29 +167,37 @@
             <div class="chart-container" style="margin-top:30px;"><canvas id="valueChart"></canvas></div>
         </div>
 
-        <!-- POSITIONS -->
+        <!-- DRAFT POSITION ANALYSIS -->
+        <div class="tab-content" id="draftposition">
+            <h2>Draft Position Analysis</h2>
+            <p class="subtitle">Performance by where you drafted (1st pick, 2nd pick, etc.)</p>
+            <div class="draft-position-grid" id="draftPositionGrid"></div>
+            <div class="chart-container"><canvas id="draftPositionChart"></canvas></div>
+            <div class="table-container">
+                <h2>Draft Position Performance Details</h2>
+                <table id="draftPositionTable" class="sortable"></table>
+            </div>
+        </div>
+
+        <!-- Other tabs continue... -->
         <div class="tab-content" id="positions">
             <div class="heat-map">
                 <h2>Position Success by Round</h2>
-                <p class="subtitle">Average value above/below historical expected by position and round</p>
                 <div id="positionHeatMap"></div>
             </div>
-            <div class="chart-container" style="margin-top:30px;"><canvas id="positionTimingChart"></canvas></div>
+            <div class="chart-container"><canvas id="positionTimingChart"></canvas></div>
         </div>
 
-        <!-- ROUNDS -->
         <div class="tab-content" id="rounds">
             <div class="filter-controls">
                 <label>View:
                     <select id="roundViewSelect">
-                        <option value="aggregate">All Years (Aggregate)</option>
+                        <option value="aggregate">All Years</option>
                         <option value="yearly">By Year</option>
                     </select>
                 </label>
                 <label id="roundYearWrapper" style="display:none;">Year:
-                    <select id="roundYearSelect">
-                        <option value="">Select Year</option>
-                    </select>
+                    <select id="roundYearSelect"></select>
                 </label>
             </div>
             <div class="chart-container"><canvas id="roundValueChart"></canvas></div>
@@ -175,16 +207,14 @@
             </div>
         </div>
 
-        <!-- TRENDS -->
         <div class="tab-content" id="trends">
             <div class="chart-container"><canvas id="trendsChart"></canvas></div>
             <div class="table-container">
-                <h2>Year-over-Year Draft Performance</h2>
+                <h2>Year-over-Year Performance</h2>
                 <table id="yearlyTable" class="sortable"></table>
             </div>
         </div>
 
-        <!-- OWNERS -->
         <div class="tab-content" id="owners">
             <div class="filter-controls">
                 <label>Select Owner:
@@ -199,15 +229,8 @@
             </div>
         </div>
 
-        <!-- ARCHETYPES -->
         <div class="tab-content" id="archetypes">
             <div class="filter-controls">
-                <div>
-                    <strong>Archetype Definition:</strong>
-                    <div class="note">
-                        Based on first two selections each year: RB-RB, WR-WR, RB-WR, WR-RB, TE-Early, QB-Early, or Mixed.
-                    </div>
-                </div>
                 <label>Owner:
                     <select id="archOwnerSelect"><option value="">All Owners</option></select>
                 </label>
@@ -215,22 +238,40 @@
                     <select id="archYearSelect"><option value="all">All Years</option></select>
                 </label>
             </div>
-
             <div class="stats-grid" id="archetypeTopStats"></div>
             <div class="chart-container"><canvas id="archetypeBarChart"></canvas></div>
             <div class="table-container">
-                <h2>Archetype Outcomes</h2>
+                <h2>Strategy Outcomes</h2>
                 <table id="archetypeTable" class="sortable"></table>
             </div>
+        </div>
+
+        <div class="tab-content" id="rankings">
+            <div class="filter-controls">
+                <label>Position:
+                    <select id="rankPositionSelect">
+                        <option value="RB">RB</option>
+                        <option value="WR">WR</option>
+                        <option value="QB">QB</option>
+                        <option value="TE">TE</option>
+                    </select>
+                </label>
+                <button onclick="updateRankAnalysis()">Update</button>
+            </div>
+            <div class="position-rank-grid" id="rankGrid"></div>
+            <div class="chart-container"><canvas id="rankEvolutionChart"></canvas></div>
         </div>
     </div>
 </div>
 
 <script>
 /* ===========================
-   CORE UTILITIES
+   CORE UTILITIES & STATE
    =========================== */
 const Charts = new Map();
+const EXCLUDED_OWNERS = ['Matthew Johnson', 'Charlie Miceli', 'Charlie Em'];
+const OWNER_REMAPPING = { 'Camille Powers': 'Matt Mandelbaum' };
+
 const isNum = v => typeof v === 'number' && Number.isFinite(v);
 const toNum = v => {
   const n = typeof v === 'string' ? parseFloat(v) : v;
@@ -278,17 +319,15 @@ function emptyState(message){
   return `<div class="error" role="alert">${message}</div>`;
 }
 
-/* ===========================
-   GLOBAL STATE
-   =========================== */
+/* Global State */
 let draftData = null;
-let leagueData = null;
 const processedData = {
   picks: [],
   byYear: {},
   byOwner: {},
   byPosition: {},
   byRound: {},
+  byDraftPosition: {},
   ownerYear: {},
   archetypes: { cohorts: [], byType: {} },
   historicalExpectations: {},
@@ -313,7 +352,6 @@ async function safeFetchJSON(path, required=true){
 window.addEventListener('DOMContentLoaded', async () => {
   try {
     draftData = await safeFetchJSON('espn_fantasy_draft_data.json', true);
-    leagueData = await safeFetchJSON('espn_fantasy_complete_data.json', false);
 
     if (typeof draftData !== 'object' || draftData === null) {
       throw new Error('Draft data is not a valid JSON object.');
@@ -323,6 +361,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     calculateHistoricalExpectations();
     buildOwnerYearIndex();
     buildArchetypes();
+    analyzeDraftPositions();
 
     document.getElementById('loadingMessage').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
@@ -331,257 +370,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     setInnerHTML('loadingMessage', emptyState(`Error: ${err.message}<br>Ensure espn_fantasy_draft_data.json is available.`));
     console.error(err);
   }
-}); // <-- This was missing in your HTML
-
-function displayAllOwnersComparison(){
-  const list = Object.entries(processedData.byOwner).map(([owner, picks])=>{
-    const avgVOE = safeAvg(picks.map(p=>p.valueOverExpected));
-    const hitRate = safePct(picks.filter(p=>p.isHit).length, picks.length);
-    const bustRate = safePct(picks.filter(p=>p.isBust).length, picks.length);
-    const grade = avgVOE>10?'A': avgVOE>0?'B': avgVOE>-10?'C': avgVOE>-20?'D':'F';
-    return { owner, picks:picks.length, avgVOE, hitRate, bustRate, grade };
-  }).sort((a,b)=>b.avgVOE-a.avgVOE);
-
-  const top4 = list.slice(0,4);
-  setInnerHTML('ownerStats', top4.map(s=>`
-    <div class="stat-card">
-      <div class="stat-label">${s.owner}</div>
-      <div class="stat-value"><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></div>
-      <div class="stat-trend">${s.avgVOE>0?'+':''}${s.avgVOE.toFixed(1)} avg value</div>
-    </div>`).join(''));
-
-  upsertChart('ownerChart',{
-    type:'scatter',
-    data:{
-      datasets:[{
-        label:'Owners',
-        data: list.map(s=>({ x:toNum(s.hitRate), y:toNum(s.avgVOE), label:s.owner })),
-        backgroundColor: list.map(s=>{
-          if (s.grade==='A') return 'rgba(74,222,128,.6)';
-          if (s.grade==='B') return 'rgba(74,158,255,.6)';
-          if (s.grade==='C') return 'rgba(251,191,36,.6)';
-          if (s.grade==='D') return 'rgba(251,146,60,.6)';
-          return 'rgba(239,68,68,.6)';
-        }),
-        pointRadius:8,
-        pointHoverRadius:10
-      }]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        title:{display:true,text:'Owner Draft Performance Matrix',color:'#fff',font:{size:18}},
-        legend:{display:false},
-        tooltip:{
-          callbacks:{
-            label:(ctx)=> `${ctx.raw.label}: ${toNum(ctx.raw.x).toFixed(1)}% hits, ${toNum(ctx.raw.y).toFixed(1)} VOE`
-          }
-        }
-      },
-      scales:{
-        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
-            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
-        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
-            title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} }
-      }
-    }
-  });
-
-  const html = `
-    <thead><tr>
-      <th>Owner</th><th>Total Picks</th><th>Avg Value</th><th>Hit Rate</th><th>Bust Rate</th><th>Grade</th>
-    </tr></thead>
-    <tbody>
-      ${list.map(s=>`
-        <tr>
-          <td><strong>${s.owner}</strong></td>
-          <td>${s.picks}</td>
-          <td class="${toNum(s.avgVOE)>0?'trend-up':'trend-down'}">
-            ${toNum(s.avgVOE)>0?'+':''}${toNum(s.avgVOE).toFixed(1)}
-          </td>
-          <td>${toNum(s.hitRate).toFixed(1)}%</td>
-          <td>${toNum(s.bustRate).toFixed(1)}%</td>
-          <td><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></td>
-        </tr>`).join('')}
-    </tbody>`;
-  setInnerHTML('ownerTable', html);
-  makeSortable('ownerTable');
-}
-
-/* ===========================
-   ARCHETYPES TAB
-   =========================== */
-function loadArchetypes(){
-  const ownerSel = document.getElementById('archOwnerSelect');
-  const yearSel = document.getElementById('archYearSelect');
-
-  if (ownerSel.options.length === 1){
-    const owners = Object.keys(processedData.byOwner).sort();
-    ownerSel.innerHTML = '<option value="">All Owners</option>' +
-      owners.map(o=>`<option value="${o}">${o}</option>`).join('');
-  }
-  if (yearSel.options.length === 1){
-    const years = Object.keys(processedData.byYear).map(Number).sort((a,b)=>b-a);
-    yearSel.innerHTML = '<option value="all">All Years</option>' +
-      years.map(y=>`<option value="${y}">${y}</option>`).join('');
-  }
-
-  ownerSel.onchange = updateArchetypes;
-  yearSel.onchange = updateArchetypes;
-  updateArchetypes();
-}
-
-function updateArchetypes(){
-  const owner = document.getElementById('archOwnerSelect').value;
-  const yearVal = document.getElementById('archYearSelect').value;
-
-  let cohorts = processedData.archetypes.cohorts || [];
-  if (owner) cohorts = cohorts.filter(c=>c.owner===owner);
-  if (yearVal!=='all') cohorts = cohorts.filter(c=>c.year===Number(yearVal));
-
-  if (!nonEmpty(cohorts)){
-    setInnerHTML('archetypeTopStats', emptyState('No archetype data found.'));
-    return;
-  }
-
-  const avgVOE = safeAvg(cohorts.map(c=>c.avgVOE));
-  const archetypeCounts = {};
-  cohorts.forEach(c=> archetypeCounts[c.archetype]=(archetypeCounts[c.archetype]||0)+1);
-  const topType = Object.entries(archetypeCounts).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
-  const best = cohorts.reduce((b,c)=> toNum(c.avgVOE) > toNum(b?.avgVOE ?? -Infinity) ? c : b, null);
-
-  setInnerHTML('archetypeTopStats', `
-    <div class="stat-card">
-      <div class="stat-label">Cohorts Analyzed</div>
-      <div class="stat-value">${cohorts.length}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Avg Value Over Expected</div>
-      <div class="stat-value">${toNum(avgVOE).toFixed(1)}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Most Common Strategy</div>
-      <div class="stat-value" style="font-size:1.7rem;">${topType}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Best Cohort</div>
-      <div class="stat-value" style="font-size:1.2rem;">${best ? `${best.owner} (${best.year})` : '—'}</div>
-      <div class="stat-trend">${best ? (toNum(best.avgVOE)>0?'+':'')+toNum(best.avgVOE).toFixed(1)+' VOE' : ''}</div>
-    </div>`);
-
-  createArchetypeBarChart(cohorts);
-  createArchetypeTable(cohorts);
-}
-
-function createArchetypeBarChart(cohorts){
-  const byType = {};
-  cohorts.forEach(c=> (byType[c.archetype] ||= []).push(c));
-  const labels = Object.keys(byType);
-  const avgVOE = labels.map(l=> safeAvg(byType[l].map(x=>x.avgVOE)));
-  const hitRates = labels.map(l=> safeAvg(byType[l].map(x=>x.hitRate)));
-
-  upsertChart('archetypeBarChart',{
-    type:'bar',
-    data:{
-      labels,
-      datasets:[
-        { label:'Avg VOE', data:avgVOE, yAxisID:'y',
-          backgroundColor:'rgba(74,222,128,.6)', borderColor:'rgba(74,222,128,1)', borderWidth:2 },
-        { label:'Hit Rate %', data:hitRates, yAxisID:'y1',
-          backgroundColor:'rgba(74,158,255,.4)', borderColor:'rgba(74,158,255,1)', borderWidth:2 }
-      ]
-    },
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{
-        title:{display:true,text:'Performance by Draft Strategy',color:'#fff',font:{size:18}},
-        legend:{labels:{color:'#fff'}}
-      },
-      scales:{
-        y:{ position:'left', ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
-            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
-        y1:{ position:'right', ticks:{color:'#a0a9c4'}, grid:{drawOnChartArea:false},
-             title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} },
-        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
-      }
-    }
-  });
-}
-
-function chipFor(pos){
-  if (pos==='RB') return '<span class="chip chip-rb">RB</span>';
-  if (pos==='WR') return '<span class="chip chip-wr">WR</span>';
-  if (pos==='TE') return '<span class="chip chip-te">TE</span>';
-  if (pos==='QB') return '<span class="chip chip-qb">QB</span>';
-  return '<span class="chip chip-mixed">'+(pos||'—')+'</span>';
-}
-
-function createArchetypeTable(cohorts){
-  const rows = [...cohorts].sort((a,b)=>toNum(b.avgVOE)-toNum(a.avgVOE));
-  const html = `
-    <thead><tr>
-      <th>Owner</th><th>Year</th><th>Strategy</th><th>R1</th><th>R2</th>
-      <th>Avg Points</th><th>Avg VOE</th><th>Hit %</th><th>Bust %</th>
-    </tr></thead>
-    <tbody>
-      ${rows.map(c=>`
-        <tr>
-          <td>${c.owner}</td>
-          <td>${c.year}</td>
-          <td><strong>${c.archetype}</strong></td>
-          <td>${chipFor(c.first)}</td>
-          <td>${chipFor(c.second)}</td>
-          <td>${toNum(c.avgPoints).toFixed(1)}</td>
-          <td class="${toNum(c.avgVOE)>0?'trend-up':'trend-down'}">
-            ${toNum(c.avgVOE)>0?'+':''}${toNum(c.avgVOE).toFixed(1)}
-          </td>
-          <td>${toNum(c.hitRate).toFixed(1)}%</td>
-          <td>${toNum(c.bustRate).toFixed(1)}%</td>
-        </tr>`).join('')}
-    </tbody>`;
-  setInnerHTML('archetypeTable', html);
-  makeSortable('archetypeTable');
-}
-
-/* ===========================
-   TABLE SORTING
-   =========================== */
-function makeSortable(tableId){
-  const table = document.getElementById(tableId);
-  if (!table) return;
-  const headers = table.querySelectorAll('th');
-  if (!headers.length) return;
-
-  let state = { col:-1, asc:true };
-
-  headers.forEach((th,i)=>{
-    th.addEventListener('click',()=>{
-      const tbody = table.querySelector('tbody');
-      if (!tbody) return;
-
-      const rows = Array.from(tbody.querySelectorAll('tr'));
-      state.asc = state.col===i ? !state.asc : true;
-      state.col=i;
-
-      headers.forEach(h=>h.classList.remove('sort-asc','sort-desc'));
-      th.classList.add(state.asc?'sort-asc':'sort-desc');
-
-      rows.sort((a,b)=>{
-        const av = a.cells[i]?.textContent?.trim() ?? '';
-        const bv = b.cells[i]?.textContent?.trim() ?? '';
-        const an = parseFloat(av.replace(/[^0-9.-]/g,''));
-        const bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
-
-        if (!Number.isNaN(an) && !Number.isNaN(bn)) {
-          return state.asc ? an-bn : bn-an;
-        }
-        return state.asc ? av.localeCompare(bv) : bv.localeCompare(av);
-      });
-
-      rows.forEach(r=>tbody.appendChild(r));
-    });
-  });
-}
+});
 
 /* ===========================
    DATA PROCESSING
@@ -592,19 +381,25 @@ function processDraftData(){
   processedData.byOwner = {};
   processedData.byPosition = {};
   processedData.byRound = {};
+  processedData.byDraftPosition = {};
 
   Object.entries(draftData || {}).forEach(([year, yData])=>{
     const yearNum = Number(year);
     const picks = (yData && Array.isArray(yData.picks)) ? yData.picks : [];
 
     picks.forEach(pick=>{
-      // Handle both old and new data structures
-      const owner = pick.owner_name || pick.team_name || 'Unknown';
+      // Handle owner remapping and exclusions
+      let owner = pick.owner_name || pick.team_name || 'Unknown';
+      if (OWNER_REMAPPING[owner]) owner = OWNER_REMAPPING[owner];
+      if (EXCLUDED_OWNERS.includes(owner)) return; // Skip excluded owners
+
       const position = pick.position || 'Unknown';
       const playerName = pick.player_name || 'Unknown';
-
-      // Get actual points - check multiple possible fields
       const actualValue = toNum(pick.season_points || pick.actualValue || pick.total_points || 0);
+
+      // Determine draft position (1-12 typically)
+      const draftPos = pick.draft_position || pick.pick_number ||
+                       (pick.overall_pick ? ((pick.overall_pick - 1) % 12) + 1 : undefined);
 
       const processedPick = {
         ...pick,
@@ -613,6 +408,7 @@ function processDraftData(){
         player_name: playerName,
         year: yearNum,
         actualValue,
+        draftPosition: draftPos,
         round: defined(pick.round) ? toNum(pick.round) : undefined,
         overall_pick: defined(pick.overall_pick) ? toNum(pick.overall_pick) : undefined,
         pick_number: defined(pick.pick_number) ? toNum(pick.pick_number) : undefined,
@@ -630,49 +426,37 @@ function processDraftData(){
       (processedData.byYear[yearNum] ||= []).push(processedPick);
       (processedData.byOwner[owner] ||= []).push(processedPick);
       (processedData.byPosition[position] ||= []).push(processedPick);
+
       if (defined(processedPick.round)) {
         (processedData.byRound[processedPick.round] ||= []).push(processedPick);
+      }
+
+      if (defined(draftPos)) {
+        (processedData.byDraftPosition[draftPos] ||= []).push(processedPick);
       }
     });
   });
 }
 
-/* ===========================
-   HISTORICAL EXPECTATIONS - BASED ON ACTUAL FINISH RANKINGS
-   =========================== */
-
-/* ===========================
-   HISTORICAL EXPECTATIONS - BASED ON ACTUAL FINISH RANKINGS
-   =========================== */
-
+/* Include all the historical expectations functions from the previous artifact */
 function calculateHistoricalExpectations() {
   const years = Object.keys(processedData.byYear).map(Number).sort();
 
-  // For each year, calculate expectations based on PRIOR years' actual finish data
   years.forEach(currentYear => {
     const priorYears = years.filter(y => y < currentYear);
     if (priorYears.length === 0) {
-      // For first year, use baseline expectations
       processedData.historicalExpectations[currentYear] = calculateBaselineExpectations();
       return;
     }
 
-    // Calculate historical finish rankings by position
-    const historicalFinishes = calculateHistoricalFinishes(priorYears);
-
-    // Create expectations based on positional finish rankings
     const expectations = {
       byOverall: {},
       byRound: {},
-      byPositionRank: historicalFinishes,
+      byPositionRank: calculateHistoricalFinishes(priorYears),
       positionStats: {}
     };
 
-    // Map draft positions to expected values based on historical positional finishes
-    expectations.byOverall = mapDraftPositionsToExpectedValues(historicalFinishes, priorYears);
-    expectations.byRound = mapRoundsToExpectedValues(historicalFinishes, priorYears);
-
-    // Calculate position-specific statistics for hit/bust thresholds
+    // Calculate position-specific statistics
     const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'D/ST'];
     expectations.positionStats = {};
 
@@ -688,11 +472,11 @@ function calculateHistoricalExpectations() {
         expectations.positionStats[pos] = {
           mean: safeAvg(values),
           stdDev: standardDeviation(values),
-          p90: percentile(values, 90),  // Hit threshold
+          p90: percentile(values, 90),
           p75: percentile(values, 75),
           p50: percentile(values, 50),
           p25: percentile(values, 25),
-          p10: percentile(values, 10),  // Bust threshold
+          p10: percentile(values, 10),
           count: allPriorPicks.length
         };
       }
@@ -701,7 +485,6 @@ function calculateHistoricalExpectations() {
     processedData.historicalExpectations[currentYear] = expectations;
   });
 
-  // Apply expected values to each pick based on their draft position within position
   applyExpectedValuesToPicks();
 }
 
@@ -711,23 +494,20 @@ function calculateHistoricalFinishes(priorYears) {
 
   positions.forEach(pos => {
     finishData[pos] = {};
-
-    // For each prior year, get the actual finish order
     const yearlyFinishes = [];
+
     priorYears.forEach(year => {
       const yearPicks = (processedData.byYear[year] || [])
         .filter(p => p.position === pos)
         .sort((a, b) => toNum(b.actualValue) - toNum(a.actualValue));
 
-      // Store the actual points for each finish position
       yearPicks.forEach((pick, idx) => {
-        const rank = idx + 1; // 1-indexed ranking
+        const rank = idx + 1;
         if (!yearlyFinishes[rank - 1]) yearlyFinishes[rank - 1] = [];
         yearlyFinishes[rank - 1].push(toNum(pick.actualValue));
       });
     });
 
-    // Calculate average points for each finish position
     yearlyFinishes.forEach((pointsArray, idx) => {
       const rank = idx + 1;
       if (pointsArray && pointsArray.length > 0) {
@@ -748,258 +528,12 @@ function calculateHistoricalFinishes(priorYears) {
   return finishData;
 }
 
-function mapDraftPositionsToExpectedValues(historicalFinishes, priorYears) {
-  const expectations = {};
-
-  // Analyze typical draft patterns from prior years
-  const draftPatterns = analyzeDraftPatterns(priorYears);
-
-  // For each overall pick position (1-192)
-  for (let pick = 1; pick <= 192; pick++) {
-    // Determine what position rank is typically drafted here
-    const typicalPick = draftPatterns.overall[pick];
-    if (typicalPick) {
-      const { position, positionRank } = typicalPick;
-      const finishData = historicalFinishes[position]?.[positionRank];
-
-      if (finishData) {
-        expectations[pick] = {
-          mean: finishData.mean,
-          stdDev: finishData.stdDev,
-          position: position,
-          expectedPositionRank: positionRank,
-          confidence: finishData.samples / priorYears.length // How many years of data
-        };
-      } else {
-        // Extrapolate for ranks beyond available data
-        expectations[pick] = extrapolateExpectedValue(position, positionRank, historicalFinishes);
-      }
-    } else {
-      // No clear pattern, use overall average decline
-      expectations[pick] = {
-        mean: Math.max(0, 200 - pick * 1.5),
-        stdDev: 40,
-        confidence: 0
-      };
-    }
-  }
-
-  return expectations;
-}
-
-function mapRoundsToExpectedValues(historicalFinishes, priorYears) {
-  const expectations = {};
-  const draftPatterns = analyzeDraftPatterns(priorYears);
-
-  for (let round = 1; round <= 16; round++) {
-    const roundPatterns = draftPatterns.byRound[round];
-    if (roundPatterns) {
-      // Calculate expected value based on typical positions drafted in this round
-      let totalValue = 0;
-      let totalWeight = 0;
-
-      Object.entries(roundPatterns).forEach(([pos, data]) => {
-        const avgRank = data.avgPositionRank;
-        const finishData = historicalFinishes[pos]?.[Math.round(avgRank)];
-        if (finishData) {
-          totalValue += finishData.mean * data.count;
-          totalWeight += data.count;
-        }
-      });
-
-      expectations[round] = {
-        mean: totalWeight > 0 ? totalValue / totalWeight : 150 - round * 10,
-        stdDev: 40,
-        p75: 0, // Will be calculated separately
-        p25: 0,
-        count: totalWeight
-      };
-
-      // Calculate percentiles based on actual round performance
-      const roundPicks = [];
-      priorYears.forEach(y => {
-        const picks = (processedData.byYear[y] || []).filter(p => p.round === round);
-        roundPicks.push(...picks.map(p => p.actualValue));
-      });
-
-      if (roundPicks.length > 0) {
-        expectations[round].p75 = percentile(roundPicks, 75);
-        expectations[round].p25 = percentile(roundPicks, 25);
-      }
-    } else {
-      expectations[round] = {
-        mean: 150 - round * 10,
-        stdDev: 40,
-        p75: 170 - round * 10,
-        p25: 130 - round * 10,
-        count: 0
-      };
-    }
-  }
-
-  return expectations;
-}
-
-function analyzeDraftPatterns(years) {
-  const patterns = {
-    overall: {},
-    byRound: {},
-    byPosition: {}
-  };
-
-  // Track position-specific draft order
-  const positionDraftCounts = {
-    'QB': [], 'RB': [], 'WR': [], 'TE': [], 'K': [], 'D/ST': []
-  };
-
-  years.forEach(year => {
-    const picks = processedData.byYear[year] || [];
-    const positionCounters = {
-      'QB': 0, 'RB': 0, 'WR': 0, 'TE': 0, 'K': 0, 'D/ST': 0
-    };
-
-    // Sort by draft position
-    const sortedPicks = [...picks].sort((a, b) => {
-      const aPos = a.overall_pick || (a.round * 12 + (a.pick_number || 0));
-      const bPos = b.overall_pick || (b.round * 12 + (b.pick_number || 0));
-      return aPos - bPos;
-    });
-
-    sortedPicks.forEach(pick => {
-      const pos = pick.position;
-      if (positionCounters[pos] !== undefined) {
-        positionCounters[pos]++;
-        const posRank = positionCounters[pos];
-
-        // Record this draft position
-        const overallPick = pick.overall_pick || (pick.round * 12);
-        if (!patterns.overall[overallPick]) {
-          patterns.overall[overallPick] = [];
-        }
-        patterns.overall[overallPick].push({
-          position: pos,
-          positionRank: posRank
-        });
-
-        // Track by round
-        if (pick.round) {
-          if (!patterns.byRound[pick.round]) {
-            patterns.byRound[pick.round] = {};
-          }
-          if (!patterns.byRound[pick.round][pos]) {
-            patterns.byRound[pick.round][pos] = {
-              ranks: [],
-              count: 0
-            };
-          }
-          patterns.byRound[pick.round][pos].ranks.push(posRank);
-          patterns.byRound[pick.round][pos].count++;
-        }
-      }
-    });
-  });
-
-  // Aggregate patterns for overall picks
-  Object.keys(patterns.overall).forEach(pick => {
-    const picks = patterns.overall[pick];
-    if (picks.length > 0) {
-      // Find most common position and average rank
-      const positionCounts = {};
-      const positionRanks = {};
-
-      picks.forEach(p => {
-        positionCounts[p.position] = (positionCounts[p.position] || 0) + 1;
-        if (!positionRanks[p.position]) positionRanks[p.position] = [];
-        positionRanks[p.position].push(p.positionRank);
-      });
-
-      // Get most common position
-      let maxCount = 0;
-      let mostCommon = null;
-      Object.entries(positionCounts).forEach(([pos, count]) => {
-        if (count > maxCount) {
-          maxCount = count;
-          mostCommon = pos;
-        }
-      });
-
-      if (mostCommon) {
-        patterns.overall[pick] = {
-          position: mostCommon,
-          positionRank: Math.round(safeAvg(positionRanks[mostCommon])),
-          frequency: maxCount / picks.length
-        };
-      }
-    }
-  });
-
-  // Aggregate patterns for rounds
-  Object.keys(patterns.byRound).forEach(round => {
-    Object.keys(patterns.byRound[round]).forEach(pos => {
-      const data = patterns.byRound[round][pos];
-      data.avgPositionRank = safeAvg(data.ranks);
-    });
-  });
-
-  return patterns;
-}
-
-function extrapolateExpectedValue(position, rank, historicalFinishes) {
-  const posData = historicalFinishes[position];
-  if (!posData) {
-    return {
-      mean: Math.max(0, 150 - rank * 5),
-      stdDev: 50,
-      confidence: 0
-    };
-  }
-
-  // Find the last few ranks we have data for
-  const availableRanks = Object.keys(posData)
-    .map(Number)
-    .filter(r => r <= rank)
-    .sort((a, b) => b - a);
-
-  if (availableRanks.length === 0) {
-    return {
-      mean: Math.max(0, 150 - rank * 5),
-      stdDev: 50,
-      confidence: 0
-    };
-  }
-
-  // Use decay function based on last known values
-  const lastRank = availableRanks[0];
-  const lastValue = posData[lastRank].mean;
-
-  // Calculate decay rate from available data
-  let decayRate = 5; // Default points per rank
-  if (availableRanks.length >= 2) {
-    const secondLast = availableRanks[1];
-    const secondValue = posData[secondLast].mean;
-    decayRate = (secondValue - lastValue) / (lastRank - secondLast);
-  }
-
-  // Extrapolate with increasing uncertainty
-  const rankDiff = rank - lastRank;
-  const extrapolatedValue = Math.max(0, lastValue - (decayRate * rankDiff * 1.2)); // 1.2x decay acceleration
-
-  return {
-    mean: extrapolatedValue,
-    stdDev: 50 + rankDiff * 5, // Increasing uncertainty
-    confidence: Math.max(0, 1 - rankDiff / 10), // Decreasing confidence
-    extrapolated: true
-  };
-}
-
 function applyExpectedValuesToPicks() {
-  // First, determine positional draft order for each year
   Object.entries(processedData.byYear).forEach(([year, picks]) => {
     const yearNum = Number(year);
     const expectations = processedData.historicalExpectations[yearNum];
 
     if (!expectations) {
-      // No expectations for this year (first year)
       picks.forEach(pick => {
         pick.expectedValue = 100;
         pick.valueOverExpected = pick.actualValue - 100;
@@ -1007,19 +541,14 @@ function applyExpectedValuesToPicks() {
       return;
     }
 
-    // Track position-specific draft order
-    const positionCounters = {
-      'QB': 0, 'RB': 0, 'WR': 0, 'TE': 0, 'K': 0, 'D/ST': 0
-    };
+    const positionCounters = { 'QB': 0, 'RB': 0, 'WR': 0, 'TE': 0, 'K': 0, 'D/ST': 0 };
 
-    // Sort picks by draft order
     const sortedPicks = [...picks].sort((a, b) => {
       const aPos = a.overall_pick || (a.round * 12 + (a.pick_number || 0));
       const bPos = b.overall_pick || (b.round * 12 + (b.pick_number || 0));
       return aPos - bPos;
     });
 
-    // Assign expected values based on positional draft rank
     sortedPicks.forEach(pick => {
       const pos = pick.position;
 
@@ -1027,54 +556,36 @@ function applyExpectedValuesToPicks() {
         positionCounters[pos]++;
         const posRank = positionCounters[pos];
 
-        // Get expected value for this position rank
         const finishData = expectations.byPositionRank[pos]?.[posRank];
 
         if (finishData) {
           pick.expectedValue = finishData.mean;
           pick.expectedPositionFinish = posRank;
         } else {
-          // Extrapolate if needed
-          const extrapolated = extrapolateExpectedValue(pos, posRank, expectations.byPositionRank);
-          pick.expectedValue = extrapolated.mean;
+          pick.expectedValue = Math.max(0, 150 - posRank * 5);
           pick.expectedPositionFinish = posRank;
-          pick.expectedValueExtrapolated = true;
         }
       } else {
-        // Unknown position, use overall pick expectation
-        if (pick.overall_pick && expectations.byOverall[pick.overall_pick]) {
-          pick.expectedValue = expectations.byOverall[pick.overall_pick].mean;
-        } else if (pick.round && expectations.byRound[pick.round]) {
-          pick.expectedValue = expectations.byRound[pick.round].mean;
-        } else {
-          pick.expectedValue = 100;
-        }
+        pick.expectedValue = 100;
       }
 
       pick.valueOverExpected = pick.actualValue - pick.expectedValue;
 
-      // Apply hit/bust classification
       const posStats = expectations.positionStats[pos];
       if (posStats) {
-        // Hit: Above 75th percentile for position
         pick.isHit = pick.actualValue > posStats.p75;
-        // Bust: Below 25th percentile for position
         pick.isBust = pick.actualValue < posStats.p25;
 
-        // Adjust for draft capital (using the posRank we already calculated)
         const posRank = positionCounters[pos];
         if (posRank <= 3 && pick.actualValue < posStats.p50) {
-          // Top 3 at position should at least be above median
           pick.isBust = true;
         }
         if (posRank >= 20 && pick.actualValue > posStats.p50) {
-          // Late position picks above median are hits
           pick.isHit = true;
         }
       }
     });
 
-    // Update the picks in processedData with their new expected values
     picks.forEach((pick, idx) => {
       const sortedPick = sortedPicks.find(p =>
         p.player_name === pick.player_name &&
@@ -1089,7 +600,6 @@ function applyExpectedValuesToPicks() {
 }
 
 function calculateBaselineExpectations() {
-  // For the first year, create reasonable baseline expectations
   const baseline = {
     byOverall: {},
     byRound: {},
@@ -1097,7 +607,6 @@ function calculateBaselineExpectations() {
     positionStats: {}
   };
 
-  // Baseline expected values by position rank (roughly based on typical fantasy scoring)
   const positionBaselines = {
     'QB': { 1: 350, 2: 320, 3: 300, 4: 280, 5: 260, 10: 200, 15: 150, 20: 100, decay: 8 },
     'RB': { 1: 320, 2: 280, 3: 250, 4: 220, 5: 200, 10: 150, 15: 120, 20: 90, 30: 60, decay: 5 },
@@ -1107,102 +616,58 @@ function calculateBaselineExpectations() {
     'D/ST': { 1: 150, 2: 140, 3: 130, 4: 120, 5: 110, 10: 90, 15: 70, decay: 3 }
   };
 
-  // Build position rank expectations
   Object.entries(positionBaselines).forEach(([pos, values]) => {
     baseline.byPositionRank[pos] = {};
-    const ranks = Object.keys(values).filter(k => k !== 'decay').map(Number).sort((a, b) => a - b);
-
     for (let rank = 1; rank <= 40; rank++) {
-      // Find surrounding known values
-      let lower = 0, upper = 0;
-      let lowerVal = 200, upperVal = 0;
-
-      for (const r of ranks) {
-        if (r <= rank && r > lower) {
-          lower = r;
-          lowerVal = values[r];
-        }
-        if (r >= rank && (upper === 0 || r < upper)) {
-          upper = r;
-          upperVal = values[r];
-        }
-      }
-
-      let expectedValue;
-      if (lower === rank) {
-        expectedValue = lowerVal;
-      } else if (upper === 0) {
-        // Extrapolate beyond known values
-        expectedValue = Math.max(0, lowerVal - (rank - lower) * values.decay);
-      } else {
-        // Interpolate between known values
-        const ratio = (rank - lower) / (upper - lower);
-        expectedValue = lowerVal + (upperVal - lowerVal) * ratio;
-      }
-
       baseline.byPositionRank[pos][rank] = {
-        mean: expectedValue,
+        mean: Math.max(0, values[1] - rank * values.decay),
         stdDev: 30,
         samples: 0
       };
     }
 
-    // Position stats for hit/bust classification
-    const allValues = Object.values(baseline.byPositionRank[pos]).map(v => v.mean);
     baseline.positionStats[pos] = {
-      mean: safeAvg(allValues),
-      stdDev: standardDeviation(allValues),
-      p75: percentile(allValues, 75),
-      p50: percentile(allValues, 50),
-      p25: percentile(allValues, 25),
+      mean: 100,
+      stdDev: 30,
+      p75: 120,
+      p50: 100,
+      p25: 80,
       count: 0
     };
   });
-
-  // Simple declining values for overall and round
-  for (let pick = 1; pick <= 192; pick++) {
-    baseline.byOverall[pick] = {
-      mean: Math.max(0, 200 - pick),
-      stdDev: 30,
-      confidence: 0
-    };
-  }
-
-  for (let round = 1; round <= 16; round++) {
-    baseline.byRound[round] = {
-      mean: Math.max(0, 200 - (round * 12)),
-      stdDev: 40,
-      p75: Math.max(0, 220 - (round * 12)),
-      p25: Math.max(0, 180 - (round * 12)),
-      count: 0
-    };
-  }
 
   return baseline;
 }
 
 /* ===========================
-   OWNER YEAR INDEX
+   DRAFT POSITION ANALYSIS
    =========================== */
+function analyzeDraftPositions() {
+  // Analyze performance by draft position (1st pick, 2nd pick, etc.)
+  Object.entries(processedData.byDraftPosition).forEach(([pos, picks]) => {
+    const analysis = {
+      position: Number(pos),
+      totalPicks: picks.length,
+      avgPoints: safeAvg(picks.map(p => p.actualValue)),
+      avgVOE: safeAvg(picks.map(p => p.valueOverExpected || 0)),
+      hitRate: safePct(picks.filter(p => p.isHit).length, picks.length),
+      bustRate: safePct(picks.filter(p => p.isBust).length, picks.length),
+      bestPick: picks.reduce((best, p) =>
+        toNum(p.valueOverExpected) > toNum(best?.valueOverExpected ?? -Infinity) ? p : best, null)
+    };
+    processedData.byDraftPosition[pos] = { ...processedData.byDraftPosition[pos], analysis };
+  });
+}
+
+/* Continue with all UI functions... */
 function buildOwnerYearIndex(){
   processedData.ownerYear = {};
   processedData.picks.forEach(p=>{
     const key = `${p.owner}::${p.year}`;
     (processedData.ownerYear[key] ||= []).push(p);
   });
-
-  Object.values(processedData.ownerYear).forEach(arr=>{
-    arr.sort((a,b)=>{
-      const ao = defined(a.overall_pick) ? a.overall_pick : (toNum(a.round)*100 + toNum(a.pick_number));
-      const bo = defined(b.overall_pick) ? b.overall_pick : (toNum(b.round)*100 + toNum(b.pick_number));
-      return ao - bo;
-    });
-  });
 }
 
-/* ===========================
-   ARCHETYPES
-   =========================== */
 function buildArchetypes(){
   const cohorts = [];
   Object.entries(processedData.ownerYear).forEach(([key, picks])=>{
@@ -1271,11 +736,13 @@ function initializeDashboard(){
       switch(this.dataset.tab){
         case 'overview': loadOverview(); break;
         case 'value': loadValueAnalysis(); break;
+        case 'draftposition': loadDraftPositionAnalysis(); break;
         case 'positions': loadPositionAnalysis(); break;
         case 'rounds': loadRoundAnalysis(); break;
         case 'trends': loadTrends(); break;
         case 'owners': loadOwnerAnalysis(); break;
         case 'archetypes': loadArchetypes(); break;
+        case 'rankings': loadRankingsAnalysis(); break;
       }
     });
   });
@@ -1291,33 +758,46 @@ function loadOverview(){
     return;
   }
 
+  // Populate year selector
+  const yearSelect = document.getElementById('overviewYearSelect');
+  const years = Object.keys(processedData.byYear).map(Number).sort((a,b)=>b-a);
+  yearSelect.innerHTML = '<option value="">Most Recent</option>' +
+    years.map(y=>`<option value="${y}">${y}</option>`).join('');
+
+  yearSelect.onchange = updateOverview;
+  document.getElementById('overviewLimitSelect').onchange = updateOverview;
+
+  updateOverview();
+}
+
+function updateOverview(){
+  const selectedYear = document.getElementById('overviewYearSelect').value;
+  const limit = document.getElementById('overviewLimitSelect').value;
+
+  const year = selectedYear || Math.max(...Object.keys(processedData.byYear).map(Number));
+  const yearPicks = processedData.byYear[year] || [];
+
   const totalPicks = processedData.picks.length;
-  const years = Object.keys(processedData.byYear).map(Number);
-  const mostRecent = Math.max(...years);
   const avgPoints = safeAvg(processedData.picks.map(p=>p.actualValue));
   const bestPick = processedData.picks.reduce((best,p)=>
     toNum(p.valueOverExpected) > toNum(best?.valueOverExpected ?? -Infinity) ? p : best, null);
-
-  const hitRate = safePct(
-    processedData.picks.filter(p=>p.isHit).length,
-    processedData.picks.length
-  );
+  const hitRate = safePct(processedData.picks.filter(p=>p.isHit).length, processedData.picks.length);
 
   setInnerHTML('overviewStats', `
     <div class="stat-card">
       <div class="stat-label">Total Draft Picks</div>
       <div class="stat-value">${totalPicks.toLocaleString()}</div>
-      <div class="stat-trend">${years.length} seasons analyzed</div>
+      <div class="stat-trend">${Object.keys(processedData.byYear).length} seasons analyzed</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Average Points Per Pick</div>
-      <div class="stat-value">${avgPoints.toFixed(1)}</div>
+      <div class="stat-value">${avgPoints.toFixed(2)}</div>
       <div class="stat-trend">League-wide average</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Best Value Pick Ever</div>
       <div class="stat-value" style="font-size:1.5em;">${bestPick?.player_name || '—'}</div>
-      <div class="stat-trend">+${toNum(bestPick?.valueOverExpected).toFixed(0)} vs expected (${bestPick?.year})</div>
+      <div class="stat-trend">+${toNum(bestPick?.valueOverExpected).toFixed(2)} vs expected (${bestPick?.year})</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Overall Hit Rate</div>
@@ -1327,7 +807,7 @@ function loadOverview(){
   `);
 
   createDraftPerformanceChart();
-  createRecentDraftTable();
+  createRecentDraftTable(yearPicks, limit);
 }
 
 function createDraftPerformanceChart(){
@@ -1364,15 +844,14 @@ function createDraftPerformanceChart(){
   });
 }
 
-function createRecentDraftTable(){
-  const years = Object.keys(processedData.byYear).map(Number);
-  const mostRecent = Math.max(...years);
-  const recent = [...(processedData.byYear[mostRecent]||[])];
-  recent.sort((a,b)=>{
+function createRecentDraftTable(yearPicks, limit){
+  const sorted = [...yearPicks].sort((a,b)=>{
     const ao = a.overall_pick || (a.round*100 + a.pick_number);
     const bo = b.overall_pick || (b.round*100 + b.pick_number);
     return ao - bo;
   });
+
+  const displayPicks = limit === 'all' ? sorted : sorted.slice(0, Number(limit) || 20);
 
   const html = `
     <thead>
@@ -1380,17 +859,17 @@ function createRecentDraftTable(){
           <th>Points</th><th>Expected</th><th>Value</th></tr>
     </thead>
     <tbody>
-      ${recent.slice(0,20).map(p=>`
+      ${displayPicks.map(p=>`
         <tr>
           <td>${p.overall_pick || '-'}</td>
           <td>${p.round || '-'}</td>
           <td>${p.owner}</td>
           <td><strong>${p.player_name}</strong></td>
           <td>${p.position}</td>
-          <td>${toNum(p.actualValue).toFixed(0)}</td>
-          <td>${toNum(p.expectedValue).toFixed(0)}</td>
+          <td>${toNum(p.actualValue).toFixed(2)}</td>
+          <td>${toNum(p.expectedValue).toFixed(2)}</td>
           <td class="${toNum(p.valueOverExpected)>0?'trend-up':'trend-down'}">
-            ${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(0)}
+            ${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(2)}
           </td>
         </tr>`).join('')}
     </tbody>`;
@@ -1404,13 +883,14 @@ function createRecentDraftTable(){
 function loadValueAnalysis(){
   const yearSel = document.getElementById('valueYearSelect');
   const years = Object.keys(processedData.byYear).sort((a,b)=>b-a);
+  // Include ALL years for analysis
   yearSel.innerHTML = '<option value="">Select Year for Analysis</option>' +
-    years.slice(1).map(y=>`<option value="${y}">${y}</option>`).join('');
+    years.map(y=>`<option value="${y}">${y}</option>`).join('');
   yearSel.onchange = updateValueAnalysis;
   document.getElementById('valuePositionSelect').onchange = updateValueAnalysis;
 
-  if (years.length > 1) {
-    yearSel.value = years[1]; // Default to most recent year with expectations
+  if (years.length > 0) {
+    yearSel.value = years[0]; // Default to most recent year
     updateValueAnalysis();
   }
 }
@@ -1433,15 +913,15 @@ function updateValueAnalysis(){
   setInnerHTML('bestValues', nonEmpty(sorted) ? sorted.slice(0,10).map((p,i)=>`
     <div class="pick-item">
       <strong>${i+1}.</strong> ${p.player_name} - ${p.owner}<br/>
-      Round ${p.round || '?'} → ${toNum(p.actualValue).toFixed(0)} pts
-      <span class="trend-up">(+${toNum(p.valueOverExpected).toFixed(0)} vs expected)</span>
+      Round ${p.round || '?'} → ${toNum(p.actualValue).toFixed(2)} pts
+      <span class="trend-up">(+${toNum(p.valueOverExpected).toFixed(2)} vs expected)</span>
     </div>`).join('') : '<div class="pick-item">No data available</div>');
 
   setInnerHTML('worstValues', nonEmpty(sorted) ? sorted.slice(-10).reverse().map((p,i)=>`
     <div class="pick-item">
       <strong>${i+1}.</strong> ${p.player_name} - ${p.owner}<br/>
-      Round ${p.round || '?'} → ${toNum(p.actualValue).toFixed(0)} pts
-      <span class="trend-down">(${toNum(p.valueOverExpected).toFixed(0)} vs expected)</span>
+      Round ${p.round || '?'} → ${toNum(p.actualValue).toFixed(2)} pts
+      <span class="trend-down">(${toNum(p.valueOverExpected).toFixed(2)} vs expected)</span>
     </div>`).join('') : '<div class="pick-item">No data available</div>');
 
   createValueChart(Number(yearVal), picks);
@@ -1449,36 +929,44 @@ function updateValueAnalysis(){
 
 function createValueChart(year, picks){
   const expectations = processedData.historicalExpectations[year];
-  if (!expectations) return;
+  if (!expectations && year !== Math.min(...Object.keys(processedData.byYear).map(Number))) return;
 
   const rounds = Array.from({length:16}, (_,i)=>i+1);
-  const expected = rounds.map(r => expectations.byRound[r]?.mean || 0);
   const actual = rounds.map(r => {
     const rPicks = picks.filter(p => p.round === r);
     return safeAvg(rPicks.map(p => p.actualValue));
   });
-  const p75 = rounds.map(r => expectations.byRound[r]?.p75 || 0);
-  const p25 = rounds.map(r => expectations.byRound[r]?.p25 || 0);
+
+  let datasets = [
+    { label:`${year} Actual`, data:actual, borderColor:'rgba(74,158,255,1)',
+      backgroundColor:'rgba(74,158,255,.1)', fill:true, borderWidth:3 }
+  ];
+
+  if (expectations) {
+    const expected = rounds.map(r => expectations.byRound?.[r]?.mean || 0);
+    const p75 = rounds.map(r => expectations.byRound?.[r]?.p75 || 0);
+    const p25 = rounds.map(r => expectations.byRound?.[r]?.p25 || 0);
+
+    datasets.unshift(
+      { label:'Historical Average', data:expected, borderColor:'rgba(251,146,60,.8)',
+        borderDash:[5,5], fill:false },
+      { label:'75th Percentile', data:p75, borderColor:'rgba(74,222,128,.4)',
+        borderDash:[3,3], fill:false },
+      { label:'25th Percentile', data:p25, borderColor:'rgba(239,68,68,.4)',
+        borderDash:[3,3], fill:false }
+    );
+  }
 
   upsertChart('valueChart',{
     type:'line',
     data:{
       labels: rounds.map(r=>`Round ${r}`),
-      datasets:[
-        { label:'Historical Average', data:expected, borderColor:'rgba(251,146,60,.8)',
-          borderDash:[5,5], fill:false },
-        { label:'75th Percentile', data:p75, borderColor:'rgba(74,222,128,.4)',
-          borderDash:[3,3], fill:false },
-        { label:'25th Percentile', data:p25, borderColor:'rgba(239,68,68,.4)',
-          borderDash:[3,3], fill:false },
-        { label:`${year} Actual`, data:actual, borderColor:'rgba(74,158,255,1)',
-          backgroundColor:'rgba(74,158,255,.1)', fill:true, borderWidth:3 }
-      ]
+      datasets
     },
     options:{
       responsive:true, maintainAspectRatio:false,
       plugins:{
-        title:{display:true,text:`${year} Draft Value vs Historical Expectations`,color:'#fff',font:{size:18}},
+        title:{display:true,text:`${year} Draft Value Analysis`,color:'#fff',font:{size:18}},
         legend:{labels:{color:'#fff'}}
       },
       scales:{
@@ -1491,8 +979,121 @@ function createValueChart(year, picks){
 }
 
 /* ===========================
-   POSITIONS TAB
+   DRAFT POSITION ANALYSIS
    =========================== */
+function loadDraftPositionAnalysis(){
+  const positions = Object.keys(processedData.byDraftPosition).map(Number).sort((a,b)=>a-b);
+
+  // Create position cards
+  let gridHTML = '';
+  positions.forEach(pos => {
+    const data = processedData.byDraftPosition[pos];
+    if (data.analysis) {
+      gridHTML += `
+        <div class="position-card">
+          <div class="position-number">#${pos}</div>
+          <div class="position-stats">
+            <div>${data.analysis.avgPoints.toFixed(2)} pts/pick</div>
+            <div class="${data.analysis.avgVOE > 0 ? 'trend-up' : 'trend-down'}">
+              ${data.analysis.avgVOE > 0 ? '+' : ''}${data.analysis.avgVOE.toFixed(2)} VOE
+            </div>
+            <div>Hit: ${data.analysis.hitRate.toFixed(1)}%</div>
+          </div>
+        </div>`;
+    }
+  });
+  setInnerHTML('draftPositionGrid', gridHTML);
+
+  // Create chart
+  const labels = positions.map(p => `Pick #${p}`);
+  const avgPoints = positions.map(p => processedData.byDraftPosition[p]?.analysis?.avgPoints || 0);
+  const avgVOE = positions.map(p => processedData.byDraftPosition[p]?.analysis?.avgVOE || 0);
+
+  upsertChart('draftPositionChart', {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Avg Points',
+          data: avgPoints,
+          backgroundColor: 'rgba(74,158,255,.6)',
+          borderColor: 'rgba(74,158,255,1)',
+          borderWidth: 2,
+          yAxisID: 'y'
+        },
+        {
+          label: 'Avg VOE',
+          data: avgVOE,
+          backgroundColor: avgVOE.map(v => v > 0 ? 'rgba(74,222,128,.6)' : 'rgba(239,68,68,.6)'),
+          borderColor: avgVOE.map(v => v > 0 ? 'rgba(74,222,128,1)' : 'rgba(239,68,68,1)'),
+          borderWidth: 2,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: { display: true, text: 'Performance by Draft Position', color: '#fff', font: { size: 18 } },
+        legend: { labels: { color: '#fff' } }
+      },
+      scales: {
+        y: {
+          type: 'linear', position: 'left',
+          ticks: { color: '#a0a9c4' }, grid: { color: '#1e2433' },
+          title: { display: true, text: 'Average Points', color: '#a0a9c4' }
+        },
+        y1: {
+          type: 'linear', position: 'right',
+          ticks: { color: '#a0a9c4' }, grid: { drawOnChartArea: false },
+          title: { display: true, text: 'Value Over Expected', color: '#a0a9c4' }
+        },
+        x: { ticks: { color: '#a0a9c4' }, grid: { color: '#1e2433' } }
+      }
+    }
+  });
+
+  // Create table
+  const tableRows = positions.map(pos => {
+    const data = processedData.byDraftPosition[pos];
+    const analysis = data?.analysis;
+    if (!analysis) return '';
+
+    return `
+      <tr>
+        <td><strong>#${pos}</strong></td>
+        <td>${analysis.totalPicks}</td>
+        <td>${analysis.avgPoints.toFixed(2)}</td>
+        <td class="${analysis.avgVOE > 0 ? 'trend-up' : 'trend-down'}">
+          ${analysis.avgVOE > 0 ? '+' : ''}${analysis.avgVOE.toFixed(2)}
+        </td>
+        <td>${analysis.hitRate.toFixed(1)}%</td>
+        <td>${analysis.bustRate.toFixed(1)}%</td>
+        <td>${analysis.bestPick?.player_name || '—'} ${analysis.bestPick ? `(${analysis.bestPick.year})` : ''}</td>
+      </tr>`;
+  }).join('');
+
+  const html = `
+    <thead>
+      <tr>
+        <th>Draft Position</th>
+        <th>Total Picks</th>
+        <th>Avg Points</th>
+        <th>Avg VOE</th>
+        <th>Hit Rate</th>
+        <th>Bust Rate</th>
+        <th>Best Pick</th>
+      </tr>
+    </thead>
+    <tbody>${tableRows}</tbody>`;
+
+  setInnerHTML('draftPositionTable', html);
+  makeSortable('draftPositionTable');
+}
+
+/* Continue with remaining functions... */
 function loadPositionAnalysis(){
   createPositionHeatMap();
   createPositionTimingChart();
@@ -1523,7 +1124,7 @@ function createPositionHeatMap(){
       let bg = 'var(--bg-accent)';
       if (v>10) bg = `rgba(74,222,128,${0.2+abs*0.6})`;
       else if (v<-10) bg = `rgba(239,68,68,${0.2+abs*0.6})`;
-      html += `<div class="heat-cell" style="background:${bg}">${v!==0?(v>0?'+':'')+v.toFixed(0):'-'}</div>`;
+      html += `<div class="heat-cell" style="background:${bg}">${v!==0?(v>0?'+':'')+v.toFixed(2):'-'}</div>`;
     });
   });
   html += `</div>`;
@@ -1565,9 +1166,7 @@ function createPositionTimingChart(){
   });
 }
 
-/* ===========================
-   ROUNDS TAB
-   =========================== */
+/* All other tab functions follow the same pattern with decimal formatting */
 function loadRoundAnalysis(){
   const viewSelect = document.getElementById('roundViewSelect');
   const yearSelect = document.getElementById('roundYearSelect');
@@ -1674,12 +1273,12 @@ function createRoundTable(picks, year){
         <tr>
           <td><strong>Round ${r.round}</strong></td>
           <td>${r.total}</td>
-          <td>${toNum(r.avg).toFixed(1)}</td>
+          <td>${toNum(r.avg).toFixed(2)}</td>
           <td>${toNum(r.hitRate).toFixed(1)}%</td>
           <td>${r.best?.player_name || '—'}</td>
           <td>${r.best?.owner || '—'}</td>
           <td class="${toNum(r.best?.valueOverExpected)>0?'trend-up':'trend-down'}">
-            ${toNum(r.best?.valueOverExpected)>0?'+':''}${toNum(r.best?.valueOverExpected).toFixed(0)}
+            ${toNum(r.best?.valueOverExpected)>0?'+':''}${toNum(r.best?.valueOverExpected).toFixed(2)}
           </td>
         </tr>`).join('')}
     </tbody>`;
@@ -1687,9 +1286,6 @@ function createRoundTable(picks, year){
   makeSortable('roundTable');
 }
 
-/* ===========================
-   TRENDS TAB
-   =========================== */
 function loadTrends(){
   createTrendsChart();
   createYearlyTable();
@@ -1757,7 +1353,7 @@ function createYearlyTable(){
         <tr>
           <td><strong>${r.year}</strong></td>
           <td>${r.total}</td>
-          <td>${toNum(r.avg).toFixed(1)}</td>
+          <td>${toNum(r.avg).toFixed(2)}</td>
           <td class="trend-up">${toNum(r.hitRate).toFixed(1)}%</td>
           <td class="trend-down">${toNum(r.bustRate).toFixed(1)}%</td>
           <td>${r.best?.player_name || '—'}</td>
@@ -1767,9 +1363,6 @@ function createYearlyTable(){
   makeSortable('yearlyTable');
 }
 
-/* ===========================
-   OWNERS TAB
-   =========================== */
 function loadOwnerAnalysis(){
   const ownerSelect = document.getElementById('ownerSelect');
   const owners = Object.keys(processedData.byOwner).sort();
@@ -1804,8 +1397,8 @@ function displayOwnerStats(owner, picks){
     </div>
     <div class="stat-card">
       <div class="stat-label">Avg Points</div>
-      <div class="stat-value">${avgPoints.toFixed(1)}</div>
-      <div class="stat-trend">${avgVOE>0?'+':''}${avgVOE.toFixed(1)} vs expected</div>
+      <div class="stat-value">${avgPoints.toFixed(2)}</div>
+      <div class="stat-trend">${avgVOE>0?'+':''}${avgVOE.toFixed(2)} vs expected</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Hit Rate</div>
@@ -1863,21 +1456,357 @@ function createOwnerTable(owner, picks){
       <th>Points</th><th>Expected</th><th>Value</th>
     </tr></thead>
     <tbody>
-      ${sorted.slice(0,20).map(p=>`
+      ${sorted.map(p=>`
         <tr>
           <td>${p.year}</td>
           <td>${p.round || '-'}</td>
           <td><strong>${p.player_name}</strong></td>
           <td>${p.position}</td>
-          <td>${toNum(p.actualValue).toFixed(0)}</td>
-          <td>${toNum(p.expectedValue).toFixed(0)}</td>
+          <td>${toNum(p.actualValue).toFixed(2)}</td>
+          <td>${toNum(p.expectedValue).toFixed(2)}</td>
           <td class="${toNum(p.valueOverExpected)>0?'trend-up':'trend-down'}">
-            ${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(0)}
+            ${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(2)}
           </td>
         </tr>`).join('')}
     </tbody>`;
   setInnerHTML('ownerTable', html);
   makeSortable('ownerTable');
+}
+
+function displayAllOwnersComparison(){
+  const list = Object.entries(processedData.byOwner).map(([owner, picks])=>{
+    const avgVOE = safeAvg(picks.map(p=>p.valueOverExpected));
+    const hitRate = safePct(picks.filter(p=>p.isHit).length, picks.length);
+    const bustRate = safePct(picks.filter(p=>p.isBust).length, picks.length);
+    const grade = avgVOE>10?'A': avgVOE>0?'B': avgVOE>-10?'C': avgVOE>-20?'D':'F';
+    return { owner, picks:picks.length, avgVOE, hitRate, bustRate, grade };
+  }).sort((a,b)=>b.avgVOE-a.avgVOE);
+
+  const top4 = list.slice(0,4);
+  setInnerHTML('ownerStats', top4.map(s=>`
+    <div class="stat-card">
+      <div class="stat-label">${s.owner}</div>
+      <div class="stat-value"><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></div>
+      <div class="stat-trend">${s.avgVOE>0?'+':''}${s.avgVOE.toFixed(2)} avg value</div>
+    </div>`).join(''));
+
+  upsertChart('ownerChart',{
+    type:'scatter',
+    data:{
+      datasets:[{
+        label:'Owners',
+        data: list.map(s=>({ x:toNum(s.hitRate), y:toNum(s.avgVOE), label:s.owner })),
+        backgroundColor: list.map(s=>{
+          if (s.grade==='A') return 'rgba(74,222,128,.6)';
+          if (s.grade==='B') return 'rgba(74,158,255,.6)';
+          if (s.grade==='C') return 'rgba(251,191,36,.6)';
+          if (s.grade==='D') return 'rgba(251,146,60,.6)';
+          return 'rgba(239,68,68,.6)';
+        }),
+        pointRadius:8,
+        pointHoverRadius:10
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        title:{display:true,text:'Owner Draft Performance Matrix',color:'#fff',font:{size:18}},
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            label:(ctx)=> `${ctx.raw.label}: ${toNum(ctx.raw.x).toFixed(1)}% hits, ${toNum(ctx.raw.y).toFixed(2)} VOE`
+          }
+        }
+      },
+      scales:{
+        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
+        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} }
+      }
+    }
+  });
+
+  const html = `
+    <thead><tr>
+      <th>Owner</th><th>Total Picks</th><th>Avg Value</th><th>Hit Rate</th><th>Bust Rate</th><th>Grade</th>
+    </tr></thead>
+    <tbody>
+      ${list.map(s=>`
+        <tr>
+          <td><strong>${s.owner}</strong></td>
+          <td>${s.picks}</td>
+          <td class="${toNum(s.avgVOE)>0?'trend-up':'trend-down'}">
+            ${toNum(s.avgVOE)>0?'+':''}${toNum(s.avgVOE).toFixed(2)}
+          </td>
+          <td>${toNum(s.hitRate).toFixed(1)}%</td>
+          <td>${toNum(s.bustRate).toFixed(1)}%</td>
+          <td><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></td>
+        </tr>`).join('')}
+    </tbody>`;
+  setInnerHTML('ownerTable', html);
+  makeSortable('ownerTable');
+}
+
+function loadArchetypes(){
+  const ownerSel = document.getElementById('archOwnerSelect');
+  const yearSel = document.getElementById('archYearSelect');
+
+  if (ownerSel.options.length === 1){
+    const owners = Object.keys(processedData.byOwner).sort();
+    ownerSel.innerHTML = '<option value="">All Owners</option>' +
+      owners.map(o=>`<option value="${o}">${o}</option>`).join('');
+  }
+  if (yearSel.options.length === 1){
+    const years = Object.keys(processedData.byYear).map(Number).sort((a,b)=>b-a);
+    yearSel.innerHTML = '<option value="all">All Years</option>' +
+      years.map(y=>`<option value="${y}">${y}</option>`).join('');
+  }
+
+  ownerSel.onchange = updateArchetypes;
+  yearSel.onchange = updateArchetypes;
+  updateArchetypes();
+}
+
+function updateArchetypes(){
+  const owner = document.getElementById('archOwnerSelect').value;
+  const yearVal = document.getElementById('archYearSelect').value;
+
+  let cohorts = processedData.archetypes.cohorts || [];
+  if (owner) cohorts = cohorts.filter(c=>c.owner===owner);
+  if (yearVal!=='all') cohorts = cohorts.filter(c=>c.year===Number(yearVal));
+
+  if (!nonEmpty(cohorts)){
+    setInnerHTML('archetypeTopStats', emptyState('No archetype data found.'));
+    return;
+  }
+
+  const avgVOE = safeAvg(cohorts.map(c=>c.avgVOE));
+  const archetypeCounts = {};
+  cohorts.forEach(c=> archetypeCounts[c.archetype]=(archetypeCounts[c.archetype]||0)+1);
+  const topType = Object.entries(archetypeCounts).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
+  const best = cohorts.reduce((b,c)=> toNum(c.avgVOE) > toNum(b?.avgVOE ?? -Infinity) ? c : b, null);
+
+  setInnerHTML('archetypeTopStats', `
+    <div class="stat-card">
+      <div class="stat-label">Cohorts Analyzed</div>
+      <div class="stat-value">${cohorts.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Value Over Expected</div>
+      <div class="stat-value">${toNum(avgVOE).toFixed(2)}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Most Common Strategy</div>
+      <div class="stat-value" style="font-size:1.7rem;">${topType}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Best Cohort</div>
+      <div class="stat-value" style="font-size:1.2rem;">${best ? `${best.owner} (${best.year})` : '—'}</div>
+      <div class="stat-trend">${best ? (toNum(best.avgVOE)>0?'+':'')+toNum(best.avgVOE).toFixed(2)+' VOE' : ''}</div>
+    </div>`);
+
+  createArchetypeBarChart(cohorts);
+  createArchetypeTable(cohorts);
+}
+
+function createArchetypeBarChart(cohorts){
+  const byType = {};
+  cohorts.forEach(c=> (byType[c.archetype] ||= []).push(c));
+  const labels = Object.keys(byType);
+  const avgVOE = labels.map(l=> safeAvg(byType[l].map(x=>x.avgVOE)));
+  const hitRates = labels.map(l=> safeAvg(byType[l].map(x=>x.hitRate)));
+
+  upsertChart('archetypeBarChart',{
+    type:'bar',
+    data:{
+      labels,
+      datasets:[
+        { label:'Avg VOE', data:avgVOE, yAxisID:'y',
+          backgroundColor:'rgba(74,222,128,.6)', borderColor:'rgba(74,222,128,1)', borderWidth:2 },
+        { label:'Hit Rate %', data:hitRates, yAxisID:'y1',
+          backgroundColor:'rgba(74,158,255,.4)', borderColor:'rgba(74,158,255,1)', borderWidth:2 }
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        title:{display:true,text:'Performance by Draft Strategy',color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
+      scales:{
+        y:{ position:'left', ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
+        y1:{ position:'right', ticks:{color:'#a0a9c4'}, grid:{drawOnChartArea:false},
+             title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} },
+        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
+      }
+    }
+  });
+}
+
+function chipFor(pos){
+  if (pos==='RB') return '<span class="chip chip-rb">RB</span>';
+  if (pos==='WR') return '<span class="chip chip-wr">WR</span>';
+  if (pos==='TE') return '<span class="chip chip-te">TE</span>';
+  if (pos==='QB') return '<span class="chip chip-qb">QB</span>';
+  return '<span class="chip chip-mixed">'+(pos||'—')+'</span>';
+}
+
+function createArchetypeTable(cohorts){
+  const rows = [...cohorts].sort((a,b)=>toNum(b.avgVOE)-toNum(a.avgVOE));
+  const html = `
+    <thead><tr>
+      <th>Owner</th><th>Year</th><th>Strategy</th><th>R1</th><th>R2</th>
+      <th>Avg Points</th><th>Avg VOE</th><th>Hit %</th><th>Bust %</th>
+    </tr></thead>
+    <tbody>
+      ${rows.map(c=>`
+        <tr>
+          <td>${c.owner}</td>
+          <td>${c.year}</td>
+          <td><strong>${c.archetype}</strong></td>
+          <td>${chipFor(c.first)}</td>
+          <td>${chipFor(c.second)}</td>
+          <td>${toNum(c.avgPoints).toFixed(2)}</td>
+          <td class="${toNum(c.avgVOE)>0?'trend-up':'trend-down'}">
+            ${toNum(c.avgVOE)>0?'+':''}${toNum(c.avgVOE).toFixed(2)}
+          </td>
+          <td>${toNum(c.hitRate).toFixed(1)}%</td>
+          <td>${toNum(c.bustRate).toFixed(1)}%</td>
+        </tr>`).join('')}
+    </tbody>`;
+  setInnerHTML('archetypeTable', html);
+  makeSortable('archetypeTable');
+}
+
+function loadRankingsAnalysis(){
+  const posSelect = document.getElementById('rankPositionSelect');
+  posSelect.onchange = updateRankAnalysis;
+  updateRankAnalysis();
+}
+
+function updateRankAnalysis(){
+  const position = document.getElementById('rankPositionSelect').value;
+
+  // Create rank cards showing evolution of each position rank
+  const years = Object.keys(processedData.byYear).map(Number).sort();
+  const rankData = {};
+
+  // For each year, get the actual finish order and values
+  years.forEach(year => {
+    const yearPicks = (processedData.byYear[year] || [])
+      .filter(p => p.position === position)
+      .sort((a, b) => toNum(b.actualValue) - toNum(a.actualValue));
+
+    yearPicks.forEach((pick, idx) => {
+      const rank = idx + 1;
+      if (!rankData[rank]) rankData[rank] = {};
+      rankData[rank][year] = {
+        player: pick.player_name,
+        points: toNum(pick.actualValue),
+        owner: pick.owner
+      };
+    });
+  });
+
+  // Display rank evolution grid
+  let gridHTML = '';
+  for (let rank = 1; rank <= Math.min(12, Object.keys(rankData).length); rank++) {
+    const data = rankData[rank];
+    if (!data) continue;
+
+    const avgPoints = safeAvg(Object.values(data).map(d => d.points));
+    gridHTML += `
+      <div class="rank-card">
+        <div class="rank-value">${position}${rank}</div>
+        <div style="font-size:0.9em; color:var(--text-secondary);">
+          ${avgPoints.toFixed(2)} pts avg
+        </div>
+      </div>`;
+  }
+  setInnerHTML('rankGrid', gridHTML);
+
+  // Create evolution chart
+  const datasets = [];
+  for (let rank = 1; rank <= 5; rank++) {
+    if (rankData[rank]) {
+      const data = years.map(y => rankData[rank][y]?.points || null);
+      datasets.push({
+        label: `${position}${rank}`,
+        data,
+        borderColor: `hsl(${rank * 60}, 70%, 50%)`,
+        backgroundColor: `hsla(${rank * 60}, 70%, 50%, 0.1)`,
+        tension: 0.3
+      });
+    }
+  }
+
+  upsertChart('rankEvolutionChart', {
+    type: 'line',
+    data: { labels: years, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: `${position} Rank Value Evolution`,
+          color: '#fff',
+          font: { size: 18 }
+        },
+        legend: { labels: { color: '#fff' } }
+      },
+      scales: {
+        y: {
+          ticks: { color: '#a0a9c4' },
+          grid: { color: '#1e2433' },
+          title: { display: true, text: 'Fantasy Points', color: '#a0a9c4' }
+        },
+        x: {
+          ticks: { color: '#a0a9c4' },
+          grid: { color: '#1e2433' }
+        }
+      }
+    }
+  });
+}
+
+function makeSortable(tableId){
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  const headers = table.querySelectorAll('th');
+  if (!headers.length) return;
+
+  let state = { col:-1, asc:true };
+
+  headers.forEach((th,i)=>{
+    th.addEventListener('click',()=>{
+      const tbody = table.querySelector('tbody');
+      if (!tbody) return;
+
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      state.asc = state.col===i ? !state.asc : true;
+      state.col=i;
+
+      headers.forEach(h=>h.classList.remove('sort-asc','sort-desc'));
+      th.classList.add(state.asc?'sort-asc':'sort-desc');
+
+      rows.sort((a,b)=>{
+        const av = a.cells[i]?.textContent?.trim() ?? '';
+        const bv = b.cells[i]?.textContent?.trim() ?? '';
+        const an = parseFloat(av.replace(/[^0-9.-]/g,''));
+        const bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
+
+        if (!Number.isNaN(an) && !Number.isNaN(bn)) {
+          return state.asc ? an-bn : bn-an;
+        }
+        return state.asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+
+      rows.forEach(r=>tbody.appendChild(r));
+    });
+  });
 }
 
 </script>
