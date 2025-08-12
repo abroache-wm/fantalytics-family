@@ -638,79 +638,49 @@ function processDraftData(){
 }
 
 /* ===========================
-   HISTORICAL EXPECTATIONS
+   HISTORICAL EXPECTATIONS - BASED ON ACTUAL FINISH RANKINGS
    =========================== */
+
 function calculateHistoricalExpectations() {
   const years = Object.keys(processedData.byYear).map(Number).sort();
 
-  // For each year, calculate expectations based on PRIOR years' data
+  // For each year, calculate expectations based on PRIOR years' actual finish data
   years.forEach(currentYear => {
     const priorYears = years.filter(y => y < currentYear);
     if (priorYears.length === 0) {
-      // For first year, use league-wide averages as baseline
+      // For first year, use baseline expectations
       processedData.historicalExpectations[currentYear] = calculateBaselineExpectations();
       return;
     }
 
-    // Calculate expectations by overall pick and round based on historical data
+    // Calculate historical finish rankings by position
+    const historicalFinishes = calculateHistoricalFinishes(priorYears);
+
+    // Create expectations based on positional finish rankings
     const expectations = {
       byOverall: {},
       byRound: {},
-      byRoundPosition: {},
+      byPositionRank: historicalFinishes,
       positionStats: {}
     };
 
-    // Gather all prior picks
-    const priorPicks = [];
-    priorYears.forEach(y => {
-      priorPicks.push(...(processedData.byYear[y] || []));
-    });
+    // Map draft positions to expected values based on historical positional finishes
+    expectations.byOverall = mapDraftPositionsToExpectedValues(historicalFinishes, priorYears);
+    expectations.byRound = mapRoundsToExpectedValues(historicalFinishes, priorYears);
 
-    // Calculate by overall pick (smoothed with moving average)
-    for (let pick = 1; pick <= 192; pick++) {
-      const window = priorPicks.filter(p =>
-        p.overall_pick >= pick - 2 && p.overall_pick <= pick + 2
-      );
-      expectations.byOverall[pick] = {
-        mean: safeAvg(window.map(p => p.actualValue)),
-        stdDev: standardDeviation(window.map(p => p.actualValue)),
-        count: window.length
-      };
-    }
-
-    // Calculate by round
-    for (let round = 1; round <= 16; round++) {
-      const roundPicks = priorPicks.filter(p => p.round === round);
-      expectations.byRound[round] = {
-        mean: safeAvg(roundPicks.map(p => p.actualValue)),
-        stdDev: standardDeviation(roundPicks.map(p => p.actualValue)),
-        p75: percentile(roundPicks.map(p => p.actualValue), 75),
-        p25: percentile(roundPicks.map(p => p.actualValue), 25),
-        count: roundPicks.length
-      };
-
-      // By round and position
-      const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'D/ST'];
-      expectations.byRoundPosition[round] = {};
-      positions.forEach(pos => {
-        const posPicks = roundPicks.filter(p => p.position === pos);
-        if (posPicks.length > 0) {
-          expectations.byRoundPosition[round][pos] = {
-            mean: safeAvg(posPicks.map(p => p.actualValue)),
-            stdDev: standardDeviation(posPicks.map(p => p.actualValue)),
-            count: posPicks.length
-          };
-        }
-      });
-    }
-
-    // Calculate position-specific thresholds for hits/busts
+    // Calculate position-specific statistics for hit/bust thresholds
     const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'D/ST'];
     expectations.positionStats = {};
+
     positions.forEach(pos => {
-      const posPicks = priorPicks.filter(p => p.position === pos);
-      if (posPicks.length > 0) {
-        const values = posPicks.map(p => p.actualValue);
+      const allPriorPicks = [];
+      priorYears.forEach(y => {
+        const yearPicks = (processedData.byYear[y] || []).filter(p => p.position === pos);
+        allPriorPicks.push(...yearPicks);
+      });
+
+      if (allPriorPicks.length > 0) {
+        const values = allPriorPicks.map(p => p.actualValue);
         expectations.positionStats[pos] = {
           mean: safeAvg(values),
           stdDev: standardDeviation(values),
@@ -719,7 +689,7 @@ function calculateHistoricalExpectations() {
           p50: percentile(values, 50),
           p25: percentile(values, 25),
           p10: percentile(values, 10),  // Bust threshold
-          count: posPicks.length
+          count: allPriorPicks.length
         };
       }
     });
@@ -727,63 +697,478 @@ function calculateHistoricalExpectations() {
     processedData.historicalExpectations[currentYear] = expectations;
   });
 
-  // Add expected values and classifications to picks
-  processedData.picks.forEach(pick => {
-    const expectations = processedData.historicalExpectations[pick.year];
+  // Apply expected values to each pick based on their draft position within position
+  applyExpectedValuesToPicks();
+}
+
+function calculateHistoricalFinishes(priorYears) {
+  const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'D/ST'];
+  const finishData = {};
+
+  positions.forEach(pos => {
+    finishData[pos] = {};
+
+    // For each prior year, get the actual finish order
+    const yearlyFinishes = [];
+    priorYears.forEach(year => {
+      const yearPicks = (processedData.byYear[year] || [])
+        .filter(p => p.position === pos)
+        .sort((a, b) => toNum(b.actualValue) - toNum(a.actualValue));
+
+      // Store the actual points for each finish position
+      yearPicks.forEach((pick, idx) => {
+        const rank = idx + 1; // 1-indexed ranking
+        if (!yearlyFinishes[rank - 1]) yearlyFinishes[rank - 1] = [];
+        yearlyFinishes[rank - 1].push(toNum(pick.actualValue));
+      });
+    });
+
+    // Calculate average points for each finish position
+    yearlyFinishes.forEach((pointsArray, idx) => {
+      const rank = idx + 1;
+      if (pointsArray && pointsArray.length > 0) {
+        finishData[pos][rank] = {
+          mean: safeAvg(pointsArray),
+          stdDev: standardDeviation(pointsArray),
+          min: Math.min(...pointsArray),
+          max: Math.max(...pointsArray),
+          p75: percentile(pointsArray, 75),
+          p50: percentile(pointsArray, 50),
+          p25: percentile(pointsArray, 25),
+          samples: pointsArray.length
+        };
+      }
+    });
+  });
+
+  return finishData;
+}
+
+function mapDraftPositionsToExpectedValues(historicalFinishes, priorYears) {
+  const expectations = {};
+
+  // Analyze typical draft patterns from prior years
+  const draftPatterns = analyzeDraftPatterns(priorYears);
+
+  // For each overall pick position (1-192)
+  for (let pick = 1; pick <= 192; pick++) {
+    // Determine what position rank is typically drafted here
+    const typicalPick = draftPatterns.overall[pick];
+    if (typicalPick) {
+      const { position, positionRank } = typicalPick;
+      const finishData = historicalFinishes[position]?.[positionRank];
+
+      if (finishData) {
+        expectations[pick] = {
+          mean: finishData.mean,
+          stdDev: finishData.stdDev,
+          position: position,
+          expectedPositionRank: positionRank,
+          confidence: finishData.samples / priorYears.length // How many years of data
+        };
+      } else {
+        // Extrapolate for ranks beyond available data
+        expectations[pick] = extrapolateExpectedValue(position, positionRank, historicalFinishes);
+      }
+    } else {
+      // No clear pattern, use overall average decline
+      expectations[pick] = {
+        mean: Math.max(0, 200 - pick * 1.5),
+        stdDev: 40,
+        confidence: 0
+      };
+    }
+  }
+
+  return expectations;
+}
+
+function mapRoundsToExpectedValues(historicalFinishes, priorYears) {
+  const expectations = {};
+  const draftPatterns = analyzeDraftPatterns(priorYears);
+
+  for (let round = 1; round <= 16; round++) {
+    const roundPatterns = draftPatterns.byRound[round];
+    if (roundPatterns) {
+      // Calculate expected value based on typical positions drafted in this round
+      let totalValue = 0;
+      let totalWeight = 0;
+
+      Object.entries(roundPatterns).forEach(([pos, data]) => {
+        const avgRank = data.avgPositionRank;
+        const finishData = historicalFinishes[pos]?.[Math.round(avgRank)];
+        if (finishData) {
+          totalValue += finishData.mean * data.count;
+          totalWeight += data.count;
+        }
+      });
+
+      expectations[round] = {
+        mean: totalWeight > 0 ? totalValue / totalWeight : 150 - round * 10,
+        stdDev: 40,
+        p75: 0, // Will be calculated separately
+        p25: 0,
+        count: totalWeight
+      };
+
+      // Calculate percentiles based on actual round performance
+      const roundPicks = [];
+      priorYears.forEach(y => {
+        const picks = (processedData.byYear[y] || []).filter(p => p.round === round);
+        roundPicks.push(...picks.map(p => p.actualValue));
+      });
+
+      if (roundPicks.length > 0) {
+        expectations[round].p75 = percentile(roundPicks, 75);
+        expectations[round].p25 = percentile(roundPicks, 25);
+      }
+    } else {
+      expectations[round] = {
+        mean: 150 - round * 10,
+        stdDev: 40,
+        p75: 170 - round * 10,
+        p25: 130 - round * 10,
+        count: 0
+      };
+    }
+  }
+
+  return expectations;
+}
+
+function analyzeDraftPatterns(years) {
+  const patterns = {
+    overall: {},
+    byRound: {},
+    byPosition: {}
+  };
+
+  // Track position-specific draft order
+  const positionDraftCounts = {
+    'QB': [], 'RB': [], 'WR': [], 'TE': [], 'K': [], 'D/ST': []
+  };
+
+  years.forEach(year => {
+    const picks = processedData.byYear[year] || [];
+    const positionCounters = {
+      'QB': 0, 'RB': 0, 'WR': 0, 'TE': 0, 'K': 0, 'D/ST': 0
+    };
+
+    // Sort by draft position
+    const sortedPicks = [...picks].sort((a, b) => {
+      const aPos = a.overall_pick || (a.round * 12 + (a.pick_number || 0));
+      const bPos = b.overall_pick || (b.round * 12 + (b.pick_number || 0));
+      return aPos - bPos;
+    });
+
+    sortedPicks.forEach(pick => {
+      const pos = pick.position;
+      if (positionCounters[pos] !== undefined) {
+        positionCounters[pos]++;
+        const posRank = positionCounters[pos];
+
+        // Record this draft position
+        const overallPick = pick.overall_pick || (pick.round * 12);
+        if (!patterns.overall[overallPick]) {
+          patterns.overall[overallPick] = [];
+        }
+        patterns.overall[overallPick].push({
+          position: pos,
+          positionRank: posRank
+        });
+
+        // Track by round
+        if (pick.round) {
+          if (!patterns.byRound[pick.round]) {
+            patterns.byRound[pick.round] = {};
+          }
+          if (!patterns.byRound[pick.round][pos]) {
+            patterns.byRound[pick.round][pos] = {
+              ranks: [],
+              count: 0
+            };
+          }
+          patterns.byRound[pick.round][pos].ranks.push(posRank);
+          patterns.byRound[pick.round][pos].count++;
+        }
+      }
+    });
+  });
+
+  // Aggregate patterns for overall picks
+  Object.keys(patterns.overall).forEach(pick => {
+    const picks = patterns.overall[pick];
+    if (picks.length > 0) {
+      // Find most common position and average rank
+      const positionCounts = {};
+      const positionRanks = {};
+
+      picks.forEach(p => {
+        positionCounts[p.position] = (positionCounts[p.position] || 0) + 1;
+        if (!positionRanks[p.position]) positionRanks[p.position] = [];
+        positionRanks[p.position].push(p.positionRank);
+      });
+
+      // Get most common position
+      let maxCount = 0;
+      let mostCommon = null;
+      Object.entries(positionCounts).forEach(([pos, count]) => {
+        if (count > maxCount) {
+          maxCount = count;
+          mostCommon = pos;
+        }
+      });
+
+      if (mostCommon) {
+        patterns.overall[pick] = {
+          position: mostCommon,
+          positionRank: Math.round(safeAvg(positionRanks[mostCommon])),
+          frequency: maxCount / picks.length
+        };
+      }
+    }
+  });
+
+  // Aggregate patterns for rounds
+  Object.keys(patterns.byRound).forEach(round => {
+    Object.keys(patterns.byRound[round]).forEach(pos => {
+      const data = patterns.byRound[round][pos];
+      data.avgPositionRank = safeAvg(data.ranks);
+    });
+  });
+
+  return patterns;
+}
+
+function extrapolateExpectedValue(position, rank, historicalFinishes) {
+  const posData = historicalFinishes[position];
+  if (!posData) {
+    return {
+      mean: Math.max(0, 150 - rank * 5),
+      stdDev: 50,
+      confidence: 0
+    };
+  }
+
+  // Find the last few ranks we have data for
+  const availableRanks = Object.keys(posData)
+    .map(Number)
+    .filter(r => r <= rank)
+    .sort((a, b) => b - a);
+
+  if (availableRanks.length === 0) {
+    return {
+      mean: Math.max(0, 150 - rank * 5),
+      stdDev: 50,
+      confidence: 0
+    };
+  }
+
+  // Use decay function based on last known values
+  const lastRank = availableRanks[0];
+  const lastValue = posData[lastRank].mean;
+
+  // Calculate decay rate from available data
+  let decayRate = 5; // Default points per rank
+  if (availableRanks.length >= 2) {
+    const secondLast = availableRanks[1];
+    const secondValue = posData[secondLast].mean;
+    decayRate = (secondValue - lastValue) / (lastRank - secondLast);
+  }
+
+  // Extrapolate with increasing uncertainty
+  const rankDiff = rank - lastRank;
+  const extrapolatedValue = Math.max(0, lastValue - (decayRate * rankDiff * 1.2)); // 1.2x decay acceleration
+
+  return {
+    mean: extrapolatedValue,
+    stdDev: 50 + rankDiff * 5, // Increasing uncertainty
+    confidence: Math.max(0, 1 - rankDiff / 10), // Decreasing confidence
+    extrapolated: true
+  };
+}
+
+function applyExpectedValuesToPicks() {
+  // First, determine positional draft order for each year
+  Object.entries(processedData.byYear).forEach(([year, picks]) => {
+    const yearNum = Number(year);
+    const expectations = processedData.historicalExpectations[yearNum];
+
     if (!expectations) {
-      pick.expectedValue = 100; // Default baseline
-      pick.valueOverExpected = pick.actualValue - 100;
+      // No expectations for this year (first year)
+      picks.forEach(pick => {
+        pick.expectedValue = 100;
+        pick.valueOverExpected = pick.actualValue - 100;
+      });
       return;
     }
 
-    // Use overall pick expectation if available, otherwise round
-    if (pick.overall_pick && expectations.byOverall[pick.overall_pick]) {
-      pick.expectedValue = expectations.byOverall[pick.overall_pick].mean || 100;
-    } else if (pick.round && expectations.byRound[pick.round]) {
-      pick.expectedValue = expectations.byRound[pick.round].mean || 100;
-    } else {
-      pick.expectedValue = 100;
-    }
+    // Track position-specific draft order
+    const positionCounters = {
+      'QB': 0, 'RB': 0, 'WR': 0, 'TE': 0, 'K': 0, 'D/ST': 0
+    };
 
-    pick.valueOverExpected = pick.actualValue - pick.expectedValue;
+    // Sort picks by draft order
+    const sortedPicks = [...picks].sort((a, b) => {
+      const aPos = a.overall_pick || (a.round * 12 + (a.pick_number || 0));
+      const bPos = b.overall_pick || (b.round * 12 + (b.pick_number || 0));
+      return aPos - bPos;
+    });
 
-    // Classify as hit/bust based on position-specific thresholds
-    const posStats = expectations.positionStats[pick.position];
-    if (posStats) {
-      // Hit: Above 75th percentile for position
-      pick.isHit = pick.actualValue > posStats.p75;
-      // Bust: Below 25th percentile for position
-      pick.isBust = pick.actualValue < posStats.p25;
+    // Assign expected values based on positional draft rank
+    sortedPicks.forEach(pick => {
+      const pos = pick.position;
 
-      // Also consider draft capital - early picks that underperform are bigger busts
-      if (pick.round <= 3 && pick.actualValue < posStats.p50) {
-        pick.isBust = true;
+      if (positionCounters[pos] !== undefined) {
+        positionCounters[pos]++;
+        const posRank = positionCounters[pos];
+
+        // Get expected value for this position rank
+        const finishData = expectations.byPositionRank[pos]?.[posRank];
+
+        if (finishData) {
+          pick.expectedValue = finishData.mean;
+          pick.expectedPositionFinish = posRank;
+        } else {
+          // Extrapolate if needed
+          const extrapolated = extrapolateExpectedValue(pos, posRank, expectations.byPositionRank);
+          pick.expectedValue = extrapolated.mean;
+          pick.expectedPositionFinish = posRank;
+          pick.expectedValueExtrapolated = true;
+        }
+      } else {
+        // Unknown position, use overall pick expectation
+        if (pick.overall_pick && expectations.byOverall[pick.overall_pick]) {
+          pick.expectedValue = expectations.byOverall[pick.overall_pick].mean;
+        } else if (pick.round && expectations.byRound[pick.round]) {
+          pick.expectedValue = expectations.byRound[pick.round].mean;
+        } else {
+          pick.expectedValue = 100;
+        }
       }
-      if (pick.round >= 10 && pick.actualValue > posStats.p50) {
-        pick.isHit = true;
+
+      pick.valueOverExpected = pick.actualValue - pick.expectedValue;
+
+      // Apply hit/bust classification
+      const posStats = expectations.positionStats[pos];
+      if (posStats) {
+        // Hit: Above 75th percentile for position
+        pick.isHit = pick.actualValue > posStats.p75;
+        // Bust: Below 25th percentile for position
+        pick.isBust = pick.actualValue < posStats.p25;
+
+        // Adjust for draft capital
+        if (posRank <= 3 && pick.actualValue < posStats.p50) {
+          // Top 3 at position should at least be above median
+          pick.isBust = true;
+        }
+        if (posRank >= 20 && pick.actualValue > posStats.p50) {
+          // Late position picks above median are hits
+          pick.isHit = true;
+        }
       }
-    }
+    });
+
+    // Update the picks in processedData with their new expected values
+    picks.forEach((pick, idx) => {
+      const sortedPick = sortedPicks.find(p =>
+        p.player_name === pick.player_name &&
+        p.year === pick.year &&
+        p.owner === pick.owner
+      );
+      if (sortedPick) {
+        Object.assign(pick, sortedPick);
+      }
+    });
   });
 }
 
 function calculateBaselineExpectations() {
-  // For the first year, use simple declining values by round
-  const baseline = { byOverall: {}, byRound: {}, byRoundPosition: {}, positionStats: {} };
+  // For the first year, create reasonable baseline expectations
+  const baseline = {
+    byOverall: {},
+    byRound: {},
+    byPositionRank: {},
+    positionStats: {}
+  };
 
+  // Baseline expected values by position rank (roughly based on typical fantasy scoring)
+  const positionBaselines = {
+    'QB': { 1: 350, 2: 320, 3: 300, 4: 280, 5: 260, 10: 200, 15: 150, 20: 100, decay: 8 },
+    'RB': { 1: 320, 2: 280, 3: 250, 4: 220, 5: 200, 10: 150, 15: 120, 20: 90, 30: 60, decay: 5 },
+    'WR': { 1: 280, 2: 250, 3: 230, 4: 210, 5: 190, 10: 150, 15: 120, 20: 100, 30: 70, decay: 4 },
+    'TE': { 1: 200, 2: 170, 3: 150, 4: 130, 5: 110, 10: 80, 15: 60, 20: 40, decay: 3 },
+    'K': { 1: 140, 2: 130, 3: 125, 4: 120, 5: 115, 10: 100, 15: 90, decay: 2 },
+    'D/ST': { 1: 150, 2: 140, 3: 130, 4: 120, 5: 110, 10: 90, 15: 70, decay: 3 }
+  };
+
+  // Build position rank expectations
+  Object.entries(positionBaselines).forEach(([pos, values]) => {
+    baseline.byPositionRank[pos] = {};
+    const ranks = Object.keys(values).filter(k => k !== 'decay').map(Number).sort((a, b) => a - b);
+
+    for (let rank = 1; rank <= 40; rank++) {
+      // Find surrounding known values
+      let lower = 0, upper = 0;
+      let lowerVal = 200, upperVal = 0;
+
+      for (const r of ranks) {
+        if (r <= rank && r > lower) {
+          lower = r;
+          lowerVal = values[r];
+        }
+        if (r >= rank && (upper === 0 || r < upper)) {
+          upper = r;
+          upperVal = values[r];
+        }
+      }
+
+      let expectedValue;
+      if (lower === rank) {
+        expectedValue = lowerVal;
+      } else if (upper === 0) {
+        // Extrapolate beyond known values
+        expectedValue = Math.max(0, lowerVal - (rank - lower) * values.decay);
+      } else {
+        // Interpolate between known values
+        const ratio = (rank - lower) / (upper - lower);
+        expectedValue = lowerVal + (upperVal - lowerVal) * ratio;
+      }
+
+      baseline.byPositionRank[pos][rank] = {
+        mean: expectedValue,
+        stdDev: 30,
+        samples: 0
+      };
+    }
+
+    // Position stats for hit/bust classification
+    const allValues = Object.values(baseline.byPositionRank[pos]).map(v => v.mean);
+    baseline.positionStats[pos] = {
+      mean: safeAvg(allValues),
+      stdDev: standardDeviation(allValues),
+      p75: percentile(allValues, 75),
+      p50: percentile(allValues, 50),
+      p25: percentile(allValues, 25),
+      count: 0
+    };
+  });
+
+  // Simple declining values for overall and round
   for (let pick = 1; pick <= 192; pick++) {
     baseline.byOverall[pick] = {
-      mean: 200 - pick,
+      mean: Math.max(0, 200 - pick),
       stdDev: 30,
-      count: 0
+      confidence: 0
     };
   }
 
   for (let round = 1; round <= 16; round++) {
     baseline.byRound[round] = {
-      mean: 200 - (round * 12),
+      mean: Math.max(0, 200 - (round * 12)),
       stdDev: 40,
-      p75: 200 - (round * 12) + 20,
-      p25: 200 - (round * 12) - 20,
+      p75: Math.max(0, 220 - (round * 12)),
+      p25: Math.max(0, 180 - (round * 12)),
       count: 0
     };
   }

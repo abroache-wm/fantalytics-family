@@ -96,20 +96,8 @@ class ESPNFantasyDataFetcher:
             return 0.0
 
     def _matchup_period_count(self, season_data: Dict[str, Any]) -> int:
-        settings = (season_data or {}).get("settings", {})
-        sched = settings.get("scheduleSettings", {}) if isinstance(settings, dict) else {}
-        status = (season_data or {}).get("status", {}) if isinstance(season_data, dict) else {}
-
-        # prefer explicit counts first
-        mpc = sched.get("matchupPeriodCount")
-        final_sp = status.get("finalScoringPeriod")
-        current_sp = status.get("currentScoringPeriod")
-
-        # fallback: infer from schedule (max matchupPeriodId)
-        schedule_max = max((g.get("matchupPeriodId", 0) for g in (season_data or {}).get("schedule", [])), default=0)
-
-        candidates = [x for x in [mpc, final_sp, current_sp, schedule_max, 18] if isinstance(x, int) and x > 0]
-        return max(candidates) if candidates else 18
+        # Regular season is 14 weeks, we don't want playoff stats
+        return 14
 
     def _player_weeks_from_schedule(self, season_data: Dict[str, Any], year: int):
         """
@@ -232,8 +220,6 @@ class ESPNFantasyDataFetcher:
 
         for pid, pdata in all_player_data.items():
             weeks = pdata["weekly_scores"]
-            if not weeks:
-                continue
 
             info = {
                 "player_name": pdata["player_name"],
@@ -244,7 +230,7 @@ class ESPNFantasyDataFetcher:
                 "games_played": 0,
                 "weekly_scores": [],
                 "consistency_score": 0.0,
-                "injury_games": 0,
+                "non_scoring_games": 0,  # Changed from injury_games
                 "boom_games": 0,
                 "bust_games": 0,
                 "best_week": 0.0,
@@ -252,18 +238,25 @@ class ESPNFantasyDataFetcher:
                 "playoff_points": 0.0,
             }
 
-            # Calculate stats from weekly scores
-            wk_list = [{"week": w, "score": round(self._safe_float(s), 2)} for w, s in sorted(weeks.items())]
+            # Fill in ALL weeks 1-14 with 0 if missing
+            complete_weeks = {}
+            for week in range(1, 15):  # Weeks 1-14 only
+                complete_weeks[week] = weeks.get(week, 0.0)
+
+            # Calculate stats from complete weekly scores
+            wk_list = [{"week": w, "score": round(self._safe_float(s), 2)} for w, s in sorted(complete_weeks.items())]
             info["weekly_scores"] = wk_list
-            scores = [self._safe_float(s) for s in weeks.values()]
+            scores = [self._safe_float(s) for s in complete_weeks.values()]
             info["season_points"] = round(sum(scores), 2)
             info["games_played"] = sum(1 for s in scores if s > 0)
+            info["non_scoring_games"] = 14 - info["games_played"]  # All weeks without points
 
-            # Consistency
-            if len(scores) > 1:
-                avg = sum(scores) / len(scores)
+            # Consistency (only for games with points)
+            positive_scores = [s for s in scores if s > 0]
+            if len(positive_scores) > 1:
+                avg = sum(positive_scores) / len(positive_scores)
                 if avg > 0:
-                    var = sum((s - avg) ** 2 for s in scores) / (len(scores) - 1)
+                    var = sum((s - avg) ** 2 for s in positive_scores) / (len(positive_scores) - 1)
                     std = var ** 0.5
                     info["consistency_score"] = max(0.0, 100.0 - (std / avg * 100.0))
 
@@ -271,32 +264,14 @@ class ESPNFantasyDataFetcher:
             boom_thr = {"QB": 25, "RB": 20, "WR": 20, "TE": 15, "K": 12, "D/ST": 15}.get(pos, 15)
             bust_thr = {"QB": 10, "RB": 5, "WR": 5, "TE": 3, "K": 3, "D/ST": 2}.get(pos, 5)
             info["boom_games"] = sum(1 for s in scores if s >= boom_thr)
-            info["bust_games"] = sum(1 for s in scores if 0 <= s <= bust_thr)
+            info["bust_games"] = sum(1 for s in scores if 0 < s <= bust_thr)
 
             if scores:
                 info["best_week"] = max(scores)
-                info["worst_week"] = min(scores)
+                info["worst_week"] = min([s for s in scores if s > 0], default=0)  # Worst non-zero week
 
-            # Injury detection
-            seen_points = False
-            for w in sorted(weeks):
-                s = self._safe_float(weeks[w])
-                if s > 0:
-                    seen_points = True
-                elif seen_points and s == 0:
-                    info["injury_games"] += 1
-
-            # Playoff points
-            playoff_len = (
-                season_data.get("settings", {})
-                .get("scheduleSettings", {})
-                .get("playoffMatchupPeriodLength")
-            )
-            if isinstance(playoff_len, int) and playoff_len > 0:
-                playoff_weeks = list(range(max_week - playoff_len + 1, max_week + 1))
-            else:
-                playoff_weeks = sorted(weeks.keys())[-3:] if len(weeks) >= 3 else sorted(weeks.keys())
-            info["playoff_points"] = round(sum(self._safe_float(weeks.get(w, 0.0)) for w in playoff_weeks), 2)
+            # No playoff points since we're only doing regular season
+            info["playoff_points"] = 0.0
 
             player_stats[pid] = info
 
@@ -322,12 +297,30 @@ class ESPNFantasyDataFetcher:
                     # Add player stats if found
                     if pid in player_stats:
                         pick_info.update(player_stats[pid])
-                    elif "playerPoolEntry" in pick and "player" in pick["playerPoolEntry"]:
-                        # Fallback to draft-time info if no stats found
-                        p = pick["playerPoolEntry"]["player"]
-                        pick_info["player_name"] = p.get("fullName", "Unknown")
-                        pick_info["position"] = self.get_position_from_player(p)
-                        pick_info["pro_team"] = p.get("proTeamId", 0)
+                    else:
+                        # Player never played - get name from draft and create zero stats
+                        if "playerPoolEntry" in pick and "player" in pick["playerPoolEntry"]:
+                            p = pick["playerPoolEntry"]["player"]
+                            pick_info["player_name"] = p.get("fullName", "Unknown")
+                            pick_info["position"] = self.get_position_from_player(p)
+                            pick_info["pro_team"] = p.get("proTeamId", 0)
+                        else:
+                            pick_info["player_name"] = "Unknown"
+                            pick_info["position"] = "Unknown"
+                            pick_info["pro_team"] = 0
+
+                        # Add zero stats for player who never played
+                        pick_info["injury_status"] = "DNP"
+                        pick_info["season_points"] = 0.0
+                        pick_info["games_played"] = 0
+                        pick_info["non_scoring_games"] = 14
+                        pick_info["weekly_scores"] = [{"week": w, "score": 0.0} for w in range(1, 15)]
+                        pick_info["consistency_score"] = 0.0
+                        pick_info["boom_games"] = 0
+                        pick_info["bust_games"] = 0
+                        pick_info["best_week"] = 0.0
+                        pick_info["worst_week"] = 0.0
+                        pick_info["playoff_points"] = 0.0
 
                     draft_info["picks"].append(pick_info)
 
@@ -461,7 +454,7 @@ class ESPNFantasyDataFetcher:
                 o["total_value"] += pick_value
                 o["boom_players"] += 1 if pick.get("boom_games", 0) > 3 else 0
                 o["bust_players"] += 1 if pick.get("bust_games", 0) > 5 else 0
-                o["injured_players"] += 1 if pick.get("injury_games", 0) > 2 else 0
+                o["injured_players"] += 1 if pick.get("non_scoring_games", 0) > 4 else 0
                 o["playoff_performers"] += 1 if self._safe_float(pick.get("playoff_points", 0)) > 30 else 0
 
                 if self._safe_float(pick.get("consistency_score", 0)) > 0:
@@ -583,7 +576,7 @@ if __name__ == "__main__":
             "consistency_score",
             "boom_games",
             "bust_games",
-            "injury_games",
+            "non_scoring_games",
             "best_week",
             "worst_week",
             "playoff_points",
