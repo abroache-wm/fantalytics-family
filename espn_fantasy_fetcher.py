@@ -96,25 +96,25 @@ class ESPNFantasyDataFetcher:
             return 0.0
 
     def _matchup_period_count(self, season_data: Dict[str, Any]) -> int:
-        mpc = (
-            season_data.get("settings", {})
-            .get("scheduleSettings", {})
-            .get("matchupPeriodCount")
-        )
-        if isinstance(mpc, int) and mpc > 0:
-            return mpc
-        # Fallback: infer from schedule
-        return max(
-            (g.get("matchupPeriodId", 0) for g in season_data.get("schedule", [])), default=17
-        )
+        settings = (season_data or {}).get("settings", {})
+        sched = settings.get("scheduleSettings", {}) if isinstance(settings, dict) else {}
+        status = (season_data or {}).get("status", {}) if isinstance(season_data, dict) else {}
 
-    # -----------------------
-    # Weekly aggregation
-    # -----------------------
+        # prefer explicit counts first
+        mpc = sched.get("matchupPeriodCount")
+        final_sp = status.get("finalScoringPeriod")
+        current_sp = status.get("currentScoringPeriod")
+
+        # fallback: infer from schedule (max matchupPeriodId)
+        schedule_max = max((g.get("matchupPeriodId", 0) for g in (season_data or {}).get("schedule", [])), default=0)
+
+        candidates = [x for x in [mpc, final_sp, current_sp, schedule_max, 18] if isinstance(x, int) and x > 0]
+        return max(candidates) if candidates else 18
+
     def _player_weeks_from_schedule(self, season_data: Dict[str, Any], year: int):
         """
         Build {player_id: {week: points}} by fetching the league for each scoringPeriodId.
-        This guarantees per-week rosters/points instead of only the last week.
+        Trade-safe: if a player shows up more than once in a week (roster artifacts), keep the MAX points.
         """
         weekly: Dict[int, Dict[int, float]] = defaultdict(dict)
         max_week = self._matchup_period_count(season_data)
@@ -135,25 +135,34 @@ class ESPNFantasyDataFetcher:
                 time.sleep(0.2)
                 continue
 
-            for g in wdata.get("schedule", []) or []:
+            for g in (wdata.get("schedule", []) or []):
                 for side in ("home", "away"):
                     s = g.get(side) or {}
-                    roster = (s.get("rosterForMatchupPeriod") or {})
-                    for e in roster.get("entries", []) or []:
+                    # prefer rosterForMatchupPeriod; fallback to rosterForCurrentScoringPeriod for older payloads
+                    roster = (s.get("rosterForMatchupPeriod") or s.get("rosterForCurrentScoringPeriod") or {})
+                    for e in (roster.get("entries", []) or []):
                         pid = e.get("playerId")
                         if not pid:
                             continue
+                        # applied totals appear in different nodes depending on season
                         pts = (
-                            e.get("appliedStatTotal")
-                            or e.get("totalPoints")
-                            or (e.get("playerPoolEntry") or {}).get("appliedStatTotal")
-                            or 0.0
+                                e.get("appliedStatTotal")
+                                or e.get("totalPoints")
+                                or (e.get("playerPoolEntry") or {}).get("appliedStatTotal")
+                                or (e.get("playerPoints") or {}).get("appliedTotal")
+                                or 0.0
                         )
-                        pts = self._safe_float(pts)
-                        weekly[pid][week] = pts
+                        try:
+                            pts = float(pts)
+                        except Exception:
+                            pts = 0.0
 
-            # small pause to be polite
-            time.sleep(0.15)
+                        # TRADE-SAFE: keep the maximum for (pid, week)
+                        prev = weekly[pid].get(week, 0.0)
+                        if pts > prev:
+                            weekly[pid][week] = pts
+
+            time.sleep(0.12)  # be polite
 
         return weekly, max_week
 
@@ -318,15 +327,24 @@ class ESPNFantasyDataFetcher:
                         pid = entry.get("playerId", 0)
                         pick_info = {
                             "year": year,
-                            "team_id": team["id"],
-                            "team_name": team.get("name", "Unknown"),
-                            "owner_name": teams.get(team["id"], {}).get("owner_name", "Unknown"),
+                            "round": pick.get("roundId", 0),
+                            "pick_number": pick.get("roundPickNumber", 0),
+                            "overall_pick": pick.get("overallPickNumber", 0),
+                            "team_id": pick.get("teamId", 0),
+                            "team_name": teams.get(pick.get("teamId"), {}).get("name", "Unknown"),
+                            "owner_name": teams.get(pick.get("teamId"), {}).get("owner_name", "Unknown"),
                             "player_id": pid,
-                            "acquisition_date": entry.get("acquisitionDate", 0),
-                            "keeper": (entry.get("keeperValue", 0) or 0) > 0,
+                            "keeper": pick.get("keeper", False),
+                            "bid_amount": pick.get("bidAmount", 0),
                         }
                         if pid in player_stats:
                             pick_info.update(player_stats[pid])
+                        for _k in ("round", "pick_number", "overall_pick", "team_id"):
+                            try:
+                                pick_info[_k] = int(pick_info.get(_k, 0))
+                            except Exception:
+                                pick_info[_k] = 0
+
                         draft_info["picks"].append(pick_info)
 
         return draft_info
