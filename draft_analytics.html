@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Football Draft Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #151923;
+            --bg-accent: #1e2433;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a9c4;
+            --accent-blue: #4a9eff;
+            --accent-green: #4ade80;
+            --accent-red: #ef4444;
+            --accent-yellow: #fbbf24;
+            --accent-purple: #a78bfa;
+            --accent-orange: #fb923c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .back-link {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-purple);
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            background: var(--bg-secondary);
+            border: 2px solid transparent;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-tab:hover {
+            background: var(--bg-accent);
+            border-color: var(--accent-orange);
+        }
+
+        .nav-tab.active {
+            background: var(--accent-orange);
+            color: var(--bg-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .stat-trend {
+            font-size: 0.9em;
+            margin-top: 5px;
+            color: var(--text-secondary);
+        }
+
+        .trend-up {
+            color: var(--accent-green);
+        }
+
+        .trend-down {
+            color: var(--accent-red);
+        }
+
+        .chart-container {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            height: 400px;
+            position: relative;
+        }
+
+        .table-container {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--bg-accent);
+        }
+
+        th {
+            background: var(--bg-accent);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr:hover {
+            background: var(--bg-accent);
+        }
+
+        .sortable th {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .sortable th:hover {
+            background: var(--accent-orange);
+            color: var(--bg-primary);
+        }
+
+        .sortable th:after {
+            content: '↕';
+            position: absolute;
+            right: 8px;
+            opacity: 0.5;
+        }
+
+        .sortable th.sort-asc:after {
+            content: '↑';
+            opacity: 1;
+        }
+
+        .sortable th.sort-desc:after {
+            content: '↓';
+            opacity: 1;
+        }
+
+        .drafter-profile {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-accent) 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header h3 {
+            font-size: 2em;
+            color: var(--accent-orange);
+        }
+
+        .draft-grade {
+            font-size: 3em;
+            font-weight: 700;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .grade-a { color: var(--accent-green); background: rgba(74, 222, 128, 0.1); }
+        .grade-b { color: var(--accent-blue); background: rgba(74, 158, 255, 0.1); }
+        .grade-c { color: var(--accent-yellow); background: rgba(251, 191, 36, 0.1); }
+        .grade-d { color: var(--accent-orange); background: rgba(251, 146, 60, 0.1); }
+        .grade-f { color: var(--accent-red); background: rgba(239, 68, 68, 0.1); }
+
+        .strategy-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .strategy-tag {
+            background: var(--bg-accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid var(--accent-orange);
+        }
+
+        .position-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .position-stat {
+            text-align: center;
+            background: var(--bg-accent);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .position-stat-label {
+            color: var(--text-secondary);
+            font-size: 0.8em;
+        }
+
+        .position-stat-value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .filter-controls {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        select {
+            background: var(--bg-accent);
+            color: var(--text-primary);
+            border: 1px solid var(--accent-orange);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .loader {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .heat-map {
+            margin-top: 20px;
+        }
+
+        .heat-map-grid {
+            display: grid;
+            gap: 2px;
+            margin-top: 10px;
+        }
+
+        .heat-cell {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heat-cell-header {
+            background: var(--bg-accent);
+            font-weight: 600;
+        }
+
+        .best-worst-picks {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .picks-list {
+            background: var(--bg-accent);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .picks-list h4 {
+            margin-bottom: 15px;
+            color: var(--accent-orange);
+        }
+
+        .pick-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .pick-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Main Dashboard</a>
+            <h1>Draft Analytics Dashboard</h1>
+            <p class="subtitle">Comprehensive Draft Performance Analysis</p>
+        </header>
+
+        <div id="loadingMessage" class="loader">Loading draft data...</div>
+
+        <div id="mainContent" style="display: none;">
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-tab="overview">Overview</div>
+                <div class="nav-tab" data-tab="profiles">Drafter Profiles</div>
+                <div class="nav-tab" data-tab="value">Draft Value Analysis</div>
+                <div class="nav-tab" data-tab="positions">Position Analysis</div>
+                <div class="nav-tab" data-tab="strategy">Strategy Patterns</div>
+                <div class="nav-tab" data-tab="trends">Historical Trends</div>
+                <div class="nav-tab" data-tab="correlation">Draft vs Success</div>
+            </div>
+
+            <div class="tab-content active" id="overview">
+                <div class="stats-grid" id="overviewStats"></div>
+                <div class="chart-container">
+                    <canvas id="draftPerformanceChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <h2>Draft Performance Rankings</h2>
+                    <table id="draftRankings" class="sortable"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="profiles">
+                <div class="filter-controls">
+                    <label>Select Drafter:
+                        <select id="drafterSelect">
+                            <option value="">All Drafters</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="drafterProfiles"></div>
+            </div>
+
+            <div class="tab-content" id="value">
+                <div class="filter-controls">
+                    <label>Year:
+                        <select id="valueYearSelect">
+                            <option value="all">All Years</option>
+                        </select>
+                    </label>
+                    <label>Position:
+                        <select id="valuePositionSelect">
+                            <option value="all">All Positions</option>
+                            <option value="QB">QB</option>
+                            <option value="RB">RB</option>
+                            <option value="WR">WR</option>
+                            <option value="TE">TE</option>
+                            <option value="D/ST">D/ST</option>
+                            <option value="K">K</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="best-worst-picks">
+                    <div class="picks-list">
+                        <h4>Best Draft Values</h4>
+                        <div id="bestValues"></div>
+                    </div>
+                    <div class="picks-list">
+                        <h4>Biggest Draft Busts</h4>
+                        <div id="worstValues"></div>
+                    </div>
+                </div>
+                <div class="chart-container" style="margin-top: 30px;">
+                    <canvas id="valueChart"></canvas>
+                </div>
+            </div>
+
+            <div class="tab-content" id="positions">
+                <div class="heat-map">
+                    <h2>Position Drafting Success Rate</h2>
+                    <p class="subtitle">Success rate by position and round</p>
+                    <div id="positionHeatMap"></div>
+                </div>
+                <div class="chart-container" style="margin-top: 30px;">
+                    <canvas id="positionTimingChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <h2>Position Drafting Stats by Owner</h2>
+                    <table id="positionStats" class="sortable"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="strategy">
+                <div class="stats-grid" id="strategyStats"></div>
+                <div class="chart-container">
+                    <canvas id="strategyChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <h2>Draft Strategy Breakdown</h2>
+                    <table id="strategyTable" class="sortable"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="trends">
+                <div class="filter-controls">
+                    <label>Metric:
+                        <select id="trendMetric">
+                            <option value="adp">Average Draft Position</option>
+                            <option value="success">Success Rate</option>
+                            <option value="retention">Retention Rate</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trendsChart"></canvas>
+                </div>
+                <div class="table-container">
+                    <h2>Year-over-Year Draft Performance</h2>
+                    <table id="yearlyTable" class="sortable"></table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="correlation">
+                <div class="chart-container">
+                    <canvas id="correlationChart"></canvas>
+                </div>
+                <div class="stats-grid" id="correlationStats"></div>
+                <div class="table-container">
+                    <h2>Draft Position Success Rates</h2>
+                    <table id="draftPositionTable" class="sortable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global data storage
+        let leagueData = {};
+        let draftData = {
+            drafters: {},
+            picks: [],
+            analysis: {},
+            strategies: {},
+            correlations: {}
+        };
+
+        // Excluded owners
+        const excludedOwners = ['Charlie Em', 'Charlie Miceli', 'Matthew Johnson'];
+
+        // Load data automatically
+        window.addEventListener('DOMContentLoaded', function() {
+            fetch('espn_fantasy_complete_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load data file');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    leagueData = data;
+                    processDraftData();
+                    document.getElementById('loadingMessage').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                    initializeDashboard();
+                })
+                .catch(error => {
+                    document.getElementById('loadingMessage').innerHTML =
+                        '<div class="error">Error loading data: ' + error.message +
+                        '<br>Make sure espn_fantasy_complete_data.json is in the same directory.</div>';
+                    console.error('Error:', error);
+                });
+        });
+
+        function processDraftData() {
+            // Process draft data for each year
+            Object.keys(leagueData).forEach(year => {
+                const yearData = leagueData[year];
+                const yearNum = parseInt(year);
+
+                // Skip if no draft data
+                if (!yearData.draftDetail || !yearData.draftDetail.drafted) {
+                    return;
+                }
+
+                // Create owner mapping
+                const ownerMap = {};
+                yearData.members.forEach(member => {
+                    const ownerName = `${member.firstName} ${member.lastName}`;
+                    if (!excludedOwners.includes(ownerName)) {
+                        ownerMap[member.id] = ownerName;
+                    }
+                });
+
+                // Process each team's draft
+                yearData.teams.forEach(team => {
+                    const ownerName = ownerMap[team.primaryOwner];
+                    if (!ownerName) return;
+
+                    // Initialize drafter profile
+                    if (!draftData.drafters[ownerName]) {
+                        draftData.drafters[ownerName] = {
+                            name: ownerName,
+                            drafts: [],
+                            totalPicks: 0,
+                            positionCounts: {},
+                            roundPositions: {},
+                            bestPicks: [],
+                            worstPicks: [],
+                            strategies: [],
+                            avgDraftGrade: 0
+                        };
+                    }
+
+                    // Get draft picks for this team
+                    const teamDraft = {
+                        year: yearNum,
+                        teamId: team.id,
+                        draftPosition: team.draftDayProjectedRank || 0,
+                        finalRank: team.rankCalculatedFinal || 99,
+                        picks: []
+                    };
+
+                    // Process roster to get draft data
+                    if (team.roster && team.roster.entries) {
+                        team.roster.entries.forEach(entry => {
+                            if (entry.acquisitionType === 'DRAFT') {
+                                const pick = {
+                                    playerId: entry.playerId,
+                                    playerName: entry.playerPoolEntry?.player?.fullName || 'Unknown',
+                                    position: getPlayerPosition(entry),
+                                    draftRound: Math.ceil((entry.acquisitionDate || 1) / 12), // Approximate
+                                    seasonPoints: entry.playerPoolEntry?.appliedStatTotal || 0,
+                                    gamesPlayed: entry.playerPoolEntry?.player?.stats?.[0]?.appliedStats?.length || 0
+                                };
+
+                                teamDraft.picks.push(pick);
+                                draftData.picks.push({
+                                    ...pick,
+                                    year: yearNum,
+                                    owner: ownerName,
+                                    teamId: team.id
+                                });
+
+                                // Update position counts
+                                const pos = pick.position;
+                                if (!draftData.drafters[ownerName].positionCounts[pos]) {
+                                    draftData.drafters[ownerName].positionCounts[pos] = 0;
+                                }
+                                draftData.drafters[ownerName].positionCounts[pos]++;
+
+                                // Track round positions
+                                const round = pick.draftRound;
+                                if (!draftData.drafters[ownerName].roundPositions[round]) {
+                                    draftData.drafters[ownerName].roundPositions[round] = {};
+                                }
+                                if (!draftData.drafters[ownerName].roundPositions[round][pos]) {
+                                    draftData.drafters[ownerName].roundPositions[round][pos] = 0;
+                                }
+                                draftData.drafters[ownerName].roundPositions[round][pos]++;
+
+                                draftData.drafters[ownerName].totalPicks++;
+                            }
+                        });
+                    }
+
+                    // Analyze draft strategy
+                    analyzeStrategy(teamDraft, ownerName);
+
+                    draftData.drafters[ownerName].drafts.push(teamDraft);
+                });
+            });
+
+            // Calculate additional analytics
+            calculateDraftGrades();
+            findBestWorstPicks();
+            calculateCorrelations();
+        }
+
+        function getPlayerPosition(entry) {
+            const positionMap = {
+                1: 'QB',
+                2: 'RB',
+                3: 'WR',
+                4: 'TE',
+                5: 'K',
+                16: 'D/ST'
+            };
+
+            const defaultPosition = entry.playerPoolEntry?.player?.defaultPositionId;
+            return positionMap[defaultPosition] || 'FLEX';
+        }
+
+        function analyzeStrategy(teamDraft, ownerName) {
+            const strategies = [];
+            const picks = teamDraft.picks;
+
+            // Count positions in first 3 rounds
+            const earlyPicks = picks.filter(p => p.draftRound <= 3);
+            const earlyRBs = earlyPicks.filter(p => p.position === 'RB').length;
+            const earlyWRs = earlyPicks.filter(p => p.position === 'WR').length;
+            const earlyQBs = earlyPicks.filter(p => p.position === 'QB').length;
+            const earlyTEs = earlyPicks.filter(p => p.position === 'TE').length;
+
+            // Identify strategies
+            if (earlyRBs >= 2) strategies.push('RB Heavy');
+            if (earlyWRs >= 2) strategies.push('WR Heavy');
+            if (earlyRBs === 0) strategies.push('Zero RB');
+            if (earlyQBs > 0) strategies.push('Early QB');
+            if (earlyTEs > 0) strategies.push('Early TE');
+            if (earlyRBs === 1 && earlyWRs === 1) strategies.push('Balanced');
+
+            // Check for late-round strategies
+            const lateQB = picks.find(p => p.position === 'QB' && p.draftRound > 8);
+            if (lateQB) strategies.push('Late QB');
+
+            // Store strategies
+            strategies.forEach(strategy => {
+                if (!draftData.strategies[strategy]) {
+                    draftData.strategies[strategy] = {
+                        count: 0,
+                        successRate: 0,
+                        users: []
+                    };
+                }
+                draftData.strategies[strategy].count++;
+                draftData.strategies[strategy].users.push({
+                    owner: ownerName,
+                    year: teamDraft.year,
+                    finalRank: teamDraft.finalRank
+                });
+            });
+
+            draftData.drafters[ownerName].strategies.push(...strategies);
+        }
+
+        function calculateDraftGrades() {
+            Object.keys(draftData.drafters).forEach(ownerName => {
+                const drafter = draftData.drafters[ownerName];
+
+                // Calculate average value over replacement for each draft
+                let totalGrade = 0;
+                let draftCount = 0;
+
+                drafter.drafts.forEach(draft => {
+                    let draftScore = 0;
+                    draft.picks.forEach(pick => {
+                        // Simple scoring: points per round drafted
+                        const expectedPoints = (17 - pick.draftRound) * 10; // Expected points based on round
+                        const actualPoints = pick.seasonPoints;
+                        const valueRatio = actualPoints / expectedPoints;
+                        draftScore += valueRatio;
+                    });
+
+                    const avgValueRatio = draftScore / draft.picks.length;
+                    draft.grade = getLetterGrade(avgValueRatio);
+                    totalGrade += avgValueRatio;
+                    draftCount++;
+                });
+
+                drafter.avgDraftGrade = draftCount > 0 ? totalGrade / draftCount : 0;
+                drafter.overallGrade = getLetterGrade(drafter.avgDraftGrade);
+            });
+        }
+
+        function getLetterGrade(score) {
+            if (score >= 1.3) return 'A';
+            if (score >= 1.1) return 'B';
+            if (score >= 0.9) return 'C';
+            if (score >= 0.7) return 'D';
+            return 'F';
+        }
+
+        function findBestWorstPicks() {
+            // Find best and worst picks for each drafter
+            const picksByRound = {};
+
+            // Group picks by position and round for comparison
+            draftData.picks.forEach(pick => {
+                const key = `${pick.position}-${pick.draftRound}`;
+                if (!picksByRound[key]) picksByRound[key] = [];
+                picksByRound[key].push(pick);
+            });
+
+            // Calculate average points for each position/round combo
+            const avgByRound = {};
+            Object.keys(picksByRound).forEach(key => {
+                const picks = picksByRound[key];
+                const avgPoints = picks.reduce((sum, p) => sum + p.seasonPoints, 0) / picks.length;
+                avgByRound[key] = avgPoints;
+            });
+
+            // Score each pick
+            draftData.picks.forEach(pick => {
+                const key = `${pick.position}-${pick.draftRound}`;
+                const avg = avgByRound[key] || 0;
+                pick.valueScore = avg > 0 ? (pick.seasonPoints - avg) / avg : 0;
+
+                // Add to best/worst lists
+                const drafter = draftData.drafters[pick.owner];
+                if (drafter) {
+                    if (pick.valueScore > 0.5) {
+                        drafter.bestPicks.push(pick);
+                    } else if (pick.valueScore < -0.3) {
+                        drafter.worstPicks.push(pick);
+                    }
+                }
+            });
+
+            // Sort best/worst picks
+            Object.values(draftData.drafters).forEach(drafter => {
+                drafter.bestPicks.sort((a, b) => b.valueScore - a.valueScore);
+                drafter.worstPicks.sort((a, b) => a.valueScore - b.valueScore);
+            });
+        }
+
+        function calculateCorrelations() {
+            // Calculate correlation between draft position and final rank
+            const draftPositions = {};
+
+            Object.values(draftData.drafters).forEach(drafter => {
+                drafter.drafts.forEach(draft => {
+                    const pos = draft.draftPosition;
+                    if (!draftPositions[pos]) {
+                        draftPositions[pos] = {
+                            position: pos,
+                            finals: [],
+                            championships: 0,
+                            playoffs: 0,
+                            total: 0
+                        };
+                    }
+
+                    draftPositions[pos].finals.push(draft.finalRank);
+                    draftPositions[pos].total++;
+                    if (draft.finalRank === 1) draftPositions[pos].championships++;
+                    if (draft.finalRank <= 6) draftPositions[pos].playoffs++;
+                });
+            });
+
+            draftData.correlations.positions = draftPositions;
+        }
+
+        function initializeDashboard() {
+            // Setup tab navigation
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                    this.classList.add('active');
+                    document.getElementById(this.dataset.tab).classList.add('active');
+
+                    // Load tab content
+                    switch(this.dataset.tab) {
+                        case 'overview': loadOverview(); break;
+                        case 'profiles': loadProfiles(); break;
+                        case 'value': loadValueAnalysis(); break;
+                        case 'positions': loadPositionAnalysis(); break;
+                        case 'strategy': loadStrategyAnalysis(); break;
+                        case 'trends': loadTrends(); break;
+                        case 'correlation': loadCorrelation(); break;
+                    }
+                });
+            });
+
+            // Load initial tab
+            loadOverview();
+        }
+
+        function loadOverview() {
+            // Calculate overview stats
+            const totalPicks = draftData.picks.length;
+            const avgPoints = draftData.picks.reduce((sum, p) => sum + p.seasonPoints, 0) / totalPicks;
+
+            const bestPick = draftData.picks.reduce((best, pick) =>
+                pick.valueScore > best.valueScore ? pick : best
+            );
+
+            const statsHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">Total Draft Picks Analyzed</div>
+                    <div class="stat-value">${totalPicks.toLocaleString()}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Points Per Pick</div>
+                    <div class="stat-value">${avgPoints.toFixed(1)}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Best Value Pick</div>
+                    <div class="stat-value">${bestPick.playerName}</div>
+                    <div class="stat-trend">${bestPick.owner} (${bestPick.year})</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Most Popular Strategy</div>
+                    <div class="stat-value">${getMostPopularStrategy()}</div>
+                </div>
+            `;
+            document.getElementById('overviewStats').innerHTML = statsHTML;
+
+            // Create draft performance chart
+            createDraftPerformanceChart();
+
+            // Create rankings table
+            createDraftRankingsTable();
+        }
+
+        function getMostPopularStrategy() {
+            let mostPopular = { name: 'None', count: 0 };
+            Object.entries(draftData.strategies).forEach(([name, data]) => {
+                if (data.count > mostPopular.count) {
+                    mostPopular = { name, count: data.count };
+                }
+            });
+            return mostPopular.name;
+        }
+
+        function createDraftPerformanceChart() {
+            const ctx = document.getElementById('draftPerformanceChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            const owners = Object.keys(draftData.drafters);
+            const avgGrades = owners.map(owner => draftData.drafters[owner].avgDraftGrade);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: owners,
+                    datasets: [{
+                        label: 'Average Draft Performance Score',
+                        data: avgGrades,
+                        backgroundColor: owners.map(owner => {
+                            const grade = draftData.drafters[owner].overallGrade;
+                            if (grade === 'A') return 'rgba(74, 222, 128, 0.6)';
+                            if (grade === 'B') return 'rgba(74, 158, 255, 0.6)';
+                            if (grade === 'C') return 'rgba(251, 191, 36, 0.6)';
+                            if (grade === 'D') return 'rgba(251, 146, 60, 0.6)';
+                            return 'rgba(239, 68, 68, 0.6)';
+                        }),
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Draft Performance by Owner',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createDraftRankingsTable() {
+            const rankings = Object.entries(draftData.drafters).map(([name, drafter]) => ({
+                name: name,
+                grade: drafter.overallGrade,
+                avgScore: drafter.avgDraftGrade,
+                totalPicks: drafter.totalPicks,
+                bestPickCount: drafter.bestPicks.length,
+                bustCount: drafter.worstPicks.length,
+                hitRate: drafter.totalPicks > 0 ?
+                    (drafter.bestPicks.length / drafter.totalPicks * 100).toFixed(1) : 0
+            })).sort((a, b) => b.avgScore - a.avgScore);
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Drafter</th>
+                        <th>Grade</th>
+                        <th>Avg Score</th>
+                        <th>Total Picks</th>
+                        <th>Great Picks</th>
+                        <th>Busts</th>
+                        <th>Hit Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rankings.map(drafter => `
+                        <tr>
+                            <td>${drafter.name}</td>
+                            <td class="grade-${drafter.grade.toLowerCase()}">${drafter.grade}</td>
+                            <td>${drafter.avgScore.toFixed(2)}</td>
+                            <td>${drafter.totalPicks}</td>
+                            <td class="trend-up">${drafter.bestPickCount}</td>
+                            <td class="trend-down">${drafter.bustCount}</td>
+                            <td>${drafter.hitRate}%</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('draftRankings').innerHTML = tableHTML;
+            setTimeout(() => makeSortable('draftRankings'), 0);
+        }
+
+        function loadProfiles() {
+            // Populate drafter select
+            const select = document.getElementById('drafterSelect');
+            select.innerHTML = '<option value="">All Drafters</option>';
+            Object.keys(draftData.drafters).forEach(drafter => {
+                select.innerHTML += `<option value="${drafter}">${drafter}</option>`;
+            });
+
+            select.addEventListener('change', displayDrafterProfiles);
+            displayDrafterProfiles();
+        }
+
+        function displayDrafterProfiles() {
+            const selectedDrafter = document.getElementById('drafterSelect').value;
+            const drafters = selectedDrafter ? [selectedDrafter] : Object.keys(draftData.drafters);
+
+            const profilesHTML = drafters.map(drafterName => {
+                const drafter = draftData.drafters[drafterName];
+
+                // Count strategies
+                const strategyCounts = {};
+                drafter.strategies.forEach(strategy => {
+                    strategyCounts[strategy] = (strategyCounts[strategy] || 0) + 1;
+                });
+
+                // Get most common positions by round
+                const roundTendencies = {};
+                Object.entries(drafter.roundPositions).forEach(([round, positions]) => {
+                    const mostCommon = Object.entries(positions)
+                        .sort((a, b) => b[1] - a[1])[0];
+                    if (mostCommon) {
+                        roundTendencies[round] = mostCommon[0];
+                    }
+                });
+
+                return `
+                    <div class="drafter-profile">
+                        <div class="profile-header">
+                            <h3>${drafterName}</h3>
+                            <div class="draft-grade grade-${drafter.overallGrade.toLowerCase()}">
+                                ${drafter.overallGrade}
+                            </div>
+                        </div>
+
+                        <div class="strategy-tags">
+                            ${Object.entries(strategyCounts).map(([strategy, count]) =>
+                                `<div class="strategy-tag">${strategy} (${count}x)</div>`
+                            ).join('')}
+                        </div>
+
+                        <div class="position-grid">
+                            ${Object.entries(drafter.positionCounts)
+                                .sort((a, b) => b[1] - a[1])
+                                .slice(0, 4)
+                                .map(([pos, count]) => `
+                                    <div class="position-stat">
+                                        <div class="position-stat-value">${count}</div>
+                                        <div class="position-stat-label">${pos} Drafted</div>
+                                    </div>
+                                `).join('')}
+                        </div>
+
+                        <div class="best-worst-picks" style="margin-top: 20px;">
+                            <div class="picks-list">
+                                <h4>Best Value Picks</h4>
+                                ${drafter.bestPicks.slice(0, 3).map(pick => `
+                                    <div class="pick-item">
+                                        ${pick.playerName} (${pick.year}) -
+                                        Round ${pick.draftRound},
+                                        ${pick.seasonPoints.toFixed(0)} pts
+                                    </div>
+                                `).join('') || '<div class="pick-item">No standout picks</div>'}
+                            </div>
+                            <div class="picks-list">
+                                <h4>Biggest Busts</h4>
+                                ${drafter.worstPicks.slice(0, 3).map(pick => `
+                                    <div class="pick-item">
+                                        ${pick.playerName} (${pick.year}) -
+                                        Round ${pick.draftRound},
+                                        ${pick.seasonPoints.toFixed(0)} pts
+                                    </div>
+                                `).join('') || '<div class="pick-item">No major busts</div>'}
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <h4>Round Tendencies</h4>
+                            <p>
+                                ${Object.entries(roundTendencies).slice(0, 5).map(([round, pos]) =>
+                                    `Round ${round}: ${pos}`
+                                ).join(', ')}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('drafterProfiles').innerHTML = profilesHTML;
+        }
+
+        function loadValueAnalysis() {
+            // Setup filters
+            const yearSelect = document.getElementById('valueYearSelect');
+            const years = [...new Set(draftData.picks.map(p => p.year))].sort((a, b) => b - a);
+            yearSelect.innerHTML = '<option value="all">All Years</option>' +
+                years.map(year => `<option value="${year}">${year}</option>`).join('');
+
+            yearSelect.addEventListener('change', updateValueAnalysis);
+            document.getElementById('valuePositionSelect').addEventListener('change', updateValueAnalysis);
+
+            updateValueAnalysis();
+        }
+
+        function updateValueAnalysis() {
+            const selectedYear = document.getElementById('valueYearSelect').value;
+            const selectedPosition = document.getElementById('valuePositionSelect').value;
+
+            // Filter picks
+            let filteredPicks = draftData.picks;
+            if (selectedYear !== 'all') {
+                filteredPicks = filteredPicks.filter(p => p.year === parseInt(selectedYear));
+            }
+            if (selectedPosition !== 'all') {
+                filteredPicks = filteredPicks.filter(p => p.position === selectedPosition);
+            }
+
+            // Sort by value score
+            const sortedPicks = [...filteredPicks].sort((a, b) => b.valueScore - a.valueScore);
+
+            // Display best values
+            const bestHTML = sortedPicks.slice(0, 10).map((pick, index) => `
+                <div class="pick-item">
+                    <strong>${index + 1}.</strong> ${pick.playerName}
+                    <small>(${pick.owner}, ${pick.year})</small><br>
+                    Round ${pick.draftRound} → ${pick.seasonPoints.toFixed(0)} pts
+                    <span class="trend-up">(+${(pick.valueScore * 100).toFixed(0)}% value)</span>
+                </div>
+            `).join('');
+            document.getElementById('bestValues').innerHTML = bestHTML;
+
+            // Display worst values
+            const worstHTML = sortedPicks.slice(-10).reverse().map((pick, index) => `
+                <div class="pick-item">
+                    <strong>${index + 1}.</strong> ${pick.playerName}
+                    <small>(${pick.owner}, ${pick.year})</small><br>
+                    Round ${pick.draftRound} → ${pick.seasonPoints.toFixed(0)} pts
+                    <span class="trend-down">(${(pick.valueScore * 100).toFixed(0)}% value)</span>
+                </div>
+            `).join('');
+            document.getElementById('worstValues').innerHTML = worstHTML;
+
+            // Create value chart
+            createValueChart(filteredPicks);
+        }
+
+        function createValueChart(picks) {
+            const ctx = document.getElementById('valueChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            // Group by round
+            const roundData = {};
+            for (let i = 1; i <= 16; i++) {
+                roundData[i] = {
+                    expected: (17 - i) * 10,
+                    actual: 0,
+                    count: 0
+                };
+            }
+
+            picks.forEach(pick => {
+                if (pick.draftRound <= 16) {
+                    roundData[pick.draftRound].actual += pick.seasonPoints;
+                    roundData[pick.draftRound].count++;
+                }
+            });
+
+            const rounds = Object.keys(roundData).map(r => parseInt(r));
+            const expectedValues = rounds.map(r => roundData[r].expected);
+            const actualValues = rounds.map(r =>
+                roundData[r].count > 0 ? roundData[r].actual / roundData[r].count : 0
+            );
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: rounds.map(r => `Round ${r}`),
+                    datasets: [{
+                        label: 'Expected Value',
+                        data: expectedValues,
+                        borderColor: 'rgba(251, 146, 60, 0.8)',
+                        borderDash: [5, 5],
+                        fill: false
+                    }, {
+                        label: 'Actual Average Value',
+                        data: actualValues,
+                        borderColor: 'rgba(74, 222, 128, 0.8)',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Draft Value by Round',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: 'Average Points',
+                                color: '#a0a9c4'
+                            }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function loadPositionAnalysis() {
+            createPositionHeatMap();
+            createPositionTimingChart();
+            createPositionStatsTable();
+        }
+
+        function createPositionHeatMap() {
+            const positions = ['QB', 'RB', 'WR', 'TE', 'D/ST', 'K'];
+            const rounds = Array.from({length: 10}, (_, i) => i + 1);
+
+            // Calculate success rates
+            const successRates = {};
+            positions.forEach(pos => {
+                successRates[pos] = {};
+                rounds.forEach(round => {
+                    const picks = draftData.picks.filter(p =>
+                        p.position === pos && p.draftRound === round
+                    );
+
+                    if (picks.length > 0) {
+                        const avgValue = picks.reduce((sum, p) => sum + p.valueScore, 0) / picks.length;
+                        successRates[pos][round] = avgValue;
+                    } else {
+                        successRates[pos][round] = 0;
+                    }
+                });
+            });
+
+            // Create heat map
+            let heatMapHTML = `<div class="heat-map-grid" style="grid-template-columns: auto repeat(${rounds.length}, 1fr);">`;
+
+            // Header row
+            heatMapHTML += '<div class="heat-cell heat-cell-header"></div>';
+            rounds.forEach(round => {
+                heatMapHTML += `<div class="heat-cell heat-cell-header">Round ${round}</div>`;
+            });
+
+            // Data rows
+            positions.forEach(pos => {
+                heatMapHTML += `<div class="heat-cell heat-cell-header">${pos}</div>`;
+                rounds.forEach(round => {
+                    const value = successRates[pos][round];
+                    const opacity = Math.abs(value);
+                    const color = value > 0 ?
+                        `rgba(74, 222, 128, ${opacity})` :
+                        `rgba(239, 68, 68, ${opacity})`;
+
+                    heatMapHTML += `<div class="heat-cell" style="background: ${color};">
+                        ${value > 0 ? '+' : ''}${(value * 100).toFixed(0)}%
+                    </div>`;
+                });
+            });
+
+            heatMapHTML += '</div>';
+            document.getElementById('positionHeatMap').innerHTML = heatMapHTML;
+        }
+
+        function createPositionTimingChart() {
+            const ctx = document.getElementById('positionTimingChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            const positions = ['QB', 'RB', 'WR', 'TE'];
+            const datasets = positions.map((pos, index) => {
+                const avgRounds = {};
+
+                // Calculate average draft round by year
+                const years = [...new Set(draftData.picks.map(p => p.year))].sort();
+                const data = years.map(year => {
+                    const picks = draftData.picks.filter(p =>
+                        p.position === pos && p.year === year
+                    );
+
+                    if (picks.length > 0) {
+                        return picks.reduce((sum, p) => sum + p.draftRound, 0) / picks.length;
+                    }
+                    return null;
+                });
+
+                return {
+                    label: pos,
+                    data: data,
+                    borderColor: `hsl(${index * 90}, 70%, 50%)`,
+                    backgroundColor: `hsla(${index * 90}, 70%, 50%, 0.1)`,
+                    tension: 0.3
+                };
+            });
+
+            const years = [...new Set(draftData.picks.map(p => p.year))].sort();
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Average Draft Position by Year',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            reverse: true,
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: 'Average Draft Round',
+                                color: '#a0a9c4'
+                            }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createPositionStatsTable() {
+            const stats = Object.entries(draftData.drafters).map(([name, drafter]) => {
+                const positionSuccess = {};
+
+                ['QB', 'RB', 'WR', 'TE'].forEach(pos => {
+                    const picks = draftData.picks.filter(p =>
+                        p.owner === name && p.position === pos
+                    );
+
+                    if (picks.length > 0) {
+                        const avgValue = picks.reduce((sum, p) => sum + p.valueScore, 0) / picks.length;
+                        positionSuccess[pos] = {
+                            count: picks.length,
+                            avgValue: avgValue
+                        };
+                    } else {
+                        positionSuccess[pos] = { count: 0, avgValue: 0 };
+                    }
+                });
+
+                return {
+                    name: name,
+                    qb: positionSuccess.QB,
+                    rb: positionSuccess.RB,
+                    wr: positionSuccess.WR,
+                    te: positionSuccess.TE
+                };
+            });
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Drafter</th>
+                        <th>QB Success</th>
+                        <th>RB Success</th>
+                        <th>WR Success</th>
+                        <th>TE Success</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${stats.map(drafter => `
+                        <tr>
+                            <td>${drafter.name}</td>
+                            <td class="${drafter.qb.avgValue > 0 ? 'trend-up' : 'trend-down'}">
+                                ${(drafter.qb.avgValue * 100).toFixed(0)}% (${drafter.qb.count})
+                            </td>
+                            <td class="${drafter.rb.avgValue > 0 ? 'trend-up' : 'trend-down'}">
+                                ${(drafter.rb.avgValue * 100).toFixed(0)}% (${drafter.rb.count})
+                            </td>
+                            <td class="${drafter.wr.avgValue > 0 ? 'trend-up' : 'trend-down'}">
+                                ${(drafter.wr.avgValue * 100).toFixed(0)}% (${drafter.wr.count})
+                            </td>
+                            <td class="${drafter.te.avgValue > 0 ? 'trend-up' : 'trend-down'}">
+                                ${(drafter.te.avgValue * 100).toFixed(0)}% (${drafter.te.count})
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('positionStats').innerHTML = tableHTML;
+            setTimeout(() => makeSortable('positionStats'), 0);
+        }
+
+        function loadStrategyAnalysis() {
+            // Calculate strategy success rates
+            Object.keys(draftData.strategies).forEach(strategy => {
+                const strategyData = draftData.strategies[strategy];
+                const avgRank = strategyData.users.reduce((sum, u) => sum + u.finalRank, 0) / strategyData.users.length;
+                strategyData.successRate = (13 - avgRank) / 12; // Convert rank to success rate
+            });
+
+            // Display strategy stats
+            const sortedStrategies = Object.entries(draftData.strategies)
+                .sort((a, b) => b[1].successRate - a[1].successRate);
+
+            const statsHTML = sortedStrategies.slice(0, 4).map(([strategy, data]) => `
+                <div class="stat-card">
+                    <div class="stat-label">${strategy}</div>
+                    <div class="stat-value">${(data.successRate * 100).toFixed(0)}%</div>
+                    <div class="stat-trend">Used ${data.count} times</div>
+                </div>
+            `).join('');
+
+            document.getElementById('strategyStats').innerHTML = statsHTML;
+
+            createStrategyChart();
+            createStrategyTable();
+        }
+
+        function createStrategyChart() {
+            const ctx = document.getElementById('strategyChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            const strategies = Object.keys(draftData.strategies);
+            const counts = strategies.map(s => draftData.strategies[s].count);
+            const successRates = strategies.map(s => draftData.strategies[s].successRate * 100);
+
+            new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Draft Strategies',
+                        data: strategies.map((s, i) => ({
+                            x: counts[i],
+                            y: successRates[i],
+                            label: s
+                        })),
+                        backgroundColor: 'rgba(251, 146, 60, 0.6)',
+                        borderColor: 'rgba(251, 146, 60, 1)',
+                        pointRadius: 8,
+                        pointHoverRadius: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Strategy Usage vs Success Rate',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return `${point.label}: ${point.x} uses, ${point.y.toFixed(1)}% success`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: 'Success Rate (%)',
+                                color: '#a0a9c4'
+                            }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: 'Times Used',
+                                color: '#a0a9c4'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createStrategyTable() {
+            const strategyOwners = {};
+
+            // Group by owner
+            Object.values(draftData.drafters).forEach(drafter => {
+                const strategyCounts = {};
+                drafter.strategies.forEach(strategy => {
+                    strategyCounts[strategy] = (strategyCounts[strategy] || 0) + 1;
+                });
+
+                const primaryStrategy = Object.entries(strategyCounts)
+                    .sort((a, b) => b[1] - a[1])[0];
+
+                strategyOwners[drafter.name] = {
+                    primary: primaryStrategy ? primaryStrategy[0] : 'None',
+                    all: strategyCounts,
+                    avgGrade: drafter.avgDraftGrade
+                };
+            });
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Drafter</th>
+                        <th>Primary Strategy</th>
+                        <th>All Strategies Used</th>
+                        <th>Draft Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${Object.entries(strategyOwners).map(([name, data]) => `
+                        <tr>
+                            <td>${name}</td>
+                            <td>${data.primary}</td>
+                            <td>${Object.entries(data.all).map(([s, c]) => `${s} (${c})`).join(', ')}</td>
+                            <td class="grade-${getLetterGrade(data.avgGrade).toLowerCase()}">
+                                ${getLetterGrade(data.avgGrade)}
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('strategyTable').innerHTML = tableHTML;
+            setTimeout(() => makeSortable('strategyTable'), 0);
+        }
+
+        function loadTrends() {
+            const metricSelect = document.getElementById('trendMetric');
+            metricSelect.addEventListener('change', updateTrends);
+            updateTrends();
+        }
+
+        function updateTrends() {
+            const metric = document.getElementById('trendMetric').value;
+            createTrendsChart(metric);
+            createYearlyTable();
+        }
+
+        function createTrendsChart(metric) {
+            const ctx = document.getElementById('trendsChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            const years = [...new Set(draftData.picks.map(p => p.year))].sort();
+            const owners = Object.keys(draftData.drafters);
+
+            const datasets = owners.map((owner, index) => {
+                const data = years.map(year => {
+                    const yearPicks = draftData.picks.filter(p =>
+                        p.owner === owner && p.year === year
+                    );
+
+                    if (yearPicks.length === 0) return null;
+
+                    switch(metric) {
+                        case 'adp':
+                            return yearPicks.reduce((sum, p) => sum + p.draftRound, 0) / yearPicks.length;
+                        case 'success':
+                            const goodPicks = yearPicks.filter(p => p.valueScore > 0).length;
+                            return (goodPicks / yearPicks.length) * 100;
+                        case 'retention':
+                            // For now, we'll use games played as a proxy for retention
+                            const avgGames = yearPicks.reduce((sum, p) => sum + (p.gamesPlayed || 0), 0) / yearPicks.length;
+                            return (avgGames / 16) * 100; // Percentage of season
+                        default:
+                            return 0;
+                    }
+                });
+
+                return {
+                    label: owner,
+                    data: data,
+                    borderColor: `hsl(${index * 360 / owners.length}, 70%, 50%)`,
+                    backgroundColor: `hsla(${index * 360 / owners.length}, 70%, 50%, 0.1)`,
+                    tension: 0.3
+                };
+            });
+
+            const yAxisTitle = metric === 'adp' ? 'Average Draft Position' :
+                             metric === 'success' ? 'Success Rate (%)' :
+                             'Retention Rate (%)';
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: `${yAxisTitle} by Year`,
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: {
+                            labels: { color: '#ffffff' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            reverse: metric === 'adp',
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: yAxisTitle,
+                                color: '#a0a9c4'
+                            }
+                        },
+                        x: {
+                            ticks: { color: '#a0a9c4' },
+                            grid: { color: '#1e2433' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createYearlyTable() {
+            const years = [...new Set(draftData.picks.map(p => p.year))].sort((a, b) => b - a);
+
+            const yearlyStats = years.map(year => {
+                const yearPicks = draftData.picks.filter(p => p.year === year);
+                const successfulPicks = yearPicks.filter(p => p.valueScore > 0.2);
+                const busts = yearPicks.filter(p => p.valueScore < -0.3);
+
+                // Find best pick of the year
+                const bestPick = yearPicks.reduce((best, pick) =>
+                    pick.valueScore > best.valueScore ? pick : best
+                );
+
+                return {
+                    year: year,
+                    totalPicks: yearPicks.length,
+                    successRate: (successfulPicks.length / yearPicks.length * 100).toFixed(1),
+                    bustRate: (busts.length / yearPicks.length * 100).toFixed(1),
+                    bestPick: bestPick,
+                    avgPoints: (yearPicks.reduce((sum, p) => sum + p.seasonPoints, 0) / yearPicks.length).toFixed(1)
+                };
+            });
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Total Picks</th>
+                        <th>Success Rate</th>
+                        <th>Bust Rate</th>
+                        <th>Avg Points</th>
+                        <th>Best Pick</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${yearlyStats.map(year => `
+                        <tr>
+                            <td>${year.year}</td>
+                            <td>${year.totalPicks}</td>
+                            <td class="trend-up">${year.successRate}%</td>
+                            <td class="trend-down">${year.bustRate}%</td>
+                            <td>${year.avgPoints}</td>
+                            <td>${year.bestPick.playerName} (${year.bestPick.owner})</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('yearlyTable').innerHTML = tableHTML;
+            setTimeout(() => makeSortable('yearlyTable'), 0);
+        }
+
+        function loadCorrelation() {
+            createCorrelationChart();
+            displayCorrelationStats();
+            createDraftPositionTable();
+        }
+
+        function createCorrelationChart() {
+            const ctx = document.getElementById('correlationChart').getContext('2d');
+
+            // Clear existing chart
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
+            // Get data points for scatter plot
+            const dataPoints = [];
+            Object.values(draftData.drafters).forEach(drafter => {
+                drafter.drafts.forEach(draft => {
+                    dataPoints.push({
+                        x: draft.draftPosition,
+                        y: draft.finalRank,
+                        label: drafter.name
+                    });
+                });
+            });
+
+            new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Draft Position vs Final Rank',
+                        data: dataPoints,
+                        backgroundColor: dataPoints.map(p => {
+                            if (p.y === 1) return 'rgba(74, 222, 128, 0.8)';
+                            if (p.y <= 4) return 'rgba(74, 158, 255, 0.6)';
+                            if (p.y <= 8) return 'rgba(251, 191, 36, 0.6)';
+                            return 'rgba(239, 68, 68, 0.6)';
+                        }),
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Draft Position vs Final Standing',
+                            color: '#ffffff',
+                            font: { size: 18 }
+                        },
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return `${point.label}: Draft #${point.x}, Finished #${point.y}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            reverse: true,
+                            ticks: {
+                                color: '#a0a9c4',
+                                stepSize: 1
+                            },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: 'Final Standing',
+                                color: '#a0a9c4'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#a0a9c4',
+                                stepSize: 1
+                            },
+                            grid: { color: '#1e2433' },
+                            title: {
+                                display: true,
+                                text: 'Draft Position',
+                                color: '#a0a9c4'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayCorrelationStats() {
+            // Calculate correlation statistics
+            let totalDrafts = 0;
+            let draftBeatFinal = 0; // Times draft position beat final rank
+            let topHalfDraftToPlayoffs = 0;
+            let bottomHalfDraftToPlayoffs = 0;
+
+            Object.values(draftData.drafters).forEach(drafter => {
+                drafter.drafts.forEach(draft => {
+                    totalDrafts++;
+                    if (draft.draftPosition > draft.finalRank) draftBeatFinal++;
+
+                    if (draft.draftPosition <= 6 && draft.finalRank <= 6) topHalfDraftToPlayoffs++;
+                    if (draft.draftPosition > 6 && draft.finalRank <= 6) bottomHalfDraftToPlayoffs++;
+                });
+            });
+
+            const statsHTML = `
+                <div class="stat-card">
+                    <div class="stat-label">Draft Outperformed Final</div>
+                    <div class="stat-value">${((draftBeatFinal / totalDrafts) * 100).toFixed(0)}%</div>
+                    <div class="stat-trend">Draft position better than final rank</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Top Half Draft → Playoffs</div>
+                    <div class="stat-value">${topHalfDraftToPlayoffs}</div>
+                    <div class="stat-trend">Drafted 1-6, finished 1-6</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Bottom Half Draft → Playoffs</div>
+                    <div class="stat-value">${bottomHalfDraftToPlayoffs}</div>
+                    <div class="stat-trend">Drafted 7-12, finished 1-6</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Draft Correlation</div>
+                    <div class="stat-value">Weak</div>
+                    <div class="stat-trend">Draft ≠ Destiny</div>
+                </div>
+            `;
+
+            document.getElementById('correlationStats').innerHTML = statsHTML;
+        }
+
+        function createDraftPositionTable() {
+            const positions = draftData.correlations.positions;
+            const positionStats = Object.entries(positions).map(([pos, data]) => {
+                const avgFinal = data.finals.reduce((sum, f) => sum + f, 0) / data.finals.length;
+                return {
+                    position: parseInt(pos),
+                    avgFinal: avgFinal,
+                    championships: data.championships,
+                    championshipRate: (data.championships / data.total * 100).toFixed(1),
+                    playoffs: data.playoffs,
+                    playoffRate: (data.playoffs / data.total * 100).toFixed(1),
+                    total: data.total
+                };
+            }).sort((a, b) => a.position - b.position);
+
+            const tableHTML = `
+                <thead>
+                    <tr>
+                        <th>Draft Position</th>
+                        <th>Avg Final</th>
+                        <th>Championships</th>
+                        <th>Championship %</th>
+                        <th>Playoffs</th>
+                        <th>Playoff %</th>
+                        <th>Sample Size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${positionStats.map(pos => `
+                        <tr>
+                            <td>#${pos.position}</td>
+                            <td>${pos.avgFinal.toFixed(1)}</td>
+                            <td>${pos.championships}</td>
+                            <td class="${pos.championshipRate > 10 ? 'trend-up' : ''}">${pos.championshipRate}%</td>
+                            <td>${pos.playoffs}</td>
+                            <td class="${pos.playoffRate > 50 ? 'trend-up' : 'trend-down'}">${pos.playoffRate}%</td>
+                            <td>${pos.total}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+
+            document.getElementById('draftPositionTable').innerHTML = tableHTML;
+            setTimeout(() => makeSortable('draftPositionTable'), 0);
+        }
+
+        // Sortable table functionality
+        function makeSortable(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+
+            const headers = table.querySelectorAll('th');
+            let currentSort = { column: -1, ascending: true };
+
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const tbody = table.querySelector('tbody');
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                    currentSort.ascending = currentSort.column === index ? !currentSort.ascending : true;
+                    currentSort.column = index;
+
+                    // Remove sort classes from all headers
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+
+                    // Add sort class to current header
+                    header.classList.add(currentSort.ascending ? 'sort-asc' : 'sort-desc');
+
+                    // Sort rows
+                    rows.sort((a, b) => {
+                        const aValue = a.cells[index].textContent.trim();
+                        const bValue = b.cells[index].textContent.trim();
+
+                        // Try to parse as number first
+                        const aNum = parseFloat(aValue.replace(/[^0-9.-]/g, ''));
+                        const bNum = parseFloat(bValue.replace(/[^0-9.-]/g, ''));
+
+                        if (!isNaN(aNum) && !isNaN(bNum)) {
+                            return currentSort.ascending ? aNum - bNum : bNum - aNum;
+                        }
+
+                        // Otherwise sort as string
+                        return currentSort.ascending ?
+                            aValue.localeCompare(bValue) :
+                            bValue.localeCompare(aValue);
+                    });
+
+                    // Re-append sorted rows
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        }
+    </script>
+</body>
+</html>
