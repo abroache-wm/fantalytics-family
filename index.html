@@ -822,6 +822,7 @@
         const owner = processedData.owners[ownerName];
         let expectedWins = 0;
         let actualWins = owner.totalWins;
+        let totalGamesAnalyzed = 0;
 
         // Calculate expected wins based on points scored
         owner.seasons.forEach(season => {
@@ -835,44 +836,89 @@
                 if (!weeklyScores[week]) weeklyScores[week] = [];
 
                 if (game.home.pointsByScoringPeriod?.[week]) {
-                    weeklyScores[week].push(game.home.pointsByScoringPeriod[week]);
+                    weeklyScores[week].push({
+                        score: game.home.pointsByScoringPeriod[week],
+                        teamId: game.home.teamId
+                    });
                 }
                 if (game.away.pointsByScoringPeriod?.[week]) {
-                    weeklyScores[week].push(game.away.pointsByScoringPeriod[week]);
+                    weeklyScores[week].push({
+                        score: game.away.pointsByScoringPeriod[week],
+                        teamId: game.away.teamId
+                    });
                 }
             });
 
             // Calculate expected wins for this owner this season
             const ownerMatchups = processedData.matchups.filter(m =>
-                m.year === year && (m.homeOwner === ownerName || m.awayOwner === ownerName) && !m.isPlayoff
+                m.year === year &&
+                (m.homeOwner === ownerName || m.awayOwner === ownerName) &&
+                !m.isPlayoff
             );
 
             ownerMatchups.forEach(matchup => {
-                const ownerScore = matchup.homeOwner === ownerName ? matchup.homeScore : matchup.awayScore;
+                const isHome = matchup.homeOwner === ownerName;
+                const ownerScore = isHome ? matchup.homeScore : matchup.awayScore;
+                const ownerTeamId = isHome ? matchup.homeTeamId : matchup.awayTeamId;
+
                 const weekScores = weeklyScores[matchup.week] || [];
 
-                // Remove the owner's own score from the pool
-                const otherTeamScores = weekScores.filter(score => Math.abs(score - ownerScore) > 0.01);
+                // Get all OTHER teams' scores (excluding this owner's team)
+                const otherTeamScores = weekScores
+                    .filter(entry => entry.teamId !== ownerTeamId)
+                    .map(entry => entry.score);
 
                 if (otherTeamScores.length > 0) {
-                    // Calculate win probability: what percentage of other teams would this score have beaten?
+                    // How many teams would this score have beaten?
                     const beatenTeams = otherTeamScores.filter(score => ownerScore > score).length;
                     const winProbability = beatenTeams / otherTeamScores.length;
 
-                    // Each week's expected wins is the probability of winning
                     expectedWins += winProbability;
+                    totalGamesAnalyzed++;
                 }
             });
         });
 
+        // Calculate luck metrics
+        const luckDiff = actualWins - expectedWins;
+
+        // Calculate luck percentage - how much did luck affect your win total?
+        // Positive = lucky (won more than expected), Negative = unlucky
+        let luckPct = 0;
+        if (totalGamesAnalyzed > 0) {
+            // As a percentage of games played
+            luckPct = (luckDiff / totalGamesAnalyzed) * 100;
+        }
+
+        // Calculate a luck rating (A+ to F)
+        let luckRating = 'C';
+        if (luckDiff > totalGamesAnalyzed * 0.15) {
+            luckRating = 'A+';
+        } else if (luckDiff > totalGamesAnalyzed * 0.10) {
+            luckRating = 'A';
+        } else if (luckDiff > totalGamesAnalyzed * 0.05) {
+            luckRating = 'B';
+        } else if (luckDiff > totalGamesAnalyzed * -0.05) {
+            luckRating = 'C';
+        } else if (luckDiff > totalGamesAnalyzed * -0.10) {
+            luckRating = 'D';
+        } else {
+            luckRating = 'F';
+        }
+
         processedData.luckAnalysis[ownerName] = {
             actualWins: actualWins,
-            expectedWins: expectedWins,
-            luckDiff: actualWins - expectedWins,
-            luckPct: expectedWins > 0 ? ((actualWins - expectedWins) / expectedWins) * 100 : 0
+            expectedWins: Math.round(expectedWins * 10) / 10, // Round to 1 decimal
+            luckDiff: Math.round(luckDiff * 10) / 10,
+            luckPct: Math.round(luckPct * 10) / 10, // Percentage of games affected by luck
+            luckRating: luckRating,
+            gamesAnalyzed: totalGamesAnalyzed,
+
+            // Additional helpful metrics
+            winPct: totalGamesAnalyzed > 0 ? (actualWins / totalGamesAnalyzed) * 100 : 0,
+            expectedWinPct: totalGamesAnalyzed > 0 ? (expectedWins / totalGamesAnalyzed) * 100 : 0
         };
-        });
-        }
+    });
 
         function initializeDashboard() {
             // Setup tab navigation
