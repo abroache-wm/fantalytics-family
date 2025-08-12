@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -247,6 +248,92 @@
             color: var(--accent-red);
         }
 
+        .h2h-cell.clickable {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .h2h-cell.clickable:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .sortable th {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .sortable th:hover {
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+        }
+
+        .sortable th:after {
+            content: '↕';
+            position: absolute;
+            right: 8px;
+            opacity: 0.5;
+        }
+
+        .sortable th.sort-asc:after {
+            content: '↑';
+            opacity: 1;
+        }
+
+        .sortable th.sort-desc:after {
+            content: '↓';
+            opacity: 1;
+        }
+
+        .bracket-container {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .bracket-round {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 40px;
+        }
+
+        .bracket-round h4 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        .bracket-matchup {
+            background: var(--bg-accent);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            min-width: 200px;
+        }
+
+        .bracket-team {
+            padding: 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bracket-team.winner {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .bracket-team.loser {
+            color: var(--text-secondary);
+        }
+
+        .bracket-score {
+            margin-left: 10px;
+        }
+
         .loader {
             text-align: center;
             padding: 50px;
@@ -259,26 +346,6 @@
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
-        }
-
-        #fileInput {
-            display: none;
-        }
-
-        .file-upload-btn {
-            background: var(--accent-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-            transition: background 0.3s ease;
-        }
-
-        .file-upload-btn:hover {
-            background: var(--accent-purple);
         }
 
         .power-ranking {
@@ -315,6 +382,36 @@
             border-radius: 8px;
             cursor: pointer;
         }
+
+        .algorithm-explanation {
+            background: var(--bg-accent);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .algorithm-explanation h3 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .algorithm-explanation ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .algorithm-explanation li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .algorithm-explanation li:before {
+            content: "•";
+            color: var(--accent-blue);
+            position: absolute;
+            left: -15px;
+        }
     </style>
 </head>
 <body>
@@ -345,7 +442,7 @@
                 </div>
                 <div class="table-container">
                     <h2>All-Time Standings</h2>
-                    <table id="allTimeStandings"></table>
+                    <table id="allTimeStandings" class="sortable"></table>
                 </div>
             </div>
 
@@ -381,17 +478,46 @@
             <div class="tab-content" id="power">
                 <h2>Power Rankings</h2>
                 <p class="subtitle">Algorithm-based rankings considering multiple factors</p>
+
+                <div class="algorithm-explanation">
+                    <h3>Power Ranking Algorithm</h3>
+                    <p>The Power Score is calculated using the following weighted factors:</p>
+                    <ul>
+                        <li><strong>Championships (25%)</strong> - Each championship adds significant value</li>
+                        <li><strong>Win Percentage (20%)</strong> - Overall winning percentage across all seasons</li>
+                        <li><strong>Points Per Game (20%)</strong> - Average points scored per game</li>
+                        <li><strong>Playoff Success (15%)</strong> - Playoff appearances and performance</li>
+                        <li><strong>Consistency (10%)</strong> - How consistent scoring is week to week</li>
+                        <li><strong>Recent Form (10%)</strong> - Performance over the last 3 seasons</li>
+                    </ul>
+                    <p style="margin-top: 15px;">Formula: Power Score = (Championships × 25) + (Win% × 20) + (PPG/120 × 20) + (Playoff Rate × 15) + (Consistency × 10) + (Recent Win% × 10)</p>
+                </div>
+
                 <div id="powerRankings"></div>
             </div>
 
             <div class="tab-content" id="luck">
                 <h2>Luck Analysis</h2>
                 <p class="subtitle">How lucky or unlucky has each owner been?</p>
+
+                <div class="algorithm-explanation">
+                    <h3>Luck Index Algorithm</h3>
+                    <p>The Luck Index measures the difference between actual wins and expected wins:</p>
+                    <ul>
+                        <li><strong>Expected Wins</strong> - For each game, we calculate what percentage of all teams that week you would have beaten with your score</li>
+                        <li><strong>Actual Wins</strong> - Your actual win/loss record</li>
+                        <li><strong>Luck Differential</strong> - Actual Wins minus Expected Wins</li>
+                        <li><strong>Positive values</strong> indicate you've been lucky (won more than expected)</li>
+                        <li><strong>Negative values</strong> indicate you've been unlucky (won less than expected)</li>
+                    </ul>
+                    <p style="margin-top: 15px;">Example: If you scored 120 points in Week 1 and that would have beaten 8 out of 12 teams, your expected wins for that week is 0.67</p>
+                </div>
+
                 <div class="chart-container">
                     <canvas id="luckChart"></canvas>
                 </div>
                 <div class="table-container">
-                    <table id="luckTable"></table>
+                    <table id="luckTable" class="sortable"></table>
                 </div>
             </div>
 
@@ -411,10 +537,34 @@
             </div>
 
             <div class="tab-content" id="playoffs">
+                <h2>Postseason Performance</h2>
+                <p class="subtitle">Winners bracket, losers bracket, and championship analysis</p>
+
+                <div class="filter-controls">
+                    <label>View:
+                        <select id="playoffView">
+                            <option value="all">All Postseason</option>
+                            <option value="winners">Winners Bracket Only</option>
+                            <option value="losers">Losers Bracket Only</option>
+                        </select>
+                    </label>
+                </div>
+
                 <div class="stats-grid" id="playoffStats"></div>
+
                 <div class="table-container">
-                    <h2>Playoff Performance</h2>
-                    <table id="playoffTable"></table>
+                    <h3>Postseason Performance by Bracket</h3>
+                    <table id="playoffTable" class="sortable"></table>
+                </div>
+
+                <div class="bracket-container" id="bracketVisual" style="margin-top: 30px;">
+                    <h3>Playoff Brackets by Year</h3>
+                    <div class="filter-controls">
+                        <label>Year:
+                            <select id="bracketYear"></select>
+                        </label>
+                    </div>
+                    <div id="bracketDisplay"></div>
                 </div>
             </div>
         </div>
@@ -609,40 +759,58 @@
                 const totalGames = owner.totalWins + owner.totalLosses;
                 const winPct = totalGames > 0 ? owner.totalWins / totalGames : 0;
                 const avgPointsFor = totalGames > 0 ? owner.totalPointsFor / totalGames : 0;
-                const avgPointsAgainst = totalGames > 0 ? owner.totalPointsAgainst / totalGames : 0;
-                const pointDiff = avgPointsFor - avgPointsAgainst;
 
-                // Calculate consistency
-                const seasonPoints = owner.seasons.map(s => s.pointsFor / (s.wins + s.losses));
+                // Championship value - heavily weighted (25% of score)
+                const championshipScore = owner.championships * 25;
+
+                // Win percentage (20% of score)
+                const winPctScore = winPct * 20;
+
+                // Points per game normalized (20% of score)
+                const ppgScore = (avgPointsFor / 120) * 20; // Assuming 120 is a good PPG
+
+                // Playoff success rate (15% of score)
+                const playoffRate = owner.seasons.length > 0 ?
+                    owner.playoffAppearances / owner.seasons.length : 0;
+                const playoffScore = playoffRate * 15;
+
+                // Consistency (10% of score)
+                const seasonPoints = owner.seasons.map(s => {
+                    const games = s.wins + s.losses;
+                    return games > 0 ? s.pointsFor / games : 0;
+                });
                 const avgPPG = seasonPoints.reduce((a, b) => a + b, 0) / seasonPoints.length;
                 const variance = seasonPoints.reduce((sum, ppg) => sum + Math.pow(ppg - avgPPG, 2), 0) / seasonPoints.length;
-                const consistency = 1 / (1 + Math.sqrt(variance) / avgPPG);
+                const consistency = avgPPG > 0 ? 1 / (1 + Math.sqrt(variance) / avgPPG) : 0;
+                const consistencyScore = consistency * 10;
 
-                // Calculate recent performance (last 2 years weighted more)
-                const recentSeasons = owner.seasons.slice(-2);
-                const recentWinPct = recentSeasons.length > 0 ?
-                    recentSeasons.reduce((sum, s) => sum + s.wins, 0) /
-                    recentSeasons.reduce((sum, s) => sum + s.wins + s.losses, 0) : 0;
+                // Recent performance - last 3 years (10% of score)
+                const recentSeasons = owner.seasons.slice(-3);
+                const recentWins = recentSeasons.reduce((sum, s) => sum + s.wins, 0);
+                const recentLosses = recentSeasons.reduce((sum, s) => sum + s.losses, 0);
+                const recentWinPct = (recentWins + recentLosses) > 0 ?
+                    recentWins / (recentWins + recentLosses) : 0;
+                const recentScore = recentWinPct * 10;
 
-                // Power score formula
-                const powerScore = (
-                    winPct * 0.3 +
-                    (avgPointsFor / 120) * 0.25 +  // Normalize to ~1.0
-                    (pointDiff / 10) * 0.15 +       // Normalize point differential
-                    consistency * 0.15 +
-                    recentWinPct * 0.1 +
-                    (owner.championships / owner.seasons.length) * 0.05
-                ) * 100;
+                // Total power score
+                const powerScore = championshipScore + winPctScore + ppgScore +
+                                 playoffScore + consistencyScore + recentScore;
 
                 return {
                     owner: ownerName,
                     powerScore: powerScore,
+                    championshipScore: championshipScore,
+                    winPctScore: winPctScore,
+                    ppgScore: ppgScore,
+                    playoffScore: playoffScore,
+                    consistencyScore: consistencyScore,
+                    recentScore: recentScore,
+                    // Raw stats for display
                     winPct: winPct,
                     avgPointsFor: avgPointsFor,
-                    avgPointsAgainst: avgPointsAgainst,
-                    consistency: consistency,
                     championships: owner.championships,
-                    playoffPct: owner.playoffAppearances / owner.seasons.length
+                    playoffPct: playoffRate,
+                    consistency: consistency
                 };
             });
 
@@ -676,7 +844,7 @@
 
                     // Calculate expected wins for this owner this season
                     const ownerMatchups = processedData.matchups.filter(m =>
-                        m.year === year && (m.homeOwner === ownerName || m.awayOwner === ownerName)
+                        m.year === year && (m.homeOwner === ownerName || m.awayOwner === ownerName) && !m.isPlayoff
                     );
 
                     ownerMatchups.forEach(matchup => {
@@ -734,9 +902,11 @@
             const totalPoints = processedData.matchups.reduce((sum, m) => sum + m.homeScore + m.awayScore, 0);
             const avgPoints = totalPoints / (totalGames * 2);
 
-            // Calculate total weeks played
-            const totalWeeks = processedData.matchups.filter(m => !m.isPlayoff).length;
-            const avgWeeklyPoints = totalPoints / (totalWeeks * 2);
+            // Calculate total weeks played (regular season only)
+            const regularSeasonGames = processedData.matchups.filter(m => !m.isPlayoff);
+            const totalWeeks = regularSeasonGames.length;
+            const regularSeasonPoints = regularSeasonGames.reduce((sum, m) => sum + m.homeScore + m.awayScore, 0);
+            const avgWeeklyPoints = regularSeasonPoints / (totalWeeks * 2);
 
             const highestScore = Math.max(...processedData.matchups.map(m => Math.max(m.homeScore, m.awayScore)));
             const highestScoreGame = processedData.matchups.find(m =>
@@ -792,6 +962,10 @@
         function createSeasonPointsChart() {
             const ctx = document.getElementById('seasonPointsChart').getContext('2d');
 
+            // Clear existing chart if any
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
+
             // Prepare data
             const years = [...new Set(processedData.matchups.map(m => m.year))].sort();
             const ownerNames = Object.keys(processedData.owners);
@@ -845,6 +1019,53 @@
             });
         }
 
+        // Add sortable table functionality
+        function makeSortable(tableId) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+
+            const headers = table.querySelectorAll('th');
+            let currentSort = { column: -1, ascending: true };
+
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const tbody = table.querySelector('tbody');
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+                    currentSort.ascending = currentSort.column === index ? !currentSort.ascending : true;
+                    currentSort.column = index;
+
+                    // Remove sort classes from all headers
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+
+                    // Add sort class to current header
+                    header.classList.add(currentSort.ascending ? 'sort-asc' : 'sort-desc');
+
+                    // Sort rows
+                    rows.sort((a, b) => {
+                        const aValue = a.cells[index].textContent.trim();
+                        const bValue = b.cells[index].textContent.trim();
+
+                        // Try to parse as number first
+                        const aNum = parseFloat(aValue.replace(/[^0-9.-]/g, ''));
+                        const bNum = parseFloat(bValue.replace(/[^0-9.-]/g, ''));
+
+                        if (!isNaN(aNum) && !isNaN(bNum)) {
+                            return currentSort.ascending ? aNum - bNum : bNum - aNum;
+                        }
+
+                        // Otherwise sort as string
+                        return currentSort.ascending ?
+                            aValue.localeCompare(bValue) :
+                            bValue.localeCompare(aValue);
+                    });
+
+                    // Re-append sorted rows
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        }
+
         function createAllTimeStandingsTable() {
             const standings = Object.keys(processedData.owners).map(ownerName => {
                 const owner = processedData.owners[ownerName];
@@ -892,6 +1113,9 @@
             `;
 
             document.getElementById('allTimeStandings').innerHTML = tableHTML;
+
+            // Make table sortable
+            setTimeout(() => makeSortable('allTimeStandings'), 0);
         }
 
         function loadOwners() {
@@ -951,39 +1175,116 @@
         function loadH2H() {
             const owners = Object.keys(processedData.owners).sort();
 
-            // Create grid
-            let gridHTML = `<div class="h2h-grid" style="grid-template-columns: auto repeat(${owners.length}, 1fr);">`;
-
-            // Header row
-            gridHTML += '<div class="h2h-cell header"></div>';
+            // Calculate win percentages for sorting
+            const h2hData = {};
             owners.forEach(owner => {
-                gridHTML += `<div class="h2h-cell header">${owner.split(' ')[0]}</div>`;
-            });
-
-            // Data rows
-            owners.forEach(owner1 => {
-                gridHTML += `<div class="h2h-cell header">${owner1}</div>`;
-                owners.forEach(owner2 => {
-                    if (owner1 === owner2) {
-                        gridHTML += '<div class="h2h-cell">-</div>';
-                    } else {
-                        const record = processedData.h2hRecords[owner1][owner2];
-                        const wins = record.wins;
-                        const losses = record.losses;
-                        const total = wins + losses;
-                        const winPct = total > 0 ? wins / total : 0;
-
-                        let cellClass = 'h2h-cell';
-                        if (winPct > 0.5) cellClass += ' win';
-                        else if (winPct < 0.5) cellClass += ' loss';
-
-                        gridHTML += `<div class="${cellClass}">${wins}-${losses}</div>`;
+                h2hData[owner] = {
+                    totalWins: 0,
+                    totalLosses: 0,
+                    records: {}
+                };
+                owners.forEach(opponent => {
+                    if (owner !== opponent) {
+                        const record = processedData.h2hRecords[owner][opponent];
+                        h2hData[owner].records[opponent] = record;
+                        h2hData[owner].totalWins += record.wins;
+                        h2hData[owner].totalLosses += record.losses;
                     }
                 });
+                h2hData[owner].winPct = h2hData[owner].totalWins /
+                    (h2hData[owner].totalWins + h2hData[owner].totalLosses);
             });
 
-            gridHTML += '</div>';
-            document.getElementById('h2hMatrix').innerHTML = gridHTML;
+            // Create sortable grid
+            let currentSort = { column: null, ascending: true };
+
+            function renderH2HGrid(sortedOwners = owners) {
+                let gridHTML = `<div class="h2h-grid" style="grid-template-columns: auto repeat(${sortedOwners.length}, 1fr);">`;
+
+                // Header row with clickable names
+                gridHTML += '<div class="h2h-cell header">vs</div>';
+                sortedOwners.forEach(owner => {
+                    const winPct = (h2hData[owner].winPct * 100).toFixed(1);
+                    gridHTML += `<div class="h2h-cell header clickable" onclick="sortH2HByColumn('${owner}')" title="Click to sort by record vs ${owner}">
+                        ${owner.split(' ')[0]}<br><small>${winPct}%</small>
+                    </div>`;
+                });
+
+                // Data rows
+                sortedOwners.forEach(owner1 => {
+                    const owner1WinPct = (h2hData[owner1].winPct * 100).toFixed(1);
+                    gridHTML += `<div class="h2h-cell header clickable" onclick="sortH2HByRow('${owner1}')" title="Click to sort by ${owner1}'s records">
+                        ${owner1}<br><small>${owner1WinPct}%</small>
+                    </div>`;
+
+                    sortedOwners.forEach(owner2 => {
+                        if (owner1 === owner2) {
+                            gridHTML += '<div class="h2h-cell">-</div>';
+                        } else {
+                            const record = h2hData[owner1].records[owner2];
+                            const wins = record.wins;
+                            const losses = record.losses;
+                            const total = wins + losses;
+                            const winPct = total > 0 ? wins / total : 0;
+
+                            let cellClass = 'h2h-cell';
+                            if (winPct > 0.5) cellClass += ' win';
+                            else if (winPct < 0.5) cellClass += ' loss';
+
+                            const pct = total > 0 ? (winPct * 100).toFixed(0) : '0';
+                            gridHTML += `<div class="${cellClass}" title="${owner1} vs ${owner2}: ${wins}-${losses} (${pct}%)">
+                                ${wins}-${losses}<br><small>${pct}%</small>
+                            </div>`;
+                        }
+                    });
+                });
+
+                gridHTML += '</div>';
+                document.getElementById('h2hMatrix').innerHTML = gridHTML;
+            }
+
+            // Make sort functions available globally
+            window.sortH2HByColumn = function(opponent) {
+                const sorted = [...owners].sort((a, b) => {
+                    if (a === opponent) return -1;
+                    if (b === opponent) return 1;
+
+                    const aRecord = h2hData[a].records[opponent];
+                    const bRecord = h2hData[b].records[opponent];
+                    const aWinPct = aRecord ? aRecord.wins / (aRecord.wins + aRecord.losses) : 0;
+                    const bWinPct = bRecord ? bRecord.wins / (bRecord.wins + bRecord.losses) : 0;
+
+                    return currentSort.column === opponent && !currentSort.ascending ?
+                        aWinPct - bWinPct : bWinPct - aWinPct;
+                });
+
+                currentSort = {
+                    column: opponent,
+                    ascending: currentSort.column === opponent ? !currentSort.ascending : false
+                };
+                renderH2HGrid(sorted);
+            };
+
+            window.sortH2HByRow = function(owner) {
+                const sorted = [...owners].sort((a, b) => {
+                    if (a === owner) return -1;
+                    if (b === owner) return 1;
+
+                    const aWinPct = h2hData[a].winPct;
+                    const bWinPct = h2hData[b].winPct;
+
+                    return currentSort.column === owner && !currentSort.ascending ?
+                        aWinPct - bWinPct : bWinPct - aWinPct;
+                });
+
+                currentSort = {
+                    column: owner,
+                    ascending: currentSort.column === owner ? !currentSort.ascending : false
+                };
+                renderH2HGrid(sorted);
+            };
+
+            renderH2HGrid();
         }
 
         function loadRecords() {
@@ -1114,9 +1415,17 @@
                             <div class="mini-stat-label">PPG</div>
                         </div>
                         <div class="mini-stat">
-                            <div class="mini-stat-value">${(ranking.consistency * 100).toFixed(0)}%</div>
-                            <div class="mini-stat-label">Consistency</div>
+                            <div class="mini-stat-value">${ranking.championships}</div>
+                            <div class="mini-stat-label">Championships</div>
                         </div>
+                    </div>
+                    <div style="margin-top: 15px; font-size: 0.9em; color: var(--text-secondary);">
+                        Score Breakdown: Championships (${ranking.championshipScore.toFixed(1)}) +
+                        Win% (${ranking.winPctScore.toFixed(1)}) +
+                        PPG (${ranking.ppgScore.toFixed(1)}) +
+                        Playoffs (${ranking.playoffScore.toFixed(1)}) +
+                        Consistency (${ranking.consistencyScore.toFixed(1)}) +
+                        Recent (${ranking.recentScore.toFixed(1)})
                     </div>
                 </div>
             `).join('');
@@ -1126,6 +1435,10 @@
 
         function loadLuckAnalysis() {
             const ctx = document.getElementById('luckChart').getContext('2d');
+
+            // Clear existing chart if any
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) existingChart.destroy();
 
             const luckData = Object.keys(processedData.luckAnalysis).map(owner => ({
                 owner: owner,
@@ -1193,6 +1506,9 @@
                 </tbody>
             `;
             document.getElementById('luckTable').innerHTML = tableHTML;
+
+            // Make table sortable
+            setTimeout(() => makeSortable('luckTable'), 0);
         }
 
         function loadTrends() {
@@ -1271,40 +1587,120 @@
         }
 
         function loadPlayoffs() {
-            // Calculate playoff stats
+            // Setup playoff view filter
+            const viewSelect = document.getElementById('playoffView');
+            viewSelect.addEventListener('change', () => updatePlayoffDisplay());
+
+            // Setup year selector for brackets
+            const years = [...new Set(processedData.matchups.filter(m => m.isPlayoff).map(m => m.year))].sort((a, b) => b - a);
+            const yearSelect = document.getElementById('bracketYear');
+            yearSelect.innerHTML = years.map(year => `<option value="${year}">${year}</option>`).join('');
+            yearSelect.addEventListener('change', () => displayBracket(parseInt(yearSelect.value)));
+
+            updatePlayoffDisplay();
+            if (years.length > 0) {
+                displayBracket(years[0]);
+            }
+        }
+
+        function updatePlayoffDisplay() {
+            const view = document.getElementById('playoffView').value;
+
+            // Separate playoff games by bracket type
             const playoffGames = processedData.matchups.filter(m => m.isPlayoff);
+            const winnersBracketGames = [];
+            const losersBracketGames = [];
+            const championshipGames = [];
+
+            // Categorize games by week and type
+            playoffGames.forEach(game => {
+                // Week 15 is typically first round, 16 is semis/consolation, 17 is finals/3rd place
+                if (game.week === 17) {
+                    // Championship or 3rd place game
+                    if (isChampionshipGame(game)) {
+                        championshipGames.push(game);
+                    } else {
+                        losersBracketGames.push(game);
+                    }
+                } else if (game.week === 16) {
+                    // Semi-finals or consolation semis
+                    if (isWinnersBracketGame(game)) {
+                        winnersBracketGames.push(game);
+                    } else {
+                        losersBracketGames.push(game);
+                    }
+                } else {
+                    // First round
+                    winnersBracketGames.push(game);
+                }
+            });
+
+            // Filter based on view
+            let filteredGames = playoffGames;
+            if (view === 'winners') {
+                filteredGames = [...winnersBracketGames, ...championshipGames];
+            } else if (view === 'losers') {
+                filteredGames = losersBracketGames;
+            }
+
+            // Calculate stats by owner
             const playoffStats = {};
 
             Object.keys(processedData.owners).forEach(owner => {
-                const ownerPlayoffGames = playoffGames.filter(m =>
+                const ownerAllPlayoffGames = playoffGames.filter(m =>
                     m.homeOwner === owner || m.awayOwner === owner
                 );
 
-                const wins = ownerPlayoffGames.filter(m => m.winner === owner).length;
-                const losses = ownerPlayoffGames.length - wins;
+                const ownerFilteredGames = filteredGames.filter(m =>
+                    m.homeOwner === owner || m.awayOwner === owner
+                );
+
+                const ownerWinnersGames = [...winnersBracketGames, ...championshipGames].filter(m =>
+                    m.homeOwner === owner || m.awayOwner === owner
+                );
+
+                const ownerLosersGames = losersBracketGames.filter(m =>
+                    m.homeOwner === owner || m.awayOwner === owner
+                );
+
+                const wins = ownerFilteredGames.filter(m => m.winner === owner).length;
+                const losses = ownerFilteredGames.length - wins;
+
+                const winnersWins = ownerWinnersGames.filter(m => m.winner === owner).length;
+                const winnersLosses = ownerWinnersGames.length - winnersWins;
+
+                const losersWins = ownerLosersGames.filter(m => m.winner === owner).length;
+                const losersLosses = ownerLosersGames.length - losersWins;
 
                 playoffStats[owner] = {
-                    games: ownerPlayoffGames.length,
+                    games: ownerFilteredGames.length,
                     wins: wins,
                     losses: losses,
-                    winPct: ownerPlayoffGames.length > 0 ? wins / ownerPlayoffGames.length : 0,
+                    winPct: ownerFilteredGames.length > 0 ? wins / ownerFilteredGames.length : 0,
+                    winnersRecord: `${winnersWins}-${winnersLosses}`,
+                    losersRecord: `${losersWins}-${losersLosses}`,
+                    winnersWinPct: ownerWinnersGames.length > 0 ? winnersWins / ownerWinnersGames.length : 0,
                     appearances: processedData.owners[owner].playoffAppearances,
-                    championships: processedData.owners[owner].championships
+                    championships: processedData.owners[owner].championships,
+                    avgPointsFor: ownerFilteredGames.length > 0 ?
+                        ownerFilteredGames.reduce((sum, g) => {
+                            return sum + (g.homeOwner === owner ? g.homeScore : g.awayScore);
+                        }, 0) / ownerFilteredGames.length : 0
                 };
             });
 
-            // Display playoff overview
-            const totalPlayoffGames = playoffGames.length;
-            const avgPlayoffScore = playoffGames.reduce((sum, g) => sum + g.homeScore + g.awayScore, 0) / (totalPlayoffGames * 2);
+            // Display overview stats
+            const totalGames = filteredGames.length;
+            const avgScore = filteredGames.reduce((sum, g) => sum + g.homeScore + g.awayScore, 0) / (totalGames * 2);
 
             const statsHTML = `
                 <div class="stat-card">
-                    <div class="stat-label">Total Playoff Games</div>
-                    <div class="stat-value">${totalPlayoffGames}</div>
+                    <div class="stat-label">${view === 'all' ? 'Total Postseason' : view === 'winners' ? 'Winners Bracket' : 'Losers Bracket'} Games</div>
+                    <div class="stat-value">${totalGames}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Avg Playoff Score</div>
-                    <div class="stat-value">${avgPlayoffScore.toFixed(1)}</div>
+                    <div class="stat-label">Avg ${view === 'all' ? 'Postseason' : view === 'winners' ? 'Winners Bracket' : 'Losers Bracket'} Score</div>
+                    <div class="stat-value">${avgScore.toFixed(1)}</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Most Championships</div>
@@ -1313,17 +1709,19 @@
             `;
             document.getElementById('playoffStats').innerHTML = statsHTML;
 
-            // Playoff performance table
+            // Create table
             const sortedStats = Object.entries(playoffStats)
-                .sort((a, b) => b[1].winPct - a[1].winPct);
+                .sort((a, b) => b[1].winnersWinPct - a[1].winnersWinPct);
 
             const tableHTML = `
                 <thead>
                     <tr>
                         <th>Owner</th>
                         <th>Appearances</th>
-                        <th>W-L</th>
-                        <th>Win %</th>
+                        <th>Overall W-L</th>
+                        <th>Winners Bracket</th>
+                        <th>Losers Bracket</th>
+                        <th>Avg PF</th>
                         <th>Championships</th>
                         <th>Title %</th>
                     </tr>
@@ -1334,7 +1732,9 @@
                             <td>${owner}</td>
                             <td>${stats.appearances}</td>
                             <td>${stats.wins}-${stats.losses}</td>
-                            <td>${(stats.winPct * 100).toFixed(1)}%</td>
+                            <td class="${stats.winnersWinPct >= 0.5 ? 'trend-up' : 'trend-down'}">${stats.winnersRecord}</td>
+                            <td>${stats.losersRecord}</td>
+                            <td>${stats.avgPointsFor.toFixed(1)}</td>
                             <td>${stats.championships}</td>
                             <td>${stats.appearances > 0 ? (stats.championships / stats.appearances * 100).toFixed(1) : '0.0'}%</td>
                         </tr>
@@ -1342,6 +1742,83 @@
                 </tbody>
             `;
             document.getElementById('playoffTable').innerHTML = tableHTML;
+
+            // Make table sortable
+            setTimeout(() => makeSortable('playoffTable'), 0);
+        }
+
+        function isChampionshipGame(game) {
+            // Logic to determine if it's a championship game
+            // This is simplified - you might need to adjust based on your league structure
+            const yearData = leagueData[game.year];
+            const homeTeam = yearData.teams.find(t => t.id === game.homeTeamId);
+            const awayTeam = yearData.teams.find(t => t.id === game.awayTeamId);
+
+            // If both teams finished top 2, it's likely the championship
+            return homeTeam && awayTeam &&
+                   homeTeam.rankCalculatedFinal <= 2 &&
+                   awayTeam.rankCalculatedFinal <= 2;
+        }
+
+        function isWinnersBracketGame(game) {
+            // Logic to determine if it's a winners bracket game
+            const yearData = leagueData[game.year];
+            const homeTeam = yearData.teams.find(t => t.id === game.homeTeamId);
+            const awayTeam = yearData.teams.find(t => t.id === game.awayTeamId);
+
+            // If both teams had good seeds (top 4-6), likely winners bracket
+            return homeTeam && awayTeam &&
+                   homeTeam.playoffSeed <= 4 &&
+                   awayTeam.playoffSeed <= 4;
+        }
+
+        function displayBracket(year) {
+            const yearGames = processedData.matchups.filter(m => m.isPlayoff && m.year === year);
+            if (yearGames.length === 0) {
+                document.getElementById('bracketDisplay').innerHTML = '<p>No playoff data for this year</p>';
+                return;
+            }
+
+            // Group games by week
+            const gamesByWeek = {};
+            yearGames.forEach(game => {
+                if (!gamesByWeek[game.week]) gamesByWeek[game.week] = [];
+                gamesByWeek[game.week].push(game);
+            });
+
+            // Create bracket visualization
+            let bracketHTML = '<div style="display: flex; overflow-x: auto;">';
+
+            const weeks = Object.keys(gamesByWeek).sort((a, b) => a - b);
+            const roundNames = ['Quarterfinals', 'Semifinals', 'Championship'];
+
+            weeks.forEach((week, index) => {
+                bracketHTML += `
+                    <div class="bracket-round">
+                        <h4>${roundNames[index] || 'Week ' + week}</h4>
+                `;
+
+                gamesByWeek[week].forEach(game => {
+                    const homeWon = game.winner === game.homeOwner;
+                    bracketHTML += `
+                        <div class="bracket-matchup">
+                            <div class="bracket-team ${homeWon ? 'winner' : 'loser'}">
+                                ${game.homeOwner}
+                                <span class="bracket-score">${game.homeScore.toFixed(1)}</span>
+                            </div>
+                            <div class="bracket-team ${!homeWon ? 'winner' : 'loser'}">
+                                ${game.awayOwner}
+                                <span class="bracket-score">${game.awayScore.toFixed(1)}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                bracketHTML += '</div>';
+            });
+
+            bracketHTML += '</div>';
+            document.getElementById('bracketDisplay').innerHTML = bracketHTML;
         }
     </script>
 </body>
