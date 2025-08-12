@@ -102,13 +102,20 @@ class ESPNFantasyDataFetcher:
     def _player_weeks_from_schedule(self, season_data: Dict[str, Any], year: int):
         """
         Build {player_id: {info, weekly_scores}} by fetching each week.
-        This captures ALL players who played ANY week, regardless of trades/drops.
+        Gets ACTUAL player stats regardless of roster position (bench/active).
         """
         player_data: Dict[int, Dict[str, Any]] = {}
         max_week = self._matchup_period_count(season_data)
 
         base_url = self.get_url_for_season(year)
         sep = "&" if "?" in base_url else "?"
+
+        # First, collect all unique player IDs from the draft
+        drafted_players = set()
+        if "draftDetail" in season_data and "picks" in season_data["draftDetail"]:
+            for pick in season_data["draftDetail"]["picks"]:
+                if pick.get("playerId"):
+                    drafted_players.add(pick["playerId"])
 
         for week in range(1, max_week + 1):
             url = f"{base_url}{sep}scoringPeriodId={week}"
@@ -123,53 +130,72 @@ class ESPNFantasyDataFetcher:
                 time.sleep(0.2)
                 continue
 
-            for g in (wdata.get("schedule", []) or []):
-                for side in ("home", "away"):
-                    s = g.get(side) or {}
-                    roster = (s.get("rosterForMatchupPeriod") or s.get("rosterForCurrentScoringPeriod") or {})
+            # Process all teams' rosters to find all players
+            for team in wdata.get("teams", []) or []:
+                roster = team.get("roster", {}) or {}
+                for entry in roster.get("entries", []) or []:
+                    pid = entry.get("playerId")
+                    if not pid:
+                        continue
 
-                    for e in (roster.get("entries", []) or []):
-                        pid = e.get("playerId")
-                        if not pid:
-                            continue
+                    # Initialize player if first time seeing them
+                    if pid not in player_data:
+                        player_data[pid] = {
+                            "player_name": "Unknown",
+                            "position": "Unknown",
+                            "pro_team": 0,
+                            "injury_status": "ACTIVE",
+                            "weekly_scores": {}
+                        }
 
-                        # Initialize player if first time seeing them
-                        if pid not in player_data:
-                            player_data[pid] = {
-                                "player_name": "Unknown",
-                                "position": "Unknown",
-                                "pro_team": 0,
-                                "injury_status": "ACTIVE",
-                                "weekly_scores": {}
-                            }
-
-                        # Update player info if available
-                        if "playerPoolEntry" in e and "player" in e["playerPoolEntry"]:
-                            p = e["playerPoolEntry"]["player"]
+                    # Update player info
+                    if "playerPoolEntry" in entry:
+                        ppe = entry["playerPoolEntry"]
+                        if "player" in ppe:
+                            p = ppe["player"]
                             player_data[pid]["player_name"] = p.get("fullName", "Unknown")
                             player_data[pid]["position"] = self.get_position_from_player(p)
                             player_data[pid]["pro_team"] = p.get("proTeamId", 0)
                             player_data[pid]["injury_status"] = p.get("injuryStatus", "ACTIVE")
 
-                        # Get points for this week
-                        pts = (
-                                e.get("appliedStatTotal")
-                                or e.get("totalPoints")
-                                or (e.get("playerPoolEntry") or {}).get("appliedStatTotal")
-                                or (e.get("playerPoints") or {}).get("appliedTotal")
-                                or 0.0
-                        )
-                        try:
-                            pts = float(pts)
-                        except Exception:
-                            pts = 0.0
+                            # Get actual stats for this scoring period
+                            # Stats are in player -> stats -> scoringPeriodId -> appliedTotal
+                            stats = p.get("stats", []) or []
+                            for stat_entry in stats:
+                                # Look for stats matching this scoring period
+                                if stat_entry.get("scoringPeriodId") == week:
+                                    if stat_entry.get("statSourceId") == 0:  # Real stats (not projections)
+                                        pts = stat_entry.get("appliedTotal", 0.0)
+                                        try:
+                                            pts = float(pts)
+                                        except:
+                                            pts = 0.0
+                                        player_data[pid]["weekly_scores"][week] = pts
+                                        break
 
-                        # Keep max points if player appears multiple times (trades)
-                        prev = player_data[pid]["weekly_scores"].get(week, 0.0)
-                        if pts > prev:
-                            player_data[pid]["weekly_scores"][week] = pts
+                        # Alternative location for applied stats
+                        if week not in player_data[pid]["weekly_scores"]:
+                            # Try the appliedStatTotal at the entry level
+                            applied = ppe.get("appliedStatTotal", 0.0)
+                            try:
+                                applied = float(applied)
+                            except:
+                                applied = 0.0
+                            if applied > 0:
+                                player_data[pid]["weekly_scores"][week] = applied
 
             time.sleep(0.12)
+
+        # Make sure we have all drafted players even if they never appeared on a roster
+        for pid in drafted_players:
+            if pid not in player_data:
+                player_data[pid] = {
+                    "player_name": "Unknown",
+                    "position": "Unknown",
+                    "pro_team": 0,
+                    "injury_status": "DNP",
+                    "weekly_scores": {}
+                }
 
         return player_data, max_week
 
