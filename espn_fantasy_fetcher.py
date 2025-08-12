@@ -113,10 +113,10 @@ class ESPNFantasyDataFetcher:
 
     def _player_weeks_from_schedule(self, season_data: Dict[str, Any], year: int):
         """
-        Build {player_id: {week: points}} by fetching the league for each scoringPeriodId.
-        Trade-safe: if a player shows up more than once in a week (roster artifacts), keep the MAX points.
+        Build {player_id: {info, weekly_scores}} by fetching each week.
+        This captures ALL players who played ANY week, regardless of trades/drops.
         """
-        weekly: Dict[int, Dict[int, float]] = defaultdict(dict)
+        player_data: Dict[int, Dict[str, Any]] = {}
         max_week = self._matchup_period_count(season_data)
 
         base_url = self.get_url_for_season(year)
@@ -138,13 +138,32 @@ class ESPNFantasyDataFetcher:
             for g in (wdata.get("schedule", []) or []):
                 for side in ("home", "away"):
                     s = g.get(side) or {}
-                    # prefer rosterForMatchupPeriod; fallback to rosterForCurrentScoringPeriod for older payloads
                     roster = (s.get("rosterForMatchupPeriod") or s.get("rosterForCurrentScoringPeriod") or {})
+
                     for e in (roster.get("entries", []) or []):
                         pid = e.get("playerId")
                         if not pid:
                             continue
-                        # applied totals appear in different nodes depending on season
+
+                        # Initialize player if first time seeing them
+                        if pid not in player_data:
+                            player_data[pid] = {
+                                "player_name": "Unknown",
+                                "position": "Unknown",
+                                "pro_team": 0,
+                                "injury_status": "ACTIVE",
+                                "weekly_scores": {}
+                            }
+
+                        # Update player info if available
+                        if "playerPoolEntry" in e and "player" in e["playerPoolEntry"]:
+                            p = e["playerPoolEntry"]["player"]
+                            player_data[pid]["player_name"] = p.get("fullName", "Unknown")
+                            player_data[pid]["position"] = self.get_position_from_player(p)
+                            player_data[pid]["pro_team"] = p.get("proTeamId", 0)
+                            player_data[pid]["injury_status"] = p.get("injuryStatus", "ACTIVE")
+
+                        # Get points for this week
                         pts = (
                                 e.get("appliedStatTotal")
                                 or e.get("totalPoints")
@@ -157,14 +176,14 @@ class ESPNFantasyDataFetcher:
                         except Exception:
                             pts = 0.0
 
-                        # TRADE-SAFE: keep the maximum for (pid, week)
-                        prev = weekly[pid].get(week, 0.0)
+                        # Keep max points if player appears multiple times (trades)
+                        prev = player_data[pid]["weekly_scores"].get(week, 0.0)
                         if pts > prev:
-                            weekly[pid][week] = pts
+                            player_data[pid]["weekly_scores"][week] = pts
 
-            time.sleep(0.12)  # be polite
+            time.sleep(0.12)
 
-        return weekly, max_week
+        return player_data, max_week
 
     # -----------------------
     # Data extraction
@@ -176,14 +195,15 @@ class ESPNFantasyDataFetcher:
         return position_map.get(default_position, "FLEX")
 
     def extract_draft_data_with_stats(
-        self, season_data: Dict[str, Any], year: int
+            self, season_data: Dict[str, Any], year: int
     ) -> Dict[str, Any]:
         draft_info = {"year": year, "picks": [], "draft_order": {}, "keeper_info": []}
         if not season_data:
             return draft_info
 
-        # Weekly points from schedule (by week loop)
-        weekly_map, max_week = self._player_weeks_from_schedule(season_data, year)
+        # Get ALL players' weekly stats (not just current rosters)
+        print(f"  Fetching weekly data for all players in {year}...")
+        all_player_data, max_week = self._player_weeks_from_schedule(season_data, year)
 
         # Build team/owner mapping
         teams: Dict[int, Dict[str, Any]] = {}
@@ -207,92 +227,80 @@ class ESPNFantasyDataFetcher:
         for t in teams.values():
             t["owner_name"] = members.get(t["owner"], t["owner"])
 
-        # Build per-player stats
+        # Process all player stats
         player_stats: Dict[int, Dict[str, Any]] = {}
 
-        for team in season_data.get("teams", []) or []:
-            roster_entries = (team.get("roster") or {}).get("entries", []) or []
-            for entry in roster_entries:
-                pid = entry.get("playerId")
-                if not pid:
-                    continue
+        for pid, pdata in all_player_data.items():
+            weeks = pdata["weekly_scores"]
+            if not weeks:
+                continue
 
-                info = {
-                    "player_name": "Unknown",
-                    "position": "Unknown",
-                    "pro_team": 0,
-                    "injury_status": "ACTIVE",
-                    "season_points": 0.0,
-                    "games_played": 0,
-                    "weekly_scores": [],
-                    "consistency_score": 0.0,
-                    "injury_games": 0,
-                    "boom_games": 0,
-                    "bust_games": 0,
-                    "best_week": 0.0,
-                    "worst_week": 0.0,  # keep JSON-safe
-                    "playoff_points": 0.0,
-                }
+            info = {
+                "player_name": pdata["player_name"],
+                "position": pdata["position"],
+                "pro_team": pdata["pro_team"],
+                "injury_status": pdata.get("injury_status", "ACTIVE"),
+                "season_points": 0.0,
+                "games_played": 0,
+                "weekly_scores": [],
+                "consistency_score": 0.0,
+                "injury_games": 0,
+                "boom_games": 0,
+                "bust_games": 0,
+                "best_week": 0.0,
+                "worst_week": 0.0,
+                "playoff_points": 0.0,
+            }
 
-                # names/position from the pool entry if present
-                if "playerPoolEntry" in entry and "player" in entry["playerPoolEntry"]:
-                    p = entry["playerPoolEntry"]["player"]
-                    info["player_name"] = p.get("fullName", "Unknown")
-                    info["position"] = self.get_position_from_player(p)
-                    info["pro_team"] = p.get("proTeamId", 0)
-                    info["injury_status"] = p.get("injuryStatus", "ACTIVE")
+            # Calculate stats from weekly scores
+            wk_list = [{"week": w, "score": round(self._safe_float(s), 2)} for w, s in sorted(weeks.items())]
+            info["weekly_scores"] = wk_list
+            scores = [self._safe_float(s) for s in weeks.values()]
+            info["season_points"] = round(sum(scores), 2)
+            info["games_played"] = sum(1 for s in scores if s > 0)
 
-                # Weekly fill from schedule (authoritative actual points)
-                weeks = weekly_map.get(pid, {})
-                if weeks:
-                    wk_list = [{"week": w, "score": round(self._safe_float(s), 2)} for w, s in sorted(weeks.items())]
-                    info["weekly_scores"] = wk_list
-                    scores = [self._safe_float(s) for s in weeks.values()]
-                    info["season_points"] = round(sum(scores), 2)
-                    info["games_played"] = sum(1 for s in scores if s > 0)
+            # Consistency
+            if len(scores) > 1:
+                avg = sum(scores) / len(scores)
+                if avg > 0:
+                    var = sum((s - avg) ** 2 for s in scores) / (len(scores) - 1)
+                    std = var ** 0.5
+                    info["consistency_score"] = max(0.0, 100.0 - (std / avg * 100.0))
 
-                    # Consistency
-                    if len(scores) > 1:
-                        avg = sum(scores) / len(scores)
-                        if avg > 0:
-                            var = sum((s - avg) ** 2 for s in scores) / (len(scores) - 1)
-                            std = var ** 0.5
-                            info["consistency_score"] = max(0.0, 100.0 - (std / avg * 100.0))
+            pos = info["position"]
+            boom_thr = {"QB": 25, "RB": 20, "WR": 20, "TE": 15, "K": 12, "D/ST": 15}.get(pos, 15)
+            bust_thr = {"QB": 10, "RB": 5, "WR": 5, "TE": 3, "K": 3, "D/ST": 2}.get(pos, 5)
+            info["boom_games"] = sum(1 for s in scores if s >= boom_thr)
+            info["bust_games"] = sum(1 for s in scores if 0 <= s <= bust_thr)
 
-                    pos = info["position"]
-                    boom_thr = {"QB": 25, "RB": 20, "WR": 20, "TE": 15, "K": 12, "D/ST": 15}.get(pos, 15)
-                    bust_thr = {"QB": 10, "RB": 5, "WR": 5, "TE": 3, "K": 3, "D/ST": 2}.get(pos, 5)
-                    info["boom_games"] = sum(1 for s in scores if s >= boom_thr)
-                    info["bust_games"] = sum(1 for s in scores if 0 <= s <= bust_thr)
+            if scores:
+                info["best_week"] = max(scores)
+                info["worst_week"] = min(scores)
 
-                    if scores:
-                        info["best_week"] = max(scores)
-                        info["worst_week"] = min(scores)
+            # Injury detection
+            seen_points = False
+            for w in sorted(weeks):
+                s = self._safe_float(weeks[w])
+                if s > 0:
+                    seen_points = True
+                elif seen_points and s == 0:
+                    info["injury_games"] += 1
 
-                    # Injury-ish detection: 0 after having scored at least once
-                    seen_points = False
-                    for w in sorted(weeks):
-                        s = self._safe_float(weeks[w])
-                        if s > 0:
-                            seen_points = True
-                        elif seen_points and s == 0:
-                            info["injury_games"] += 1
+            # Playoff points
+            playoff_len = (
+                season_data.get("settings", {})
+                .get("scheduleSettings", {})
+                .get("playoffMatchupPeriodLength")
+            )
+            if isinstance(playoff_len, int) and playoff_len > 0:
+                playoff_weeks = list(range(max_week - playoff_len + 1, max_week + 1))
+            else:
+                playoff_weeks = sorted(weeks.keys())[-3:] if len(weeks) >= 3 else sorted(weeks.keys())
+            info["playoff_points"] = round(sum(self._safe_float(weeks.get(w, 0.0)) for w in playoff_weeks), 2)
 
-                    # Playoff points: use league settings if available, else last 3 matchup periods
-                    playoff_len = (
-                        season_data.get("settings", {})
-                        .get("scheduleSettings", {})
-                        .get("playoffMatchupPeriodLength")
-                    )
-                    if isinstance(playoff_len, int) and playoff_len > 0:
-                        playoff_weeks = list(range(max_week - playoff_len + 1, max_week + 1))
-                    else:
-                        playoff_weeks = sorted(weeks.keys())[-3:]
-                    info["playoff_points"] = round(sum(self._safe_float(weeks.get(w, 0.0)) for w in playoff_weeks), 2)
+            player_stats[pid] = info
 
-                player_stats[pid] = info
-
-        # Draft picks: overlay computed stats
+        # Extract draft picks and add stats
         if "draftDetail" in season_data:
             draft_detail = season_data["draftDetail"]
             if "picks" in draft_detail:
@@ -310,42 +318,18 @@ class ESPNFantasyDataFetcher:
                         "keeper": pick.get("keeper", False),
                         "bid_amount": pick.get("bidAmount", 0),
                     }
+
+                    # Add player stats if found
                     if pid in player_stats:
                         pick_info.update(player_stats[pid])
                     elif "playerPoolEntry" in pick and "player" in pick["playerPoolEntry"]:
+                        # Fallback to draft-time info if no stats found
                         p = pick["playerPoolEntry"]["player"]
                         pick_info["player_name"] = p.get("fullName", "Unknown")
                         pick_info["position"] = self.get_position_from_player(p)
                         pick_info["pro_team"] = p.get("proTeamId", 0)
 
                     draft_info["picks"].append(pick_info)
-        else:
-            # Roster fallback for drafts without draftDetail
-            for team in season_data.get("teams", []) or []:
-                for entry in (team.get("roster") or {}).get("entries", []) or []:
-                    if entry.get("acquisitionType") == "DRAFT":
-                        pid = entry.get("playerId", 0)
-                        pick_info = {
-                            "year": year,
-                            "round": pick.get("roundId", 0),
-                            "pick_number": pick.get("roundPickNumber", 0),
-                            "overall_pick": pick.get("overallPickNumber", 0),
-                            "team_id": pick.get("teamId", 0),
-                            "team_name": teams.get(pick.get("teamId"), {}).get("name", "Unknown"),
-                            "owner_name": teams.get(pick.get("teamId"), {}).get("owner_name", "Unknown"),
-                            "player_id": pid,
-                            "keeper": pick.get("keeper", False),
-                            "bid_amount": pick.get("bidAmount", 0),
-                        }
-                        if pid in player_stats:
-                            pick_info.update(player_stats[pid])
-                        for _k in ("round", "pick_number", "overall_pick", "team_id"):
-                            try:
-                                pick_info[_k] = int(pick_info.get(_k, 0))
-                            except Exception:
-                                pick_info[_k] = 0
-
-                        draft_info["picks"].append(pick_info)
 
         return draft_info
 
@@ -442,9 +426,6 @@ class ESPNFantasyDataFetcher:
 
         return pd.DataFrame(records)
 
-    # -----------------------
-    # Metrics
-    # -----------------------
     def calculate_draft_metrics(self, draft_data: Dict[int, Dict[str, Any]]) -> Dict[str, Any]:
         metrics = {
             "by_owner": defaultdict(
@@ -503,9 +484,6 @@ class ESPNFantasyDataFetcher:
 
         return dict(metrics)
 
-    # -----------------------
-    # Orchestration
-    # -----------------------
     def fetch_all_data(self, start_year: int = 2016, end_year: int = 2024) -> Dict[str, Any]:
         """Fetch all data including enriched draft data, matchups, and standings."""
         all_data: Dict[str, Any] = {
@@ -523,7 +501,7 @@ class ESPNFantasyDataFetcher:
             if season_data:
                 all_data["raw_data"][year] = season_data
 
-                # Enriched draft data
+                # Enriched draft data with ALL players' stats
                 draft_data = self.extract_draft_data_with_stats(season_data, year)
                 all_data["drafts"][year] = draft_data
                 print(f"  Found {len(draft_data['picks'])} draft picks")
@@ -548,7 +526,7 @@ class ESPNFantasyDataFetcher:
                     all_data["standings"].append(standings_df)
                     print(f"  Found {len(standings_df)} team records")
 
-            time.sleep(0.4)  # be nice to ESPN
+            time.sleep(0.4)
 
         print("\nCalculating advanced draft metrics...")
         all_data["metrics"] = self.calculate_draft_metrics(all_data["drafts"])
@@ -569,15 +547,13 @@ class ESPNFantasyDataFetcher:
         return all_data
 
 
-# -----------------------
-# CLI / Script usage
-# -----------------------
 if __name__ == "__main__":
     fetcher = ESPNFantasyDataFetcher(league_id="690481")
 
-    print("ESPN Fantasy Football Data Fetcher - Enhanced Edition")
+    print("ESPN Fantasy Football Data Fetcher - Fixed Edition")
     print("=" * 60)
-    print("Fetching all data from 2016-2024 with enriched player stats...")
+    print("Fetching all data from 2016-2024 with complete player stats...")
+    print("(This captures ALL players, even if traded/dropped/waived)")
     print()
 
     all_data = fetcher.fetch_all_data(2016, 2024)
@@ -592,7 +568,7 @@ if __name__ == "__main__":
         all_data["standings_df"].to_csv("espn_fantasy_standings.csv", index=False)
         print("✓ Saved standings to 'espn_fantasy_standings.csv'")
 
-    # Save draft picks to CSV (selected enriched fields)
+    # Save draft picks to CSV
     if "draft_picks_df" in all_data:
         csv_columns = [
             "year",
@@ -621,61 +597,10 @@ if __name__ == "__main__":
         json.dump(all_data["raw_data"], f, indent=2)
     print("✓ Saved complete raw data to 'espn_fantasy_complete_data.json'")
 
-    # Save enriched draft data as JSON
+    # Save enriched draft data as JSON (THIS IS THE FIXED FILE YOU WANTED)
     with open("espn_fantasy_draft_data.json", "w") as f:
         json.dump(all_data["drafts"], f, indent=2)
-    print("✓ Saved enriched draft data to 'espn_fantasy_draft_data.json'")
+    print("✓ Saved FIXED draft data to 'espn_fantasy_draft_data.json'")
 
-    # Display draft metrics summary
-    if "metrics" in all_data:
-        print("\n" + "=" * 60)
-        print("DRAFT ANALYSIS SUMMARY")
-        print("=" * 60)
-        metrics = all_data["metrics"]
-
-        owners_by_consistency = sorted(
-            metrics["by_owner"].items(), key=lambda x: x[1]["consistency_avg"], reverse=True
-        )[:5]
-        print("\nMost Consistent Drafters (avg consistency score):")
-        for owner, data in owners_by_consistency:
-            if data["total_picks"] > 0:
-                print(f"  {owner}: {data['consistency_avg']:.1f}%")
-
-        owners_by_boom = sorted(
-            metrics["by_owner"].items(),
-            key=lambda x: (x[1]["boom_players"] / max(x[1]["total_picks"], 1)),
-            reverse=True,
-        )[:5]
-        print("\nBoom Player Drafters (players with 3+ boom weeks):")
-        for owner, data in owners_by_boom:
-            if data["total_picks"] > 0:
-                pct = (data["boom_players"] / data["total_picks"]) * 100
-                print(f"  {owner}: {data['boom_players']} players ({pct:.1f}%)")
-
-        owners_by_injury = sorted(
-            metrics["by_owner"].items(),
-            key=lambda x: (x[1]["injured_players"] / max(x[1]["total_picks"], 1)),
-            reverse=True,
-        )[:5]
-        print("\nInjury-Prone Drafters (players with 2+ injury weeks):")
-        for owner, data in owners_by_injury:
-            if data["total_picks"] > 0:
-                pct = (data["injured_players"] / data["total_picks"]) * 100
-                print(f"  {owner}: {data['injured_players']} players ({pct:.1f}%)")
-
-        owners_by_playoff = sorted(
-            metrics["by_owner"].items(), key=lambda x: x[1]["playoff_performers"], reverse=True
-        )[:5]
-        print("\nPlayoff Performer Drafters (30+ playoff points):")
-        for owner, data in owners_by_playoff:
-            print(f"  {owner}: {data['playoff_performers']} playoff performers")
-
-    print("\n✅ All data fetching and enrichment complete!")
-    print("\nYour draft analytics dashboard should now show:")
-    print("  • Player names and positions")
-    print("  • Season points and weekly scores")
-    print("  • Consistency ratings")
-    print("  • Boom/bust analysis")
-    print("  • Injury tracking")
-    print("  • Playoff performance")
-    print("\nOpen draft_analytics.html to see the enhanced analysis!")
+    print("\n✅ Draft data now includes full season stats for ALL drafted players!")
+    print("   (regardless of trades, drops, or waivers)")

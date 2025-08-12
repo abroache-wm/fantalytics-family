@@ -14,7 +14,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2019,2,13,Kappa Sig's Basement Floor,Patrick Espe,Dalvin Cook,RB,265.9,14.0,62.47577559280119,7.0,0.0,0.0,27.800000000000004,5.800000000000001,0.0
 2019,2,14,Team Jimbalaya,James Brunner,Todd Gurley II,RB,227.6,16.0,60.20278255539026,1.0,2.0,0.0,22.5,3.4000000000000004,16.8
 2019,2,15,Fk it chuck it Game time shit,Jack Lyden,Tyreek Hill,WR,170.6,12.0,46.43332877058505,4.0,1.0,0.0,27.5,3.1,9.7
-2019,2,16,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2019,2,16,Clowntown Jabronis,Aaron Broache,Antonio Brown,WR,14.1,1.0,0.0,0.0,0.0,0.0,14.100000000000001,14.100000000000001,0.0
 2019,2,17,Daniel Jones,Jackson Dunn,Travis Kelce,TE,236.7,17.0,69.47979594069605,7.0,0.0,0.0,20.200000000000003,7.4,17.4
 2019,2,18,Team Hodder,Reed Hodder,Keenan Allen,WR,209.0,17.0,34.819356927739776,2.0,2.0,0.0,37.1,3.8,9.1
 2019,2,19,Max Top Vic Bottom,Jack Gola,Michael Thomas,WR,345.6,17.0,67.05302854566128,10.0,0.0,0.0,35.7,7.800000000000001,25.6
@@ -61,26 +61,26 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2019,5,60,Kappa Sig's Basement Floor,Patrick Espe,Calvin Ridley,WR,129.1,10.0,43.116210518725254,2.0,2.0,0.0,24.3,1.1,0.0
 2019,6,61,Kappa Sig's Basement Floor,Patrick Espe,Tevin Coleman,RB,77.3,6.0,7.149988340986113,1.0,1.0,0.0,36.8,4.6000000000000005,0.0
 2019,6,62,Team Jimbalaya,James Brunner,Allen Robinson II,WR,185.3,15.0,44.887107877351426,2.0,2.0,0.0,25.200000000000003,1.1,8.3
-2019,6,63,Fk it chuck it Game time shit,Jack Lyden,A.J. Green,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,6,63,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
 2019,6,64,Clowntown Jabronis,Aaron Broache,Kenyan Drake,RB,191.0,9.0,36.191933150834686,5.0,1.0,0.0,39.1,3.7,31.9
 2019,6,65,Daniel Jones,Jackson Dunn,Christian Kirk,WR,89.3,11.0,0.0,1.0,5.0,0.0,34.8,0.9,0.9
 2019,6,66,Team Hodder,Reed Hodder,Miles Sanders,RB,219.7,14.0,45.71313168316215,5.0,1.0,0.0,32.2,4.7,24.1
-2019,6,67,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
-2019,6,68,Team Johnson,Matthew Johnson,,,,,,,,,,,
-2019,6,69,Team Miceli,Charlie Em,,,,,,,,,,,
+2019,6,67,Max Top Vic Bottom,Jack Gola,Evan Engram,TE,87.4,8.0,33.00859149743039,2.0,1.0,0.0,23.1,1.1,0.0
+2019,6,68,Team Johnson,Matthew Johnson,Alshon Jeffery,WR,46.6,5.0,36.06014402949842,0.0,1.0,0.0,19.6,4.800000000000001,0.0
+2019,6,69,Team Miceli,Charlie Em,Baker Mayfield,QB,63.76,4.0,63.41033685665341,0.0,1.0,0.0,23.58,9.4,0.0
 2019,6,70,Team Curtis,Jack Curtis,Robby Anderson,WR,1.5,1.0,0.0,0.0,1.0,0.0,1.5,1.5,0.0
 2019,6,71,One-sided Pestering,max raphael,Austin Ekeler,RB,246.4,16.0,43.71711651880494,4.0,1.0,0.0,36.400000000000006,4.300000000000001,9.4
 2019,6,72,Call 4 Marlons Diggs Pics,Marlon Primous,Latavius Murray,RB,74.1,3.0,56.52907651455884,2.0,0.0,0.0,32.2,12.4,0.0
 2019,7,73,Call 4 Marlons Diggs Pics,Marlon Primous,Hunter Henry,TE,98.0,12.0,55.1631382144595,0.0,2.0,0.0,12.700000000000001,1.9000000000000004,7.0
-2019,7,74,One-sided Pestering,max raphael,LeSean McCoy,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,7,74,One-sided Pestering,max raphael,,,,,,,,,,,
 2019,7,75,Team Curtis,Jack Curtis,Tarik Cohen,RB,14.3,2.0,10.004591485348485,0.0,1.0,0.0,11.700000000000001,2.6,0.0
-2019,7,76,Team Miceli,Charlie Em,,,,,,,,,,,
+2019,7,76,Team Miceli,Charlie Em,Derrius Guice,RB,27.2,4.0,34.88321200772131,0.0,2.0,0.0,13.4,4.2,0.0
 2019,7,77,Team Johnson,Matthew Johnson,Will Fuller V,WR,25.7,3.0,3.958025194891121,0.0,1.0,0.0,17.5,1.3,0.0
 2019,7,78,Max Top Vic Bottom,Jack Gola,Marvin Jones Jr.,WR,129.0,10.0,15.938422309081943,2.0,2.0,0.0,38.3,2.7,0.0
 2019,7,79,Team Hodder,Reed Hodder,Aaron Rodgers,QB,266.58,16.0,41.26365513216159,4.0,4.0,0.0,43.760000000000005,8.34,8.34
 2019,7,80,Daniel Jones,Jackson Dunn,Devin Singletary,RB,110.9,11.0,40.87532814170463,1.0,1.0,0.0,21.5,2.6,5.3
 2019,7,81,Clowntown Jabronis,Aaron Broache,Josh Gordon,WR,23.2,2.0,60.98721207246634,0.0,0.0,0.0,14.8,8.4,0.0
-2019,7,82,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2019,7,82,Fk it chuck it Game time shit,Jack Lyden,Peyton Barber,RB,6.5,1.0,0.0,0.0,0.0,0.0,6.500000000000001,6.500000000000001,0.0
 2019,7,83,Team Jimbalaya,James Brunner,Sammy Watkins,WR,32.9,5.0,66.12953286567465,0.0,2.0,0.0,8.9,3.6,0.0
 2019,7,84,Kappa Sig's Basement Floor,Patrick Espe,Carson Wentz,QB,249.7,14.0,69.5339795856017,1.0,2.0,0.0,25.02,6.840000000000001,18.96
 2019,8,85,Kappa Sig's Basement Floor,Patrick Espe,Sterling Shepard,WR,93.2,7.0,67.49369709594586,0.0,0.0,0.0,16.6,7.2,16.6
@@ -89,20 +89,20 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2019,8,88,Clowntown Jabronis,Aaron Broache,Larry Fitzgerald,WR,71.3,9.0,47.529178075563195,0.0,2.0,0.0,12.9,1.7000000000000002,0.0
 2019,8,89,Daniel Jones,Jackson Dunn,Dede Westbrook,WR,61.6,10.0,16.45189872272097,0.0,5.0,0.0,14.700000000000001,0.8,1.5
 2019,8,90,Team Hodder,Reed Hodder,Emmanuel Sanders,WR,64.1,8.0,27.436755621920057,1.0,3.0,0.0,20.700000000000003,1.9,7.6
-2019,8,91,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2019,8,91,Max Top Vic Bottom,Jack Gola,Cam Newton,QB,16.68,2.0,49.46814849074552,0.0,1.0,0.0,11.32,5.36,0.0
 2019,8,92,Team Johnson,Matthew Johnson,Jared Cook,TE,150.3,11.0,47.11739750875024,5.0,0.0,0.0,21.9,3.5,21.9
-2019,8,93,Team Miceli,Charlie Em,Corey Davis,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,8,93,Team Miceli,Charlie Em,,,,,,,,,,,
 2019,8,94,Team Curtis,Jack Curtis,Curtis Samuel,WR,41.0,5.0,42.2950333447757,0.0,2.0,0.0,14.9,4.5,0.0
 2019,8,95,One-sided Pestering,max raphael,,,,,,,,,,,
-2019,8,96,Call 4 Marlons Diggs Pics,Marlon Primous,Rashaad Penny,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,8,96,Call 4 Marlons Diggs Pics,Marlon Primous,,,,,,,,,,,
 2019,9,97,Call 4 Marlons Diggs Pics,Marlon Primous,,,,,,,,,,,
 2019,9,98,One-sided Pestering,max raphael,Royce Freeman,RB,14.7,1.0,0.0,0.0,0.0,0.0,14.7,14.7,0.0
 2019,9,99,Team Curtis,Jack Curtis,Vance McDonald,TE,8.1,4.0,0.38431824141436266,0.0,3.0,0.0,5.0,0.6,0.0
-2019,9,100,Team Miceli,Charlie Em,,,,,,,,,,,
+2019,9,100,Team Miceli,Charlie Em,Delanie Walker,TE,44.0,6.0,4.185095795233423,1.0,2.0,0.0,20.0,0.9,0.0
 2019,9,101,Team Johnson,Matthew Johnson,Courtland Sutton,WR,139.92,11.0,53.050830503242466,2.0,1.0,0.0,21.4,3.2,0.0
-2019,9,102,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2019,9,102,Max Top Vic Bottom,Jack Gola,Jordan Howard,RB,27.0,2.0,86.38164717714797,0.0,0.0,0.0,14.8,12.2,0.0
 2019,9,103,Team Hodder,Reed Hodder,,,,,,,,,,,
-2019,9,104,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2019,9,104,Daniel Jones,Jackson Dunn,Marquez Valdes-Scantling,WR,35.5,4.0,11.362894894363578,1.0,1.0,0.0,20.3,2.3,0.0
 2019,9,105,Clowntown Jabronis,Aaron Broache,Jared Goff,QB,220.42,13.0,55.75098107540285,1.0,3.0,0.0,25.020000000000003,1.12,20.12
 2019,9,106,Fk it chuck it Game time shit,Jack Lyden,Jameis Winston,QB,312.82,17.0,54.68403673687733,4.0,1.0,0.0,34.74,7.06,11.0
 2019,9,107,Team Jimbalaya,James Brunner,Carlos Hyde,RB,116.9,12.0,53.48643376356695,0.0,2.0,0.0,17.5,2.7,10.2
@@ -110,18 +110,18 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2019,10,109,Kappa Sig's Basement Floor,Patrick Espe,Austin Hooper,TE,169.6,14.0,53.465223492566736,4.0,0.0,0.0,21.700000000000003,3.5,11.7
 2019,10,110,Team Jimbalaya,James Brunner,Drew Brees,QB,87.1,5.0,68.09691486009373,0.0,0.0,0.0,22.439999999999998,11.26,0.0
 2019,10,111,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2019,10,112,Clowntown Jabronis,Aaron Broache,Adrian Peterson,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,10,112,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2019,10,113,Daniel Jones,Jackson Dunn,Kyler Murray,QB,157.24,9.0,55.97149191393135,3.0,1.0,0.0,28.799999999999997,6.960000000000001,12.72
-2019,10,114,Team Hodder,Reed Hodder,Anthony Miller,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2019,10,115,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2019,10,114,Team Hodder,Reed Hodder,,,,,,,,,,,
+2019,10,115,Max Top Vic Bottom,Jack Gola,Geronimo Allison,WR,3.8,1.0,0.0,0.0,1.0,0.0,3.8000000000000003,3.8000000000000003,0.0
 2019,10,116,Team Johnson,Matthew Johnson,Dion Lewis,RB,27.6,3.0,100.0,0.0,0.0,0.0,9.200000000000001,9.200000000000001,9.2
 2019,10,117,Team Miceli,Charlie Em,Jaylen Samuels,RB,36.0,4.0,49.823357293945726,0.0,1.0,0.0,13.0,4.7,0.0
 2019,10,118,Team Curtis,Jack Curtis,,,,,,,,,,,
-2019,10,119,One-sided Pestering,max raphael,,,,,,,,,,,
+2019,10,119,One-sided Pestering,max raphael,Ben Roethlisberger,QB,3.0,1.0,0.0,0.0,1.0,0.0,3.0,3.0,0.0
 2019,10,120,Call 4 Marlons Diggs Pics,Marlon Primous,Michael Gallup,WR,133.9,13.0,53.5703021311909,0.0,2.0,0.0,19.3,1.1,12.3
 2019,11,121,Call 4 Marlons Diggs Pics,Marlon Primous,Lamar Jackson,QB,413.14,15.0,74.72648125561074,9.0,0.0,0.0,37.08,11.440000000000001,29.82
 2019,11,122,One-sided Pestering,max raphael,Russell Wilson,QB,306.1,16.0,46.85501923119168,4.0,1.0,0.0,41.34,9.5,10.96
-2019,11,123,Team Curtis,Jack Curtis,Tony Pollard,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,11,123,Team Curtis,Jack Curtis,,,,,,,,,,,
 2019,11,124,Team Miceli,Charlie Em,,,,,,,,,,,
 2019,11,125,Team Johnson,Matthew Johnson,,,,,,,,,,,
 2019,11,126,Max Top Vic Bottom,Jack Gola,John Brown,WR,119.82,10.0,39.4553208677489,1.0,1.0,0.0,30.200000000000003,4.1,0.0
@@ -132,15 +132,15 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2019,11,131,Team Jimbalaya,James Brunner,Jamison Crowder,WR,108.0,10.0,30.868331252328147,1.0,3.0,0.0,24.0,1.8,8.0
 2019,11,132,Kappa Sig's Basement Floor,Patrick Espe,,,,,,,,,,,
 2019,12,133,Kappa Sig's Basement Floor,Patrick Espe,Philip Rivers,QB,54.56,4.0,66.44822936078927,0.0,0.0,0.0,20.4,10.28,0.0
-2019,12,134,Team Jimbalaya,James Brunner,,,,,,,,,,,
-2019,12,135,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2019,12,134,Team Jimbalaya,James Brunner,Kenny Stills,WR,3.7,1.0,0.0,0.0,1.0,0.0,3.7,3.7,0.0
+2019,12,135,Fk it chuck it Game time shit,Jack Lyden,Mohamed Sanu Sr.,WR,3.6,1.0,0.0,0.0,1.0,0.0,3.6,3.6,0.0
 2019,12,136,Clowntown Jabronis,Aaron Broache,Bears D/ST,D/ST,85.0,12.0,19.808345331622306,2.0,1.0,0.0,20.0,1.0,0.0
 2019,12,137,Daniel Jones,Jackson Dunn,,,,,,,,,,,
 2019,12,138,Team Hodder,Reed Hodder,,,,,,,,,,,
 2019,12,139,Max Top Vic Bottom,Jack Gola,Ronald Jones II,RB,35.9,5.0,39.81739598526395,0.0,1.0,0.0,14.200000000000001,2.4,0.0
 2019,12,140,Team Johnson,Matthew Johnson,,,,,,,,,,,
 2019,12,141,Team Miceli,Charlie Em,DK Metcalf,WR,95.8,10.0,34.338775199734144,1.0,2.0,0.0,24.0,1.1,0.0
-2019,12,142,Team Curtis,Jack Curtis,,,,,,,,,,,
+2019,12,142,Team Curtis,Jack Curtis,Greg Zuerlein,K,105.0,14.0,39.517608693772225,3.0,4.0,0.0,14.0,1.0,0.0
 2019,12,143,One-sided Pestering,max raphael,DeVante Parker,WR,115.2,6.0,53.972947266489754,2.0,1.0,0.0,31.4,3.8000000000000003,19.6
 2019,12,144,Call 4 Marlons Diggs Pics,Marlon Primous,Chase Edmonds,RB,2.3,1.0,0.0,0.0,1.0,0.0,2.3,2.3,0.0
 2019,13,145,Call 4 Marlons Diggs Pics,Marlon Primous,,,,,,,,,,,
@@ -149,50 +149,50 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2019,13,148,Team Miceli,Charlie Em,Giovani Bernard,RB,3.9,1.0,0.0,0.0,1.0,0.0,3.9,3.9,0.0
 2019,13,149,Team Johnson,Matthew Johnson,Vikings D/ST,D/ST,136.0,14.0,37.653569024229185,2.0,0.0,0.0,26.0,3.0,8.0
 2019,13,150,Max Top Vic Bottom,Jack Gola,Broncos D/ST,D/ST,50.0,5.0,43.431457505076196,1.0,0.0,0.0,20.0,6.0,8.0
-2019,13,151,Team Hodder,Reed Hodder,,,,,,,,,,,
+2019,13,151,Team Hodder,Reed Hodder,Rams D/ST,D/ST,15.0,2.0,52.85954792089683,0.0,0.0,0.0,10.0,5.0,0.0
 2019,13,152,Daniel Jones,Jackson Dunn,,,,,,,,,,,
 2019,13,153,Clowntown Jabronis,Aaron Broache,Justin Tucker,K,149.0,17.0,61.19769186947735,4.0,0.0,0.0,16.0,4.0,7.0
 2019,13,154,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2019,13,155,Team Jimbalaya,James Brunner,,,,,,,,,,,
-2019,13,156,Kappa Sig's Basement Floor,Patrick Espe,,,,,,,,,,,
-2019,14,157,Kappa Sig's Basement Floor,Patrick Espe,,,,,,,,,,,
+2019,13,155,Team Jimbalaya,James Brunner,Eric Ebron,TE,44.7,8.0,43.28781842214099,0.0,2.0,0.0,11.3,1.3,0.0
+2019,13,156,Kappa Sig's Basement Floor,Patrick Espe,Jaguars D/ST,D/ST,63.0,7.0,13.219448045481613,2.0,3.0,0.0,19.0,1.0,0.0
+2019,14,157,Kappa Sig's Basement Floor,Patrick Espe,Jake Elliott,K,34.0,6.0,75.88952760950683,0.0,0.0,0.0,7.0,4.0,0.0
 2019,14,158,Team Jimbalaya,James Brunner,Harrison Butker,K,164.0,16.0,60.57120112851336,5.0,0.0,0.0,18.0,4.0,10.0
 2019,14,159,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
 2019,14,160,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
-2019,14,161,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2019,14,161,Daniel Jones,Jackson Dunn,Ka'imi Fairbairn,K,65.0,10.0,47.57679923010033,1.0,2.0,0.0,12.0,2.0,0.0
 2019,14,162,Team Hodder,Reed Hodder,,,,,,,,,,,
-2019,14,163,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2019,14,163,Max Top Vic Bottom,Jack Gola,Stephen Gostkowski,K,32.0,4.0,32.299679961367005,1.0,0.0,0.0,16.0,4.0,0.0
 2019,14,164,Team Johnson,Matthew Johnson,Wil Lutz,K,171.0,17.0,66.56806417062968,5.0,1.0,0.0,17.0,3.0,9.0
 2019,14,165,Team Miceli,Charlie Em,,,,,,,,,,,
 2019,14,166,Team Curtis,Jack Curtis,Josh Allen,QB,169.42,8.0,68.00897875941318,2.0,0.0,0.0,33.84,10.74,0.0
 2019,14,167,One-sided Pestering,max raphael,,,,,,,,,,,
 2019,14,168,Call 4 Marlons Diggs Pics,Marlon Primous,Dak Prescott,QB,54.88,2.0,69.28311650239195,1.0,0.0,0.0,33.4,21.479999999999997,0.0
 2019,15,169,Call 4 Marlons Diggs Pics,Marlon Primous,Cowboys D/ST,D/ST,40.0,6.0,0.0,1.0,1.0,0.0,19.0,1.0,0.0
-2019,15,170,One-sided Pestering,max raphael,,,,,,,,,,,
+2019,15,170,One-sided Pestering,max raphael,Jimmy Graham,TE,3.7,1.0,0.0,0.0,0.0,0.0,3.7,3.7,0.0
 2019,15,171,Team Curtis,Jack Curtis,Browns D/ST,D/ST,30.0,5.0,19.205335709727848,0.0,2.0,0.0,12.0,1.0,0.0
-2019,15,172,Team Miceli,Charlie Em,,,,,,,,,,,
-2019,15,173,Team Johnson,Matthew Johnson,,,,,,,,,,,
+2019,15,172,Team Miceli,Charlie Em,Eagles D/ST,D/ST,49.0,3.0,0.2710879765663776,1.0,0.0,0.0,35.0,5.0,0.0
+2019,15,173,Team Johnson,Matthew Johnson,Sam Darnold,QB,44.66,3.0,59.7758676038393,0.0,0.0,0.0,21.700000000000003,10.46,0.0
 2019,15,174,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2019,15,175,Team Hodder,Reed Hodder,,,,,,,,,,,
-2019,15,176,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2019,15,176,Daniel Jones,Jackson Dunn,Mitchell Trubisky,QB,8.22,1.0,0.0,0.0,1.0,0.0,8.22,8.22,0.0
 2019,15,177,Clowntown Jabronis,Aaron Broache,Tom Brady,QB,257.68,16.0,62.09466648651296,0.0,2.0,0.0,24.66,3.7,17.24
 2019,15,178,Fk it chuck it Game time shit,Jack Lyden,Patriots D/ST,D/ST,213.0,13.0,42.662747517550315,7.0,0.0,0.0,35.0,3.0,7.0
-2019,15,179,Team Jimbalaya,James Brunner,,,,,,,,,,,
+2019,15,179,Team Jimbalaya,James Brunner,Texans D/ST,D/ST,35.0,5.0,30.74743060833815,0.0,1.0,0.0,12.0,1.0,0.0
 2019,15,180,Kappa Sig's Basement Floor,Patrick Espe,,,,,,,,,,,
 2019,16,181,Kappa Sig's Basement Floor,Patrick Espe,,,,,,,,,,,
 2019,16,182,Team Jimbalaya,James Brunner,Saints D/ST,D/ST,72.0,8.0,41.205526420786875,2.0,0.0,0.0,17.0,3.0,0.0
-2019,16,183,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2019,16,183,Fk it chuck it Game time shit,Jack Lyden,Aldrick Rosas,K,6.0,2.0,5.71909584179366,0.0,1.0,0.0,5.0,1.0,0.0
 2019,16,184,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2019,16,185,Daniel Jones,Jackson Dunn,Jamaal Williams,RB,40.4,4.0,67.26179071250894,0.0,0.0,0.0,13.9,6.300000000000001,0.0
 2019,16,186,Team Hodder,Reed Hodder,Robbie Gould,K,90.0,11.0,71.17100225274713,0.0,0.0,0.0,11.0,4.0,10.0
 2019,16,187,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2019,16,188,Team Johnson,Matthew Johnson,Greg Olsen,TE,47.2,6.0,2.8871241397056764,1.0,2.0,0.0,22.5,1.5,0.0
-2019,16,189,Team Miceli,Charlie Em,,,,,,,,,,,
-2019,16,190,Team Curtis,Jack Curtis,Alexander Mattison,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2019,16,189,Team Miceli,Charlie Em,Michael Badgley,K,20.0,3.0,68.77501000800801,0.0,0.0,0.0,9.0,5.0,0.0
+2019,16,190,Team Curtis,Jack Curtis,,,,,,,,,,,
 2019,16,191,One-sided Pestering,max raphael,Mason Crosby,K,100.0,13.0,59.796351741000755,1.0,2.0,0.0,12.0,3.0,10.0
-2019,16,192,Call 4 Marlons Diggs Pics,Marlon Primous,,,,,,,,,,,
+2019,16,192,Call 4 Marlons Diggs Pics,Marlon Primous,Eddy Pineiro,K,24.0,3.0,21.93752502002002,1.0,1.0,0.0,15.0,3.0,0.0
 2020,1,1,Team Curtis,Jack Curtis,Christian McCaffrey,RB,81.9,3.0,82.94046736674721,3.0,0.0,0.0,32.1,22.799999999999997,0.0
-2020,1,2,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
+2020,1,2,DeAndre WAPkins,Marlon Primous,Saquon Barkley,RB,12.4,2.0,22.446353031152867,0.0,1.0,0.0,9.6,2.8000000000000003,0.0
 2020,1,3,Team Hodder,Reed Hodder,Ezekiel Elliott,RB,215.9,16.0,50.71971269992105,2.0,1.0,0.0,26.200000000000003,2.4000000000000004,15.9
 2020,1,4,Clowntown Jabronis,Aaron Broache,Dalvin Cook,RB,346.8,16.0,54.950276178339905,8.0,0.0,0.0,47.599999999999994,8.200000000000001,15.5
 2020,1,5,Team Ron Jones Pwns,James Brunner,Derrick Henry,RB,308.2,17.0,40.08175979371643,5.0,0.0,0.0,39.400000000000006,5.4,9.8
@@ -224,7 +224,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,3,31,Fk it chuck it Game time shit,Jack Lyden,James Conner,RB,110.1,9.0,42.01080469437674,1.0,2.0,0.0,22.9,2.7,0.0
 2020,3,32,The Twins,max raphael,Chris Carson,RB,178.8,13.0,57.009952962057646,2.0,1.0,0.0,23.5,4.6000000000000005,9.4
 2020,3,33,Gotham City Ineffective Cop,Riley Bitterli,Amari Cooper,WR,142.7,12.0,35.04263499431872,2.0,3.0,0.0,27.4,1.0,0.0
-2020,3,34,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2020,3,34,Max Top Vic Bottom,Jack Gola,Odell Beckham Jr.,WR,75.32,6.0,2.5428003342338172,1.0,2.0,0.0,35.9,3.5,0.0
 2020,3,35,Daniel Jones,Jackson Dunn,,,,,,,,,,,
 2020,3,36,Vic top Max bottom,Charlie Miceli,Robert Woods,WR,208.3,17.0,46.66419804988611,2.0,1.0,0.0,24.9,4.0,6.9
 2020,4,37,Vic top Max bottom,Charlie Miceli,Patrick Mahomes,QB,412.84,17.0,69.47334908349173,7.0,0.0,0.0,40.0,12.0,19.22
@@ -243,25 +243,25 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,5,50,DeAndre WAPkins,Marlon Primous,Marquise Brown,WR,63.5,7.0,48.09245601919141,0.0,1.0,0.0,16.8,2.3,0.0
 2020,5,51,Team Hodder,Reed Hodder,DK Metcalf,WR,244.0,17.0,44.30906162785829,4.0,2.0,0.0,34.1,3.3000000000000003,8.9
 2020,5,52,Clowntown Jabronis,Aaron Broache,Cam Akers,RB,11.5,2.0,76.63473244774886,0.0,1.0,0.0,6.700000000000001,4.800000000000001,0.0
-2020,5,53,Team Ron Jones Pwns,James Brunner,,,,,,,,,,,
-2020,5,54,Wet Ass Patrick!,Patrick Espe,,,,,,,,,,,
+2020,5,53,Team Ron Jones Pwns,James Brunner,Zach Ertz,TE,37.8,6.0,46.50063636078503,0.0,1.0,0.0,10.5,1.1,0.0
+2020,5,54,Wet Ass Patrick!,Patrick Espe,Mark Ingram II,RB,22.6,4.0,0.0,0.0,3.0,0.0,14.7,2.0,0.0
 2020,5,55,Fk it chuck it Game time shit,Jack Lyden,Keenan Allen,WR,195.1,14.0,50.599769618698346,3.0,1.0,0.0,26.5,2.1,0.0
 2020,5,56,The Twins,max raphael,Devin Singletary,RB,89.5,11.0,37.13729754798517,0.0,3.0,0.0,16.200000000000003,1.5,6.2
 2020,5,57,Gotham City Ineffective Cop,Riley Bitterli,Kareem Hunt,RB,216.0,16.0,56.65980849880963,2.0,0.0,0.0,26.0,6.2,12.7
 2020,5,58,Max Top Vic Bottom,Jack Gola,T.Y. Hilton,WR,7.3,1.0,0.0,0.0,0.0,0.0,7.300000000000001,7.300000000000001,0.0
 2020,5,59,Daniel Jones,Jackson Dunn,David Montgomery,RB,252.3,16.0,53.02850024394206,5.0,1.0,0.0,28.700000000000003,3.7,19.1
-2020,5,60,Vic top Max bottom,Charlie Miceli,,,,,,,,,,,
+2020,5,60,Vic top Max bottom,Charlie Miceli,Will Fuller V,WR,162.4,10.0,55.79902266447175,2.0,0.0,0.0,32.1,6.300000000000001,0.0
 2020,6,61,Vic top Max bottom,Charlie Miceli,Evan Engram,TE,127.8,17.0,50.201165842810596,0.0,3.0,0.0,13.9,1.9,10.5
 2020,6,62,Daniel Jones,Jackson Dunn,DeVante Parker,WR,88.3,8.0,59.746755313109254,0.0,1.0,0.0,16.0,5.0,0.0
 2020,6,63,Max Top Vic Bottom,Jack Gola,Raheem Mostert,RB,68.6,7.0,55.462953382050614,0.0,1.0,0.0,17.700000000000003,4.8,0.0
 2020,6,64,Gotham City Ineffective Cop,Riley Bitterli,Darren Waller,TE,230.3,17.0,33.83915820939659,4.0,1.0,0.0,38.5,1.9,13.7
 2020,6,65,The Twins,max raphael,,,,,,,,,,,
-2020,6,66,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2020,6,66,Fk it chuck it Game time shit,Jack Lyden,Dak Prescott,QB,135.14,5.0,56.416963578684815,3.0,0.0,0.0,39.8,12.94,0.0
 2020,6,67,Wet Ass Patrick!,Patrick Espe,Kyler Murray,QB,270.06,11.0,67.39312160380788,6.0,1.0,0.0,37.1,7.9,0.0
 2020,6,68,Team Ron Jones Pwns,James Brunner,Deshaun Watson,QB,365.28,15.0,77.58907875311898,6.0,0.0,0.0,33.12,14.120000000000001,26.76
-2020,6,69,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2020,6,69,Clowntown Jabronis,Aaron Broache,A.J. Green,WR,21.0,4.0,61.13476585954821,0.0,2.0,0.0,7.6000000000000005,2.9000000000000004,0.0
 2020,6,70,Team Hodder,Reed Hodder,Russell Wilson,QB,381.44,17.0,66.09616358503752,5.0,1.0,0.0,36.8,9.92,19.9
-2020,6,71,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
+2020,6,71,DeAndre WAPkins,Marlon Primous,Jordan Howard,RB,7.9,1.0,0.0,0.0,0.0,0.0,7.9,7.9,0.0
 2020,6,72,Team Curtis,Jack Curtis,Stefon Diggs,WR,328.0,17.0,49.565078242094444,7.0,0.0,0.0,37.0,7.4,37.0
 2020,7,73,Team Curtis,Jack Curtis,J.K. Dobbins,RB,101.1,9.0,58.76358378774097,0.0,2.0,0.0,14.600000000000001,1.9000000000000001,13.7
 2020,7,74,DeAndre WAPkins,Marlon Primous,Jarvis Landry,WR,31.8,5.0,74.68114026968058,0.0,1.0,0.0,8.600000000000001,4.4,0.0
@@ -271,37 +271,37 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,7,78,Wet Ass Patrick!,Patrick Espe,Tyler Boyd,WR,123.54,11.0,46.807934215985846,1.0,1.0,0.0,22.240000000000002,3.0,0.0
 2020,7,79,Fk it chuck it Game time shit,Jack Lyden,Brandin Cooks,WR,117.7,8.0,49.30994740478759,3.0,0.0,0.0,23.6,6.9,23.6
 2020,7,80,The Twins,max raphael,Tyler Higbee,TE,44.6,5.0,0.0,1.0,1.0,0.0,25.9,2.2,0.0
-2020,7,81,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
+2020,7,81,Gotham City Ineffective Cop,Riley Bitterli,Deebo Samuel,WR,14.7,3.0,0.0,0.0,2.0,0.0,10.600000000000001,0.9,0.0
 2020,7,82,Max Top Vic Bottom,Jack Gola,James White,RB,15.6,3.0,100.0,0.0,0.0,0.0,5.200000000000001,5.200000000000001,5.2
-2020,7,83,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2020,7,83,Daniel Jones,Jackson Dunn,Julian Edelman,WR,35.72,3.0,21.308520297283962,1.0,1.0,0.0,21.900000000000002,3.3200000000000003,0.0
 2020,7,84,Vic top Max bottom,Charlie Miceli,Marvin Jones Jr.,WR,103.3,11.0,35.94631729385557,1.0,3.0,0.0,22.200000000000003,3.4000000000000004,3.4
 2020,8,85,Vic top Max bottom,Charlie Miceli,Christian Kirk,WR,0.7,1.0,0.0,0.0,1.0,0.0,0.7,0.7,0.0
 2020,8,86,Daniel Jones,Jackson Dunn,Phillip Lindsay,RB,10.3,2.0,0.0,0.0,1.0,0.0,10.100000000000001,0.2,0.0
 2020,8,87,Max Top Vic Bottom,Jack Gola,Diontae Johnson,WR,151.5,13.0,36.31483194991232,1.0,3.0,0.0,20.6,0.3,17.6
 2020,8,88,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
 2020,8,89,The Twins,max raphael,Sterling Shepard,WR,12.4,2.0,65.78515574903803,0.0,1.0,0.0,7.7,4.7,0.0
-2020,8,90,Fk it chuck it Game time shit,Jack Lyden,Zack Moss,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2020,8,90,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
 2020,8,91,Wet Ass Patrick!,Patrick Espe,Jamison Crowder,WR,34.2,4.0,11.777919137668718,0.0,2.0,0.0,19.2,2.1,0.0
-2020,8,92,Team Ron Jones Pwns,James Brunner,,,,,,,,,,,
+2020,8,92,Team Ron Jones Pwns,James Brunner,Preston Williams,WR,5.1,1.0,0.0,0.0,0.0,0.0,5.1,5.1,0.0
 2020,8,93,Clowntown Jabronis,Aaron Broache,Emmanuel Sanders,WR,49.6,6.0,37.78603433783449,0.0,2.0,0.0,11.8,1.0,11.5
-2020,8,94,Team Hodder,Reed Hodder,,,,,,,,,,,
+2020,8,94,Team Hodder,Reed Hodder,Henry Ruggs III,WR,0.9,1.0,0.0,0.0,1.0,0.0,0.9,0.9,0.0
 2020,8,95,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
 2020,8,96,Team Curtis,Jack Curtis,,,,,,,,,,,
 2020,9,97,Team Curtis,Jack Curtis,,,,,,,,,,,
 2020,9,98,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
-2020,9,99,Team Hodder,Reed Hodder,,,,,,,,,,,
+2020,9,99,Team Hodder,Reed Hodder,Matt Breida,RB,4.7,2.0,0.0,0.0,2.0,0.0,4.300000000000001,0.4,0.0
 2020,9,100,Clowntown Jabronis,Aaron Broache,Jerry Jeudy,WR,56.9,6.0,29.164526791380325,1.0,1.0,0.0,22.0,2.4000000000000004,9.1
 2020,9,101,Team Ron Jones Pwns,James Brunner,Harrison Butker,K,129.0,15.0,57.20858010142926,3.0,1.0,0.0,17.0,3.0,7.0
 2020,9,102,Wet Ass Patrick!,Patrick Espe,Latavius Murray,RB,6.1,1.0,0.0,0.0,0.0,0.0,6.1000000000000005,6.1000000000000005,0.0
 2020,9,103,Fk it chuck it Game time shit,Jack Lyden,Hunter Henry,TE,115.3,14.0,52.803345058833905,1.0,1.0,0.0,15.0,1.0,0.0
-2020,9,104,The Twins,max raphael,,,,,,,,,,,
+2020,9,104,The Twins,max raphael,Alexander Mattison,RB,3.5,1.0,0.0,0.0,1.0,0.0,3.5,3.5,0.0
 2020,9,105,Gotham City Ineffective Cop,Riley Bitterli,Darrell Henderson Jr.,RB,115.0,15.0,20.85642727315279,1.0,5.0,0.0,20.3,0.5,6.2
-2020,9,106,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2020,9,106,Max Top Vic Bottom,Jack Gola,Darius Slayton,WR,15.4,3.0,2.435199991449892,0.0,2.0,0.0,10.8,1.3,0.0
 2020,9,107,Daniel Jones,Jackson Dunn,,,,,,,,,,,
 2020,9,108,Vic top Max bottom,Charlie Miceli,,,,,,,,,,,
 2020,10,109,Vic top Max bottom,Charlie Miceli,Chase Edmonds,RB,60.1,6.0,49.018672101362135,0.0,1.0,0.0,18.0,3.4000000000000004,0.0
 2020,10,110,Daniel Jones,Jackson Dunn,Hayden Hurst,TE,74.7,9.0,48.855457164358754,1.0,1.0,0.0,15.7,1.8,0.0
-2020,10,111,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2020,10,111,Max Top Vic Bottom,Jack Gola,Carson Wentz,QB,147.56,10.0,53.87402635986202,1.0,3.0,0.0,27.759999999999998,4.96,0.0
 2020,10,112,Gotham City Ineffective Cop,Riley Bitterli,Matt Ryan,QB,181.14,11.0,45.14865706155522,2.0,3.0,0.0,31.64,5.279999999999999,0.0
 2020,10,113,The Twins,max raphael,Tom Brady,QB,286.58,12.0,57.205056603155256,6.0,2.0,0.0,36.86,2.3599999999999994,29.92
 2020,10,114,Fk it chuck it Game time shit,Jack Lyden,Duke Johnson,RB,38.8,5.0,43.48525211359387,0.0,1.0,0.0,15.5,5.0,0.0
@@ -312,7 +312,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,10,119,DeAndre WAPkins,Marlon Primous,Drew Brees,QB,35.82,3.0,63.73273226911956,0.0,1.0,0.0,14.48,6.9399999999999995,0.0
 2020,10,120,Team Curtis,Jack Curtis,Josh Allen,QB,440.9,17.0,67.5140507286099,11.0,0.0,0.0,37.66,12.46,32.3
 2020,11,121,Team Curtis,Jack Curtis,Mike Gesicki,TE,57.1,6.0,37.94327482455378,1.0,1.0,0.0,19.3,2.0,0.0
-2020,11,122,DeAndre WAPkins,Marlon Primous,Mecole Hardman,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2020,11,122,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
 2020,11,123,Team Hodder,Reed Hodder,Rob Gronkowski,TE,114.2,11.0,31.646737232582453,3.0,2.0,0.0,18.8,0.7,18.8
 2020,11,124,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2020,11,125,Team Ron Jones Pwns,James Brunner,Robby Anderson,WR,165.1,15.0,62.04042937687761,0.0,2.0,0.0,17.4,3.0,13.4
@@ -321,10 +321,10 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,11,128,The Twins,max raphael,T.J. Hockenson,TE,108.1,13.0,45.38058686796717,0.0,2.0,0.0,14.4,0.8,4.3
 2020,11,129,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
 2020,11,130,Max Top Vic Bottom,Jack Gola,Noah Fant,TE,75.7,9.0,45.160592389216156,2.0,0.0,0.0,16.6,3.3,0.0
-2020,11,131,Daniel Jones,Jackson Dunn,,,,,,,,,,,
-2020,11,132,Vic top Max bottom,Charlie Miceli,Curtis Samuel,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2020,11,131,Daniel Jones,Jackson Dunn,Justin Jackson,RB,23.7,2.0,54.052977087456405,0.0,0.0,0.0,15.700000000000001,8.0,0.0
+2020,11,132,Vic top Max bottom,Charlie Miceli,,,,,,,,,,,
 2020,12,133,Vic top Max bottom,Charlie Miceli,Justin Jefferson,WR,198.9,14.0,41.134846042950336,3.0,2.0,0.0,35.1,3.8000000000000003,11.5
-2020,12,134,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2020,12,134,Daniel Jones,Jackson Dunn,Daniel Jones,QB,35.52,3.0,58.06828124654678,0.0,1.0,0.0,17.36,7.74,0.0
 2020,12,135,Max Top Vic Bottom,Jack Gola,Matthew Stafford,QB,57.46,4.0,59.23225047175558,0.0,1.0,0.0,22.34,8.44,0.0
 2020,12,136,Gotham City Ineffective Cop,Riley Bitterli,Mike Williams,WR,58.1,6.0,38.07086363446231,0.0,1.0,0.0,18.5,2.2,7.4
 2020,12,137,The Twins,max raphael,,,,,,,,,,,
@@ -333,7 +333,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,12,140,Team Ron Jones Pwns,James Brunner,Steelers D/ST,D/ST,138.0,14.0,52.10808219751216,3.0,0.0,0.0,19.0,3.0,8.0
 2020,12,141,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2020,12,142,Team Hodder,Reed Hodder,Michael Pittman Jr.,WR,14.1,1.0,0.0,0.0,0.0,0.0,14.100000000000001,14.100000000000001,0.0
-2020,12,143,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
+2020,12,143,DeAndre WAPkins,Marlon Primous,Joshua Kelley,RB,8.5,2.0,98.33621933838458,0.0,2.0,0.0,4.300000000000001,4.2,0.0
 2020,12,144,Team Curtis,Jack Curtis,Justin Tucker,K,152.0,17.0,63.44315676379972,2.0,1.0,0.0,16.0,2.0,9.0
 2020,13,145,Team Curtis,Jack Curtis,,,,,,,,,,,
 2020,13,146,DeAndre WAPkins,Marlon Primous,Chase Claypool,WR,105.4,12.0,37.62400563660727,0.0,3.0,0.0,19.3,0.3,7.4
@@ -348,42 +348,42 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2020,13,155,Daniel Jones,Jackson Dunn,Ryan Tannehill,QB,58.2,3.0,56.7241102255048,1.0,0.0,0.0,28.64,12.24,0.0
 2020,13,156,Vic top Max bottom,Charlie Miceli,Wil Lutz,K,129.0,16.0,49.2697004989849,3.0,3.0,0.0,15.0,1.0,10.0
 2020,14,157,Vic top Max bottom,Charlie Miceli,,,,,,,,,,,
-2020,14,158,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2020,14,158,Daniel Jones,Jackson Dunn,Jerick McKinnon,RB,1.5,1.0,0.0,0.0,1.0,0.0,1.5,1.5,0.0
 2020,14,159,Max Top Vic Bottom,Jack Gola,Greg Zuerlein,K,86.0,10.0,43.77840507141474,4.0,2.0,0.0,14.0,2.0,13.0
 2020,14,160,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
 2020,14,161,The Twins,max raphael,49ers D/ST,D/ST,70.0,10.0,44.87696712957035,0.0,2.0,0.0,13.0,1.0,9.0
 2020,14,162,Fk it chuck it Game time shit,Jack Lyden,Ravens D/ST,D/ST,81.0,8.0,23.05391340888157,2.0,1.0,0.0,25.0,1.0,0.0
 2020,14,163,Wet Ass Patrick!,Patrick Espe,Patriots D/ST,D/ST,47.0,8.0,22.564548746839648,0.0,1.0,0.0,13.0,1.0,0.0
-2020,14,164,Team Ron Jones Pwns,James Brunner,,,,,,,,,,,
-2020,14,165,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2020,14,164,Team Ron Jones Pwns,James Brunner,Joe Burrow,QB,63.78,3.0,86.16897388561497,0.0,0.0,0.0,24.54,18.86,0.0
+2020,14,165,Clowntown Jabronis,Aaron Broache,Austin Hooper,TE,11.9,1.0,0.0,0.0,0.0,0.0,11.9,11.9,0.0
 2020,14,166,Team Hodder,Reed Hodder,Benny Snell Jr.,RB,2.0,1.0,0.0,0.0,1.0,0.0,2.0,2.0,0.0
 2020,14,167,DeAndre WAPkins,Marlon Primous,Bears D/ST,D/ST,73.0,8.0,48.78627774161326,1.0,0.0,0.0,18.0,3.0,8.0
 2020,14,168,Team Curtis,Jack Curtis,Jared Goff,QB,52.5,4.0,74.72117572124645,0.0,0.0,0.0,16.9,10.200000000000001,0.0
 2020,15,169,Team Curtis,Jack Curtis,Dallas Goedert,TE,102.8,12.0,31.982962605368854,3.0,1.0,0.0,20.1,2.0,5.3
 2020,15,170,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
 2020,15,171,Team Hodder,Reed Hodder,,,,,,,,,,,
-2020,15,172,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
-2020,15,173,Team Ron Jones Pwns,James Brunner,,,,,,,,,,,
+2020,15,172,Clowntown Jabronis,Aaron Broache,Chris Boswell,K,54.0,7.0,74.38457540586862,0.0,0.0,0.0,9.0,4.0,0.0
+2020,15,173,Team Ron Jones Pwns,James Brunner,AJ Dillon,RB,1.1,1.0,0.0,0.0,1.0,0.0,1.1,1.1,0.0
 2020,15,174,Wet Ass Patrick!,Patrick Espe,Damien Harris,RB,27.8,3.0,48.899335775672306,0.0,1.0,0.0,12.100000000000001,3.8000000000000007,0.0
 2020,15,175,Fk it chuck it Game time shit,Jack Lyden,Allen Lazard,WR,6.0,1.0,0.0,0.0,0.0,0.0,6.0,6.0,0.0
-2020,15,176,The Twins,max raphael,,,,,,,,,,,
-2020,15,177,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
+2020,15,176,The Twins,max raphael,Matt Prater,K,62.0,8.0,26.44029515489433,2.0,3.0,0.0,16.0,2.0,0.0
+2020,15,177,Gotham City Ineffective Cop,Riley Bitterli,Colts D/ST,D/ST,98.0,10.0,29.994744450677914,2.0,0.0,0.0,27.0,3.0,0.0
 2020,15,178,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
-2020,15,179,Daniel Jones,Jackson Dunn,,,,,,,,,,,
-2020,15,180,Vic top Max bottom,Charlie Miceli,,,,,,,,,,,
+2020,15,179,Daniel Jones,Jackson Dunn,Vikings D/ST,D/ST,30.0,4.0,37.936710916582484,0.0,0.0,0.0,12.0,3.0,0.0
+2020,15,180,Vic top Max bottom,Charlie Miceli,Broncos D/ST,D/ST,9.0,2.0,52.85954792089684,0.0,0.0,0.0,6.0,3.0,0.0
 2020,16,181,Vic top Max bottom,Charlie Miceli,Denzel Mims,WR,7.0,1.0,0.0,0.0,0.0,0.0,7.0,7.0,0.0
-2020,16,182,Daniel Jones,Jackson Dunn,,,,,,,,,,,
-2020,16,183,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2020,16,182,Daniel Jones,Jackson Dunn,Zane Gonzalez,K,89.0,11.0,43.779789832221574,3.0,2.0,0.0,16.0,3.0,0.0
+2020,16,183,Max Top Vic Bottom,Jack Gola,Eagles D/ST,D/ST,45.0,5.0,19.492351410058674,1.0,1.0,0.0,21.0,2.0,0.0
 2020,16,184,Gotham City Ineffective Cop,Riley Bitterli,Robbie Gould,K,73.0,10.0,48.31905455006059,1.0,2.0,0.0,13.0,1.0,0.0
-2020,16,185,The Twins,max raphael,,,,,,,,,,,
+2020,16,185,The Twins,max raphael,Chiefs D/ST,D/ST,54.0,5.0,38.44159207927903,1.0,0.0,0.0,21.0,5.0,0.0
 2020,16,186,Fk it chuck it Game time shit,Jack Lyden,Younghoe Koo,K,126.0,14.0,29.997965027544367,6.0,4.0,0.0,21.0,1.0,1.0
-2020,16,187,Wet Ass Patrick!,Patrick Espe,,,,,,,,,,,
+2020,16,187,Wet Ass Patrick!,Patrick Espe,Jake Elliott,K,30.0,4.0,39.87666996236141,1.0,0.0,0.0,14.0,4.0,0.0
 2020,16,188,Team Ron Jones Pwns,James Brunner,,,,,,,,,,,
 2020,16,189,Clowntown Jabronis,Aaron Broache,Saints D/ST,D/ST,70.0,8.0,34.27684177021929,2.0,1.0,0.0,17.0,2.0,0.0
 2020,16,190,Team Hodder,Reed Hodder,Rodrigo Blankenship,K,151.0,17.0,54.28904191595837,4.0,2.0,0.0,15.0,2.0,6.0
-2020,16,191,DeAndre WAPkins,Marlon Primous,,,,,,,,,,,
+2020,16,191,DeAndre WAPkins,Marlon Primous,Ka'imi Fairbairn,K,1.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,0.0
 2020,16,192,Team Curtis,Jack Curtis,Buccaneers D/ST,D/ST,116.0,13.0,41.14840102813028,1.0,2.0,0.0,19.0,1.0,14.0
-2021,1,1,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2021,1,1,Fk it chuck it Game time shit,Jack Lyden,Christian McCaffrey,RB,109.0,7.0,45.44595355621319,4.0,2.0,0.0,23.200000000000003,3.5,0.0
 2021,1,2,The Twins,max raphael,Dalvin Cook,RB,183.4,13.0,36.620206840874935,3.0,2.0,0.0,34.7,2.8,2.8
 2021,1,3,Daniel Jones,Jackson Dunn,Alvin Kamara,RB,212.5,13.0,52.83283843250172,3.0,2.0,0.0,28.900000000000002,4.1,18.5
 2021,1,4,Gotham City Ineffective Cop,Riley Bitterli,Saquon Barkley,RB,111.5,11.0,23.183168021849767,1.0,3.0,0.0,27.1,0.9,0.0
@@ -400,7 +400,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2021,2,15,Max Top Vic Bottom,Jack Gola,Najee Harris,RB,284.3,17.0,56.408595317929404,6.0,1.0,0.0,28.1,3.5999999999999996,28.1
 2021,2,16,im diggin that youngho,Camille Powers,Stefon Diggs,WR,223.1,17.0,61.24835355180564,1.0,0.0,0.0,26.2,7.1000000000000005,7.7
 2021,2,17,Team Boink,James Brunner,Joe Mixon,RB,269.0,16.0,50.62940243461701,7.0,0.0,0.0,30.3,6.500000000000001,12.1
-2021,2,18,Avant Gardner,Patrick Espe,,,,,,,,,,,
+2021,2,18,Avant Gardner,Patrick Espe,DeAndre Hopkins,WR,126.2,10.0,51.584274509895636,1.0,1.0,0.0,23.3,3.6,0.0
 2021,2,19,Team Hodder,Reed Hodder,Calvin Ridley,WR,55.6,5.0,73.11617301794293,0.0,0.0,0.0,15.8,7.6000000000000005,0.0
 2021,2,20,Clowntown Jabronis,Aaron Broache,Clyde Edwards-Helaire,RB,89.7,9.0,46.62905218249536,0.0,2.0,0.0,17.7,2.6000000000000005,0.0
 2021,2,21,Gotham City Ineffective Cop,Riley Bitterli,DK Metcalf,WR,226.4,17.0,38.61313840314925,3.0,2.0,0.0,27.900000000000002,1.8,27.9
@@ -418,9 +418,9 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2021,3,33,im diggin that youngho,Camille Powers,Josh Jacobs,RB,193.6,15.0,68.04040441932271,0.0,0.0,0.0,19.5,6.1,16.0
 2021,3,34,Max Top Vic Bottom,Jack Gola,Miles Sanders,RB,51.0,7.0,47.73231587742669,0.0,1.0,0.0,15.3,3.2,0.0
 2021,3,35,Team Curtis,Jack Curtis,D'Andre Swift,RB,149.8,12.0,38.906630769016424,3.0,3.0,0.0,24.400000000000002,2.4,4.9
-2021,3,36,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
+2021,3,36,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Robert Woods,WR,82.7,7.0,59.06545595670352,1.0,0.0,0.0,21.0,5.300000000000001,0.0
 2021,4,37,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
-2021,4,38,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,4,38,Team Curtis,Jack Curtis,Chris Carson,RB,45.1,4.0,51.70638727066982,0.0,1.0,0.0,15.2,3.6,0.0
 2021,4,39,Max Top Vic Bottom,Jack Gola,Mike Evans,WR,214.3,16.0,40.827942060007615,3.0,4.0,0.0,28.6,1.9000000000000001,12.7
 2021,4,40,im diggin that youngho,Camille Powers,Kyle Pitts,TE,148.7,17.0,38.78969988520042,2.0,1.0,0.0,22.4,2.3,7.9
 2021,4,41,Team Boink,James Brunner,Chase Edmonds,RB,132.5,13.0,43.15574772892804,1.0,2.0,0.0,22.700000000000003,0.30000000000000004,10.7
@@ -428,62 +428,62 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2021,4,43,Team Hodder,Reed Hodder,Josh Allen,QB,399.62,17.0,64.14461451772505,7.0,1.0,0.0,37.22,9.56,20.9
 2021,4,44,Clowntown Jabronis,Aaron Broache,Chris Godwin,WR,193.4,14.0,52.25471869167869,3.0,1.0,0.0,24.0,2.7,0.0
 2021,4,45,Gotham City Ineffective Cop,Riley Bitterli,Adam Thielen,WR,166.3,13.0,37.81071383715877,3.0,2.0,0.0,25.700000000000003,0.5,0.0
-2021,4,46,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2021,4,46,Daniel Jones,Jackson Dunn,Mike Davis,RB,39.9,6.0,38.439462206350214,0.0,2.0,0.0,9.8,1.0,0.0
 2021,4,47,The Twins,max raphael,Cooper Kupp,WR,362.4,17.0,66.96366106275333,9.0,0.0,0.0,32.6,8.9,18.5
 2021,4,48,Fk it chuck it Game time shit,Jack Lyden,Darrell Henderson Jr.,RB,148.9,12.0,43.627700468122086,2.0,2.0,0.0,23.700000000000003,1.7000000000000002,0.0
 2021,5,49,Fk it chuck it Game time shit,Jack Lyden,Tyler Lockett,WR,141.3,12.0,25.482298766011894,3.0,4.0,0.0,27.8,2.2,0.0
 2021,5,50,The Twins,max raphael,Kareem Hunt,RB,99.0,8.0,28.935145570668908,2.0,2.0,0.0,24.5,2.0,0.0
 2021,5,51,Daniel Jones,Jackson Dunn,Brandon Aiyuk,WR,27.6,5.0,33.91528814516343,0.0,3.0,0.0,11.0,1.4000000000000001,0.0
-2021,5,52,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
+2021,5,52,Gotham City Ineffective Cop,Riley Bitterli,Julio Jones,WR,14.7,3.0,88.63721558606119,0.0,2.0,0.0,5.5,4.4,0.0
 2021,5,53,Clowntown Jabronis,Aaron Broache,DJ Moore,WR,152.6,15.0,40.117100428350795,1.0,3.0,0.0,27.900000000000002,4.4,4.4
 2021,5,54,Team Hodder,Reed Hodder,Myles Gaskin,RB,115.3,13.0,36.76918263567467,0.0,3.0,0.0,18.2,0.30000000000000004,0.0
 2021,5,55,Avant Gardner,Patrick Espe,Diontae Johnson,WR,225.4,16.0,67.29977815114131,1.0,0.0,0.0,26.5,7.300000000000001,13.1
 2021,5,56,Team Boink,James Brunner,Kenny Golladay,WR,52.6,8.0,38.36617006088778,0.0,2.0,0.0,14.600000000000001,1.7000000000000002,0.0
 2021,5,57,im diggin that youngho,Camille Powers,Tee Higgins,WR,189.8,15.0,28.875717202020397,3.0,2.0,0.0,37.400000000000006,2.5,7.7
 2021,5,58,Max Top Vic Bottom,Jack Gola,Odell Beckham Jr.,WR,41.8,5.0,36.36296183398827,0.0,2.0,0.0,12.4,1.2000000000000002,12.4
-2021,5,59,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,5,59,Team Curtis,Jack Curtis,T.J. Hockenson,TE,114.8,11.0,44.28768637196411,2.0,1.0,0.0,21.700000000000003,2.0,0.0
 2021,5,60,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Mark Andrews,TE,247.0,17.0,38.859709256574014,6.0,0.0,0.0,36.2,3.5,11.9
 2021,6,61,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Kyler Murray,QB,306.3,14.0,66.22993106882792,4.0,1.0,0.0,33.56,9.06,22.92
-2021,6,62,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,6,62,Team Curtis,Jack Curtis,Jerry Jeudy,WR,40.5,5.0,64.98307505263497,0.0,1.0,0.0,10.2,3.5,0.0
 2021,6,63,Max Top Vic Bottom,Jack Gola,Lamar Jackson,QB,220.54,11.0,42.760372422299106,3.0,2.0,0.0,41.879999999999995,1.1800000000000002,0.0
 2021,6,64,im diggin that youngho,Camille Powers,Dak Prescott,QB,311.8,16.0,56.302625680444606,6.0,3.0,0.0,31.300000000000004,2.6400000000000006,23.04
 2021,6,65,Team Boink,James Brunner,Damien Harris,RB,161.4,13.0,45.30347681818705,1.0,2.0,0.0,28.3,2.1000000000000005,17.2
 2021,6,66,Avant Gardner,Patrick Espe,Javonte Williams,RB,155.2,15.0,38.869278343287895,2.0,3.0,0.0,26.800000000000004,3.7,3.7
-2021,6,67,Team Hodder,Reed Hodder,,,,,,,,,,,
+2021,6,67,Team Hodder,Reed Hodder,Robby Anderson,WR,20.4,3.0,28.999366443686412,0.0,1.0,0.0,12.2,2.9000000000000004,0.0
 2021,6,68,Clowntown Jabronis,Aaron Broache,Russell Wilson,QB,241.0,13.0,58.84093420442703,3.0,3.0,0.0,27.839999999999996,4.24,27.84
 2021,6,69,Gotham City Ineffective Cop,Riley Bitterli,Chase Claypool,WR,30.2,4.0,39.5885148794961,0.0,1.0,0.0,13.5,2.7,0.0
 2021,6,70,Daniel Jones,Jackson Dunn,Justin Herbert,QB,371.02,17.0,59.35631335623429,5.0,0.0,0.0,42.82,11.0,17.68
 2021,6,71,The Twins,max raphael,Courtland Sutton,WR,71.6,8.0,13.101230145718532,2.0,3.0,0.0,21.5,1.9000000000000001,0.0
-2021,6,72,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2021,6,72,Fk it chuck it Game time shit,Jack Lyden,Raheem Mostert,RB,2.0,1.0,0.0,0.0,1.0,0.0,2.0,2.0,0.0
 2021,7,73,Fk it chuck it Game time shit,Jack Lyden,Melvin Gordon III,RB,107.7,11.0,38.624337527221485,1.0,1.0,0.0,23.1,0.5,8.7
 2021,7,74,The Twins,max raphael,,,,,,,,,,,
 2021,7,75,Daniel Jones,Jackson Dunn,Ja'Marr Chase,WR,292.2,16.0,20.001299287219226,6.0,1.0,0.0,50.1,0.8,50.1
 2021,7,76,Gotham City Ineffective Cop,Riley Bitterli,Aaron Rodgers,QB,338.9,16.0,64.12112308583576,4.0,1.0,0.0,33.5,1.3200000000000003,20.32
 2021,7,77,Clowntown Jabronis,Aaron Broache,Brandin Cooks,WR,183.1,15.0,47.2838065282622,1.0,3.0,0.0,25.700000000000003,2.8,16.1
-2021,7,78,Team Hodder,Reed Hodder,,,,,,,,,,,
-2021,7,79,Avant Gardner,Patrick Espe,William Fuller V,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2021,7,80,Team Boink,James Brunner,,,,,,,,,,,
+2021,7,78,Team Hodder,Reed Hodder,Laviska Shenault Jr.,WR,14.0,3.0,65.69197154707763,0.0,2.0,0.0,6.300000000000001,3.1,0.0
+2021,7,79,Avant Gardner,Patrick Espe,,,,,,,,,,,
+2021,7,80,Team Boink,James Brunner,Logan Thomas,TE,40.0,4.0,77.9545923149514,0.0,0.0,0.0,12.3,7.0,0.0
 2021,7,81,im diggin that youngho,Camille Powers,Antonio Brown,WR,89.1,7.0,20.120267943666576,2.0,3.0,0.0,27.9,2.2,4.1
 2021,7,82,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
-2021,7,83,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,7,83,Team Curtis,Jack Curtis,Corey Davis,WR,45.1,3.0,21.902416487582002,1.0,1.0,0.0,24.200000000000003,1.8,0.0
 2021,7,84,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Michael Gallup,WR,40.6,4.0,71.11322880763022,0.0,0.0,0.0,13.100000000000001,6.9,0.0
 2021,8,85,Goff Teen Begs  4 Mooney Shot,Marlon Primous,DeVonta Smith,WR,104.5,13.0,24.00183590007238,1.0,6.0,0.0,20.6,2.0,0.0
-2021,8,86,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,8,86,Team Curtis,Jack Curtis,Trey Sermon,RB,19.3,2.0,89.00870288311066,0.0,0.0,0.0,10.4,8.9,0.0
 2021,8,87,Max Top Vic Bottom,Jack Gola,Dallas Goedert,TE,130.1,15.0,30.409890179268118,1.0,1.0,0.0,25.5,0.5,10.1
-2021,8,88,im diggin that youngho,Camille Powers,,,,,,,,,,,
+2021,8,88,im diggin that youngho,Camille Powers,Curtis Samuel,WR,3.9,1.0,0.0,0.0,1.0,0.0,3.9000000000000004,3.9000000000000004,0.0
 2021,8,89,Team Boink,James Brunner,Tyler Boyd,WR,25.94,4.0,0.0,0.0,2.0,0.0,17.240000000000002,1.2000000000000002,0.0
 2021,8,90,Avant Gardner,Patrick Espe,Deebo Samuel,WR,228.6,12.0,67.40138653122384,5.0,0.0,0.0,31.700000000000003,8.8,15.7
 2021,8,91,Team Hodder,Reed Hodder,Sony Michel,RB,82.3,7.0,41.65047171467019,1.0,2.0,0.0,20.0,3.0,17.4
 2021,8,92,Clowntown Jabronis,Aaron Broache,Jarvis Landry,WR,7.2,2.0,60.7162899340807,0.0,2.0,0.0,4.6,2.6,0.0
-2021,8,93,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
+2021,8,93,Gotham City Ineffective Cop,Riley Bitterli,Kenyan Drake,RB,24.9,2.0,66.4905220160592,0.0,0.0,0.0,15.4,9.5,0.0
 2021,8,94,Daniel Jones,Jackson Dunn,Jaylen Waddle,WR,110.3,9.0,44.897088098111205,2.0,1.0,0.0,24.0,4.9,6.2
 2021,8,95,The Twins,max raphael,,,,,,,,,,,
 2021,8,96,Fk it chuck it Game time shit,Jack Lyden,Noah Fant,TE,61.3,6.0,42.07260735914704,1.0,0.0,0.0,20.200000000000003,3.5,0.0
 2021,9,97,Fk it chuck it Game time shit,Jack Lyden,Mike Williams,WR,157.3,13.0,19.020212271604848,2.0,3.0,0.0,32.5,1.6,13.8
-2021,9,98,The Twins,max raphael,,,,,,,,,,,
-2021,9,99,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2021,9,98,The Twins,max raphael,Zack Moss,RB,8.3,2.0,74.44192357157058,0.0,2.0,0.0,4.9,3.4000000000000004,0.0
+2021,9,99,Daniel Jones,Jackson Dunn,Robert Tonyan,TE,36.3,5.0,16.31395364238024,0.0,2.0,0.0,14.3,1.1,0.0
 2021,9,100,Gotham City Ineffective Cop,Riley Bitterli,Marvin Jones Jr.,WR,28.4,5.0,57.5744406086997,0.0,2.0,0.0,9.2,3.0,0.0
-2021,9,101,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2021,9,101,Clowntown Jabronis,Aaron Broache,Jonnu Smith,TE,19.7,4.0,41.37696799636673,0.0,1.0,0.0,7.300000000000001,0.9,0.0
 2021,9,102,Team Hodder,Reed Hodder,Michael Pittman Jr.,WR,145.7,14.0,39.3217294913572,1.0,3.0,0.0,25.6,1.2000000000000002,7.7
 2021,9,103,Avant Gardner,Patrick Espe,,,,,,,,,,,
 2021,9,104,Team Boink,James Brunner,Harrison Butker,K,134.0,16.0,65.98237105219248,2.0,1.0,0.0,14.0,3.0,7.0
@@ -501,13 +501,13 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2021,10,116,Clowntown Jabronis,Aaron Broache,Russell Gage,WR,14.7,1.0,0.0,0.0,0.0,0.0,14.7,14.7,0.0
 2021,10,117,Gotham City Ineffective Cop,Riley Bitterli,AJ Dillon,RB,68.1,7.0,57.72378492518102,0.0,0.0,0.0,17.5,5.9,0.0
 2021,10,118,Daniel Jones,Jackson Dunn,Jamaal Williams,RB,33.7,4.0,41.246290801186944,0.0,1.0,0.0,11.899999999999999,1.4000000000000001,11.9
-2021,10,119,The Twins,max raphael,,,,,,,,,,,
+2021,10,119,The Twins,max raphael,Ryan Tannehill,QB,123.48,7.0,81.21012668669749,0.0,0.0,0.0,21.48,14.02,0.0
 2021,10,120,Fk it chuck it Game time shit,Jack Lyden,Joe Burrow,QB,338.8,16.0,58.194722521250554,4.0,2.0,0.0,38.1,7.379999999999999,34.84
-2021,11,121,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2021,11,121,Fk it chuck it Game time shit,Jack Lyden,Mecole Hardman,WR,2.8,1.0,0.0,0.0,1.0,0.0,2.8000000000000003,2.8000000000000003,0.0
 2021,11,122,The Twins,max raphael,Michael Carter,RB,61.8,7.0,47.90171688461948,0.0,1.0,0.0,16.2,2.5,6.8
-2021,11,123,Daniel Jones,Jackson Dunn,Cole Beasley,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2021,11,123,Daniel Jones,Jackson Dunn,,,,,,,,,,,
 2021,11,124,Gotham City Ineffective Cop,Riley Bitterli,Devin Singletary,RB,107.2,10.0,23.534264291726785,2.0,4.0,0.0,23.0,2.8,23.0
-2021,11,125,Clowntown Jabronis,Aaron Broache,David Johnson,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2021,11,125,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2021,11,126,Team Hodder,Reed Hodder,Mike Gesicki,TE,77.2,10.0,48.09377904138822,1.0,0.0,0.0,18.0,3.2,7.1
 2021,11,127,Avant Gardner,Patrick Espe,Nyheim Hines,RB,5.8,2.0,90.2468030181166,0.0,2.0,0.0,3.1,2.7,0.0
 2021,11,128,Team Boink,James Brunner,Cole Kmet,TE,41.9,7.0,59.702840892218425,0.0,0.0,0.0,10.100000000000001,3.2,4.0
@@ -516,13 +516,13 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2021,11,131,Team Curtis,Jack Curtis,Matthew Stafford,QB,326.48,17.0,66.47353629240502,3.0,2.0,0.0,29.520000000000003,6.68,14.26
 2021,11,132,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
 2021,12,133,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
-2021,12,134,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,12,134,Team Curtis,Jack Curtis,Trevor Lawrence,QB,9.78,1.0,0.0,0.0,1.0,0.0,9.780000000000001,9.780000000000001,0.0
 2021,12,135,Max Top Vic Bottom,Jack Gola,DeVante Parker,WR,49.2,5.0,62.66989927524574,0.0,0.0,0.0,14.8,6.6000000000000005,6.6
 2021,12,136,im diggin that youngho,Camille Powers,,,,,,,,,,,
 2021,12,137,Team Boink,James Brunner,,,,,,,,,,,
 2021,12,138,Avant Gardner,Patrick Espe,,,,,,,,,,,
 2021,12,139,Team Hodder,Reed Hodder,Tony Pollard,RB,20.1,2.0,68.33850233493071,0.0,0.0,0.0,12.3,7.800000000000001,0.0
-2021,12,140,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2021,12,140,Clowntown Jabronis,Aaron Broache,Ravens D/ST,D/ST,36.0,5.0,32.38521419645507,0.0,1.0,0.0,12.0,1.0,0.0
 2021,12,141,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
 2021,12,142,Daniel Jones,Jackson Dunn,Latavius Murray,RB,2.9,1.0,0.0,0.0,1.0,0.0,2.9000000000000004,2.9000000000000004,0.0
 2021,12,143,The Twins,max raphael,Alexander Mattison,RB,62.8,3.0,92.2627193546138,2.0,0.0,0.0,22.8,19.9,0.0
@@ -530,50 +530,50 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2021,13,145,Fk it chuck it Game time shit,Jack Lyden,Rob Gronkowski,TE,106.4,9.0,47.413712761081094,5.0,1.0,0.0,19.8,2.8000000000000003,15.0
 2021,13,146,The Twins,max raphael,,,,,,,,,,,
 2021,13,147,Daniel Jones,Jackson Dunn,Tua Tagovailoa,QB,72.46,4.0,67.49913318258247,1.0,0.0,0.0,26.54,13.200000000000001,0.0
-2021,13,148,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
+2021,13,148,Gotham City Ineffective Cop,Riley Bitterli,Austin Hooper,TE,13.5,2.0,0.48126783300442355,0.0,1.0,0.0,11.5,2.0,0.0
 2021,13,149,Clowntown Jabronis,Aaron Broache,Justin Tucker,K,167.0,17.0,54.58418376646841,7.0,2.0,0.0,16.0,3.0,15.0
 2021,13,150,Team Hodder,Reed Hodder,,,,,,,,,,,
 2021,13,151,Avant Gardner,Patrick Espe,Hunter Henry,TE,12.1,2.0,19.354763798559034,0.0,1.0,0.0,9.5,2.6,0.0
 2021,13,152,Team Boink,James Brunner,,,,,,,,,,,
 2021,13,153,im diggin that youngho,Camille Powers,Rams D/ST,D/ST,118.0,15.0,43.38138555979513,1.0,2.0,0.0,17.0,1.0,12.0
 2021,13,154,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
-2021,13,155,Team Curtis,Jack Curtis,,,,,,,,,,,
+2021,13,155,Team Curtis,Jack Curtis,Jason Sanders,K,22.0,3.0,79.17011047747346,0.0,0.0,0.0,9.0,6.0,0.0
 2021,13,156,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
-2021,14,157,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
+2021,14,157,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Jason Myers,K,10.0,2.0,71.7157287525381,0.0,0.0,0.0,6.0,4.0,0.0
 2021,14,158,Team Curtis,Jack Curtis,49ers D/ST,D/ST,52.0,6.0,73.02203397423048,0.0,0.0,0.0,12.0,6.0,10.0
 2021,14,159,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2021,14,160,im diggin that youngho,Camille Powers,Younghoe Koo,K,120.0,16.0,60.74772948298735,2.0,2.0,0.0,12.0,3.0,7.0
 2021,14,161,Team Boink,James Brunner,Bills D/ST,D/ST,138.0,13.0,54.40825255144602,2.0,0.0,0.0,21.0,4.0,10.0
-2021,14,162,Avant Gardner,Patrick Espe,,,,,,,,,,,
-2021,14,163,Team Hodder,Reed Hodder,,,,,,,,,,,
+2021,14,162,Avant Gardner,Patrick Espe,Evan Engram,TE,11.3,1.0,0.0,0.0,0.0,0.0,11.3,11.3,0.0
+2021,14,163,Team Hodder,Reed Hodder,Steelers D/ST,D/ST,38.0,6.0,29.623096208645123,1.0,0.0,0.0,15.0,3.0,0.0
 2021,14,164,Clowntown Jabronis,Aaron Broache,Jamison Crowder,WR,8.8,2.0,67.85878267333874,0.0,1.0,0.0,5.4,3.4000000000000004,0.0
 2021,14,165,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
-2021,14,166,Daniel Jones,Jackson Dunn,,,,,,,,,,,
-2021,14,167,The Twins,max raphael,,,,,,,,,,,
-2021,14,168,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2021,14,166,Daniel Jones,Jackson Dunn,Graham Gano,K,35.0,5.0,0.0,1.0,2.0,0.0,22.0,1.0,0.0
+2021,14,167,The Twins,max raphael,Justin Fields,QB,3.46,1.0,0.0,0.0,1.0,0.0,3.4600000000000004,3.4600000000000004,0.0
+2021,14,168,Fk it chuck it Game time shit,Jack Lyden,Jameis Winston,QB,8.34,1.0,0.0,0.0,1.0,0.0,8.34,8.34,0.0
 2021,15,169,Fk it chuck it Game time shit,Jack Lyden,Greg Zuerlein,K,115.0,14.0,51.02920540484869,3.0,2.0,0.0,14.0,1.0,1.0
 2021,15,170,The Twins,max raphael,Commanders D/ST,D/ST,35.0,9.0,0.0,0.0,5.0,0.0,14.0,1.0,1.0
-2021,15,171,Daniel Jones,Jackson Dunn,,,,,,,,,,,
-2021,15,172,Gotham City Ineffective Cop,Riley Bitterli,,,,,,,,,,,
+2021,15,171,Daniel Jones,Jackson Dunn,Carlos Hyde,RB,5.8,1.0,0.0,0.0,0.0,0.0,5.800000000000001,5.800000000000001,0.0
+2021,15,172,Gotham City Ineffective Cop,Riley Bitterli,Broncos D/ST,D/ST,65.0,7.0,36.98564704370134,2.0,1.0,0.0,17.0,2.0,0.0
 2021,15,173,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2021,15,174,Team Hodder,Reed Hodder,Amon-Ra St. Brown,WR,82.3,3.0,74.9557659658935,2.0,0.0,0.0,31.400000000000002,19.5,31.4
-2021,15,175,Avant Gardner,Patrick Espe,,,,,,,,,,,
-2021,15,176,Team Boink,James Brunner,,,,,,,,,,,
-2021,15,177,im diggin that youngho,Camille Powers,,,,,,,,,,,
+2021,15,175,Avant Gardner,Patrick Espe,Browns D/ST,D/ST,68.0,7.0,36.62236722002358,2.0,1.0,0.0,18.0,2.0,0.0
+2021,15,176,Team Boink,James Brunner,Tevin Coleman,RB,13.5,2.0,48.66928551386545,0.0,1.0,0.0,9.200000000000001,4.300000000000001,0.0
+2021,15,177,im diggin that youngho,Camille Powers,Nelson Agholor,WR,2.7,1.0,0.0,0.0,1.0,0.0,2.7,2.7,0.0
 2021,15,178,Max Top Vic Bottom,Jack Gola,Colts D/ST,D/ST,51.0,4.0,78.40168412828979,1.0,0.0,0.0,16.0,10.0,0.0
 2021,15,179,Team Curtis,Jack Curtis,Rashod Bateman,WR,9.5,2.0,89.579479014093,0.0,1.0,0.0,5.1,4.4,0.0
-2021,15,180,Goff Teen Begs  4 Mooney Shot,Marlon Primous,,,,,,,,,,,
+2021,15,180,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Ty'Son Williams,RB,29.4,3.0,24.869958635918493,0.0,1.0,0.0,16.9,2.2,0.0
 2021,16,181,Goff Teen Begs  4 Mooney Shot,Marlon Primous,Patriots D/ST,D/ST,149.0,12.0,50.89609385213908,3.0,0.0,0.0,26.0,4.0,13.0
 2021,16,182,Team Curtis,Jack Curtis,Rashaad Penny,RB,87.9,4.0,43.50942979876974,2.0,0.0,0.0,31.5,5.4,31.5
-2021,16,183,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2021,16,183,Max Top Vic Bottom,Jack Gola,Brandon McManus,K,64.0,9.0,30.948813143798887,2.0,2.0,0.0,16.0,1.0,0.0
 2021,16,184,im diggin that youngho,Camille Powers,,,,,,,,,,,
 2021,16,185,Team Boink,James Brunner,Kalif Raymond,WR,4.9,1.0,0.0,0.0,1.0,0.0,4.9,4.9,0.0
 2021,16,186,Avant Gardner,Patrick Espe,Matt Gay,K,151.0,17.0,55.51869532594734,5.0,2.0,0.0,15.0,1.0,1.0
 2021,16,187,Team Hodder,Reed Hodder,Matt Prater,K,140.0,16.0,43.0097275277387,6.0,2.0,0.0,16.0,2.0,15.0
-2021,16,188,Clowntown Jabronis,Aaron Broache,Sterling Shepard,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2021,16,188,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2021,16,189,Gotham City Ineffective Cop,Riley Bitterli,Tyler Bass,K,115.0,14.0,54.404717723362126,2.0,3.0,0.0,16.0,3.0,3.0
-2021,16,190,Daniel Jones,Jackson Dunn,,,,,,,,,,,
-2021,16,191,The Twins,max raphael,,,,,,,,,,,
+2021,16,190,Daniel Jones,Jackson Dunn,Vikings D/ST,D/ST,38.0,4.0,64.04578678610667,0.0,0.0,0.0,13.0,5.0,0.0
+2021,16,191,The Twins,max raphael,Ryan Succop,K,63.0,9.0,52.619645852065716,1.0,1.0,0.0,14.0,3.0,0.0
 2021,16,192,Fk it chuck it Game time shit,Jack Lyden,Jaguars D/ST,D/ST,6.0,2.0,52.85954792089683,0.0,1.0,0.0,4.0,2.0,0.0
 2022,1,1,Is my team bad?,Reed Hodder,Jonathan Taylor,RB,132.4,11.0,35.37207178165971,2.0,2.0,0.0,25.5,1.8,0.0
 2022,1,2,Team Curtis,Jack Curtis,Christian McCaffrey,RB,326.76,17.0,57.74380470749074,7.0,0.0,0.0,36.26,6.9,28.3
@@ -596,7 +596,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,2,19,Team Chogi Nanda,James Brunner,Deebo Samuel,WR,137.0,12.0,59.758549892392224,1.0,0.0,0.0,20.7,5.8,0.0
 2022,2,20,Fk it chuck it Game time shit,Jack Lyden,James Conner,RB,180.8,13.0,58.992932382042994,3.0,0.0,0.0,22.099999999999998,6.1,12.5
 2022,2,21,cook'n lamb 4 my cousins,Camille Powers,CeeDee Lamb,WR,249.9,17.0,47.87255442953234,2.0,1.0,0.0,32.5,3.9000000000000004,15.5
-2022,2,22,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
+2022,2,22,Hock and Ball Torture,Marlon Primous,Javonte Williams,RB,34.0,4.0,46.09590300882799,0.0,1.0,0.0,14.3,3.2,0.0
 2022,2,23,Team Curtis,Jack Curtis,Nick Chubb,RB,259.3,17.0,53.87650271624396,3.0,0.0,0.0,30.800000000000004,6.9,12.1
 2022,2,24,Is my team bad?,Reed Hodder,Tyreek Hill,WR,298.1,17.0,54.968337787585874,7.0,1.0,0.0,36.5,4.300000000000001,13.7
 2022,3,25,Is my team bad?,Reed Hodder,A.J. Brown,WR,261.8,17.0,44.48431698261144,4.0,2.0,0.0,36.6,1.2000000000000002,17.7
@@ -610,12 +610,12 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,3,33,Clowntown Jabronis,Aaron Broache,Ezekiel Elliott,RB,149.7,11.0,71.57071349657686,0.0,0.0,0.0,17.7,5.4,9.7
 2022,3,34,The Twins,max raphael,Keenan Allen,WR,114.1,10.0,60.104885950351395,0.0,1.0,0.0,17.8,2.1,9.3
 2022,3,35,Very Formative Pixar Dumptrcks,Riley Bitterli,DJ Moore,WR,178.1,16.0,28.41026375373255,3.0,6.0,0.0,24.5,0.6000000000000001,20.7
-2022,3,36,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2022,3,36,Max Top Vic Bottom,Jack Gola,Kyle Pitts,TE,45.1,9.0,36.44316487818466,0.0,4.0,0.0,11.200000000000001,2.4,0.0
 2022,4,37,Max Top Vic Bottom,Jack Gola,Courtland Sutton,WR,101.3,11.0,48.64229101572898,0.0,3.0,0.0,16.200000000000003,1.8,0.0
 2022,4,38,Very Formative Pixar Dumptrcks,Riley Bitterli,Josh Allen,QB,373.76,15.0,72.80359492623948,7.0,0.0,0.0,35.86,12.58,0.0
 2022,4,39,The Twins,max raphael,Mike Williams,WR,152.7,13.0,41.284502089480604,2.0,3.0,0.0,21.3,2.0,12.9
 2022,4,40,Clowntown Jabronis,Aaron Broache,Terry McLaurin,WR,180.3,17.0,53.60184554760461,1.0,3.0,0.0,20.5,2.5,4.7
-2022,4,41,Avant Gardner,Patrick Espe,,,,,,,,,,,
+2022,4,41,Avant Gardner,Patrick Espe,Breece Hall,RB,80.9,5.0,54.96010522786207,1.0,0.0,0.0,26.700000000000003,7.1000000000000005,0.0
 2022,4,42,Daniel Jones,Jackson Dunn,Diontae Johnson,WR,68.4,9.0,60.62512366461842,0.0,2.0,0.0,12.4,3.2,0.0
 2022,4,43,Team Chogi Nanda,James Brunner,Josh Jacobs,RB,313.3,17.0,40.18414034844545,5.0,0.0,0.0,45.300000000000004,5.5,17.5
 2022,4,44,Fk it chuck it Game time shit,Jack Lyden,Jaylen Waddle,WR,220.6,17.0,31.12512204511779,3.0,4.0,0.0,34.6,1.4,6.7
@@ -634,21 +634,21 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,5,57,Clowntown Jabronis,Aaron Broache,Allen Robinson II,WR,20.0,4.0,0.0,0.0,3.0,0.0,13.3,1.7000000000000002,0.0
 2022,5,58,The Twins,max raphael,Marquise Brown,WR,93.4,7.0,57.666064813308,1.0,0.0,0.0,21.0,5.4,0.0
 2022,5,59,Very Formative Pixar Dumptrcks,Riley Bitterli,Amon-Ra St. Brown,WR,214.9,16.0,33.182232101404395,3.0,2.0,0.0,34.900000000000006,0.9,8.2
-2022,5,60,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2022,5,60,Max Top Vic Bottom,Jack Gola,Clyde Edwards-Helaire,RB,88.9,8.0,32.059237632492994,2.0,3.0,0.0,21.900000000000002,2.4000000000000004,0.0
 2022,6,61,Max Top Vic Bottom,Jack Gola,JuJu Smith-Schuster,WR,120.3,14.0,30.006968401060035,1.0,6.0,0.0,21.9,2.5,3.1
 2022,6,62,Very Formative Pixar Dumptrcks,Riley Bitterli,Damien Harris,RB,68.7,8.0,36.36933473050159,0.0,2.0,0.0,15.700000000000001,1.5,0.0
 2022,6,63,The Twins,max raphael,Miles Sanders,RB,209.5,17.0,27.66795650429195,3.0,2.0,0.0,29.5,1.4000000000000001,6.1
 2022,6,64,Clowntown Jabronis,Aaron Broache,Antonio Gibson,RB,110.5,13.0,54.81168455934128,0.0,2.0,0.0,16.5,3.7,0.0
 2022,6,65,Avant Gardner,Patrick Espe,Kyler Murray,QB,200.52,11.0,60.22979497118006,2.0,1.0,0.0,25.880000000000003,0.66,0.0
-2022,6,66,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2022,6,66,Daniel Jones,Jackson Dunn,Darnell Mooney,WR,25.0,3.0,12.43836456529607,0.0,1.0,0.0,14.0,0.09999999999999998,0.0
 2022,6,67,Team Chogi Nanda,James Brunner,Gabe Davis,WR,142.2,14.0,24.156652950945357,1.0,4.0,0.0,30.6,1.8,0.0
-2022,6,68,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2022,6,69,cook'n lamb 4 my cousins,Camille Powers,,,,,,,,,,,
+2022,6,68,Fk it chuck it Game time shit,Jack Lyden,Michael Thomas,WR,43.1,3.0,54.931626207159425,1.0,0.0,0.0,20.2,7.4,0.0
+2022,6,69,cook'n lamb 4 my cousins,Camille Powers,Dameon Pierce,RB,138.8,11.0,52.377216427054876,1.0,2.0,0.0,22.900000000000002,2.7,0.0
 2022,6,70,Hock and Ball Torture,Marlon Primous,Jalen Hurts,QB,369.58,14.0,76.9807716774259,8.0,0.0,0.0,34.7,15.96,0.0
-2022,6,71,Team Curtis,Jack Curtis,,,,,,,,,,,
+2022,6,71,Team Curtis,Jack Curtis,Rashod Bateman,WR,4.9,1.0,0.0,0.0,1.0,0.0,4.9,4.9,0.0
 2022,6,72,Is my team bad?,Reed Hodder,Kareem Hunt,RB,72.9,8.0,36.30945301117372,1.0,1.0,0.0,21.0,1.2000000000000002,0.0
 2022,7,73,Is my team bad?,Reed Hodder,Devin Singletary,RB,109.6,12.0,54.256172175214026,0.0,2.0,0.0,16.7,3.1000000000000005,0.0
-2022,7,74,Team Curtis,Jack Curtis,,,,,,,,,,,
+2022,7,74,Team Curtis,Jack Curtis,Chase Edmonds,RB,20.3,5.0,29.628166793246564,0.0,4.0,0.0,8.5,1.4000000000000001,0.0
 2022,7,75,Hock and Ball Torture,Marlon Primous,Elijah Moore,WR,20.9,4.0,49.69321773455353,0.0,2.0,0.0,7.4,1.6,0.0
 2022,7,76,cook'n lamb 4 my cousins,Camille Powers,Adam Thielen,WR,83.9,12.0,37.729046043089575,0.0,5.0,0.0,15.100000000000001,2.1,2.1
 2022,7,77,Fk it chuck it Game time shit,Jack Lyden,Christian Kirk,WR,184.1,17.0,32.99001790820378,2.0,4.0,0.0,27.0,1.6,3.1
@@ -656,7 +656,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,7,79,Daniel Jones,Jackson Dunn,Amari Cooper,WR,184.7,15.0,32.70820610191396,3.0,3.0,0.0,27.3,1.4,24.0
 2022,7,80,Avant Gardner,Patrick Espe,Brandon Aiyuk,WR,195.8,16.0,47.950134504237255,3.0,1.0,0.0,24.3,2.9000000000000004,22.2
 2022,7,81,Clowntown Jabronis,Aaron Broache,Cordarrelle Patterson,RB,86.0,9.0,42.0315890465381,0.0,3.0,0.0,17.4,2.5,17.4
-2022,7,82,The Twins,max raphael,,,,,,,,,,,
+2022,7,82,The Twins,max raphael,Russell Wilson,QB,74.06,5.0,48.131814301238805,1.0,2.0,0.0,26.98,9.06,0.0
 2022,7,83,Very Formative Pixar Dumptrcks,Riley Bitterli,Dalton Schultz,TE,77.4,10.0,30.672049181440514,1.0,2.0,0.0,17.1,0.8,0.0
 2022,7,84,Max Top Vic Bottom,Jack Gola,Joe Burrow,QB,339.1,15.0,68.81128380482043,4.0,0.0,0.0,39.24,13.48,0.0
 2022,8,85,Max Top Vic Bottom,Jack Gola,DeVonta Smith,WR,212.9,16.0,46.434575845528414,2.0,3.0,0.0,27.3,3.2,16.0
@@ -665,20 +665,20 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,8,88,Clowntown Jabronis,Aaron Broache,Tom Brady,QB,252.06,14.0,47.908933755373475,3.0,1.0,0.0,37.68,9.4,37.68
 2022,8,89,Avant Gardner,Patrick Espe,Dallas Goedert,TE,112.1,12.0,54.28998372554153,1.0,0.0,0.0,20.0,3.2,6.0
 2022,8,90,Daniel Jones,Jackson Dunn,Dawson Knox,TE,44.0,7.0,49.32820455130399,0.0,1.0,0.0,11.2,1.0,0.0
-2022,8,91,Team Chogi Nanda,James Brunner,,,,,,,,,,,
+2022,8,91,Team Chogi Nanda,James Brunner,Hunter Renfrow,WR,27.7,6.0,49.56431916604388,0.0,4.0,0.0,7.4,1.1,0.0
 2022,8,92,Fk it chuck it Game time shit,Jack Lyden,Robert Woods,WR,16.7,2.0,55.117773170195186,0.0,0.0,0.0,11.0,5.7,0.0
 2022,8,93,cook'n lamb 4 my cousins,Camille Powers,DeAndre Hopkins,WR,119.7,9.0,45.69262923385158,1.0,1.0,0.0,27.9,0.9,0.0
 2022,8,94,Hock and Ball Torture,Marlon Primous,Rhamondre Stevenson,RB,186.3,15.0,40.97603373120757,2.0,3.0,0.0,23.8,2.0,6.1
 2022,8,95,Team Curtis,Jack Curtis,Drake London,WR,61.6,10.0,35.7622214372725,0.0,3.0,0.0,12.9,1.4,7.2
 2022,8,96,Is my team bad?,Reed Hodder,Tony Pollard,RB,191.8,12.0,35.059864730033226,5.0,1.0,0.0,33.9,1.3,0.0
-2022,9,97,Is my team bad?,Reed Hodder,,,,,,,,,,,
-2022,9,98,Team Curtis,Jack Curtis,,,,,,,,,,,
-2022,9,99,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
-2022,9,100,cook'n lamb 4 my cousins,Camille Powers,,,,,,,,,,,
+2022,9,97,Is my team bad?,Reed Hodder,Zach Ertz,TE,92.1,10.0,59.97343487463729,0.0,1.0,0.0,13.7,1.7000000000000002,0.0
+2022,9,98,Team Curtis,Jack Curtis,Trey Lance,QB,9.96,1.0,0.0,0.0,1.0,0.0,9.96,9.96,0.0
+2022,9,99,Hock and Ball Torture,Marlon Primous,Darrell Henderson Jr.,RB,35.2,5.0,24.397649556630967,0.0,2.0,0.0,12.200000000000001,0.9,0.0
+2022,9,100,cook'n lamb 4 my cousins,Camille Powers,Rashaad Penny,RB,9.2,2.0,4.694303405291407,0.0,1.0,0.0,7.7,1.5,0.0
 2022,9,101,Fk it chuck it Game time shit,Jack Lyden,Kadarius Toney,WR,2.3,1.0,0.0,0.0,1.0,0.0,2.3000000000000003,2.3000000000000003,0.0
 2022,9,102,Team Chogi Nanda,James Brunner,Bills D/ST,D/ST,58.0,5.0,29.542011235508454,2.0,0.0,0.0,22.0,4.0,0.0
 2022,9,103,Daniel Jones,Jackson Dunn,Dak Prescott,QB,204.26,12.0,63.319091125176726,2.0,1.0,0.0,27.980000000000004,4.460000000000001,14.38
-2022,9,104,Avant Gardner,Patrick Espe,,,,,,,,,,,
+2022,9,104,Avant Gardner,Patrick Espe,Melvin Gordon III,RB,25.3,3.0,21.431315611702942,0.0,1.0,0.0,12.700000000000001,0.8,0.0
 2022,9,105,Clowntown Jabronis,Aaron Broache,Aaron Rodgers,QB,42.26,3.0,65.9044273911376,0.0,1.0,0.0,19.08,9.5,0.0
 2022,9,106,The Twins,max raphael,Chris Olave,WR,128.2,13.0,58.573953620461154,0.0,0.0,0.0,18.700000000000003,5.5,6.2
 2022,9,107,Very Formative Pixar Dumptrcks,Riley Bitterli,Garrett Wilson,WR,102.6,13.0,25.076590043115203,1.0,6.0,0.0,20.2,1.3,3.3
@@ -686,37 +686,37 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,10,109,Max Top Vic Bottom,Jack Gola,James Cook,RB,2.0,1.0,0.0,0.0,1.0,0.0,2.0,2.0,0.0
 2022,10,110,Very Formative Pixar Dumptrcks,Riley Bitterli,Chase Claypool,WR,21.2,2.0,0.0,0.0,1.0,0.0,19.900000000000002,1.3,0.0
 2022,10,111,The Twins,max raphael,James Robinson,RB,51.4,8.0,0.0,0.0,5.0,0.0,19.1,1.0,0.0
-2022,10,112,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2022,10,112,Clowntown Jabronis,Aaron Broache,Matthew Stafford,QB,10.16,1.0,0.0,0.0,0.0,0.0,10.16,10.16,0.0
 2022,10,113,Avant Gardner,Patrick Espe,Michael Carter,RB,56.0,10.0,24.848980466254133,0.0,5.0,0.0,15.100000000000001,1.5,1.5
 2022,10,114,Daniel Jones,Jackson Dunn,Raheem Mostert,RB,48.8,6.0,31.89515962539113,0.0,2.0,0.0,18.9,3.9,0.0
 2022,10,115,Team Chogi Nanda,James Brunner,Pat Freiermuth,TE,60.1,7.0,69.35769445945222,0.0,0.0,0.0,11.9,5.1000000000000005,0.0
 2022,10,116,Fk it chuck it Game time shit,Jack Lyden,Jakobi Meyers,WR,41.9,6.0,65.87896680449353,0.0,2.0,0.0,10.4,3.7,0.0
 2022,10,117,cook'n lamb 4 my cousins,Camille Powers,Kirk Cousins,QB,286.48,17.0,54.30406409808801,2.0,4.0,0.0,32.400000000000006,2.2,7.9
-2022,10,118,Hock and Ball Torture,Marlon Primous,Alexander Mattison,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2022,10,119,Team Curtis,Jack Curtis,,,,,,,,,,,
-2022,10,120,Is my team bad?,Reed Hodder,,,,,,,,,,,
-2022,11,121,Is my team bad?,Reed Hodder,Michael Gallup,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2022,10,118,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
+2022,10,119,Team Curtis,Jack Curtis,Kenneth Gainwell,RB,0.5,1.0,0.0,0.0,1.0,0.0,0.5,0.5,0.0
+2022,10,120,Is my team bad?,Reed Hodder,Nyheim Hines,RB,1.3,1.0,0.0,0.0,1.0,0.0,1.3,1.3,0.0
+2022,11,121,Is my team bad?,Reed Hodder,,,,,,,,,,,
 2022,11,122,Team Curtis,Jack Curtis,Cole Kmet,TE,40.8,4.0,22.29090746299687,1.0,0.0,0.0,21.4,4.2,0.0
 2022,11,123,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
 2022,11,124,cook'n lamb 4 my cousins,Camille Powers,Marquez Valdes-Scantling,WR,15.2,3.0,52.208577306147355,0.0,1.0,0.0,6.800000000000001,2.3,0.0
-2022,11,125,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2022,11,125,Fk it chuck it Game time shit,Jack Lyden,J.D. McKissic,RB,2.4,2.0,5.71909584179366,0.0,2.0,0.0,2.0,0.4,0.0
 2022,11,126,Team Chogi Nanda,James Brunner,Tyler Boyd,WR,58.5,5.0,31.05207085557889,1.0,0.0,0.0,25.5,5.2,0.0
 2022,11,127,Daniel Jones,Jackson Dunn,Treylon Burks,WR,2.6,1.0,0.0,0.0,1.0,0.0,2.6,2.6,0.0
-2022,11,128,Avant Gardner,Patrick Espe,,,,,,,,,,,
-2022,11,129,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2022,11,128,Avant Gardner,Patrick Espe,Packers D/ST,D/ST,77.0,12.0,41.51516753663531,0.0,2.0,0.0,13.0,2.0,0.0
+2022,11,129,Clowntown Jabronis,Aaron Broache,Mike Gesicki,TE,11.9,2.0,0.0,0.0,1.0,0.0,11.3,0.6,0.0
 2022,11,130,The Twins,max raphael,Derek Carr,QB,70.2,5.0,46.488399689741364,0.0,1.0,0.0,19.82,1.94,0.0
 2022,11,131,Very Formative Pixar Dumptrcks,Riley Bitterli,DJ Chark,WR,46.7,5.0,32.5753768163802,0.0,1.0,0.0,18.4,2.3,6.6
 2022,11,132,Max Top Vic Bottom,Jack Gola,Brian Robinson Jr.,RB,65.9,9.0,50.42480258517106,0.0,2.0,0.0,12.0,2.0,8.7
 2022,12,133,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
-2022,12,134,Very Formative Pixar Dumptrcks,Riley Bitterli,,,,,,,,,,,
+2022,12,134,Very Formative Pixar Dumptrcks,Riley Bitterli,Saints D/ST,D/ST,30.0,6.0,74.70177871865297,0.0,0.0,0.0,6.0,3.0,0.0
 2022,12,135,The Twins,max raphael,Jahan Dotson,WR,17.9,2.0,0.0,0.0,1.0,0.0,15.9,2.0,0.0
 2022,12,136,Clowntown Jabronis,Aaron Broache,Noah Fant,TE,12.4,2.0,70.34713498249963,0.0,0.0,0.0,7.5,4.9,0.0
 2022,12,137,Avant Gardner,Patrick Espe,Hunter Henry,TE,30.7,6.0,2.809905105960425,0.0,4.0,0.0,13.8,1.7000000000000002,0.0
 2022,12,138,Daniel Jones,Jackson Dunn,Jamaal Williams,RB,153.7,12.0,37.347145769303005,4.0,2.0,0.0,24.4,3.3000000000000003,22.2
 2022,12,139,Team Chogi Nanda,James Brunner,Trevor Lawrence,QB,35.78,3.0,0.0,1.0,2.0,0.0,26.82,4.48,4.48
 2022,12,140,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2022,12,141,cook'n lamb 4 my cousins,Camille Powers,,,,,,,,,,,
-2022,12,142,Hock and Ball Torture,Marlon Primous,Rondale Moore,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2022,12,141,cook'n lamb 4 my cousins,Camille Powers,Irv Smith Jr.,TE,13.5,2.0,59.14494153144393,0.0,0.0,0.0,8.7,4.800000000000001,0.0
+2022,12,142,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
 2022,12,143,Team Curtis,Jack Curtis,David Njoku,TE,64.0,9.0,35.0933569312576,1.0,3.0,0.0,15.200000000000001,2.4000000000000004,2.6
 2022,12,144,Is my team bad?,Reed Hodder,Tyler Allgeier,RB,44.8,3.0,87.62820851736517,0.0,0.0,0.0,16.0,12.8,16.0
 2022,13,145,Is my team bad?,Reed Hodder,George Pickens,WR,43.3,6.0,22.78675137021615,0.0,3.0,0.0,16.3,0.7,3.9
@@ -729,43 +729,43 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2022,13,152,Avant Gardner,Patrick Espe,,,,,,,,,,,
 2022,13,153,Clowntown Jabronis,Aaron Broache,Buccaneers D/ST,D/ST,56.0,10.0,58.58922111684265,0.0,1.0,0.0,9.0,1.0,5.0
 2022,13,154,The Twins,max raphael,Khalil Herbert,RB,34.5,4.0,31.281318196043046,0.0,1.0,0.0,15.9,2.3000000000000003,0.0
-2022,13,155,Very Formative Pixar Dumptrcks,Riley Bitterli,,,,,,,,,,,
+2022,13,155,Very Formative Pixar Dumptrcks,Riley Bitterli,Marvin Jones Jr.,WR,7.7,1.0,0.0,0.0,0.0,0.0,7.7,7.7,0.0
 2022,13,156,Max Top Vic Bottom,Jack Gola,Ravens D/ST,D/ST,107.0,14.0,52.23998709503175,1.0,2.0,0.0,16.0,2.0,2.0
-2022,14,157,Max Top Vic Bottom,Jack Gola,Julio Jones,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2022,14,157,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2022,14,158,Very Formative Pixar Dumptrcks,Riley Bitterli,Tyler Higbee,TE,37.4,7.0,22.115216861954778,0.0,4.0,0.0,12.3,1.2000000000000002,2.6
 2022,14,159,The Twins,max raphael,Evan Engram,TE,89.9,9.0,0.0,1.0,2.0,0.0,33.7,1.3,3.4
 2022,14,160,Clowntown Jabronis,Aaron Broache,49ers D/ST,D/ST,78.0,6.0,58.718745030773114,2.0,0.0,0.0,22.0,6.0,0.0
 2022,14,161,Avant Gardner,Patrick Espe,Van Jefferson,WR,21.9,3.0,51.1244855481883,0.0,1.0,0.0,11.4,4.9,0.0
-2022,14,162,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2022,14,162,Daniel Jones,Jackson Dunn,Jameis Winston,QB,7.64,1.0,0.0,0.0,1.0,0.0,7.64,7.64,0.0
 2022,14,163,Team Chogi Nanda,James Brunner,,,,,,,,,,,
 2022,14,164,Fk it chuck it Game time shit,Jack Lyden,Hayden Hurst,TE,21.0,5.0,34.448095724113315,0.0,2.0,0.0,7.800000000000001,1.2000000000000002,0.0
 2022,14,165,cook'n lamb 4 my cousins,Camille Powers,,,,,,,,,,,
-2022,14,166,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
+2022,14,166,Hock and Ball Torture,Marlon Primous,Nico Collins,WR,7.3,1.0,0.0,0.0,0.0,0.0,7.300000000000001,7.300000000000001,0.0
 2022,14,167,Team Curtis,Jack Curtis,Browns D/ST,D/ST,21.0,3.0,48.49212463622873,0.0,0.0,0.0,10.0,3.0,0.0
-2022,14,168,Is my team bad?,Reed Hodder,,,,,,,,,,,
+2022,14,168,Is my team bad?,Reed Hodder,Colts D/ST,D/ST,36.0,6.0,60.55946811266923,0.0,0.0,0.0,9.0,3.0,0.0
 2022,15,169,Is my team bad?,Reed Hodder,,,,,,,,,,,
 2022,15,170,Team Curtis,Jack Curtis,Isiah Pacheco,RB,105.2,11.0,55.185936109310916,0.0,2.0,0.0,15.200000000000001,1.4,11.9
 2022,15,171,Hock and Ball Torture,Marlon Primous,,,,,,,,,,,
 2022,15,172,cook'n lamb 4 my cousins,Camille Powers,Jerick McKinnon,RB,93.6,6.0,38.341463300456155,3.0,1.0,0.0,30.2,4.5,20.1
-2022,15,173,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2022,15,173,Fk it chuck it Game time shit,Jack Lyden,Broncos D/ST,D/ST,56.0,8.0,39.87379647895414,0.0,2.0,0.0,13.0,1.0,0.0
 2022,15,174,Team Chogi Nanda,James Brunner,Cowboys D/ST,D/ST,106.0,12.0,36.172746809990755,2.0,1.0,0.0,19.0,2.0,9.0
 2022,15,175,Daniel Jones,Jackson Dunn,Eagles D/ST,D/ST,125.0,14.0,61.08676317755101,1.0,0.0,0.0,17.0,3.0,10.0
-2022,15,176,Avant Gardner,Patrick Espe,Gardner Minshew,QB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2022,15,177,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
-2022,15,178,The Twins,max raphael,Jameson Williams,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2022,15,176,Avant Gardner,Patrick Espe,,,,,,,,,,,
+2022,15,177,Clowntown Jabronis,Aaron Broache,Steelers D/ST,D/ST,26.0,5.0,23.801489399388657,0.0,1.0,0.0,12.0,2.0,0.0
+2022,15,178,The Twins,max raphael,,,,,,,,,,,
 2022,15,179,Very Formative Pixar Dumptrcks,Riley Bitterli,Dolphins D/ST,D/ST,51.0,5.0,42.665915618770796,1.0,0.0,0.0,20.0,6.0,6.0
-2022,15,180,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2022,15,180,Max Top Vic Bottom,Jack Gola,Commanders D/ST,D/ST,61.0,7.0,32.20298937133258,1.0,0.0,0.0,21.0,3.0,0.0
 2022,16,181,Max Top Vic Bottom,Jack Gola,Mecole Hardman,WR,16.9,1.0,0.0,0.0,0.0,0.0,16.9,16.9,0.0
 2022,16,182,Very Formative Pixar Dumptrcks,Riley Bitterli,,,,,,,,,,,
 2022,16,183,The Twins,max raphael,Chargers D/ST,D/ST,57.0,5.0,57.205926604735204,1.0,0.0,0.0,20.0,8.0,10.0
-2022,16,184,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2022,16,184,Clowntown Jabronis,Aaron Broache,Wan'Dale Robinson,WR,2.5,1.0,0.0,0.0,1.0,0.0,2.5,2.5,0.0
 2022,16,185,Avant Gardner,Patrick Espe,Alec Pierce,WR,9.5,2.0,86.60218730383384,0.0,1.0,0.0,5.2,4.300000000000001,0.0
 2022,16,186,Daniel Jones,Jackson Dunn,,,,,,,,,,,
 2022,16,187,Team Chogi Nanda,James Brunner,Isaiah McKenzie,WR,32.3,6.0,32.15955972875712,0.0,3.0,0.0,10.1,0.6000000000000001,0.0
 2022,16,188,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
 2022,16,189,cook'n lamb 4 my cousins,Camille Powers,Vikings D/ST,D/ST,45.0,7.0,54.331666246523405,0.0,1.0,0.0,11.0,2.0,0.0
 2022,16,190,Hock and Ball Torture,Marlon Primous,Bengals D/ST,D/ST,22.0,4.0,56.71861558458879,0.0,0.0,0.0,8.0,3.0,0.0
-2022,16,191,Team Curtis,Jack Curtis,,,,,,,,,,,
+2022,16,191,Team Curtis,Jack Curtis,Romeo Doubs,WR,2.3,1.0,0.0,0.0,1.0,0.0,2.3,2.3,0.0
 2022,16,192,Is my team bad?,Reed Hodder,Gerald Everett,TE,51.9,7.0,72.56336011619639,0.0,0.0,0.0,10.5,5.300000000000001,9.0
 2023,1,1,Magic Skol Bus,Camille Powers,Justin Jefferson,WR,146.6,10.0,44.13836608198826,3.0,2.0,0.0,24.4,3.7,8.4
 2023,1,2,Who Killed Charbonnet Ramsey,Patrick Espe,Christian McCaffrey,RB,368.9,17.0,57.06921247434301,10.0,0.0,0.0,45.2,11.100000000000001,11.1
@@ -777,7 +777,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,1,8,Daniel Jones,Jackson Dunn,Austin Ekeler,RB,155.0,14.0,31.645777834685433,2.0,3.0,0.0,24.400000000000002,3.5000000000000004,3.5
 2023,1,9,Very Formative Pixar Dumptrcks,Riley Bitterli,Davante Adams,WR,231.9,17.0,22.838431350525894,4.0,3.0,0.0,35.7,0.9,31.1
 2023,1,10,Clowntown Jabronis,Aaron Broache,Saquon Barkley,RB,187.3,14.0,44.24871673318466,3.0,1.0,0.0,28.0,4.700000000000001,7.3
-2023,1,11,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2023,1,11,Max Top Vic Bottom,Jack Gola,Nick Chubb,RB,21.1,2.0,44.36979825736166,0.0,0.0,0.0,14.700000000000001,6.4,0.0
 2023,1,12,Team Chogi Nanda,James Brunner,Derrick Henry,RB,215.56,17.0,36.7237032592449,4.0,6.0,0.0,24.500000000000004,2.0,4.2
 2023,2,13,Team Chogi Nanda,James Brunner,Cooper Kupp,WR,145.6,13.0,33.11611970080121,3.0,3.0,0.0,24.3,1.6,10.7
 2023,2,14,Max Top Vic Bottom,Jack Gola,Stefon Diggs,WR,213.2,17.0,36.3042292294366,3.0,3.0,0.0,33.0,4.4,5.1
@@ -803,7 +803,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,3,34,Clowntown Jabronis,Aaron Broache,Mark Andrews,TE,112.9,10.0,44.551082232667085,2.0,0.0,0.0,22.5,3.3000000000000003,0.0
 2023,3,35,Max Top Vic Bottom,Jack Gola,Lamar Jackson,QB,367.56,17.0,55.4518632289769,6.0,2.0,0.0,36.34,6.5600000000000005,36.34
 2023,3,36,Team Chogi Nanda,James Brunner,Dameon Pierce,RB,62.9,9.0,41.824130036223394,0.0,4.0,0.0,13.4,1.2,0.0
-2023,4,37,Team Chogi Nanda,James Brunner,,,,,,,,,,,
+2023,4,37,Team Chogi Nanda,James Brunner,Joe Burrow,QB,139.0,9.0,44.31644219517933,1.0,3.0,0.0,27.62,3.18,0.0
 2023,4,38,Max Top Vic Bottom,Jack Gola,Calvin Ridley,WR,178.2,17.0,24.514403087300735,3.0,4.0,0.0,27.6,1.0,5.9
 2023,4,39,Clowntown Jabronis,Aaron Broache,Deebo Samuel,WR,225.2,15.0,36.37636795822178,3.0,2.0,0.0,33.8,0.6000000000000001,15.7
 2023,4,40,Very Formative Pixar Dumptrcks,Riley Bitterli,Keenan Allen,WR,224.86,13.0,42.324071003322004,4.0,0.0,0.0,36.46,7.5,0.0
@@ -817,21 +817,21 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,4,48,Magic Skol Bus,Camille Powers,Miles Sanders,RB,46.4,8.0,23.71924761131507,0.0,5.0,0.0,14.700000000000001,1.2000000000000002,3.2
 2023,5,49,Magic Skol Bus,Camille Powers,Darren Waller,TE,62.4,8.0,22.59613014659962,1.0,1.0,0.0,19.3,0.9,0.0
 2023,5,50,Who Killed Charbonnet Ramsey,Patrick Espe,Kenneth Walker III,RB,183.9,14.0,43.86353464321188,1.0,2.0,0.0,29.1,2.0999999999999996,15.0
-2023,5,51,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2023,5,51,Fk it chuck it Game time shit,Jack Lyden,J.K. Dobbins,RB,10.7,1.0,0.0,0.0,0.0,0.0,10.7,10.7,0.0
 2023,5,52,Is my team bad? Yes,Reed Hodder,James Cook,RB,208.9,17.0,33.63280308228828,2.0,4.0,0.0,35.1,3.6,4.9
 2023,5,53,Team Curtis,Jack Curtis,Rachaad White,RB,231.2,17.0,53.80430219517471,3.0,0.0,0.0,25.900000000000002,5.3,6.6
 2023,5,54,Amon Ra Dog and the st D's,Marlon Primous,David Montgomery,RB,201.7,14.0,53.81116688326373,1.0,1.0,0.0,33.1,3.8000000000000003,12.5
 2023,5,55,The Twins,max raphael,Justin Fields,QB,215.04,11.0,54.100663357036396,4.0,2.0,0.0,32.98,4.92,25.22
-2023,5,56,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2023,5,56,Daniel Jones,Jackson Dunn,Cam Akers,RB,8.9,1.0,0.0,0.0,0.0,0.0,8.9,8.9,0.0
 2023,5,57,Very Formative Pixar Dumptrcks,Riley Bitterli,Chris Godwin,WR,159.5,16.0,53.70380763070495,1.0,1.0,0.0,20.5,2.6,15.6
 2023,5,58,Clowntown Jabronis,Aaron Broache,Alvin Kamara,RB,201.4,14.0,53.426530933840404,3.0,0.0,0.0,25.900000000000002,5.9,5.9
 2023,5,59,Max Top Vic Bottom,Jack Gola,Diontae Johnson,WR,87.5,10.0,36.60776101352137,0.0,3.0,0.0,18.5,2.2,0.0
 2023,5,60,Team Chogi Nanda,James Brunner,James Conner,RB,185.4,13.0,44.40946158552161,3.0,1.0,0.0,25.8,4.6000000000000005,25.8
-2023,6,61,Team Chogi Nanda,James Brunner,,,,,,,,,,,
+2023,6,61,Team Chogi Nanda,James Brunner,Mike Williams,WR,40.7,3.0,44.00783035626332,1.0,0.0,0.0,21.6,6.5,0.0
 2023,6,62,Max Top Vic Bottom,Jack Gola,Javonte Williams,RB,121.5,14.0,48.201990601143905,0.0,2.0,0.0,19.0,2.4,7.3
 2023,6,63,Clowntown Jabronis,Aaron Broache,Terry McLaurin,WR,145.3,12.0,54.68202837485162,1.0,1.0,0.0,23.1,4.1,14.1
 2023,6,64,Very Formative Pixar Dumptrcks,Riley Bitterli,Jonathan Taylor,RB,137.2,10.0,61.29500457791238,1.0,1.0,0.0,21.1,3.9,16.9
-2023,6,65,Daniel Jones,Jackson Dunn,,,,,,,,,,,
+2023,6,65,Daniel Jones,Jackson Dunn,Justin Herbert,QB,220.28,12.0,50.29287331629009,3.0,3.0,0.0,29.299999999999997,1.8399999999999999,0.0
 2023,6,66,The Twins,max raphael,Mike Evans,WR,247.8,17.0,48.352333017693205,5.0,1.0,0.0,26.1,1.3,8.5
 2023,6,67,Amon Ra Dog and the st D's,Marlon Primous,Drake London,WR,90.8,10.0,28.08108632501009,1.0,2.0,0.0,24.2,3.4000000000000004,7.6
 2023,6,68,Team Curtis,Jack Curtis,Tyler Lockett,WR,94.3,11.0,17.724676444540194,1.0,4.0,0.0,21.9,1.5,1.5
@@ -842,19 +842,19 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,7,73,Magic Skol Bus,Camille Powers,Jordan Addison,WR,176.9,16.0,29.317309409662002,2.0,4.0,0.0,27.8,0.7,4.3
 2023,7,74,Who Killed Charbonnet Ramsey,Patrick Espe,Marquise Brown,WR,81.5,10.0,43.69403718249502,0.0,3.0,0.0,14.4,2.2,0.0
 2023,7,75,Fk it chuck it Game time shit,Jack Lyden,George Kittle,TE,175.1,17.0,25.670274473136516,6.0,2.0,0.0,26.2,0.6,4.4
-2023,7,76,Is my team bad? Yes,Reed Hodder,,,,,,,,,,,
-2023,7,77,Team Curtis,Jack Curtis,,,,,,,,,,,
+2023,7,76,Is my team bad? Yes,Reed Hodder,Dalvin Cook,RB,7.4,1.0,0.0,0.0,0.0,0.0,7.4,7.4,0.0
+2023,7,77,Team Curtis,Jack Curtis,Jahan Dotson,WR,27.6,5.0,50.81263185059362,0.0,3.0,0.0,9.8,3.1,0.0
 2023,7,78,Amon Ra Dog and the st D's,Marlon Primous,George Pickens,WR,73.5,7.0,19.032681116790712,2.0,2.0,0.0,23.6,0.9,0.0
-2023,7,79,The Twins,max raphael,,,,,,,,,,,
+2023,7,79,The Twins,max raphael,Kyle Pitts,TE,46.7,6.0,46.620348663607835,0.0,1.0,0.0,13.2,2.5,0.0
 2023,7,80,Daniel Jones,Jackson Dunn,Dallas Goedert,TE,99.9,10.0,42.40894041991439,2.0,0.0,0.0,21.700000000000003,5.0,13.2
 2023,7,81,Very Formative Pixar Dumptrcks,Riley Bitterli,Isiah Pacheco,RB,217.9,15.0,49.208615876772065,4.0,0.0,0.0,26.0,5.2,26.0
 2023,7,82,Clowntown Jabronis,Aaron Broache,Michael Pittman Jr.,WR,183.7,14.0,64.00941000085388,1.0,1.0,0.0,22.0,4.0,0.0
 2023,7,83,Max Top Vic Bottom,Jack Gola,D'Andre Swift,RB,186.1,16.0,50.419046707858705,1.0,2.0,0.0,25.6,3.0,7.1
 2023,7,84,Team Chogi Nanda,James Brunner,Brandin Cooks,WR,140.1,14.0,25.482182636313468,1.0,5.0,0.0,27.8,1.2000000000000002,14.5
-2023,8,85,Team Chogi Nanda,James Brunner,,,,,,,,,,,
+2023,8,85,Team Chogi Nanda,James Brunner,Deshaun Watson,QB,21.16,1.0,0.0,0.0,0.0,0.0,21.16,21.16,0.0
 2023,8,86,Max Top Vic Bottom,Jack Gola,Khalil Herbert,RB,42.8,4.0,38.03989705460842,1.0,0.0,0.0,20.2,5.1,0.0
 2023,8,87,Clowntown Jabronis,Aaron Broache,Brian Robinson Jr.,RB,143.4,13.0,46.18214673148777,1.0,0.0,0.0,27.900000000000002,5.300000000000001,9.6
-2023,8,88,Very Formative Pixar Dumptrcks,Riley Bitterli,,,,,,,,,,,
+2023,8,88,Very Formative Pixar Dumptrcks,Riley Bitterli,Pat Freiermuth,TE,4.4,1.0,0.0,0.0,0.0,0.0,4.4,4.4,0.0
 2023,8,89,Daniel Jones,Jackson Dunn,Zay Flowers,WR,172.8,16.0,43.06245650567799,1.0,3.0,0.0,20.7,1.2000000000000002,18.1
 2023,8,90,The Twins,max raphael,AJ Dillon,RB,36.3,5.0,62.71311445578263,0.0,2.0,0.0,10.5,4.6000000000000005,0.0
 2023,8,91,Amon Ra Dog and the st D's,Marlon Primous,Antonio Gibson,RB,19.3,4.0,21.127709914661025,0.0,3.0,0.0,9.7,0.3999999999999999,4.6
@@ -862,12 +862,12 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,8,93,Is my team bad? Yes,Reed Hodder,Courtland Sutton,WR,127.8,10.0,80.68561983662005,0.0,0.0,0.0,16.6,9.600000000000001,0.0
 2023,8,94,Fk it chuck it Game time shit,Jack Lyden,Raheem Mostert,RB,255.2,15.0,39.960290556813796,5.0,1.0,0.0,41.7,4.0,0.0
 2023,8,95,Who Killed Charbonnet Ramsey,Patrick Espe,Gabe Davis,WR,96.0,9.0,31.7586286361052,0.0,3.0,0.0,19.5,1.1,3.1
-2023,8,96,Magic Skol Bus,Camille Powers,,,,,,,,,,,
+2023,8,96,Magic Skol Bus,Camille Powers,Kirk Cousins,QB,149.74,8.0,62.66896115270647,2.0,2.0,0.0,28.560000000000002,8.74,0.0
 2023,9,97,Magic Skol Bus,Camille Powers,,,,,,,,,,,
 2023,9,98,Who Killed Charbonnet Ramsey,Patrick Espe,Elijah Moore,WR,13.6,2.0,77.12301590278817,0.0,0.0,0.0,7.9,5.7,0.0
 2023,9,99,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2023,9,100,Is my team bad? Yes,Reed Hodder,,,,,,,,,,,
-2023,9,101,Team Curtis,Jack Curtis,Quentin Johnston,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2023,9,100,Is my team bad? Yes,Reed Hodder,Jamaal Williams,RB,9.1,2.0,48.71533235350316,0.0,1.0,0.0,6.2,2.9000000000000004,0.0
+2023,9,101,Team Curtis,Jack Curtis,,,,,,,,,,,
 2023,9,102,Amon Ra Dog and the st D's,Marlon Primous,Zach Charbonnet,RB,34.2,4.0,29.866809338509682,0.0,1.0,0.0,16.4,1.8,0.0
 2023,9,103,The Twins,max raphael,Odell Beckham Jr.,WR,7.4,1.0,0.0,0.0,0.0,0.0,7.4,7.4,0.0
 2023,9,104,Daniel Jones,Jackson Dunn,Michael Thomas,WR,61.7,8.0,62.04943017680314,0.0,1.0,0.0,11.7,1.4,0.0
@@ -876,7 +876,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,9,107,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2023,9,108,Team Chogi Nanda,James Brunner,Cole Kmet,TE,139.0,14.0,35.80957211982084,2.0,1.0,0.0,24.1,1.9,0.0
 2023,10,109,Team Chogi Nanda,James Brunner,Jakobi Meyers,WR,142.58,13.0,42.105740598118636,1.0,3.0,0.0,24.6,2.4000000000000004,8.6
-2023,10,110,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2023,10,110,Max Top Vic Bottom,Jack Gola,Tyler Higbee,TE,30.6,5.0,47.465350873983866,0.0,2.0,0.0,9.600000000000001,2.7,0.0
 2023,10,111,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
 2023,10,112,Very Formative Pixar Dumptrcks,Riley Bitterli,Dak Prescott,QB,127.64,7.0,63.77395565822776,1.0,1.0,0.0,28.26,6.0600000000000005,20.3
 2023,10,113,Daniel Jones,Jackson Dunn,Samaje Perine,RB,32.7,6.0,37.692979521223435,0.0,4.0,0.0,9.8,1.6,0.0
@@ -884,10 +884,10 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,10,115,Amon Ra Dog and the st D's,Marlon Primous,De'Von Achane,RB,135.6,9.0,36.953889534754104,5.0,2.0,0.0,25.5,1.0,21.7
 2023,10,116,Team Curtis,Jack Curtis,,,,,,,,,,,
 2023,10,117,Is my team bad? Yes,Reed Hodder,Nico Collins,WR,159.3,13.0,34.16278475552734,2.0,3.0,0.0,29.6,1.8,12.2
-2023,10,118,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2023,10,119,Who Killed Charbonnet Ramsey,Patrick Espe,Rashod Bateman,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2023,10,120,Magic Skol Bus,Camille Powers,,,,,,,,,,,
-2023,11,121,Magic Skol Bus,Camille Powers,,,,,,,,,,,
+2023,10,118,Fk it chuck it Game time shit,Jack Lyden,Daniel Jones,QB,47.9,4.0,0.0,1.0,3.0,0.0,30.74,3.9800000000000004,0.0
+2023,10,119,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
+2023,10,120,Magic Skol Bus,Camille Powers,Allen Lazard,WR,2.8,1.0,0.0,0.0,1.0,0.0,2.8,2.8,0.0
+2023,11,121,Magic Skol Bus,Camille Powers,Jerick McKinnon,RB,8.6,3.0,58.675917107170086,0.0,3.0,0.0,3.6000000000000005,1.5,0.0
 2023,11,122,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
 2023,11,123,Fk it chuck it Game time shit,Jack Lyden,Jameson Williams,WR,9.9,2.0,0.0,0.0,1.0,0.0,9.5,0.4,0.0
 2023,11,124,Is my team bad? Yes,Reed Hodder,,,,,,,,,,,
@@ -898,7 +898,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,11,129,Very Formative Pixar Dumptrcks,Riley Bitterli,Rondale Moore,WR,23.6,4.0,22.169117503211737,0.0,2.0,0.0,11.9,1.3,0.0
 2023,11,130,Clowntown Jabronis,Aaron Broache,Geno Smith,QB,56.26,3.0,55.25847989426993,0.0,1.0,0.0,24.060000000000002,9.08,0.0
 2023,11,131,Max Top Vic Bottom,Jack Gola,Cowboys D/ST,D/ST,151.0,9.0,41.23939170395927,5.0,0.0,0.0,35.0,4.0,0.0
-2023,11,132,Team Chogi Nanda,James Brunner,,,,,,,,,,,
+2023,11,132,Team Chogi Nanda,James Brunner,Steelers D/ST,D/ST,67.0,8.0,45.867406761126226,1.0,0.0,0.0,17.0,3.0,0.0
 2023,12,133,Team Chogi Nanda,James Brunner,DJ Chark Jr.,WR,7.1,2.0,90.04074956075286,0.0,2.0,0.0,3.8000000000000003,3.3000000000000003,0.0
 2023,12,134,Max Top Vic Bottom,Jack Gola,Tyler Boyd,WR,27.8,3.0,34.74717029837596,0.0,1.0,0.0,15.700000000000001,3.7,0.0
 2023,12,135,Clowntown Jabronis,Aaron Broache,Dalton Schultz,TE,21.4,4.0,6.660511206228861,0.0,2.0,0.0,10.2,0.7,0.0
@@ -908,19 +908,19 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,12,139,Amon Ra Dog and the st D's,Marlon Primous,Dalton Kincaid,TE,95.2,12.0,45.75880417788424,1.0,2.0,0.0,15.0,1.2000000000000002,10.7
 2023,12,140,Team Curtis,Jack Curtis,Kenneth Gainwell,RB,2.9,1.0,0.0,0.0,1.0,0.0,2.9000000000000004,2.9000000000000004,0.0
 2023,12,141,Is my team bad? Yes,Reed Hodder,Roschon Johnson,RB,8.8,2.0,22.861078416012987,0.0,1.0,0.0,6.800000000000001,2.0,0.0
-2023,12,142,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2023,12,142,Fk it chuck it Game time shit,Jack Lyden,Gerald Everett,TE,10.1,1.0,0.0,0.0,0.0,0.0,10.1,10.1,0.0
 2023,12,143,Who Killed Charbonnet Ramsey,Patrick Espe,Romeo Doubs,WR,10.9,2.0,0.0,0.0,1.0,0.0,10.0,0.9,0.0
 2023,12,144,Magic Skol Bus,Camille Powers,Bills D/ST,D/ST,150.0,14.0,20.852404456345738,4.0,1.0,0.0,31.0,1.0,19.0
 2023,13,145,Magic Skol Bus,Camille Powers,Adam Thielen,WR,139.0,14.0,36.57637218986206,2.0,2.0,0.0,23.0,0.7,6.8
-2023,13,146,Who Killed Charbonnet Ramsey,Patrick Espe,Damien Harris,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2023,13,146,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
 2023,13,147,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
 2023,13,148,Is my team bad? Yes,Reed Hodder,,,,,,,,,,,
-2023,13,149,Team Curtis,Jack Curtis,,,,,,,,,,,
+2023,13,149,Team Curtis,Jack Curtis,Deon Jackson,RB,1.3,1.0,0.0,0.0,1.0,0.0,1.3000000000000005,1.3000000000000005,0.0
 2023,13,150,Amon Ra Dog and the st D's,Marlon Primous,,,,,,,,,,,
 2023,13,151,The Twins,max raphael,Russell Wilson,QB,104.92,6.0,80.5406537668006,0.0,0.0,0.0,23.52,13.86,0.0
 2023,13,152,Daniel Jones,Jackson Dunn,Jared Goff,QB,45.62,2.0,71.29413067169035,1.0,0.0,0.0,27.439999999999998,18.18,0.0
 2023,13,153,Very Formative Pixar Dumptrcks,Riley Bitterli,,,,,,,,,,,
-2023,13,154,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2023,13,154,Clowntown Jabronis,Aaron Broache,Saints D/ST,D/ST,87.0,8.0,36.02040602387042,2.0,1.0,0.0,22.0,2.0,0.0
 2023,13,155,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2023,13,156,Team Chogi Nanda,James Brunner,Devin Singletary,RB,84.1,7.0,47.03565645648299,1.0,1.0,0.0,22.6,4.5,10.1
 2023,14,157,Team Chogi Nanda,James Brunner,Ezekiel Elliott,RB,84.4,7.0,49.71703944545796,1.0,0.0,0.0,23.5,6.200000000000001,11.0
@@ -931,13 +931,13 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,14,162,The Twins,max raphael,Kareem Hunt,RB,42.7,4.0,58.77244455838404,0.0,0.0,0.0,15.1,5.199999999999999,0.0
 2023,14,163,Amon Ra Dog and the st D's,Marlon Primous,Jayden Reed,WR,114.0,8.0,41.37695137564381,2.0,2.0,0.0,23.9,1.2000000000000002,23.9
 2023,14,164,Team Curtis,Jack Curtis,Eagles D/ST,D/ST,53.0,7.0,50.6659995747462,0.0,0.0,0.0,14.0,3.0,0.0
-2023,14,165,Is my team bad? Yes,Reed Hodder,,,,,,,,,,,
+2023,14,165,Is my team bad? Yes,Reed Hodder,Van Jefferson,WR,6.9,2.0,15.967020206816073,0.0,1.0,0.0,5.500000000000001,1.4,0.0
 2023,14,166,Fk it chuck it Game time shit,Jack Lyden,Tyjae Spears,RB,52.4,7.0,43.6686605812456,0.0,4.0,0.0,14.8,3.6000000000000005,4.9
-2023,14,167,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
+2023,14,167,Who Killed Charbonnet Ramsey,Patrick Espe,Greg Dulcich,TE,3.2,1.0,0.0,0.0,0.0,0.0,3.2,3.2,0.0
 2023,14,168,Magic Skol Bus,Camille Powers,,,,,,,,,,,
 2023,15,169,Magic Skol Bus,Camille Powers,,,,,,,,,,,
 2023,15,170,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
-2023,15,171,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2023,15,171,Fk it chuck it Game time shit,Jack Lyden,Commanders D/ST,D/ST,33.0,4.0,45.45454545454546,0.0,1.0,0.0,12.0,2.0,0.0
 2023,15,172,Is my team bad? Yes,Reed Hodder,Jets D/ST,D/ST,46.0,6.0,36.814253479704526,0.0,2.0,0.0,12.0,1.0,0.0
 2023,15,173,Team Curtis,Jack Curtis,Sam LaPorta,TE,162.0,14.0,35.368984886382336,5.0,0.0,0.0,26.1,3.3,11.9
 2023,15,174,Amon Ra Dog and the st D's,Marlon Primous,Jake Ferguson,TE,108.1,14.0,34.635968626914945,2.0,2.0,0.0,18.6,2.0,5.3
@@ -946,7 +946,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,15,177,Very Formative Pixar Dumptrcks,Riley Bitterli,,,,,,,,,,,
 2023,15,178,Clowntown Jabronis,Aaron Broache,Browns D/ST,D/ST,68.0,6.0,36.94622496065123,1.0,0.0,0.0,23.0,4.0,0.0
 2023,15,179,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
-2023,15,180,Team Chogi Nanda,James Brunner,,,,,,,,,,,
+2023,15,180,Team Chogi Nanda,James Brunner,Patriots D/ST,D/ST,50.0,8.0,33.891863478950526,0.0,2.0,0.0,13.0,1.0,0.0
 2023,16,181,Team Chogi Nanda,James Brunner,Packers D/ST,D/ST,4.0,2.0,29.289321881345245,0.0,1.0,0.0,3.0,1.0,0.0
 2023,16,182,Max Top Vic Bottom,Jack Gola,Gus Edwards,RB,139.0,12.0,34.003573051422194,2.0,3.0,0.0,28.4,1.5,10.8
 2023,16,183,Clowntown Jabronis,Aaron Broache,D'Onta Foreman,RB,8.2,1.0,0.0,0.0,0.0,0.0,8.2,8.2,0.0
@@ -957,7 +957,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2023,16,188,Team Curtis,Jack Curtis,Jerome Ford,RB,171.4,13.0,52.2412747541771,2.0,0.0,0.0,25.099999999999998,5.1,25.1
 2023,16,189,Is my team bad? Yes,Reed Hodder,Clyde Edwards-Helaire,RB,25.9,2.0,43.75907454655259,0.0,0.0,0.0,18.1,7.800000000000001,0.0
 2023,16,190,Fk it chuck it Game time shit,Jack Lyden,Jordan Love,QB,142.06,8.0,51.2573738146768,2.0,2.0,0.0,28.439999999999998,4.98,28.44
-2023,16,191,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
+2023,16,191,Who Killed Charbonnet Ramsey,Patrick Espe,Panthers D/ST,D/ST,12.0,2.0,100.0,0.0,0.0,0.0,6.0,6.0,0.0
 2023,16,192,Magic Skol Bus,Camille Powers,Ty Chandler,RB,46.7,4.0,34.18490994261862,1.0,0.0,0.0,23.200000000000003,7.7,7.9
 2024,1,1,Tommy DeVito,Jackson Dunn,Christian McCaffrey,RB,40.3,4.0,64.02641171018871,0.0,0.0,0.0,13.700000000000001,6.300000000000001,0.0
 2024,1,2,Prolapsed Jameis,Marlon Primous,Tyreek Hill,WR,189.7,17.0,45.01608426016445,2.0,2.0,0.0,23.1,1.8,15.0
@@ -999,14 +999,14 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,4,38,I'm Sorry Smith Jaxon,Reed Hodder,Malik Nabers,WR,193.9,12.0,40.17243003134872,4.0,0.0,0.0,32.6,6.1000000000000005,32.6
 2024,4,39,2F2F (RIP Rashee),Jack Curtis,Josh Allen,QB,402.02,17.0,52.8080616727647,5.0,2.0,0.0,51.88,7.300000000000001,22.98
 2024,4,40,Who Killed Charbonnet Ramsey,Patrick Espe,Jalen Hurts,QB,315.12,15.0,61.964162574225604,4.0,1.0,0.0,35.14,4.540000000000001,0.0
-2024,4,41,We're Onto 2025,Riley Bitterli,,,,,,,,,,,
+2024,4,41,We're Onto 2025,Riley Bitterli,Stefon Diggs,WR,98.42,8.0,57.774132007293574,0.0,1.0,0.0,18.9,4.800000000000001,0.0
 2024,4,42,Clowntown Jabronis,Aaron Broache,Patrick Mahomes,QB,276.9,15.0,69.47468889545867,3.0,0.0,0.0,28.759999999999998,12.06,26.0
 2024,4,43,Fk it chuck it Game time shit,Jack Lyden,DJ Moore,WR,180.7,17.0,40.841881798513135,2.0,3.0,0.0,25.0,4.0,9.2
 2024,4,44,Will trade for good player pun,James Brunner,DeVonta Smith,WR,192.4,14.0,39.63047672752897,3.0,3.0,0.0,27.0,0.3,27.0
 2024,4,45,Max Top Vic Bottom,Jack Gola,Mark Andrews,TE,108.9,11.0,48.633607534985366,2.0,1.0,0.0,15.899999999999999,2.4000000000000004,13.8
 2024,4,46,Hock Tuah,Matt Mandelbaum,Aaron Jones,RB,215.8,17.0,58.30650653189516,1.0,1.0,0.0,23.300000000000004,4.800000000000001,9.7
 2024,4,47,Prolapsed Jameis,Marlon Primous,Trey McBride,TE,202.6,16.0,48.967592962055825,6.0,0.0,0.0,24.3,3.5,24.3
-2024,4,48,Tommy DeVito,Jackson Dunn,,,,,,,,,,,
+2024,4,48,Tommy DeVito,Jackson Dunn,Brandon Aiyuk,WR,49.9,7.0,25.76734834990468,0.0,3.0,0.0,18.700000000000003,3.3000000000000003,0.0
 2024,5,49,Tommy DeVito,Jackson Dunn,Kenneth Walker III,RB,158.2,11.0,47.761139062054056,2.0,0.0,0.0,31.6,5.6000000000000005,0.0
 2024,5,50,Prolapsed Jameis,Marlon Primous,Zay Flowers,WR,158.5,16.0,30.082247792428873,1.0,5.0,0.0,27.200000000000003,1.5,4.1
 2024,5,51,Hock Tuah,Matt Mandelbaum,Lamar Jackson,QB,436.82,17.0,75.73315517240874,9.0,0.0,0.0,36.1,14.879999999999999,29.42
@@ -1018,25 +1018,25 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,5,57,Who Killed Charbonnet Ramsey,Patrick Espe,Amari Cooper,WR,50.1,7.0,0.0,1.0,3.0,0.0,24.1,0.8,0.0
 2024,5,58,2F2F (RIP Rashee),Jack Curtis,D'Andre Swift,RB,191.1,17.0,43.84578470406102,1.0,2.0,0.0,26.0,4.500000000000001,10.1
 2024,5,59,I'm Sorry Smith Jaxon,Reed Hodder,Dalton Kincaid,TE,82.2,14.0,49.399106485344156,0.0,1.0,0.0,11.600000000000001,1.6,3.4
-2024,5,60,The Twins,max raphael,,,,,,,,,,,
+2024,5,60,The Twins,max raphael,Evan Engram,TE,66.0,9.0,50.42380019831229,0.0,1.0,0.0,13.200000000000001,1.0,0.0
 2024,6,61,The Twins,max raphael,George Pickens,WR,140.9,14.0,50.91822408980903,0.0,2.0,0.0,19.6,3.9000000000000004,6.5
 2024,6,62,I'm Sorry Smith Jaxon,Reed Hodder,Tee Higgins,WR,207.5,11.0,46.958658695724374,4.0,1.0,0.0,34.6,3.3000000000000003,34.6
 2024,6,63,2F2F (RIP Rashee),Jack Curtis,James Conner,RB,232.1,17.0,41.63556005686952,3.0,4.0,0.0,28.3,1.7999999999999998,1.8
 2024,6,64,Who Killed Charbonnet Ramsey,Patrick Espe,David Montgomery,RB,203.72,14.0,66.67337968044251,2.0,0.0,0.0,23.0,5.5,0.0
-2024,6,65,We're Onto 2025,Riley Bitterli,,,,,,,,,,,
-2024,6,66,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2024,6,65,We're Onto 2025,Riley Bitterli,Zamir White,RB,18.5,5.0,75.08231227758678,0.0,4.0,0.0,5.300000000000001,3.0,0.0
+2024,6,66,Clowntown Jabronis,Aaron Broache,Rashee Rice,WR,52.9,3.0,72.43638522146284,1.0,0.0,0.0,23.1,13.8,0.0
 2024,6,67,Fk it chuck it Game time shit,Jack Lyden,George Kittle,TE,209.1,15.0,60.94709907805179,8.0,1.0,0.0,21.8,1.2000000000000002,15.2
 2024,6,68,Will trade for good player pun,James Brunner,C.J. Stroud,QB,127.14,8.0,72.20918058939861,0.0,1.0,0.0,23.5,9.8,0.0
 2024,6,69,Max Top Vic Bottom,Jack Gola,Kyler Murray,QB,265.2,16.0,58.985752624622,2.0,2.0,0.0,28.740000000000002,4.76,16.04
 2024,6,70,Hock Tuah,Matt Mandelbaum,Chris Godwin,WR,112.8,7.0,52.47163019146945,2.0,0.0,0.0,30.0,9.100000000000001,0.0
 2024,6,71,Prolapsed Jameis,Marlon Primous,Najee Harris,RB,146.7,15.0,54.15813682570904,1.0,2.0,0.0,21.9,2.6,9.1
-2024,6,72,Tommy DeVito,Jackson Dunn,,,,,,,,,,,
+2024,6,72,Tommy DeVito,Jackson Dunn,Kyle Pitts,TE,86.8,11.0,20.003630176440794,1.0,3.0,0.0,23.1,1.4,0.0
 2024,7,73,Tommy DeVito,Jackson Dunn,Keenan Allen,WR,147.6,14.0,26.675186744787823,2.0,6.0,0.0,24.6,3.4000000000000004,5.0
-2024,7,74,Prolapsed Jameis,Marlon Primous,,,,,,,,,,,
+2024,7,74,Prolapsed Jameis,Marlon Primous,Diontae Johnson,WR,44.1,5.0,11.679532759139562,0.0,3.0,0.0,17.8,2.2,0.0
 2024,7,75,Hock Tuah,Matt Mandelbaum,Christian Watson,WR,55.3,7.0,31.536264921614134,0.0,2.0,0.0,17.0,1.0,0.0
 2024,7,76,Max Top Vic Bottom,Jack Gola,Jayden Reed,WR,152.0,14.0,20.000283001779067,2.0,4.0,0.0,31.1,1.1,1.1
-2024,7,77,Will trade for good player pun,James Brunner,,,,,,,,,,,
-2024,7,78,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2024,7,77,Will trade for good player pun,James Brunner,Christian Kirk,WR,14.3,2.0,27.805881081653183,0.0,1.0,0.0,10.8,3.5,0.0
+2024,7,78,Fk it chuck it Game time shit,Jack Lyden,Zack Moss,RB,65.2,7.0,29.98817644110511,0.0,1.0,0.0,18.200000000000003,5.551115123125783e-17,0.0
 2024,7,79,Clowntown Jabronis,Aaron Broache,Terry McLaurin,WR,193.6,16.0,36.766687290891994,3.0,4.0,0.0,23.3,1.0,1.0
 2024,7,80,We're Onto 2025,Riley Bitterli,Jaylen Warren,RB,88.7,9.0,62.94034892760237,0.0,1.0,0.0,13.9,3.3000000000000003,13.7
 2024,7,81,Who Killed Charbonnet Ramsey,Patrick Espe,Raheem Mostert,RB,2.9,1.0,0.0,0.0,1.0,0.0,2.9,2.9,0.0
@@ -1045,7 +1045,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,7,84,The Twins,max raphael,Jordan Love,QB,64.4,5.0,64.13967880132196,0.0,1.0,0.0,16.8,5.74,0.0
 2024,8,85,The Twins,max raphael,Nick Chubb,RB,28.3,3.0,16.75688602249103,0.0,2.0,0.0,18.5,4.800000000000001,0.0
 2024,8,86,I'm Sorry Smith Jaxon,Reed Hodder,Jaxon Smith-Njigba,WR,182.9,15.0,35.45531539034758,2.0,3.0,0.0,33.5,2.9000000000000004,4.7
-2024,8,87,2F2F (RIP Rashee),Jack Curtis,Hollywood Brown,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2024,8,87,2F2F (RIP Rashee),Jack Curtis,,,,,,,,,,,
 2024,8,88,Who Killed Charbonnet Ramsey,Patrick Espe,Javonte Williams,RB,24.9,3.0,41.63151077691892,0.0,1.0,0.0,13.600000000000001,4.1000000000000005,0.0
 2024,8,89,We're Onto 2025,Riley Bitterli,DeAndre Hopkins,WR,77.2,8.0,30.604204347743803,1.0,2.0,0.0,24.6,3.9000000000000004,0.0
 2024,8,90,Clowntown Jabronis,Aaron Broache,David Njoku,TE,116.5,11.0,38.3708202566884,2.0,1.0,0.0,21.7,1.9000000000000001,0.0
@@ -1054,30 +1054,30 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,8,93,Max Top Vic Bottom,Jack Gola,Tyjae Spears,RB,23.6,2.0,100.0,0.0,0.0,0.0,11.8,11.8,11.8
 2024,8,94,Hock Tuah,Matt Mandelbaum,Jordan Addison,WR,196.4,15.0,31.342504185512013,3.0,3.0,0.0,35.3,3.2,15.9
 2024,8,95,Prolapsed Jameis,Marlon Primous,Chase Brown,RB,187.2,12.0,62.79540274026635,3.0,0.0,0.0,24.800000000000004,6.300000000000001,11.1
-2024,8,96,Tommy DeVito,Jackson Dunn,,,,,,,,,,,
-2024,9,97,Tommy DeVito,Jackson Dunn,,,,,,,,,,,
+2024,8,96,Tommy DeVito,Jackson Dunn,Dak Prescott,QB,73.04,6.0,59.789927196873,0.0,1.0,0.0,16.740000000000002,3.22,0.0
+2024,9,97,Tommy DeVito,Jackson Dunn,Ezekiel Elliott,RB,5.9,2.0,40.07569650961462,0.0,2.0,0.0,4.2,1.7000000000000002,0.0
 2024,9,98,Prolapsed Jameis,Marlon Primous,Jayden Daniels,QB,355.74,16.0,61.22018949777087,6.0,2.0,0.0,34.42,5.24,31.78
-2024,9,99,Hock Tuah,Matt Mandelbaum,,,,,,,,,,,
+2024,9,99,Hock Tuah,Matt Mandelbaum,Ty Chandler,RB,3.1,2.0,77.19010383269202,0.0,2.0,0.0,1.8,1.3,0.0
 2024,9,100,Max Top Vic Bottom,Jack Gola,Jerome Ford,RB,61.7,9.0,29.907439659618333,0.0,3.0,0.0,15.9,1.4000000000000001,2.2
 2024,9,101,Will trade for good player pun,James Brunner,Devin Singletary,RB,46.5,6.0,16.82572237851177,0.0,3.0,0.0,16.8,0.8,0.0
 2024,9,102,Fk it chuck it Game time shit,Jack Lyden,Xavier Worthy,WR,139.0,13.0,42.98227925827652,0.0,3.0,0.0,18.9,1.6,18.9
 2024,9,103,Clowntown Jabronis,Aaron Broache,Rome Odunze,WR,29.6,3.0,26.512698432996558,0.0,1.0,0.0,18.2,5.0,0.0
-2024,9,104,We're Onto 2025,Riley Bitterli,,,,,,,,,,,
+2024,9,104,We're Onto 2025,Riley Bitterli,Austin Ekeler,RB,93.6,9.0,56.77619906283551,0.0,1.0,0.0,17.599999999999998,3.0,0.0
 2024,9,105,Who Killed Charbonnet Ramsey,Patrick Espe,Ladd McConkey,WR,125.8,8.0,57.26237803823791,2.0,0.0,0.0,25.4,6.2,25.4
 2024,9,106,2F2F (RIP Rashee),Jack Curtis,Brock Bowers,TE,204.8,17.0,46.48239250792291,4.0,0.0,0.0,25.2,4.1000000000000005,11.1
 2024,9,107,I'm Sorry Smith Jaxon,Reed Hodder,Jameson Williams,WR,87.7,6.0,41.720307482497134,3.0,1.0,0.0,22.0,0.7,22.0
 2024,9,108,The Twins,max raphael,Keon Coleman,WR,11.7,2.0,69.78176148775437,0.0,1.0,0.0,7.1000000000000005,4.6,0.0
 2024,10,109,The Twins,max raphael,Caleb Williams,QB,98.5,7.0,39.55106923661727,1.0,4.0,0.0,28.64,6.58,6.58
 2024,10,110,I'm Sorry Smith Jaxon,Reed Hodder,,,,,,,,,,,
-2024,10,111,2F2F (RIP Rashee),Jack Curtis,Gus Edwards,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2024,10,111,2F2F (RIP Rashee),Jack Curtis,,,,,,,,,,,
 2024,10,112,Who Killed Charbonnet Ramsey,Patrick Espe,Dallas Goedert,TE,50.7,5.0,31.66527257447754,1.0,0.0,0.0,22.0,5.1,0.0
 2024,10,113,We're Onto 2025,Riley Bitterli,Courtland Sutton,WR,171.9,14.0,50.666943855902716,1.0,2.0,0.0,25.700000000000003,3.1,14.0
 2024,10,114,Clowntown Jabronis,Aaron Broache,Brian Thomas Jr.,WR,205.1,14.0,46.315392661588895,5.0,2.0,0.0,27.5,2.2,20.4
-2024,10,115,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
+2024,10,115,Fk it chuck it Game time shit,Jack Lyden,Rashid Shaheed,WR,7.8,1.0,0.0,0.0,0.0,0.0,7.800000000000001,7.800000000000001,0.0
 2024,10,116,Will trade for good player pun,James Brunner,Tyler Lockett,WR,27.7,4.0,16.700059256347515,0.0,2.0,0.0,13.8,1.4,0.0
 2024,10,117,Max Top Vic Bottom,Jack Gola,Zach Charbonnet,RB,72.1,3.0,54.85037440094782,2.0,0.0,0.0,34.8,13.100000000000001,0.0
 2024,10,118,Hock Tuah,Matt Mandelbaum,T.J. Hockenson,TE,73.4,10.0,46.588908286022345,0.0,1.0,0.0,14.9,2.3,9.3
-2024,10,119,Prolapsed Jameis,Marlon Primous,Blake Corum,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2024,10,119,Prolapsed Jameis,Marlon Primous,,,,,,,,,,,
 2024,10,120,Tommy DeVito,Jackson Dunn,Trey Benson,RB,1.8,1.0,0.0,0.0,1.0,0.0,1.8,1.8,0.0
 2024,11,121,Tommy DeVito,Jackson Dunn,,,,,,,,,,,
 2024,11,122,Prolapsed Jameis,Marlon Primous,J.K. Dobbins,RB,160.2,12.0,56.81987403346116,1.0,0.0,0.0,23.5,6.9,14.8
@@ -1085,20 +1085,20 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,11,124,Max Top Vic Bottom,Jack Gola,Khalil Shakir,WR,68.0,8.0,34.21075005891781,0.0,4.0,0.0,19.1,3.2,4.0
 2024,11,125,Will trade for good player pun,James Brunner,Tyler Allgeier,RB,22.9,2.0,3.0430003089188062,0.0,1.0,0.0,19.3,3.6,0.0
 2024,11,126,Fk it chuck it Game time shit,Jack Lyden,Romeo Doubs,WR,22.6,4.0,50.47409352342223,0.0,2.0,0.0,8.7,2.2,0.0
-2024,11,127,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
-2024,11,128,We're Onto 2025,Riley Bitterli,,,,,,,,,,,
+2024,11,127,Clowntown Jabronis,Aaron Broache,Dontayvion Wicks,WR,9.9,2.0,44.28855663378716,0.0,1.0,0.0,6.9,3.0,0.0
+2024,11,128,We're Onto 2025,Riley Bitterli,49ers D/ST,D/ST,58.0,6.0,28.728216922682407,1.0,0.0,0.0,23.0,4.0,0.0
 2024,11,129,Who Killed Charbonnet Ramsey,Patrick Espe,Pat Freiermuth,TE,41.8,6.0,46.79563527994166,0.0,1.0,0.0,12.3,2.9000000000000004,0.0
-2024,11,130,2F2F (RIP Rashee),Jack Curtis,,,,,,,,,,,
+2024,11,130,2F2F (RIP Rashee),Jack Curtis,Antonio Gibson,RB,7.6,2.0,25.567707243521312,0.0,1.0,0.0,5.800000000000001,1.8,0.0
 2024,11,131,I'm Sorry Smith Jaxon,Reed Hodder,Rico Dowdle,RB,41.3,3.0,61.560647095764196,0.0,0.0,0.0,18.400000000000002,8.0,0.0
-2024,11,132,The Twins,max raphael,Brandin Cooks,WR,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2024,11,132,The Twins,max raphael,,,,,,,,,,,
 2024,12,133,The Twins,max raphael,Jerry Jeudy,WR,138.5,11.0,25.816387019226383,1.0,3.0,0.0,36.0,2.1,15.4
 2024,12,134,I'm Sorry Smith Jaxon,Reed Hodder,Brock Purdy,QB,272.88,14.0,60.15814789343107,4.0,1.0,0.0,30.28,3.9799999999999995,30.28
 2024,12,135,2F2F (RIP Rashee),Jack Curtis,Ravens D/ST,D/ST,105.0,14.0,41.121594224481015,0.0,2.0,0.0,14.0,1.0,14.0
 2024,12,136,Who Killed Charbonnet Ramsey,Patrick Espe,Chuba Hubbard,RB,218.7,14.0,49.92096651612235,5.0,1.0,0.0,30.500000000000004,2.3,0.0
 2024,12,137,We're Onto 2025,Riley Bitterli,Kendre Miller,RB,4.1,1.0,0.0,0.0,1.0,0.0,4.1,4.1,0.0
-2024,12,138,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2024,12,138,Clowntown Jabronis,Aaron Broache,Jaleel McLaughlin,RB,7.4,3.0,34.33767236077652,0.0,3.0,0.0,3.5,0.6000000000000001,0.0
 2024,12,139,Fk it chuck it Game time shit,Jack Lyden,Dalton Schultz,TE,14.8,4.0,58.30473345799591,0.0,1.0,0.0,5.800000000000001,2.1,0.0
-2024,12,140,Will trade for good player pun,James Brunner,,,,,,,,,,,
+2024,12,140,Will trade for good player pun,James Brunner,Jets D/ST,D/ST,39.0,4.0,48.12310801540678,1.0,0.0,0.0,16.0,4.0,0.0
 2024,12,141,Max Top Vic Bottom,Jack Gola,Cowboys D/ST,D/ST,23.0,2.0,7.768680714798151,1.0,0.0,0.0,19.0,4.0,0.0
 2024,12,142,Hock Tuah,Matt Mandelbaum,,,,,,,,,,,
 2024,12,143,Prolapsed Jameis,Marlon Primous,,,,,,,,,,,
@@ -1107,9 +1107,9 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,13,146,Prolapsed Jameis,Marlon Primous,,,,,,,,,,,
 2024,13,147,Hock Tuah,Matt Mandelbaum,DeMario Douglas,WR,13.7,2.0,8.12773207941207,0.0,1.0,0.0,11.3,2.4000000000000004,0.0
 2024,13,148,Max Top Vic Bottom,Jack Gola,Tyrone Tracy Jr.,RB,49.0,4.0,49.76440345382714,0.0,0.0,0.0,19.7,7.0,0.0
-2024,13,149,Will trade for good player pun,James Brunner,,,,,,,,,,,
+2024,13,149,Will trade for good player pun,James Brunner,Gabe Davis,WR,6.5,3.0,41.55870795931514,0.0,3.0,0.0,3.3000000000000003,0.8,0.0
 2024,13,150,Fk it chuck it Game time shit,Jack Lyden,,,,,,,,,,,
-2024,13,151,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2024,13,151,Clowntown Jabronis,Aaron Broache,Ray Davis,RB,10.5,2.0,0.0,0.0,1.0,0.0,9.9,0.6000000000000001,0.0
 2024,13,152,We're Onto 2025,Riley Bitterli,Xavier Legette,WR,29.1,4.0,38.62603243800057,0.0,1.0,0.0,11.9,1.9000000000000001,0.0
 2024,13,153,Who Killed Charbonnet Ramsey,Patrick Espe,,,,,,,,,,,
 2024,13,154,2F2F (RIP Rashee),Jack Curtis,,,,,,,,,,,
@@ -1117,7 +1117,7 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,13,156,The Twins,max raphael,Dolphins D/ST,D/ST,70.0,9.0,53.29751131920706,0.0,1.0,0.0,13.0,2.0,11.0
 2024,14,157,The Twins,max raphael,,,,,,,,,,,
 2024,14,158,I'm Sorry Smith Jaxon,Reed Hodder,Josh Downs,WR,52.2,5.0,56.17567475595027,0.0,1.0,0.0,16.9,4.2,0.0
-2024,14,159,2F2F (RIP Rashee),Jack Curtis,,,,,,,,,,,
+2024,14,159,2F2F (RIP Rashee),Jack Curtis,Tyler Conklin,TE,1.3,1.0,0.0,0.0,1.0,0.0,1.3,1.3,0.0
 2024,14,160,Who Killed Charbonnet Ramsey,Patrick Espe,Tua Tagovailoa,QB,23.52,1.0,0.0,0.0,0.0,0.0,23.52,23.52,0.0
 2024,14,161,We're Onto 2025,Riley Bitterli,,,,,,,,,,,
 2024,14,162,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
@@ -1125,15 +1125,15 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,14,164,Will trade for good player pun,James Brunner,Adam Thielen,WR,91.3,5.0,56.6207671934696,2.0,0.0,0.0,25.5,7.6000000000000005,25.5
 2024,14,165,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
 2024,14,166,Hock Tuah,Matt Mandelbaum,,,,,,,,,,,
-2024,14,167,Prolapsed Jameis,Marlon Primous,,,,,,,,,,,
+2024,14,167,Prolapsed Jameis,Marlon Primous,Trevor Lawrence,QB,21.24,1.0,0.0,0.0,0.0,0.0,21.240000000000002,21.240000000000002,0.0
 2024,14,168,Tommy DeVito,Jackson Dunn,Steelers D/ST,D/ST,114.0,12.0,56.13716120051353,0.0,1.0,0.0,14.0,1.0,0.0
 2024,15,169,Tommy DeVito,Jackson Dunn,,,,,,,,,,,
-2024,15,170,Prolapsed Jameis,Marlon Primous,Kimani Vidal,RB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-2024,15,171,Hock Tuah,Matt Mandelbaum,,,,,,,,,,,
+2024,15,170,Prolapsed Jameis,Marlon Primous,,,,,,,,,,,
+2024,15,171,Hock Tuah,Matt Mandelbaum,Saints D/ST,D/ST,32.0,5.0,1.4261856525780985,1.0,2.0,0.0,16.0,1.0,0.0
 2024,15,172,Max Top Vic Bottom,Jack Gola,Jared Goff,QB,126.64,6.0,35.99240379548067,2.0,1.0,0.0,41.06,7.8,0.0
 2024,15,173,Will trade for good player pun,James Brunner,,,,,,,,,,,
 2024,15,174,Fk it chuck it Game time shit,Jack Lyden,Bills D/ST,D/ST,25.0,4.0,30.410728796267264,0.0,1.0,0.0,12.0,2.0,0.0
-2024,15,175,Clowntown Jabronis,Aaron Broache,,,,,,,,,,,
+2024,15,175,Clowntown Jabronis,Aaron Broache,Lions D/ST,D/ST,39.0,5.0,54.311462355883435,0.0,0.0,0.0,13.0,5.0,0.0
 2024,15,176,We're Onto 2025,Riley Bitterli,Kirk Cousins,QB,65.94,5.0,21.602826085441293,1.0,2.0,0.0,28.64,2.1000000000000005,0.0
 2024,15,177,Who Killed Charbonnet Ramsey,Patrick Espe,Braelon Allen,RB,18.5,3.0,42.866117787140276,0.0,1.0,0.0,10.1,3.3,0.0
 2024,15,178,2F2F (RIP Rashee),Jack Curtis,,,,,,,,,,,
@@ -1146,8 +1146,8 @@ year,round,overall_pick,team_name,owner_name,player_name,position,season_points,
 2024,16,185,We're Onto 2025,Riley Bitterli,,,,,,,,,,,
 2024,16,186,Clowntown Jabronis,Aaron Broache,Cole Kmet,TE,4.1,1.0,0.0,0.0,0.0,0.0,4.1,4.1,0.0
 2024,16,187,Fk it chuck it Game time shit,Jack Lyden,Quentin Johnston,WR,21.2,2.0,83.99003514294608,0.0,0.0,0.0,11.8,9.4,0.0
-2024,16,188,Will trade for good player pun,James Brunner,,,,,,,,,,,
-2024,16,189,Max Top Vic Bottom,Jack Gola,,,,,,,,,,,
+2024,16,188,Will trade for good player pun,James Brunner,Taysom Hill,TE,47.12,3.0,0.0,1.0,1.0,0.0,37.52,2.4,0.0
+2024,16,189,Max Top Vic Bottom,Jack Gola,Jordan Mason,RB,76.4,7.0,36.62884524031489,1.0,1.0,0.0,23.0,1.8,0.0
 2024,16,190,Hock Tuah,Matt Mandelbaum,Jalen Tolbert,WR,30.4,3.0,31.031573374542347,0.0,0.0,0.0,18.200000000000003,5.9,0.0
 2024,16,191,Prolapsed Jameis,Marlon Primous,Seahawks D/ST,D/ST,40.0,5.0,58.5421901205575,0.0,0.0,0.0,12.0,5.0,0.0
-2024,16,192,Tommy DeVito,Jackson Dunn,Bryce Young,QB,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2024,16,192,Tommy DeVito,Jackson Dunn,,,,,,,,,,,

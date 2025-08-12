@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Fantasy Football Draft Analytics</title>
+    <title>Fantasy Football Draft Analytics - Enhanced</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -63,7 +63,6 @@
         .grade-c{ background:rgba(251,191,36,.2); color:var(--accent-yellow); }
         .grade-d{ background:rgba(251,146,60,.2); color:var(--accent-orange); }
         .grade-f{ background:rgba(239,68,68,.2); color:var(--accent-red); }
-        /* Archetype chips */
         .chip{ display:inline-block; padding:4px 10px; border-radius:999px; font-weight:700; font-size:.8rem; margin:0 6px 6px 0; }
         .chip-rb{ background:rgba(74,222,128,.2); color:var(--accent-green); }
         .chip-wr{ background:rgba(74,158,255,.2); color:var(--accent-blue); }
@@ -71,6 +70,8 @@
         .chip-qb{ background:rgba(251,191,36,.2); color:var(--accent-yellow); }
         .chip-mixed{ background:rgba(251,146,60,.2); color:var(--accent-orange); }
         .note{ color:var(--text-secondary); font-size:.9em; margin:8px 0 16px; }
+        .info-box{ background:var(--bg-accent); border-left:4px solid var(--accent-blue); padding:15px; margin:20px 0; border-radius:5px; }
+        .info-box h4{ color:var(--accent-blue); margin-bottom:10px; }
     </style>
 </head>
 <body>
@@ -78,7 +79,7 @@
     <header>
         <a href="index.html" class="back-link">← Back to Main Dashboard</a>
         <h1>Draft Analytics Dashboard</h1>
-        <p class="subtitle">Comprehensive Draft Performance Analysis</p>
+        <p class="subtitle">Statistical Draft Performance Analysis</p>
     </header>
 
     <div id="loadingMessage" class="loader">Loading draft data...</div>
@@ -106,10 +107,15 @@
 
         <!-- VALUE -->
         <div class="tab-content" id="value">
+            <div class="info-box">
+                <h4>Statistical Methodology</h4>
+                <p>Expected values are calculated from historical performance data at each draft position.
+                Hit/bust classifications use position-specific standard deviations from historical averages.</p>
+            </div>
             <div class="filter-controls">
-                <label>Year:
+                <label>Analysis Year:
                     <select id="valueYearSelect">
-                        <option value="all">All Years</option>
+                        <option value="">Select Year</option>
                     </select>
                 </label>
                 <label>Position:
@@ -141,7 +147,7 @@
         <div class="tab-content" id="positions">
             <div class="heat-map">
                 <h2>Position Success by Round</h2>
-                <p class="subtitle">Average value above/below expected by position and round</p>
+                <p class="subtitle">Average value above/below historical expected by position and round</p>
                 <div id="positionHeatMap"></div>
             </div>
             <div class="chart-container" style="margin-top:30px;"><canvas id="positionTimingChart"></canvas></div>
@@ -149,6 +155,19 @@
 
         <!-- ROUNDS -->
         <div class="tab-content" id="rounds">
+            <div class="filter-controls">
+                <label>View:
+                    <select id="roundViewSelect">
+                        <option value="aggregate">All Years (Aggregate)</option>
+                        <option value="yearly">By Year</option>
+                    </select>
+                </label>
+                <label id="roundYearWrapper" style="display:none;">Year:
+                    <select id="roundYearSelect">
+                        <option value="">Select Year</option>
+                    </select>
+                </label>
+            </div>
             <div class="chart-container"><canvas id="roundValueChart"></canvas></div>
             <div class="table-container">
                 <h2>Best Picks by Round</h2>
@@ -186,8 +205,7 @@
                 <div>
                     <strong>Archetype Definition:</strong>
                     <div class="note">
-                        Based on a drafter’s <em>first two selections</em> each year. <br/>
-                        RB-RB, WR-WR, RB-WR, WR-RB, TE-Early (TE in first two), QB-Early (QB in first two), Mixed (anything else).
+                        Based on first two selections each year: RB-RB, WR-WR, RB-WR, WR-RB, TE-Early, QB-Early, or Mixed.
                     </div>
                 </div>
                 <label>Owner:
@@ -199,19 +217,10 @@
             </div>
 
             <div class="stats-grid" id="archetypeTopStats"></div>
-
             <div class="chart-container"><canvas id="archetypeBarChart"></canvas></div>
-
             <div class="table-container">
-                <h2>Archetype Outcomes (Owner-Year Cohorts)</h2>
-                <p class="note">A cohort = one owner’s draft in a given year. Metrics summarize the <em>entire draft</em> performance for that cohort.</p>
+                <h2>Archetype Outcomes</h2>
                 <table id="archetypeTable" class="sortable"></table>
-            </div>
-
-            <div class="table-container">
-                <h2>Round-1 & Round-2 Position Splits</h2>
-                <p class="note">Distribution of your first two picks by position across years/owners.</p>
-                <table id="firstTwoTable" class="sortable"></table>
             </div>
         </div>
     </div>
@@ -219,9 +228,9 @@
 
 <script>
 /* ===========================
-   ROBUST UTILITIES
+   CORE UTILITIES
    =========================== */
-const Charts = new Map(); // canvasId -> Chart
+const Charts = new Map();
 const isNum = v => typeof v === 'number' && Number.isFinite(v);
 const toNum = v => {
   const n = typeof v === 'string' ? parseFloat(v) : v;
@@ -231,10 +240,24 @@ const safeAvg = arr => arr.length ? arr.reduce((s,v)=>s+toNum(v),0)/arr.length :
 const safePct = (num, den) => den > 0 ? (toNum(num)/toNum(den))*100 : 0;
 const nonEmpty = a => Array.isArray(a) && a.length > 0;
 const defined = v => v !== undefined && v !== null;
-const getRecentYear = obj => {
-  const ks = Object.keys(obj||{}).map(Number).filter(Number.isFinite);
-  return ks.length ? Math.max(...ks) : null;
-};
+
+function standardDeviation(arr) {
+  if (arr.length < 2) return 0;
+  const avg = safeAvg(arr);
+  const variance = arr.reduce((s, v) => s + Math.pow(toNum(v) - avg, 2), 0) / (arr.length - 1);
+  return Math.sqrt(variance);
+}
+
+function percentile(arr, p) {
+  if (!arr.length) return 0;
+  const sorted = [...arr].sort((a, b) => toNum(a) - toNum(b));
+  const index = (p / 100) * (sorted.length - 1);
+  const lower = Math.floor(index);
+  const upper = Math.ceil(index);
+  const weight = index % 1;
+  return toNum(sorted[lower]) * (1 - weight) + toNum(sorted[upper]) * weight;
+}
+
 function upsertChart(canvasId, config){
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
@@ -245,9 +268,15 @@ function upsertChart(canvasId, config){
   Charts.set(canvasId, chart);
   return chart;
 }
-function setInnerHTML(id, html){ const el = document.getElementById(id); if (el) el.innerHTML = html; }
-function setText(id, text){ const el = document.getElementById(id); if (el) el.textContent = text; }
-function emptyState(message){ return `<div class="error" role="alert">${message}</div>`; }
+
+function setInnerHTML(id, html){
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = html;
+}
+
+function emptyState(message){
+  return `<div class="error" role="alert">${message}</div>`;
+}
 
 /* ===========================
    GLOBAL STATE
@@ -261,11 +290,13 @@ const processedData = {
   byPosition: {},
   byRound: {},
   ownerYear: {},
-  archetypes: { cohorts: [], byType: {} }
+  archetypes: { cohorts: [], byType: {} },
+  historicalExpectations: {},
+  positionThresholds: {}
 };
 
 /* ===========================
-   LOADING (robust)
+   DATA LOADING
    =========================== */
 async function safeFetchJSON(path, required=true){
   try {
@@ -284,38 +315,277 @@ window.addEventListener('DOMContentLoaded', async () => {
     draftData = await safeFetchJSON('espn_fantasy_draft_data.json', true);
     leagueData = await safeFetchJSON('espn_fantasy_complete_data.json', false);
 
-    // Minimal schema checks
     if (typeof draftData !== 'object' || draftData === null) {
       throw new Error('Draft data is not a valid JSON object.');
     }
 
     processDraftData();
+    calculateHistoricalExpectations();
     buildOwnerYearIndex();
     buildArchetypes();
 
-    setText('loadingMessage', '');
     document.getElementById('loadingMessage').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
     initializeDashboard();
   } catch (err) {
-    setInnerHTML('loadingMessage', emptyState(`Error loading data: ${err.message}
-      <br>Make sure <code>espn_fantasy_draft_data.json</code> is in the same folder.`));
+    setInnerHTML('loadingMessage', emptyState(`Error: ${err.message}<br>Ensure espn_fantasy_draft_data.json is available.`));
     console.error(err);
   }
-});
+}); // <-- This was missing in your HTML
+
+function displayAllOwnersComparison(){
+  const list = Object.entries(processedData.byOwner).map(([owner, picks])=>{
+    const avgVOE = safeAvg(picks.map(p=>p.valueOverExpected));
+    const hitRate = safePct(picks.filter(p=>p.isHit).length, picks.length);
+    const bustRate = safePct(picks.filter(p=>p.isBust).length, picks.length);
+    const grade = avgVOE>10?'A': avgVOE>0?'B': avgVOE>-10?'C': avgVOE>-20?'D':'F';
+    return { owner, picks:picks.length, avgVOE, hitRate, bustRate, grade };
+  }).sort((a,b)=>b.avgVOE-a.avgVOE);
+
+  const top4 = list.slice(0,4);
+  setInnerHTML('ownerStats', top4.map(s=>`
+    <div class="stat-card">
+      <div class="stat-label">${s.owner}</div>
+      <div class="stat-value"><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></div>
+      <div class="stat-trend">${s.avgVOE>0?'+':''}${s.avgVOE.toFixed(1)} avg value</div>
+    </div>`).join(''));
+
+  upsertChart('ownerChart',{
+    type:'scatter',
+    data:{
+      datasets:[{
+        label:'Owners',
+        data: list.map(s=>({ x:toNum(s.hitRate), y:toNum(s.avgVOE), label:s.owner })),
+        backgroundColor: list.map(s=>{
+          if (s.grade==='A') return 'rgba(74,222,128,.6)';
+          if (s.grade==='B') return 'rgba(74,158,255,.6)';
+          if (s.grade==='C') return 'rgba(251,191,36,.6)';
+          if (s.grade==='D') return 'rgba(251,146,60,.6)';
+          return 'rgba(239,68,68,.6)';
+        }),
+        pointRadius:8,
+        pointHoverRadius:10
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        title:{display:true,text:'Owner Draft Performance Matrix',color:'#fff',font:{size:18}},
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            label:(ctx)=> `${ctx.raw.label}: ${toNum(ctx.raw.x).toFixed(1)}% hits, ${toNum(ctx.raw.y).toFixed(1)} VOE`
+          }
+        }
+      },
+      scales:{
+        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
+        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} }
+      }
+    }
+  });
+
+  const html = `
+    <thead><tr>
+      <th>Owner</th><th>Total Picks</th><th>Avg Value</th><th>Hit Rate</th><th>Bust Rate</th><th>Grade</th>
+    </tr></thead>
+    <tbody>
+      ${list.map(s=>`
+        <tr>
+          <td><strong>${s.owner}</strong></td>
+          <td>${s.picks}</td>
+          <td class="${toNum(s.avgVOE)>0?'trend-up':'trend-down'}">
+            ${toNum(s.avgVOE)>0?'+':''}${toNum(s.avgVOE).toFixed(1)}
+          </td>
+          <td>${toNum(s.hitRate).toFixed(1)}%</td>
+          <td>${toNum(s.bustRate).toFixed(1)}%</td>
+          <td><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></td>
+        </tr>`).join('')}
+    </tbody>`;
+  setInnerHTML('ownerTable', html);
+  makeSortable('ownerTable');
+}
 
 /* ===========================
-   PROCESSING (robust)
+   ARCHETYPES TAB
    =========================== */
-function expectedFromRound(round){
-  const r = toNum(round);
-  return (17 - (r || 17)) * 15;
-}
-function expectedFromOverall(overall){
-  const o = toNum(overall);
-  return (193 - (o || 192)) * 1.5;
+function loadArchetypes(){
+  const ownerSel = document.getElementById('archOwnerSelect');
+  const yearSel = document.getElementById('archYearSelect');
+
+  if (ownerSel.options.length === 1){
+    const owners = Object.keys(processedData.byOwner).sort();
+    ownerSel.innerHTML = '<option value="">All Owners</option>' +
+      owners.map(o=>`<option value="${o}">${o}</option>`).join('');
+  }
+  if (yearSel.options.length === 1){
+    const years = Object.keys(processedData.byYear).map(Number).sort((a,b)=>b-a);
+    yearSel.innerHTML = '<option value="all">All Years</option>' +
+      years.map(y=>`<option value="${y}">${y}</option>`).join('');
+  }
+
+  ownerSel.onchange = updateArchetypes;
+  yearSel.onchange = updateArchetypes;
+  updateArchetypes();
 }
 
+function updateArchetypes(){
+  const owner = document.getElementById('archOwnerSelect').value;
+  const yearVal = document.getElementById('archYearSelect').value;
+
+  let cohorts = processedData.archetypes.cohorts || [];
+  if (owner) cohorts = cohorts.filter(c=>c.owner===owner);
+  if (yearVal!=='all') cohorts = cohorts.filter(c=>c.year===Number(yearVal));
+
+  if (!nonEmpty(cohorts)){
+    setInnerHTML('archetypeTopStats', emptyState('No archetype data found.'));
+    return;
+  }
+
+  const avgVOE = safeAvg(cohorts.map(c=>c.avgVOE));
+  const archetypeCounts = {};
+  cohorts.forEach(c=> archetypeCounts[c.archetype]=(archetypeCounts[c.archetype]||0)+1);
+  const topType = Object.entries(archetypeCounts).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
+  const best = cohorts.reduce((b,c)=> toNum(c.avgVOE) > toNum(b?.avgVOE ?? -Infinity) ? c : b, null);
+
+  setInnerHTML('archetypeTopStats', `
+    <div class="stat-card">
+      <div class="stat-label">Cohorts Analyzed</div>
+      <div class="stat-value">${cohorts.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Value Over Expected</div>
+      <div class="stat-value">${toNum(avgVOE).toFixed(1)}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Most Common Strategy</div>
+      <div class="stat-value" style="font-size:1.7rem;">${topType}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Best Cohort</div>
+      <div class="stat-value" style="font-size:1.2rem;">${best ? `${best.owner} (${best.year})` : '—'}</div>
+      <div class="stat-trend">${best ? (toNum(best.avgVOE)>0?'+':'')+toNum(best.avgVOE).toFixed(1)+' VOE' : ''}</div>
+    </div>`);
+
+  createArchetypeBarChart(cohorts);
+  createArchetypeTable(cohorts);
+}
+
+function createArchetypeBarChart(cohorts){
+  const byType = {};
+  cohorts.forEach(c=> (byType[c.archetype] ||= []).push(c));
+  const labels = Object.keys(byType);
+  const avgVOE = labels.map(l=> safeAvg(byType[l].map(x=>x.avgVOE)));
+  const hitRates = labels.map(l=> safeAvg(byType[l].map(x=>x.hitRate)));
+
+  upsertChart('archetypeBarChart',{
+    type:'bar',
+    data:{
+      labels,
+      datasets:[
+        { label:'Avg VOE', data:avgVOE, yAxisID:'y',
+          backgroundColor:'rgba(74,222,128,.6)', borderColor:'rgba(74,222,128,1)', borderWidth:2 },
+        { label:'Hit Rate %', data:hitRates, yAxisID:'y1',
+          backgroundColor:'rgba(74,158,255,.4)', borderColor:'rgba(74,158,255,1)', borderWidth:2 }
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        title:{display:true,text:'Performance by Draft Strategy',color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
+      scales:{
+        y:{ position:'left', ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
+        y1:{ position:'right', ticks:{color:'#a0a9c4'}, grid:{drawOnChartArea:false},
+             title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} },
+        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
+      }
+    }
+  });
+}
+
+function chipFor(pos){
+  if (pos==='RB') return '<span class="chip chip-rb">RB</span>';
+  if (pos==='WR') return '<span class="chip chip-wr">WR</span>';
+  if (pos==='TE') return '<span class="chip chip-te">TE</span>';
+  if (pos==='QB') return '<span class="chip chip-qb">QB</span>';
+  return '<span class="chip chip-mixed">'+(pos||'—')+'</span>';
+}
+
+function createArchetypeTable(cohorts){
+  const rows = [...cohorts].sort((a,b)=>toNum(b.avgVOE)-toNum(a.avgVOE));
+  const html = `
+    <thead><tr>
+      <th>Owner</th><th>Year</th><th>Strategy</th><th>R1</th><th>R2</th>
+      <th>Avg Points</th><th>Avg VOE</th><th>Hit %</th><th>Bust %</th>
+    </tr></thead>
+    <tbody>
+      ${rows.map(c=>`
+        <tr>
+          <td>${c.owner}</td>
+          <td>${c.year}</td>
+          <td><strong>${c.archetype}</strong></td>
+          <td>${chipFor(c.first)}</td>
+          <td>${chipFor(c.second)}</td>
+          <td>${toNum(c.avgPoints).toFixed(1)}</td>
+          <td class="${toNum(c.avgVOE)>0?'trend-up':'trend-down'}">
+            ${toNum(c.avgVOE)>0?'+':''}${toNum(c.avgVOE).toFixed(1)}
+          </td>
+          <td>${toNum(c.hitRate).toFixed(1)}%</td>
+          <td>${toNum(c.bustRate).toFixed(1)}%</td>
+        </tr>`).join('')}
+    </tbody>`;
+  setInnerHTML('archetypeTable', html);
+  makeSortable('archetypeTable');
+}
+
+/* ===========================
+   TABLE SORTING
+   =========================== */
+function makeSortable(tableId){
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  const headers = table.querySelectorAll('th');
+  if (!headers.length) return;
+
+  let state = { col:-1, asc:true };
+
+  headers.forEach((th,i)=>{
+    th.addEventListener('click',()=>{
+      const tbody = table.querySelector('tbody');
+      if (!tbody) return;
+
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      state.asc = state.col===i ? !state.asc : true;
+      state.col=i;
+
+      headers.forEach(h=>h.classList.remove('sort-asc','sort-desc'));
+      th.classList.add(state.asc?'sort-asc':'sort-desc');
+
+      rows.sort((a,b)=>{
+        const av = a.cells[i]?.textContent?.trim() ?? '';
+        const bv = b.cells[i]?.textContent?.trim() ?? '';
+        const an = parseFloat(av.replace(/[^0-9.-]/g,''));
+        const bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
+
+        if (!Number.isNaN(an) && !Number.isNaN(bn)) {
+          return state.asc ? an-bn : bn-an;
+        }
+        return state.asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+
+      rows.forEach(r=>tbody.appendChild(r));
+    });
+  });
+}
+
+/* ===========================
+   DATA PROCESSING
+   =========================== */
 function processDraftData(){
   processedData.picks = [];
   processedData.byYear = {};
@@ -326,34 +596,204 @@ function processDraftData(){
   Object.entries(draftData || {}).forEach(([year, yData])=>{
     const yearNum = Number(year);
     const picks = (yData && Array.isArray(yData.picks)) ? yData.picks : [];
+
     picks.forEach(pick=>{
+      // Handle both old and new data structures
       const owner = pick.owner_name || pick.team_name || 'Unknown';
       const position = pick.position || 'Unknown';
-      const expectedValue = defined(pick.round) ? expectedFromRound(pick.round) : expectedFromOverall(pick.overall_pick);
-      const actualValue = toNum(pick.season_points);
+      const playerName = pick.player_name || 'Unknown';
+
+      // Get actual points - check multiple possible fields
+      const actualValue = toNum(pick.season_points || pick.actualValue || pick.total_points || 0);
 
       const processedPick = {
         ...pick,
         owner,
         position,
+        player_name: playerName,
         year: yearNum,
-        expectedValue,
         actualValue,
-        valueOverExpected: actualValue - expectedValue,
         round: defined(pick.round) ? toNum(pick.round) : undefined,
         overall_pick: defined(pick.overall_pick) ? toNum(pick.overall_pick) : undefined,
-        pick_number: defined(pick.pick_number) ? toNum(pick.pick_number) : undefined
+        pick_number: defined(pick.pick_number) ? toNum(pick.pick_number) : undefined,
+        games_played: toNum(pick.games_played || 0),
+        consistency_score: toNum(pick.consistency_score || 0),
+        boom_games: toNum(pick.boom_games || 0),
+        bust_games: toNum(pick.bust_games || 0),
+        injury_games: toNum(pick.injury_games || 0),
+        playoff_points: toNum(pick.playoff_points || 0),
+        best_week: toNum(pick.best_week || 0),
+        worst_week: toNum(pick.worst_week || 0)
       };
 
       processedData.picks.push(processedPick);
       (processedData.byYear[yearNum] ||= []).push(processedPick);
       (processedData.byOwner[owner] ||= []).push(processedPick);
       (processedData.byPosition[position] ||= []).push(processedPick);
-      if (defined(processedPick.round)) (processedData.byRound[processedPick.round] ||= []).push(processedPick);
+      if (defined(processedPick.round)) {
+        (processedData.byRound[processedPick.round] ||= []).push(processedPick);
+      }
     });
   });
 }
 
+/* ===========================
+   HISTORICAL EXPECTATIONS
+   =========================== */
+function calculateHistoricalExpectations() {
+  const years = Object.keys(processedData.byYear).map(Number).sort();
+
+  // For each year, calculate expectations based on PRIOR years' data
+  years.forEach(currentYear => {
+    const priorYears = years.filter(y => y < currentYear);
+    if (priorYears.length === 0) {
+      // For first year, use league-wide averages as baseline
+      processedData.historicalExpectations[currentYear] = calculateBaselineExpectations();
+      return;
+    }
+
+    // Calculate expectations by overall pick and round based on historical data
+    const expectations = {
+      byOverall: {},
+      byRound: {},
+      byRoundPosition: {},
+      positionStats: {}
+    };
+
+    // Gather all prior picks
+    const priorPicks = [];
+    priorYears.forEach(y => {
+      priorPicks.push(...(processedData.byYear[y] || []));
+    });
+
+    // Calculate by overall pick (smoothed with moving average)
+    for (let pick = 1; pick <= 192; pick++) {
+      const window = priorPicks.filter(p =>
+        p.overall_pick >= pick - 2 && p.overall_pick <= pick + 2
+      );
+      expectations.byOverall[pick] = {
+        mean: safeAvg(window.map(p => p.actualValue)),
+        stdDev: standardDeviation(window.map(p => p.actualValue)),
+        count: window.length
+      };
+    }
+
+    // Calculate by round
+    for (let round = 1; round <= 16; round++) {
+      const roundPicks = priorPicks.filter(p => p.round === round);
+      expectations.byRound[round] = {
+        mean: safeAvg(roundPicks.map(p => p.actualValue)),
+        stdDev: standardDeviation(roundPicks.map(p => p.actualValue)),
+        p75: percentile(roundPicks.map(p => p.actualValue), 75),
+        p25: percentile(roundPicks.map(p => p.actualValue), 25),
+        count: roundPicks.length
+      };
+
+      // By round and position
+      const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'D/ST'];
+      expectations.byRoundPosition[round] = {};
+      positions.forEach(pos => {
+        const posPicks = roundPicks.filter(p => p.position === pos);
+        if (posPicks.length > 0) {
+          expectations.byRoundPosition[round][pos] = {
+            mean: safeAvg(posPicks.map(p => p.actualValue)),
+            stdDev: standardDeviation(posPicks.map(p => p.actualValue)),
+            count: posPicks.length
+          };
+        }
+      });
+    }
+
+    // Calculate position-specific thresholds for hits/busts
+    const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'D/ST'];
+    expectations.positionStats = {};
+    positions.forEach(pos => {
+      const posPicks = priorPicks.filter(p => p.position === pos);
+      if (posPicks.length > 0) {
+        const values = posPicks.map(p => p.actualValue);
+        expectations.positionStats[pos] = {
+          mean: safeAvg(values),
+          stdDev: standardDeviation(values),
+          p90: percentile(values, 90),  // Hit threshold
+          p75: percentile(values, 75),
+          p50: percentile(values, 50),
+          p25: percentile(values, 25),
+          p10: percentile(values, 10),  // Bust threshold
+          count: posPicks.length
+        };
+      }
+    });
+
+    processedData.historicalExpectations[currentYear] = expectations;
+  });
+
+  // Add expected values and classifications to picks
+  processedData.picks.forEach(pick => {
+    const expectations = processedData.historicalExpectations[pick.year];
+    if (!expectations) {
+      pick.expectedValue = 100; // Default baseline
+      pick.valueOverExpected = pick.actualValue - 100;
+      return;
+    }
+
+    // Use overall pick expectation if available, otherwise round
+    if (pick.overall_pick && expectations.byOverall[pick.overall_pick]) {
+      pick.expectedValue = expectations.byOverall[pick.overall_pick].mean || 100;
+    } else if (pick.round && expectations.byRound[pick.round]) {
+      pick.expectedValue = expectations.byRound[pick.round].mean || 100;
+    } else {
+      pick.expectedValue = 100;
+    }
+
+    pick.valueOverExpected = pick.actualValue - pick.expectedValue;
+
+    // Classify as hit/bust based on position-specific thresholds
+    const posStats = expectations.positionStats[pick.position];
+    if (posStats) {
+      // Hit: Above 75th percentile for position
+      pick.isHit = pick.actualValue > posStats.p75;
+      // Bust: Below 25th percentile for position
+      pick.isBust = pick.actualValue < posStats.p25;
+
+      // Also consider draft capital - early picks that underperform are bigger busts
+      if (pick.round <= 3 && pick.actualValue < posStats.p50) {
+        pick.isBust = true;
+      }
+      if (pick.round >= 10 && pick.actualValue > posStats.p50) {
+        pick.isHit = true;
+      }
+    }
+  });
+}
+
+function calculateBaselineExpectations() {
+  // For the first year, use simple declining values by round
+  const baseline = { byOverall: {}, byRound: {}, byRoundPosition: {}, positionStats: {} };
+
+  for (let pick = 1; pick <= 192; pick++) {
+    baseline.byOverall[pick] = {
+      mean: 200 - pick,
+      stdDev: 30,
+      count: 0
+    };
+  }
+
+  for (let round = 1; round <= 16; round++) {
+    baseline.byRound[round] = {
+      mean: 200 - (round * 12),
+      stdDev: 40,
+      p75: 200 - (round * 12) + 20,
+      p25: 200 - (round * 12) - 20,
+      count: 0
+    };
+  }
+
+  return baseline;
+}
+
+/* ===========================
+   OWNER YEAR INDEX
+   =========================== */
 function buildOwnerYearIndex(){
   processedData.ownerYear = {};
   processedData.picks.forEach(p=>{
@@ -371,27 +811,52 @@ function buildOwnerYearIndex(){
 }
 
 /* ===========================
-   ARCHETYPES (robust)
+   ARCHETYPES
    =========================== */
-function firstTwoToArchetype(firstTwo){
+function buildArchetypes(){
+  const cohorts = [];
+  Object.entries(processedData.ownerYear).forEach(([key, picks])=>{
+    const [owner, yearStr] = key.split('::');
+    const year = Number(yearStr);
+    const firstTwo = picks.slice(0,2);
+    if (!nonEmpty(firstTwo)) return;
+
+    const archetype = determineArchetype(firstTwo);
+    const summary = summarizeCohort(picks);
+    cohorts.push({
+      owner, year, archetype,
+      first: firstTwo[0]?.position || '—',
+      second: firstTwo[1]?.position || '—',
+      ...summary
+    });
+  });
+
+  const byType = {};
+  cohorts.forEach(c => (byType[c.archetype] ||= []).push(c));
+  processedData.archetypes.cohorts = cohorts;
+  processedData.archetypes.byType = byType;
+}
+
+function determineArchetype(firstTwo){
   const pos = firstTwo.map(p=>p?.position || 'Unknown');
-  const hasQB = pos.includes('QB');
-  const hasTE = pos.includes('TE');
-  if (hasTE) return 'TE-Early';
-  if (hasQB) return 'QB-Early';
+  if (pos.includes('TE')) return 'TE-Early';
+  if (pos.includes('QB')) return 'QB-Early';
   if (pos[0]==='RB' && pos[1]==='RB') return 'RB-RB';
   if (pos[0]==='WR' && pos[1]==='WR') return 'WR-WR';
   if (pos[0]==='RB' && pos[1]==='WR') return 'RB-WR';
   if (pos[0]==='WR' && pos[1]==='RB') return 'WR-RB';
   return 'Mixed';
 }
+
 function summarizeCohort(picks){
   const totalPicks = picks.length;
   const sumActual = picks.reduce((s,p)=>s+toNum(p.actualValue),0);
   const sumOver = picks.reduce((s,p)=>s+toNum(p.valueOverExpected),0);
-  const hits = picks.filter(p=>toNum(p.valueOverExpected)>10).length;
-  const busts = picks.filter(p=>toNum(p.valueOverExpected)<-20).length;
-  const bestPick = picks.reduce((best,p)=> toNum(p.valueOverExpected) > toNum(best?.valueOverExpected ?? -Infinity) ? p : best, null);
+  const hits = picks.filter(p=>p.isHit).length;
+  const busts = picks.filter(p=>p.isBust).length;
+  const bestPick = picks.reduce((best,p)=>
+    toNum(p.valueOverExpected) > toNum(best?.valueOverExpected ?? -Infinity) ? p : best, null);
+
   return {
     totalPicks,
     avgPoints: totalPicks ? (sumActual/totalPicks) : 0,
@@ -401,37 +866,17 @@ function summarizeCohort(picks){
     bestPick
   };
 }
-function buildArchetypes(){
-  const cohorts = [];
-  Object.entries(processedData.ownerYear).forEach(([key, picks])=>{
-    const [owner, yearStr] = key.split('::');
-    const year = Number(yearStr);
-    const firstTwo = picks.slice(0,2);
-    if (!nonEmpty(firstTwo)) return;
-    const archetype = firstTwoToArchetype(firstTwo);
-    const summary = summarizeCohort(picks);
-    cohorts.push({
-      owner, year, archetype,
-      first: firstTwo[0]?.position || '—',
-      second: firstTwo[1]?.position || '—',
-      ...summary
-    });
-  });
-  const byType = {};
-  cohorts.forEach(c => (byType[c.archetype] ||= []).push(c));
-  processedData.archetypes.cohorts = cohorts;
-  processedData.archetypes.byType = byType;
-}
 
 /* ===========================
-   UI INIT
+   UI INITIALIZATION
    =========================== */
 function initializeDashboard(){
   document.querySelectorAll('.nav-tab').forEach(tab=>{
     tab.addEventListener('click', function(){
       document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-      this.classList.add('active'); document.getElementById(this.dataset.tab).classList.add('active');
+      this.classList.add('active');
+      document.getElementById(this.dataset.tab).classList.add('active');
 
       switch(this.dataset.tab){
         case 'overview': loadOverview(); break;
@@ -448,21 +893,25 @@ function initializeDashboard(){
 }
 
 /* ===========================
-   OVERVIEW
+   OVERVIEW TAB
    =========================== */
 function loadOverview(){
   if (!nonEmpty(processedData.picks)){
     setInnerHTML('overviewStats', emptyState('No picks found in the dataset.'));
-    setInnerHTML('recentDraftTable', '');
-    upsertChart('draftPerformanceChart', { type:'bar', data:{labels:[],datasets:[]}, options:{} });
     return;
   }
 
   const totalPicks = processedData.picks.length;
   const years = Object.keys(processedData.byYear).map(Number);
-  const mostRecent = getRecentYear(processedData.byYear);
+  const mostRecent = Math.max(...years);
   const avgPoints = safeAvg(processedData.picks.map(p=>p.actualValue));
-  const bestPick = processedData.picks.reduce((best,p)=> toNum(p.valueOverExpected) > toNum(best?.valueOverExpected ?? -Infinity) ? p : best, null);
+  const bestPick = processedData.picks.reduce((best,p)=>
+    toNum(p.valueOverExpected) > toNum(best?.valueOverExpected ?? -Infinity) ? p : best, null);
+
+  const hitRate = safePct(
+    processedData.picks.filter(p=>p.isHit).length,
+    processedData.picks.length
+  );
 
   setInnerHTML('overviewStats', `
     <div class="stat-card">
@@ -473,16 +922,17 @@ function loadOverview(){
     <div class="stat-card">
       <div class="stat-label">Average Points Per Pick</div>
       <div class="stat-value">${avgPoints.toFixed(1)}</div>
+      <div class="stat-trend">League-wide average</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Best Value Pick Ever</div>
-      <div class="stat-value" style="font-size:1.5em;">${bestPick?.player_name ?? '—'}</div>
-      <div class="stat-trend">Round ${defined(bestPick?.round)?bestPick.round:'—'} → ${toNum(bestPick?.actualValue).toFixed(0)} pts</div>
+      <div class="stat-value" style="font-size:1.5em;">${bestPick?.player_name || '—'}</div>
+      <div class="stat-trend">+${toNum(bestPick?.valueOverExpected).toFixed(0)} vs expected (${bestPick?.year})</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Most Recent Draft</div>
-      <div class="stat-value">${mostRecent ?? '—'}</div>
-      <div class="stat-trend">${mostRecent ? (processedData.byYear[mostRecent]?.length ?? 0) : 0} picks</div>
+      <div class="stat-label">Overall Hit Rate</div>
+      <div class="stat-value">${hitRate.toFixed(1)}%</div>
+      <div class="stat-trend">Above position average</div>
     </div>
   `);
 
@@ -495,25 +945,29 @@ function createDraftPerformanceChart(){
   Object.entries(processedData.byOwner).forEach(([owner, picks])=>{
     ownerPerformance[owner] = safeAvg(picks.map(p=>p.valueOverExpected));
   });
-  const top = Object.entries(ownerPerformance).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  const sorted = Object.entries(ownerPerformance).sort((a,b)=>b[1]-a[1]);
 
   upsertChart('draftPerformanceChart', {
     type:'bar',
     data:{
-      labels: top.map(([o])=>o),
+      labels: sorted.map(([o])=>o),
       datasets:[{
         label: 'Avg Value Over Expected',
-        data: top.map(([,v])=>v),
-        backgroundColor: top.map(([,v])=> v>0?'rgba(74,222,128,.6)':'rgba(239,68,68,.6)'),
-        borderColor: top.map(([,v])=> v>0?'rgba(74,222,128,1)':'rgba(239,68,68,1)'),
+        data: sorted.map(([,v])=>v),
+        backgroundColor: sorted.map(([,v])=> v>0?'rgba(74,222,128,.6)':'rgba(239,68,68,.6)'),
+        borderColor: sorted.map(([,v])=> v>0?'rgba(74,222,128,1)':'rgba(239,68,68,1)'),
         borderWidth:2
       }]
     },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Draft Performance by Owner',color:'#fff',font:{size:18}} },
+      plugins:{
+        title:{display:true,text:'Draft Performance by Owner',color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
       scales:{
-        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Points Above/Below Expected',color:'#a0a9c4'} },
+        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Points Above/Below Expected',color:'#a0a9c4'} },
         x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
       }
     }
@@ -521,32 +975,30 @@ function createDraftPerformanceChart(){
 }
 
 function createRecentDraftTable(){
-  const ry = getRecentYear(processedData.byYear);
-  const recent = ry ? [...(processedData.byYear[ry]||[])] : [];
+  const years = Object.keys(processedData.byYear).map(Number);
+  const mostRecent = Math.max(...years);
+  const recent = [...(processedData.byYear[mostRecent]||[])];
   recent.sort((a,b)=>{
-    const ao = defined(a.overall_pick)?a.overall_pick:(toNum(a.round)*100+toNum(a.pick_number));
-    const bo = defined(b.overall_pick)?b.overall_pick:(toNum(b.round)*100+toNum(b.pick_number));
+    const ao = a.overall_pick || (a.round*100 + a.pick_number);
+    const bo = b.overall_pick || (b.round*100 + b.pick_number);
     return ao - bo;
   });
 
-  if (!recent.length){
-    setInnerHTML('recentDraftTable', `<tbody><tr><td>${emptyState('No recent draft data.')}</td></tr></tbody>`);
-    return;
-  }
-
   const html = `
     <thead>
-      <tr><th>Pick</th><th>Round</th><th>Team</th><th>Player</th><th>Position</th><th>Points</th><th>Value</th></tr>
+      <tr><th>Pick</th><th>Round</th><th>Team</th><th>Player</th><th>Position</th>
+          <th>Points</th><th>Expected</th><th>Value</th></tr>
     </thead>
     <tbody>
       ${recent.slice(0,20).map(p=>`
         <tr>
-          <td>${defined(p.overall_pick)?p.overall_pick:'-'}</td>
-          <td>${defined(p.round)?p.round:'-'}</td>
-          <td>${p.team_name || p.owner || 'Unknown'}</td>
-          <td><strong>${p.player_name || 'Unknown'}</strong></td>
-          <td>${p.position || '-'}</td>
+          <td>${p.overall_pick || '-'}</td>
+          <td>${p.round || '-'}</td>
+          <td>${p.owner}</td>
+          <td><strong>${p.player_name}</strong></td>
+          <td>${p.position}</td>
           <td>${toNum(p.actualValue).toFixed(0)}</td>
+          <td>${toNum(p.expectedValue).toFixed(0)}</td>
           <td class="${toNum(p.valueOverExpected)>0?'trend-up':'trend-down'}">
             ${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(0)}
           </td>
@@ -557,62 +1009,91 @@ function createRecentDraftTable(){
 }
 
 /* ===========================
-   VALUE
+   VALUE ANALYSIS TAB
    =========================== */
 function loadValueAnalysis(){
   const yearSel = document.getElementById('valueYearSelect');
   const years = Object.keys(processedData.byYear).sort((a,b)=>b-a);
-  yearSel.innerHTML = '<option value="all">All Years</option>' + years.map(y=>`<option value="${y}">${y}</option>`).join('');
+  yearSel.innerHTML = '<option value="">Select Year for Analysis</option>' +
+    years.slice(1).map(y=>`<option value="${y}">${y}</option>`).join('');
   yearSel.onchange = updateValueAnalysis;
   document.getElementById('valuePositionSelect').onchange = updateValueAnalysis;
-  updateValueAnalysis();
+
+  if (years.length > 1) {
+    yearSel.value = years[1]; // Default to most recent year with expectations
+    updateValueAnalysis();
+  }
 }
+
 function updateValueAnalysis(){
-  const y = document.getElementById('valueYearSelect').value;
+  const yearVal = document.getElementById('valueYearSelect').value;
   const pos = document.getElementById('valuePositionSelect').value;
 
-  let picks = processedData.picks;
-  if (y!=='all') picks = picks.filter(p=>p.year===Number(y));
-  if (pos!=='all') picks = picks.filter(p=>p.position===pos);
+  if (!yearVal) {
+    setInnerHTML('bestValues', '<div class="pick-item">Select a year to analyze</div>');
+    setInnerHTML('worstValues', '<div class="pick-item">Select a year to analyze</div>');
+    return;
+  }
+
+  let picks = processedData.byYear[Number(yearVal)] || [];
+  if (pos !== 'all') picks = picks.filter(p=>p.position===pos);
 
   const sorted = [...picks].sort((a,b)=>toNum(b.valueOverExpected)-toNum(a.valueOverExpected));
 
   setInnerHTML('bestValues', nonEmpty(sorted) ? sorted.slice(0,10).map((p,i)=>`
     <div class="pick-item">
-      <strong>${i+1}.</strong> ${p.player_name || 'Unknown'} <small>(${p.year})</small><br/>
-      Round ${defined(p.round)?p.round:'?'} → ${toNum(p.actualValue).toFixed(0)} pts
-      <span class="trend-up">(+${toNum(p.valueOverExpected).toFixed(0)} value)</span>
+      <strong>${i+1}.</strong> ${p.player_name} - ${p.owner}<br/>
+      Round ${p.round || '?'} → ${toNum(p.actualValue).toFixed(0)} pts
+      <span class="trend-up">(+${toNum(p.valueOverExpected).toFixed(0)} vs expected)</span>
     </div>`).join('') : '<div class="pick-item">No data available</div>');
 
   setInnerHTML('worstValues', nonEmpty(sorted) ? sorted.slice(-10).reverse().map((p,i)=>`
     <div class="pick-item">
-      <strong>${i+1}.</strong> ${p.player_name || 'Unknown'} <small>(${p.year})</small><br/>
-      Round ${defined(p.round)?p.round:'?'} → ${toNum(p.actualValue).toFixed(0)} pts
-      <span class="trend-down">(${toNum(p.valueOverExpected).toFixed(0)} value)</span>
+      <strong>${i+1}.</strong> ${p.player_name} - ${p.owner}<br/>
+      Round ${p.round || '?'} → ${toNum(p.actualValue).toFixed(0)} pts
+      <span class="trend-down">(${toNum(p.valueOverExpected).toFixed(0)} vs expected)</span>
     </div>`).join('') : '<div class="pick-item">No data available</div>');
 
-  createValueChart(picks);
+  createValueChart(Number(yearVal), picks);
 }
-function createValueChart(picks){
-  const roundData = {};
-  for (let r=1;r<=16;r++) roundData[r]={ expected: expectedFromRound(r), actual:[] };
-  picks.forEach(p=>{ if (defined(p.round) && p.round<=16) roundData[p.round].actual.push(toNum(p.actualValue)); });
-  const rounds = Object.keys(roundData).map(Number);
-  const expected = rounds.map(r=>roundData[r].expected);
-  const actual = rounds.map(r=> safeAvg(roundData[r].actual));
+
+function createValueChart(year, picks){
+  const expectations = processedData.historicalExpectations[year];
+  if (!expectations) return;
+
+  const rounds = Array.from({length:16}, (_,i)=>i+1);
+  const expected = rounds.map(r => expectations.byRound[r]?.mean || 0);
+  const actual = rounds.map(r => {
+    const rPicks = picks.filter(p => p.round === r);
+    return safeAvg(rPicks.map(p => p.actualValue));
+  });
+  const p75 = rounds.map(r => expectations.byRound[r]?.p75 || 0);
+  const p25 = rounds.map(r => expectations.byRound[r]?.p25 || 0);
 
   upsertChart('valueChart',{
     type:'line',
-    data:{ labels: rounds.map(r=>`Round ${r}`),
+    data:{
+      labels: rounds.map(r=>`Round ${r}`),
       datasets:[
-        { label:'Expected Value', data:expected, borderColor:'rgba(251,146,60,.8)', borderDash:[5,5], fill:false },
-        { label:'Actual Average Value', data:actual, borderColor:'rgba(74,222,128,.8)', backgroundColor:'rgba(74,222,128,.1)', fill:true }
-      ]},
+        { label:'Historical Average', data:expected, borderColor:'rgba(251,146,60,.8)',
+          borderDash:[5,5], fill:false },
+        { label:'75th Percentile', data:p75, borderColor:'rgba(74,222,128,.4)',
+          borderDash:[3,3], fill:false },
+        { label:'25th Percentile', data:p25, borderColor:'rgba(239,68,68,.4)',
+          borderDash:[3,3], fill:false },
+        { label:`${year} Actual`, data:actual, borderColor:'rgba(74,158,255,1)',
+          backgroundColor:'rgba(74,158,255,.1)', fill:true, borderWidth:3 }
+      ]
+    },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Draft Value by Round',color:'#fff',font:{size:18}}, legend:{labels:{color:'#fff'}} },
+      plugins:{
+        title:{display:true,text:`${year} Draft Value vs Historical Expectations`,color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
       scales:{
-        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Average Points',color:'#a0a9c4'} },
+        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Average Points',color:'#a0a9c4'} },
         x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
       }
     }
@@ -620,50 +1101,52 @@ function createValueChart(picks){
 }
 
 /* ===========================
-   POSITIONS
+   POSITIONS TAB
    =========================== */
-function loadPositionAnalysis(){ createPositionHeatMap(); createPositionTimingChart(); }
+function loadPositionAnalysis(){
+  createPositionHeatMap();
+  createPositionTimingChart();
+}
+
 function createPositionHeatMap(){
   const positions = ['QB','RB','WR','TE','D/ST','K'];
   const rounds = Array.from({length:10},(_,i)=>i+1);
   const heat = {};
+
   positions.forEach(pos=>{
     heat[pos]={};
     rounds.forEach(r=>{
-      const picks = (processedData.picks||[]).filter(p=>p.position===pos && p.round===r);
+      const picks = processedData.picks.filter(p=>p.position===pos && p.round===r);
       heat[pos][r] = safeAvg(picks.map(p=>p.valueOverExpected));
     });
   });
 
-  if (!positions.length){
-    setInnerHTML('positionHeatMap', emptyState('No position data.'));
-    return;
-  }
-
   let html = `<div class="heat-map-grid" style="grid-template-columns:auto repeat(${rounds.length},1fr);">`;
   html += `<div class="heat-cell heat-cell-header"></div>`;
   rounds.forEach(r=> html += `<div class="heat-cell heat-cell-header">R${r}</div>`);
+
   positions.forEach(pos=>{
     html += `<div class="heat-cell heat-cell-header">${pos}</div>`;
     rounds.forEach(r=>{
       const v = heat[pos][r] || 0;
       const abs = Math.min(Math.abs(v)/50,1);
       let bg = 'var(--bg-accent)';
-      if (v>0) bg = `rgba(74,222,128,${0.2+abs*0.6})`;
-      else if (v<0) bg = `rgba(239,68,68,${0.2+abs*0.6})`;
+      if (v>10) bg = `rgba(74,222,128,${0.2+abs*0.6})`;
+      else if (v<-10) bg = `rgba(239,68,68,${0.2+abs*0.6})`;
       html += `<div class="heat-cell" style="background:${bg}">${v!==0?(v>0?'+':'')+v.toFixed(0):'-'}</div>`;
     });
   });
   html += `</div>`;
   setInnerHTML('positionHeatMap', html);
 }
+
 function createPositionTimingChart(){
   const years = Object.keys(processedData.byYear).sort();
   const positions = ['QB','RB','WR','TE'];
   const datasets = positions.map((pos,i)=>{
     const data = years.map(y=>{
-      const picks = (processedData.byYear[y]||[]).filter(p=>p.position===pos);
-      return nonEmpty(picks) ? safeAvg(picks.map(p=>p.round||0)) : null;
+      const picks = (processedData.byYear[y]||[]).filter(p=>p.position===pos && p.round);
+      return nonEmpty(picks) ? safeAvg(picks.map(p=>p.round)) : null;
     });
     return {
       label: pos,
@@ -679,9 +1162,13 @@ function createPositionTimingChart(){
     data:{ labels:years, datasets },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Average Draft Round by Position Over Time',color:'#fff',font:{size:18}}, legend:{labels:{color:'#fff'}} },
+      plugins:{
+        title:{display:true,text:'Average Draft Round by Position Over Time',color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
       scales:{
-        y:{ reverse:true, ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Average Draft Round',color:'#a0a9c4'} },
+        y:{ reverse:true, ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Average Draft Round',color:'#a0a9c4'} },
         x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
       }
     }
@@ -689,58 +1176,108 @@ function createPositionTimingChart(){
 }
 
 /* ===========================
-   ROUNDS
+   ROUNDS TAB
    =========================== */
-function loadRoundAnalysis(){ createRoundValueChart(); createRoundTable(); }
-function createRoundValueChart(){
-  const rounds = Object.keys(processedData.byRound||{}).map(Number).sort((a,b)=>a-b);
+function loadRoundAnalysis(){
+  const viewSelect = document.getElementById('roundViewSelect');
+  const yearSelect = document.getElementById('roundYearSelect');
+  const yearWrapper = document.getElementById('roundYearWrapper');
+
+  const years = Object.keys(processedData.byYear).sort((a,b)=>b-a);
+  yearSelect.innerHTML = '<option value="">Select Year</option>' +
+    years.map(y=>`<option value="${y}">${y}</option>`).join('');
+
+  viewSelect.onchange = () => {
+    if (viewSelect.value === 'yearly') {
+      yearWrapper.style.display = 'block';
+      if (!yearSelect.value && years.length) yearSelect.value = years[0];
+    } else {
+      yearWrapper.style.display = 'none';
+    }
+    updateRoundAnalysis();
+  };
+
+  yearSelect.onchange = updateRoundAnalysis;
+  updateRoundAnalysis();
+}
+
+function updateRoundAnalysis(){
+  const view = document.getElementById('roundViewSelect').value;
+  const year = document.getElementById('roundYearSelect').value;
+
+  if (view === 'yearly' && year) {
+    const yearPicks = processedData.byYear[Number(year)] || [];
+    createRoundValueChart(yearPicks, `${year} `);
+    createRoundTable(yearPicks, year);
+  } else {
+    createRoundValueChart(processedData.picks, '');
+    createRoundTable(processedData.picks, null);
+  }
+}
+
+function createRoundValueChart(picks, prefix=''){
+  const rounds = Array.from({length:16}, (_,i)=>i+1);
+
   const hitRates = rounds.map(r=>{
-    const arr = processedData.byRound[r] || [];
-    const hits = arr.filter(p=>toNum(p.valueOverExpected)>10).length;
-    return safePct(hits, arr.length);
+    const rPicks = picks.filter(p=>p.round===r);
+    const hits = rPicks.filter(p=>p.isHit).length;
+    return safePct(hits, rPicks.length);
   });
+
   const bustRates = rounds.map(r=>{
-    const arr = processedData.byRound[r] || [];
-    const busts = arr.filter(p=>toNum(p.valueOverExpected)<-20).length;
-    return safePct(busts, arr.length);
+    const rPicks = picks.filter(p=>p.round===r);
+    const busts = rPicks.filter(p=>p.isBust).length;
+    return safePct(busts, rPicks.length);
   });
 
   upsertChart('roundValueChart',{
     type:'bar',
-    data:{ labels: rounds.map(r=>`Round ${r}`),
+    data:{
+      labels: rounds.map(r=>`Round ${r}`),
       datasets:[
-        { label:'Hit Rate %', data:hitRates, backgroundColor:'rgba(74,222,128,.6)', borderColor:'rgba(74,222,128,1)', borderWidth:2 },
-        { label:'Bust Rate %', data:bustRates, backgroundColor:'rgba(239,68,68,.6)', borderColor:'rgba(239,68,68,1)', borderWidth:2 }
-      ]},
+        { label:'Hit Rate %', data:hitRates, backgroundColor:'rgba(74,222,128,.6)',
+          borderColor:'rgba(74,222,128,1)', borderWidth:2 },
+        { label:'Bust Rate %', data:bustRates, backgroundColor:'rgba(239,68,68,.6)',
+          borderColor:'rgba(239,68,68,1)', borderWidth:2 }
+      ]
+    },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Draft Success/Bust Rates by Round',color:'#fff',font:{size:18}}, legend:{labels:{color:'#fff'}} },
+      plugins:{
+        title:{display:true,text:`${prefix}Draft Success/Bust Rates by Round`,color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
       scales:{
-        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Percentage',color:'#a0a9c4'} },
+        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Percentage',color:'#a0a9c4'} },
         x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
       }
     }
   });
 }
-function createRoundTable(){
-  const rows = Object.entries(processedData.byRound||{}).map(([round, picks])=>{
-    const best = (picks||[]).reduce((b,p)=> toNum(p.valueOverExpected) > toNum(b?.valueOverExpected ?? -Infinity) ? p : b, null);
-    return {
-      round: Number(round),
-      total: (picks||[]).length,
-      avg: safeAvg((picks||[]).map(p=>p.actualValue)),
-      best
-    };
-  }).sort((a,b)=>a.round-b.round);
 
-  if (!rows.length){
-    setInnerHTML('roundTable', `<tbody><tr><td>${emptyState('No round data.')}</td></tr></tbody>`);
-    return;
+function createRoundTable(picks, year){
+  const rows = [];
+  for (let round = 1; round <= 16; round++) {
+    const rPicks = picks.filter(p => p.round === round);
+    if (rPicks.length === 0) continue;
+
+    const best = rPicks.reduce((b,p)=>
+      toNum(p.valueOverExpected) > toNum(b?.valueOverExpected ?? -Infinity) ? p : b, null);
+
+    rows.push({
+      round,
+      total: rPicks.length,
+      avg: safeAvg(rPicks.map(p=>p.actualValue)),
+      hitRate: safePct(rPicks.filter(p=>p.isHit).length, rPicks.length),
+      best
+    });
   }
 
   const html = `
     <thead><tr>
-      <th>Round</th><th>Total Picks</th><th>Avg Points</th><th>Best Pick</th><th>Team</th><th>Value</th>
+      <th>Round</th><th>Picks</th><th>Avg Points</th><th>Hit Rate</th>
+      <th>Best Pick</th><th>Owner</th><th>Value</th>
     </tr></thead>
     <tbody>
       ${rows.map(r=>`
@@ -748,9 +1285,12 @@ function createRoundTable(){
           <td><strong>Round ${r.round}</strong></td>
           <td>${r.total}</td>
           <td>${toNum(r.avg).toFixed(1)}</td>
-          <td>${r.best?.player_name ?? '—'}</td>
-          <td>${r.best?.team_name || r.best?.owner || '—'}</td>
-          <td class="trend-up">+${toNum(r.best?.valueOverExpected).toFixed(0)}</td>
+          <td>${toNum(r.hitRate).toFixed(1)}%</td>
+          <td>${r.best?.player_name || '—'}</td>
+          <td>${r.best?.owner || '—'}</td>
+          <td class="${toNum(r.best?.valueOverExpected)>0?'trend-up':'trend-down'}">
+            ${toNum(r.best?.valueOverExpected)>0?'+':''}${toNum(r.best?.valueOverExpected).toFixed(0)}
+          </td>
         </tr>`).join('')}
     </tbody>`;
   setInnerHTML('roundTable', html);
@@ -758,52 +1298,67 @@ function createRoundTable(){
 }
 
 /* ===========================
-   TRENDS
+   TRENDS TAB
    =========================== */
-function loadTrends(){ createTrendsChart(); createYearlyTable(); }
+function loadTrends(){
+  createTrendsChart();
+  createYearlyTable();
+}
+
 function createTrendsChart(){
-  const years = Object.keys(processedData.byYear||{}).sort();
+  const years = Object.keys(processedData.byYear).sort();
   const avgPoints = years.map(y=> safeAvg((processedData.byYear[y]||[]).map(p=>p.actualValue)));
   const hitRates = years.map(y=>{
-    const arr = processedData.byYear[y] || [];
-    const hits = arr.filter(p=>toNum(p.valueOverExpected)>0).length;
-    return safePct(hits, arr.length);
+    const picks = processedData.byYear[y] || [];
+    return safePct(picks.filter(p=>p.isHit).length, picks.length);
   });
 
   upsertChart('trendsChart',{
     type:'line',
-    data:{ labels:years,
+    data:{
+      labels:years,
       datasets:[
-        { label:'Avg Points Per Pick', data:avgPoints, borderColor:'rgba(74,158,255,1)', backgroundColor:'rgba(74,158,255,.1)', yAxisID:'y', tension:.3 },
-        { label:'Hit Rate %', data:hitRates, borderColor:'rgba(74,222,128,1)', backgroundColor:'rgba(74,222,128,.1)', yAxisID:'y1', tension:.3 }
-      ]},
+        { label:'Avg Points Per Pick', data:avgPoints, borderColor:'rgba(74,158,255,1)',
+          backgroundColor:'rgba(74,158,255,.1)', yAxisID:'y', tension:.3 },
+        { label:'Hit Rate %', data:hitRates, borderColor:'rgba(74,222,128,1)',
+          backgroundColor:'rgba(74,222,128,.1)', yAxisID:'y1', tension:.3 }
+      ]
+    },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Draft Performance Trends',color:'#fff',font:{size:18}}, legend:{labels:{color:'#fff'}} },
+      plugins:{
+        title:{display:true,text:'Draft Performance Trends',color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
       scales:{
-        y:{ type:'linear', position:'left', ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Average Points',color:'#a0a9c4'} },
-        y1:{ type:'linear', position:'right', ticks:{color:'#a0a9c4'}, grid:{drawOnChartArea:false}, title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} },
+        y:{ type:'linear', position:'left', ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Average Points',color:'#a0a9c4'} },
+        y1:{ type:'linear', position:'right', ticks:{color:'#a0a9c4'}, grid:{drawOnChartArea:false},
+             title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} },
         x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
       }
     }
   });
 }
+
 function createYearlyTable(){
-  const rows = Object.entries(processedData.byYear||{}).map(([year, picks])=>{
-    const hits = (picks||[]).filter(p=>toNum(p.valueOverExpected)>10).length;
-    const busts = (picks||[]).filter(p=>toNum(p.valueOverExpected)<-20).length;
-    const best = (picks||[]).reduce((b,p)=> toNum(p.valueOverExpected) > toNum(b?.valueOverExpected ?? -Infinity) ? p : b, null);
+  const rows = Object.entries(processedData.byYear).map(([year, picks])=>{
+    const hits = picks.filter(p=>p.isHit).length;
+    const busts = picks.filter(p=>p.isBust).length;
+    const best = picks.reduce((b,p)=>
+      toNum(p.valueOverExpected) > toNum(b?.valueOverExpected ?? -Infinity) ? p : b, null);
+
     return {
       year: Number(year),
-      total: (picks||[]).length,
-      avg: safeAvg((picks||[]).map(p=>p.actualValue)),
-      hitRate: safePct(hits, (picks||[]).length),
-      bustRate: safePct(busts, (picks||[]).length),
+      total: picks.length,
+      avg: safeAvg(picks.map(p=>p.actualValue)),
+      hitRate: safePct(hits, picks.length),
+      bustRate: safePct(busts, picks.length),
       best
     };
   }).sort((a,b)=>b.year-a.year);
 
-  const html = rows.length ? `
+  const html = `
     <thead><tr>
       <th>Year</th><th>Picks</th><th>Avg Points</th><th>Hit Rate</th><th>Bust Rate</th><th>Best Pick</th>
     </tr></thead>
@@ -815,23 +1370,25 @@ function createYearlyTable(){
           <td>${toNum(r.avg).toFixed(1)}</td>
           <td class="trend-up">${toNum(r.hitRate).toFixed(1)}%</td>
           <td class="trend-down">${toNum(r.bustRate).toFixed(1)}%</td>
-          <td>${r.best?.player_name ?? '—'}</td>
+          <td>${r.best?.player_name || '—'}</td>
         </tr>`).join('')}
-    </tbody>` : `<tbody><tr><td>${emptyState('No yearly data.')}</td></tr></tbody>`;
+    </tbody>`;
   setInnerHTML('yearlyTable', html);
   makeSortable('yearlyTable');
 }
 
 /* ===========================
-   OWNERS
+   OWNERS TAB
    =========================== */
 function loadOwnerAnalysis(){
   const ownerSelect = document.getElementById('ownerSelect');
-  const owners = Object.keys(processedData.byOwner||{}).sort();
-  ownerSelect.innerHTML = '<option value="">All Owners</option>' + owners.map(o=>`<option value="${o}">${o}</option>`).join('');
+  const owners = Object.keys(processedData.byOwner).sort();
+  ownerSelect.innerHTML = '<option value="">All Owners</option>' +
+    owners.map(o=>`<option value="${o}">${o}</option>`).join('');
   ownerSelect.onchange = updateOwnerAnalysis;
   updateOwnerAnalysis();
 }
+
 function updateOwnerAnalysis(){
   const selected = document.getElementById('ownerSelect').value;
   if (selected){
@@ -843,284 +1400,96 @@ function updateOwnerAnalysis(){
     displayAllOwnersComparison();
   }
 }
+
 function displayOwnerStats(owner, picks){
   const avgPoints = safeAvg(picks.map(p=>p.actualValue));
   const avgVOE = safeAvg(picks.map(p=>p.valueOverExpected));
-  const hits = picks.filter(p=>toNum(p.valueOverExpected)>10).length;
-  const busts = picks.filter(p=>toNum(p.valueOverExpected)<-20).length;
+  const hits = picks.filter(p=>p.isHit).length;
+  const busts = picks.filter(p=>p.isBust).length;
 
   setInnerHTML('ownerStats', `
-    <div class="stat-card"><div class="stat-label">Total Picks</div><div class="stat-value">${picks.length}</div></div>
-    <div class="stat-card"><div class="stat-label">Avg Points</div><div class="stat-value">${avgPoints.toFixed(1)}</div>
-      <div class="stat-trend">${avgVOE>0?'+':''}${avgVOE.toFixed(1)} vs expected</div></div>
-    <div class="stat-card"><div class="stat-label">Hit Rate</div><div class="stat-value trend-up">${safePct(hits,picks.length).toFixed(1)}%</div>
-      <div class="stat-trend">${hits} great picks</div></div>
-    <div class="stat-card"><div class="stat-label">Bust Rate</div><div class="stat-value trend-down">${safePct(busts,picks.length).toFixed(1)}%</div>
-      <div class="stat-trend">${busts} busts</div></div>
+    <div class="stat-card">
+      <div class="stat-label">Total Picks</div>
+      <div class="stat-value">${picks.length}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Avg Points</div>
+      <div class="stat-value">${avgPoints.toFixed(1)}</div>
+      <div class="stat-trend">${avgVOE>0?'+':''}${avgVOE.toFixed(1)} vs expected</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Hit Rate</div>
+      <div class="stat-value trend-up">${safePct(hits,picks.length).toFixed(1)}%</div>
+      <div class="stat-trend">${hits} great picks</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Bust Rate</div>
+      <div class="stat-value trend-down">${safePct(busts,picks.length).toFixed(1)}%</div>
+      <div class="stat-trend">${busts} busts</div>
+    </div>
   `);
 }
+
 function createOwnerChart(owner, picks){
   const years = [...new Set(picks.map(p=>p.year))].sort();
   const avgVOE = years.map(y=>{
-    const arr = picks.filter(p=>p.year===y);
-    return safeAvg(arr.map(p=>p.valueOverExpected));
+    const yPicks = picks.filter(p=>p.year===y);
+    return safeAvg(yPicks.map(p=>p.valueOverExpected));
   });
 
   upsertChart('ownerChart',{
     type:'line',
-    data:{ labels:years, datasets:[{ label:`${owner} - Value Over Expected`, data:avgVOE, borderColor:'rgba(251,146,60,1)', backgroundColor:'rgba(251,146,60,.1)', tension:.3, fill:true }] },
+    data:{
+      labels:years,
+      datasets:[{
+        label:`${owner} - Value Over Expected`,
+        data:avgVOE,
+        borderColor:'rgba(251,146,60,1)',
+        backgroundColor:'rgba(251,146,60,.1)',
+        tension:.3,
+        fill:true
+      }]
+    },
     options:{
       responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Draft Performance Over Time',color:'#fff',font:{size:18}}, legend:{labels:{color:'#fff'}} },
-      scales:{ y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} }, x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} } }
-    }
-  });
-}
-function createOwnerTable(owner, picks){
-  const sorted = [...picks].sort((a,b)=>toNum(b.valueOverExpected)-toNum(a.valueOverExpected));
-  const html = nonEmpty(sorted) ? `
-    <thead><tr><th>Year</th><th>Round</th><th>Player</th><th>Position</th><th>Points</th><th>Value</th></tr></thead>
-    <tbody>
-      ${sorted.slice(0,20).map(p=>`
-        <tr>
-          <td>${p.year}</td>
-          <td>${defined(p.round)?p.round:'-'}</td>
-          <td><strong>${p.player_name || 'Unknown'}</strong></td>
-          <td>${p.position || '-'}</td>
-          <td>${toNum(p.actualValue).toFixed(0)}</td>
-          <td class="${toNum(p.valueOverExpected)>0?'trend-up':'trend-down'}">${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(0)}</td>
-        </tr>`).join('')}
-    </tbody>` : `<tbody><tr><td>${emptyState('No owner data.')}</td></tr></tbody>`;
-  setInnerHTML('ownerTable', html);
-  makeSortable('ownerTable');
-}
-function displayAllOwnersComparison(){
-  const list = Object.entries(processedData.byOwner||{}).map(([owner, picks])=>{
-    const avgVOE = safeAvg(picks.map(p=>p.valueOverExpected));
-    const hitRate = safePct(picks.filter(p=>toNum(p.valueOverExpected)>10).length, picks.length);
-    const grade = avgVOE>10?'A': avgVOE>0?'B': avgVOE>-10?'C':'D';
-    return { owner, picks:picks.length, avgVOE, hitRate, grade };
-  }).sort((a,b)=>b.avgVOE-a.avgVOE);
-
-  const top4 = list.slice(0,4);
-  setInnerHTML('ownerStats', nonEmpty(top4) ? top4.map(s=>`
-    <div class="stat-card">
-      <div class="stat-label">${s.owner}</div>
-      <div class="stat-value"><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></div>
-      <div class="stat-trend">${s.avgVOE>0?'+':''}${s.avgVOE.toFixed(1)} avg value</div>
-    </div>`).join('') : emptyState('No owner data.'));
-
-  upsertChart('ownerChart',{
-    type:'scatter',
-    data:{ datasets:[{
-      label:'Owners',
-      data: list.map(s=>({ x:toNum(s.hitRate), y:toNum(s.avgVOE), label:s.owner })),
-      backgroundColor: list.map(s=>{
-        if (s.grade==='A') return 'rgba(74,222,128,.6)';
-        if (s.grade==='B') return 'rgba(74,158,255,.6)';
-        if (s.grade==='C') return 'rgba(251,191,36,.6)';
-        return 'rgba(239,68,68,.6)';
-      }),
-      pointRadius:8, pointHoverRadius:10
-    }]},
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Owner Draft Performance',color:'#fff',font:{size:18}}, legend:{display:false},
-        tooltip:{ callbacks:{ label:(ctx)=> `${ctx.raw.label}: ${toNum(ctx.raw.x).toFixed(1)}% hit, ${toNum(ctx.raw.y).toFixed(1)} avg value` } } },
+      plugins:{
+        title:{display:true,text:'Draft Performance Over Time',color:'#fff',font:{size:18}},
+        legend:{labels:{color:'#fff'}}
+      },
       scales:{
-        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
-        x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Hit Rate %',color:'#a0a9c4'} }
-      }
-    }
-  });
-
-  const html = nonEmpty(list) ? `
-    <thead><tr><th>Owner</th><th>Total Picks</th><th>Avg Value</th><th>Hit Rate</th><th>Grade</th></tr></thead>
-    <tbody>
-      ${list.map(s=>`
-        <tr>
-          <td><strong>${s.owner}</strong></td>
-          <td>${s.picks}</td>
-          <td class="${toNum(s.avgVOE)>0?'trend-up':'trend-down'}">${toNum(s.avgVOE)>0?'+':''}${toNum(s.avgVOE).toFixed(1)}</td>
-          <td>${toNum(s.hitRate).toFixed(1)}%</td>
-          <td><span class="grade-badge grade-${s.grade.toLowerCase()}">${s.grade}</span></td>
-        </tr>`).join('')}
-    </tbody>` : `<tbody><tr><td>${emptyState('No owner comparison data.')}</td></tr></tbody>`;
-  setInnerHTML('ownerTable', html);
-  makeSortable('ownerTable');
-}
-
-/* ===========================
-   ARCHETYPES (UI)
-   =========================== */
-function loadArchetypes(){
-  const ownerSel = document.getElementById('archOwnerSelect');
-  const yearSel = document.getElementById('archYearSelect');
-
-  if (ownerSel.options.length === 1){
-    const owners = Object.keys(processedData.byOwner||{}).sort();
-    ownerSel.innerHTML = '<option value="">All Owners</option>' + owners.map(o=>`<option value="${o}">${o}</option>`).join('');
-  }
-  if (yearSel.options.length === 1){
-    const years = Object.keys(processedData.byYear||{}).map(Number).sort((a,b)=>b-a);
-    yearSel.innerHTML = '<option value="all">All Years</option>' + years.map(y=>`<option value="${y}">${y}</option>`).join('');
-  }
-
-  ownerSel.onchange = updateArchetypes;
-  yearSel.onchange = updateArchetypes;
-  updateArchetypes();
-}
-function filterCohortsForArchetypes(){
-  const owner = document.getElementById('archOwnerSelect').value;
-  const yearVal = document.getElementById('archYearSelect').value;
-  let cohorts = processedData.archetypes.cohorts || [];
-  if (owner) cohorts = cohorts.filter(c=>c.owner===owner);
-  if (yearVal!=='all') cohorts = cohorts.filter(c=>c.year===Number(yearVal));
-  return cohorts;
-}
-function updateArchetypes(){
-  const cohorts = filterCohortsForArchetypes();
-  if (!nonEmpty(cohorts)){
-    setInnerHTML('archetypeTopStats', emptyState('No archetype cohorts found.'));
-    upsertChart('archetypeBarChart', { type:'bar', data:{labels:[],datasets:[]}, options:{} });
-    setInnerHTML('archetypeTable', `<tbody><tr><td>${emptyState('No data')}</td></tr></tbody>`);
-    setInnerHTML('firstTwoTable', `<tbody><tr><td>${emptyState('No data')}</td></tr></tbody>`);
-    return;
-  }
-
-  const avgVOE = safeAvg(cohorts.map(c=>c.avgVOE));
-  const archetypeCounts = {};
-  cohorts.forEach(c=> archetypeCounts[c.archetype]=(archetypeCounts[c.archetype]||0)+1);
-  const topType = Object.entries(archetypeCounts).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
-  const best = cohorts.reduce((b,c)=> toNum(c.avgVOE) > toNum(b?.avgVOE ?? -Infinity) ? c : b, null);
-
-  setInnerHTML('archetypeTopStats', `
-    <div class="stat-card"><div class="stat-label">Owner-Year Cohorts</div><div class="stat-value">${cohorts.length}</div></div>
-    <div class="stat-card"><div class="stat-label">Avg Value Over Expected</div><div class="stat-value">${toNum(avgVOE).toFixed(1)}</div></div>
-    <div class="stat-card"><div class="stat-label">Most Used Archetype</div><div class="stat-value" style="font-size:1.7rem;">${topType}</div></div>
-    <div class="stat-card"><div class="stat-label">Best Cohort</div>
-      <div class="stat-value" style="font-size:1.2rem;">${best ? `${best.owner} (${best.year})` : '—'}</div>
-      <div class="stat-trend">${best ? (toNum(best.avgVOE)>0?'+':'')+toNum(best.avgVOE).toFixed(1)+' VOE' : ''}</div>
-    </div>`);
-
-  createArchetypeBarChart(cohorts);
-  createArchetypeTable(cohorts);
-  createFirstTwoTable(cohorts);
-}
-function createArchetypeBarChart(cohorts){
-  const byType = {};
-  cohorts.forEach(c=> (byType[c.archetype] ||= []).push(c));
-  const labels = Object.keys(byType);
-  const avgVOE = labels.map(l=> safeAvg(byType[l].map(x=>x.avgVOE)));
-  const counts = labels.map(l=> byType[l].length);
-
-  upsertChart('archetypeBarChart',{
-    type:'bar',
-    data:{ labels,
-      datasets:[
-        { label:'Avg VOE (All Picks)', data:avgVOE, yAxisID:'y', backgroundColor:'rgba(74,222,128,.6)', borderColor:'rgba(74,222,128,1)', borderWidth:2 },
-        { label:'Cohorts', data:counts, yAxisID:'y1', backgroundColor:'rgba(74,158,255,.4)', borderColor:'rgba(74,158,255,1)', borderWidth:2 }
-      ]},
-    options:{
-      responsive:true, maintainAspectRatio:false,
-      plugins:{ title:{display:true,text:'Archetype Outcomes',color:'#fff',font:{size:18}} },
-      scales:{
-        y:{ position:'left', ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'}, title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
-        y1:{ position:'right', ticks:{color:'#a0a9c4'}, grid:{drawOnChartArea:false}, title:{display:true,text:'Cohort Count',color:'#a0a9c4'} },
+        y:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'},
+            title:{display:true,text:'Avg Value Over Expected',color:'#a0a9c4'} },
         x:{ ticks:{color:'#a0a9c4'}, grid:{color:'#1e2433'} }
       }
     }
   });
 }
-function chipFor(pos){
-  if (pos==='RB') return '<span class="chip chip-rb">RB</span>';
-  if (pos==='WR') return '<span class="chip chip-wr">WR</span>';
-  if (pos==='TE') return '<span class="chip chip-te">TE</span>';
-  if (pos==='QB') return '<span class="chip chip-qb">QB</span>';
-  return '<span class="chip chip-mixed">'+(pos||'—')+'</span>';
-}
-function createArchetypeTable(cohorts){
-  const rows = [...cohorts].sort((a,b)=>toNum(b.avgVOE)-toNum(a.avgVOE));
+
+function createOwnerTable(owner, picks){
+  const sorted = [...picks].sort((a,b)=>toNum(b.valueOverExpected)-toNum(a.valueOverExpected));
   const html = `
     <thead><tr>
-      <th>Owner</th><th>Year</th><th>Archetype</th><th>R1</th><th>R2</th><th>Avg Points</th><th>Avg VOE</th><th>Hit %</th><th>Bust %</th><th>Best Pick</th>
+      <th>Year</th><th>Round</th><th>Player</th><th>Position</th>
+      <th>Points</th><th>Expected</th><th>Value</th>
     </tr></thead>
     <tbody>
-      ${rows.map(c=>`
+      ${sorted.slice(0,20).map(p=>`
         <tr>
-          <td>${c.owner}</td>
-          <td>${c.year}</td>
-          <td><strong>${c.archetype}</strong></td>
-          <td>${chipFor(c.first)}</td>
-          <td>${chipFor(c.second)}</td>
-          <td>${toNum(c.avgPoints).toFixed(1)}</td>
-          <td class="${toNum(c.avgVOE)>0?'trend-up':'trend-down'}">${toNum(c.avgVOE)>0?'+':''}${toNum(c.avgVOE).toFixed(1)}</td>
-          <td>${toNum(c.hitRate).toFixed(1)}%</td>
-          <td>${toNum(c.bustRate).toFixed(1)}%</td>
-          <td>${c.bestPick?.player_name ?? '—'}</td>
+          <td>${p.year}</td>
+          <td>${p.round || '-'}</td>
+          <td><strong>${p.player_name}</strong></td>
+          <td>${p.position}</td>
+          <td>${toNum(p.actualValue).toFixed(0)}</td>
+          <td>${toNum(p.expectedValue).toFixed(0)}</td>
+          <td class="${toNum(p.valueOverExpected)>0?'trend-up':'trend-down'}">
+            ${toNum(p.valueOverExpected)>0?'+':''}${toNum(p.valueOverExpected).toFixed(0)}
+          </td>
         </tr>`).join('')}
     </tbody>`;
-  setInnerHTML('archetypeTable', html);
-  makeSortable('archetypeTable');
-}
-function createFirstTwoTable(cohorts){
-  const patterns = {};
-  cohorts.forEach(c=>{
-    const key = `${c.first}-${c.second}`;
-    (patterns[key] ||= { key, count:0, avgVOE:0, owners:new Set() });
-    patterns[key].count += 1;
-    patterns[key].avgVOE += toNum(c.avgVOE);
-    patterns[key].owners.add(c.owner);
-  });
-  const rows = Object.values(patterns).map(p=>({
-    pattern: p.key,
-    count: p.count,
-    owners: p.owners.size,
-    avgVOE: p.count ? p.avgVOE / p.count : 0
-  })).sort((a,b)=>b.count-a.count);
-
-  const html = rows.length ? `
-    <thead><tr><th>R1-R2 Pattern</th><th>Cohorts</th><th>Unique Owners</th><th>Avg VOE</th></tr></thead>
-    <tbody>
-      ${rows.map(r=>`
-        <tr>
-          <td>${r.pattern.split('-').map(x=>chipFor(x)).join('')}</td>
-          <td>${r.count}</td>
-          <td>${r.owners}</td>
-          <td class="${toNum(r.avgVOE)>0?'trend-up':'trend-down'}">${toNum(r.avgVOE)>0?'+':''}${toNum(r.avgVOE).toFixed(1)}</td>
-        </tr>`).join('')}
-    </tbody>` : `<tbody><tr><td>${emptyState('No first-two-pick patterns.')}</td></tr></tbody>`;
-  setInnerHTML('firstTwoTable', html);
-  makeSortable('firstTwoTable');
+  setInnerHTML('ownerTable', html);
+  makeSortable('ownerTable');
 }
 
-/* ===========================
-   SORTABLE TABLES (robust)
-   =========================== */
-function makeSortable(tableId){
-  const table = document.getElementById(tableId);
-  if (!table) return;
-  const headers = table.querySelectorAll('th');
-  if (!headers.length) return;
-  let state = { col:-1, asc:true };
-  headers.forEach((th,i)=>{
-    th.addEventListener('click',()=>{
-      const tbody = table.querySelector('tbody'); if (!tbody) return;
-      const rows = Array.from(tbody.querySelectorAll('tr'));
-      state.asc = state.col===i ? !state.asc : true; state.col=i;
-      headers.forEach(h=>h.classList.remove('sort-asc','sort-desc'));
-      th.classList.add(state.asc?'sort-asc':'sort-desc');
-      rows.sort((a,b)=>{
-        const av = a.cells[i]?.textContent?.trim() ?? '';
-        const bv = b.cells[i]?.textContent?.trim() ?? '';
-        const an = parseFloat(av.replace(/[^0-9.-]/g,'')); const bn = parseFloat(bv.replace(/[^0-9.-]/g,''));
-        if (!Number.isNaN(an) && !Number.isNaN(bn)) return state.asc ? an-bn : bn-an;
-        return state.asc ? av.localeCompare(bv) : bv.localeCompare(av);
-      });
-      rows.forEach(r=>tbody.appendChild(r));
-    });
-  });
-}
 </script>
 </body>
 </html>
