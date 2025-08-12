@@ -1,20 +1,3 @@
-// Load JSON file automatically
-        window.addEventListener('DOMContentLoaded', function() {
-            fetch('espn_fantasy_complete_data.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load data file');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    leagueData = data;
-                    processLeagueData();
-                    document.getElementById('loadingMessage').style.display = 'none';
-                    document.getElementById('mainContent').style.display = 'block';
-                    initializeDashboard();
-                })
-                .catch(error => {<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -475,6 +458,9 @@
         });
 
         function processLeagueData() {
+            // Owners to exclude (only played one year)
+            const excludedOwners = ['Charlie Em', 'Charlie Miceli', 'Matthew Johnson'];
+
             // Extract all matchups and organize by owner
             Object.keys(leagueData).forEach(year => {
                 const yearData = leagueData[year];
@@ -486,6 +472,12 @@
                     const member = yearData.members.find(m => m.id === team.primaryOwner);
                     if (member) {
                         const ownerName = `${member.firstName} ${member.lastName}`;
+
+                        // Skip excluded owners
+                        if (excludedOwners.includes(ownerName)) {
+                            return;
+                        }
+
                         teamToOwner[team.id] = ownerName;
 
                         // Initialize owner data if not exists
@@ -552,6 +544,7 @@
                         const homeOwner = teamToOwner[game.home.teamId];
                         const awayOwner = teamToOwner[game.away.teamId];
 
+                        // Only process if both owners are not excluded
                         if (homeOwner && awayOwner) {
                             const week = game.matchupPeriodId;
                             const homeScore = game.home.pointsByScoringPeriod?.[week] || game.home.totalPoints || 0;
@@ -741,6 +734,10 @@
             const totalPoints = processedData.matchups.reduce((sum, m) => sum + m.homeScore + m.awayScore, 0);
             const avgPoints = totalPoints / (totalGames * 2);
 
+            // Calculate total weeks played
+            const totalWeeks = processedData.matchups.filter(m => !m.isPlayoff).length;
+            const avgWeeklyPoints = totalPoints / (totalWeeks * 2);
+
             const highestScore = Math.max(...processedData.matchups.map(m => Math.max(m.homeScore, m.awayScore)));
             const highestScoreGame = processedData.matchups.find(m =>
                 m.homeScore === highestScore || m.awayScore === highestScore
@@ -759,8 +756,13 @@
                     <div class="stat-value">${totalGames.toLocaleString()}</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Average Score</div>
+                    <div class="stat-label">Average Score Per Game</div>
                     <div class="stat-value">${avgPoints.toFixed(1)}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Weekly Score</div>
+                    <div class="stat-value">${avgWeeklyPoints.toFixed(1)}</div>
+                    <div class="stat-trend">Regular season only</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-label">Highest Score</div>
@@ -771,6 +773,11 @@
                     <div class="stat-label">Closest Game</div>
                     <div class="stat-value">${Math.abs(closestGame.homeScore - closestGame.awayScore).toFixed(1)} pts</div>
                     <div class="stat-trend">${closestGame.homeOwner} vs ${closestGame.awayOwner}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Active Owners</div>
+                    <div class="stat-value">${Object.keys(processedData.owners).length}</div>
+                    <div class="stat-trend">Multi-year participants</div>
                 </div>
             `;
             document.getElementById('overviewStats').innerHTML = statsHTML;
