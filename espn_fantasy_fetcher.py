@@ -9,7 +9,7 @@ import requests
 
 
 class ESPNFantasyDataFetcher:
-    def __init__(self, league_id: str = "690481"):
+    def __init__(self, league_id: str = "1488486"):
         self.league_id = league_id
         # Base URLs for different season ranges
         self.current_base_url = (
@@ -44,6 +44,7 @@ class ESPNFantasyDataFetcher:
         return {
             "Accept": "application/json",
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "Cookie": "espn_s2=AEB8fE3qRRqojbqJ8a1e1zGABaF%2FzfPzt4hc%2BGenVzj%2Bguk6C3dBdHIS106Z99fcSmo36Jg0c97vkO1EEqM6IXDvAgovWlyky3347np3OlkONYxmsnAncXk%2BkG%2BG2KT%2FI87atBmh8mY97VchNlfd8lWJHOvx13XtnzlG8I86A4YItBOAHWEm1U6h8zv%2FAj5DWxfx4qQ2kZhqEd%2BcE%2B7ESBrMpQX7MGb3ls4MGlngLEgCsittwXZI7r1dvumgp0Q5OdQQmL%2BGN9LPDbZ6fov6m08zFMdzqZ5HTqeI5qhflZrmRA%3D%3D; SWID={E6423367-F4CE-4102-A478-54F4F7EC93B0}"
         }
 
     def get_url_for_season(self, year: int) -> str:
@@ -567,7 +568,7 @@ class ESPNFantasyDataFetcher:
 
 
 if __name__ == "__main__":
-    fetcher = ESPNFantasyDataFetcher(league_id="690481")
+    fetcher = ESPNFantasyDataFetcher(league_id="1488486")
 
     print("ESPN Fantasy Football Data Fetcher - Fixed Edition")
     print("=" * 60)

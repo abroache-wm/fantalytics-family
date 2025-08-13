@@ -1,601 +1,561 @@
 year,week,matchup_id,home_team_id,home_team_name,home_team_abbrev,home_score,away_team_id,away_team_name,away_team_abbrev,away_score,winner,playoff_type,is_playoff,margin,winning_team_id,winning_team_name,winning_score,losing_team_id,losing_team_name,losing_score
-2019,1,0,16,Call 4 Marlons Diggs Pics,8=D~,104.7,10,Fk it chuck it Game time shit,LYDE,110.16,AWAY,NONE,False,5.46,10,Fk it chuck it Game time shit,110.16,16,Call 4 Marlons Diggs Pics,104.7
-2019,1,1,14,Max Top Vic Bottom,GOLA,109.36,12,Team Jimbalaya,JIM,94.7,HOME,NONE,False,14.66,14,Max Top Vic Bottom,109.36,12,Team Jimbalaya,94.7
-2019,1,2,1,Clowntown Jabronis,JOOS,119.14,5,Team Hodder,A$$,129.1,AWAY,NONE,False,9.96,5,Team Hodder,129.1,1,Clowntown Jabronis,119.14
-2019,1,3,13,Team Miceli,cjm,70.8,9,Kappa Sig's Basement Floor,SCUM,118.52,AWAY,NONE,False,47.72,9,Kappa Sig's Basement Floor,118.52,13,Team Miceli,70.8
-2019,1,4,17,Team Johnson,JOHN,111.82,15,Daniel Jones,fack,90.12,HOME,NONE,False,21.7,17,Team Johnson,111.82,15,Daniel Jones,90.12
-2019,1,5,11,One-sided Pestering,MRVP,145.9,7,Team Curtis,CURT,112.02,HOME,NONE,False,33.88,11,One-sided Pestering,145.9,7,Team Curtis,112.02
-2019,2,6,10,Fk it chuck it Game time shit,LYDE,91.32,12,Team Jimbalaya,JIM,109.7,AWAY,NONE,False,18.38,12,Team Jimbalaya,109.7,10,Fk it chuck it Game time shit,91.32
-2019,2,7,5,Team Hodder,A$$,97.16,16,Call 4 Marlons Diggs Pics,8=D~,94.08,HOME,NONE,False,3.08,5,Team Hodder,97.16,16,Call 4 Marlons Diggs Pics,94.08
-2019,2,8,1,Clowntown Jabronis,JOOS,113.96,14,Max Top Vic Bottom,GOLA,88.52,HOME,NONE,False,25.44,1,Clowntown Jabronis,113.96,14,Max Top Vic Bottom,88.52
-2019,2,9,9,Kappa Sig's Basement Floor,SCUM,118.64,15,Daniel Jones,fack,139.42,AWAY,NONE,False,20.78,15,Daniel Jones,139.42,9,Kappa Sig's Basement Floor,118.64
-2019,2,10,7,Team Curtis,CURT,82.06,13,Team Miceli,cjm,113.3,AWAY,NONE,False,31.24,13,Team Miceli,113.3,7,Team Curtis,82.06
-2019,2,11,11,One-sided Pestering,MRVP,98.6,17,Team Johnson,JOHN,95.62,HOME,NONE,False,2.98,11,One-sided Pestering,98.6,17,Team Johnson,95.62
-2019,3,12,5,Team Hodder,A$$,148.4,10,Fk it chuck it Game time shit,LYDE,99.8,HOME,NONE,False,48.6,5,Team Hodder,148.4,10,Fk it chuck it Game time shit,99.8
-2019,3,13,12,Team Jimbalaya,JIM,91.56,1,Clowntown Jabronis,JOOS,99.84,AWAY,NONE,False,8.28,1,Clowntown Jabronis,99.84,12,Team Jimbalaya,91.56
-2019,3,14,16,Call 4 Marlons Diggs Pics,8=D~,91.08,14,Max Top Vic Bottom,GOLA,96.42,AWAY,NONE,False,5.34,14,Max Top Vic Bottom,96.42,16,Call 4 Marlons Diggs Pics,91.08
-2019,3,15,7,Team Curtis,CURT,114.34,9,Kappa Sig's Basement Floor,SCUM,134.96,AWAY,NONE,False,20.62,9,Kappa Sig's Basement Floor,134.96,7,Team Curtis,114.34
-2019,3,16,15,Daniel Jones,fack,108.72,11,One-sided Pestering,MRVP,185.24,AWAY,NONE,False,76.52,11,One-sided Pestering,185.24,15,Daniel Jones,108.72
-2019,3,17,13,Team Miceli,cjm,79.0,17,Team Johnson,JOHN,138.16,AWAY,NONE,False,59.16,17,Team Johnson,138.16,13,Team Miceli,79.0
-2019,4,18,10,Fk it chuck it Game time shit,LYDE,95.5,1,Clowntown Jabronis,JOOS,100.2,AWAY,NONE,False,4.7,1,Clowntown Jabronis,100.2,10,Fk it chuck it Game time shit,95.5
-2019,4,19,14,Max Top Vic Bottom,GOLA,112.28,5,Team Hodder,A$$,104.98,HOME,NONE,False,7.3,14,Max Top Vic Bottom,112.28,5,Team Hodder,104.98
-2019,4,20,16,Call 4 Marlons Diggs Pics,8=D~,81.78,12,Team Jimbalaya,JIM,100.88,AWAY,NONE,False,19.1,12,Team Jimbalaya,100.88,16,Call 4 Marlons Diggs Pics,81.78
-2019,4,21,9,Kappa Sig's Basement Floor,SCUM,99.0,11,One-sided Pestering,MRVP,106.1,AWAY,NONE,False,7.1,11,One-sided Pestering,106.1,9,Kappa Sig's Basement Floor,99.0
-2019,4,22,17,Team Johnson,JOHN,102.5,7,Team Curtis,CURT,112.8,AWAY,NONE,False,10.3,7,Team Curtis,112.8,17,Team Johnson,102.5
-2019,4,23,13,Team Miceli,cjm,55.78,15,Daniel Jones,fack,131.8,AWAY,NONE,False,76.02,15,Daniel Jones,131.8,13,Team Miceli,55.78
-2019,5,24,14,Max Top Vic Bottom,GOLA,131.1,10,Fk it chuck it Game time shit,LYDE,114.06,HOME,NONE,False,17.04,14,Max Top Vic Bottom,131.1,10,Fk it chuck it Game time shit,114.06
-2019,5,25,1,Clowntown Jabronis,JOOS,133.72,16,Call 4 Marlons Diggs Pics,8=D~,83.84,HOME,NONE,False,49.88,1,Clowntown Jabronis,133.72,16,Call 4 Marlons Diggs Pics,83.84
-2019,5,26,5,Team Hodder,A$$,88.24,12,Team Jimbalaya,JIM,95.3,AWAY,NONE,False,7.06,12,Team Jimbalaya,95.3,5,Team Hodder,88.24
-2019,5,27,17,Team Johnson,JOHN,99.14,9,Kappa Sig's Basement Floor,SCUM,152.76,AWAY,NONE,False,53.62,9,Kappa Sig's Basement Floor,152.76,17,Team Johnson,99.14
-2019,5,28,11,One-sided Pestering,MRVP,92.62,13,Team Miceli,cjm,91.3,HOME,NONE,False,1.32,11,One-sided Pestering,92.62,13,Team Miceli,91.3
-2019,5,29,7,Team Curtis,CURT,153.94,15,Daniel Jones,fack,121.52,HOME,NONE,False,32.42,7,Team Curtis,153.94,15,Daniel Jones,121.52
-2019,6,30,10,Fk it chuck it Game time shit,LYDE,73.5,9,Kappa Sig's Basement Floor,SCUM,96.24,AWAY,NONE,False,22.74,9,Kappa Sig's Basement Floor,96.24,10,Fk it chuck it Game time shit,73.5
-2019,6,31,16,Call 4 Marlons Diggs Pics,8=D~,100.84,13,Team Miceli,cjm,77.8,HOME,NONE,False,23.04,16,Call 4 Marlons Diggs Pics,100.84,13,Team Miceli,77.8
-2019,6,32,12,Team Jimbalaya,JIM,104.34,15,Daniel Jones,fack,146.9,AWAY,NONE,False,42.56,15,Daniel Jones,146.9,12,Team Jimbalaya,104.34
-2019,6,33,5,Team Hodder,A$$,78.92,7,Team Curtis,CURT,121.9,AWAY,NONE,False,42.98,7,Team Curtis,121.9,5,Team Hodder,78.92
-2019,6,34,1,Clowntown Jabronis,JOOS,111.26,11,One-sided Pestering,MRVP,107.7,HOME,NONE,False,3.56,1,Clowntown Jabronis,111.26,11,One-sided Pestering,107.7
-2019,6,35,14,Max Top Vic Bottom,GOLA,108.32,17,Team Johnson,JOHN,98.12,HOME,NONE,False,10.2,14,Max Top Vic Bottom,108.32,17,Team Johnson,98.12
-2019,7,36,9,Kappa Sig's Basement Floor,SCUM,127.34,16,Call 4 Marlons Diggs Pics,8=D~,79.62,HOME,NONE,False,47.72,9,Kappa Sig's Basement Floor,127.34,16,Call 4 Marlons Diggs Pics,79.62
-2019,7,37,13,Team Miceli,cjm,66.92,12,Team Jimbalaya,JIM,119.36,AWAY,NONE,False,52.44,12,Team Jimbalaya,119.36,13,Team Miceli,66.92
-2019,7,38,15,Daniel Jones,fack,117.06,5,Team Hodder,A$$,134.56,AWAY,NONE,False,17.5,5,Team Hodder,134.56,15,Daniel Jones,117.06
-2019,7,39,7,Team Curtis,CURT,113.62,1,Clowntown Jabronis,JOOS,53.86,HOME,NONE,False,59.76,7,Team Curtis,113.62,1,Clowntown Jabronis,53.86
-2019,7,40,11,One-sided Pestering,MRVP,96.64,14,Max Top Vic Bottom,GOLA,114.18,AWAY,NONE,False,17.54,14,Max Top Vic Bottom,114.18,11,One-sided Pestering,96.64
-2019,7,41,17,Team Johnson,JOHN,63.74,10,Fk it chuck it Game time shit,LYDE,101.4,AWAY,NONE,False,37.66,10,Fk it chuck it Game time shit,101.4,17,Team Johnson,63.74
-2019,8,42,12,Team Jimbalaya,JIM,45.3,9,Kappa Sig's Basement Floor,SCUM,184.78,AWAY,NONE,False,139.48,9,Kappa Sig's Basement Floor,184.78,12,Team Jimbalaya,45.3
-2019,8,43,5,Team Hodder,A$$,143.6,13,Team Miceli,cjm,116.58,HOME,NONE,False,27.02,5,Team Hodder,143.6,13,Team Miceli,116.58
-2019,8,44,1,Clowntown Jabronis,JOOS,110.16,15,Daniel Jones,fack,128.98,AWAY,NONE,False,18.82,15,Daniel Jones,128.98,1,Clowntown Jabronis,110.16
-2019,8,45,14,Max Top Vic Bottom,GOLA,113.46,7,Team Curtis,CURT,85.26,HOME,NONE,False,28.2,14,Max Top Vic Bottom,113.46,7,Team Curtis,85.26
-2019,8,46,10,Fk it chuck it Game time shit,LYDE,121.94,11,One-sided Pestering,MRVP,106.68,HOME,NONE,False,15.26,10,Fk it chuck it Game time shit,121.94,11,One-sided Pestering,106.68
-2019,8,47,16,Call 4 Marlons Diggs Pics,8=D~,101.44,17,Team Johnson,JOHN,113.56,AWAY,NONE,False,12.12,17,Team Johnson,113.56,16,Call 4 Marlons Diggs Pics,101.44
-2019,9,48,9,Kappa Sig's Basement Floor,SCUM,80.46,5,Team Hodder,A$$,92.44,AWAY,NONE,False,11.98,5,Team Hodder,92.44,9,Kappa Sig's Basement Floor,80.46
-2019,9,49,13,Team Miceli,cjm,114.0,1,Clowntown Jabronis,JOOS,128.8,AWAY,NONE,False,14.8,1,Clowntown Jabronis,128.8,13,Team Miceli,114.0
-2019,9,50,15,Daniel Jones,fack,112.94,14,Max Top Vic Bottom,GOLA,101.7,HOME,NONE,False,11.24,15,Daniel Jones,112.94,14,Max Top Vic Bottom,101.7
-2019,9,51,7,Team Curtis,CURT,102.44,10,Fk it chuck it Game time shit,LYDE,115.5,AWAY,NONE,False,13.06,10,Fk it chuck it Game time shit,115.5,7,Team Curtis,102.44
-2019,9,52,11,One-sided Pestering,MRVP,164.82,16,Call 4 Marlons Diggs Pics,8=D~,83.58,HOME,NONE,False,81.24,11,One-sided Pestering,164.82,16,Call 4 Marlons Diggs Pics,83.58
-2019,9,53,17,Team Johnson,JOHN,93.76,12,Team Jimbalaya,JIM,112.36,AWAY,NONE,False,18.6,12,Team Jimbalaya,112.36,17,Team Johnson,93.76
-2019,10,54,1,Clowntown Jabronis,JOOS,89.72,9,Kappa Sig's Basement Floor,SCUM,124.68,AWAY,NONE,False,34.96,9,Kappa Sig's Basement Floor,124.68,1,Clowntown Jabronis,89.72
-2019,10,55,14,Max Top Vic Bottom,GOLA,136.74,13,Team Miceli,cjm,97.5,HOME,NONE,False,39.24,14,Max Top Vic Bottom,136.74,13,Team Miceli,97.5
-2019,10,56,10,Fk it chuck it Game time shit,LYDE,138.12,15,Daniel Jones,fack,125.96,HOME,NONE,False,12.16,10,Fk it chuck it Game time shit,138.12,15,Daniel Jones,125.96
-2019,10,57,16,Call 4 Marlons Diggs Pics,8=D~,93.52,7,Team Curtis,CURT,106.82,AWAY,NONE,False,13.3,7,Team Curtis,106.82,16,Call 4 Marlons Diggs Pics,93.52
-2019,10,58,12,Team Jimbalaya,JIM,100.58,11,One-sided Pestering,MRVP,95.18,HOME,NONE,False,5.4,12,Team Jimbalaya,100.58,11,One-sided Pestering,95.18
-2019,10,59,5,Team Hodder,A$$,98.72,17,Team Johnson,JOHN,95.74,HOME,NONE,False,2.98,5,Team Hodder,98.72,17,Team Johnson,95.74
-2019,11,60,9,Kappa Sig's Basement Floor,SCUM,92.22,14,Max Top Vic Bottom,GOLA,143.74,AWAY,NONE,False,51.52,14,Max Top Vic Bottom,143.74,9,Kappa Sig's Basement Floor,92.22
-2019,11,61,13,Team Miceli,cjm,43.54,10,Fk it chuck it Game time shit,LYDE,78.72,AWAY,NONE,False,35.18,10,Fk it chuck it Game time shit,78.72,13,Team Miceli,43.54
-2019,11,62,15,Daniel Jones,fack,73.7,16,Call 4 Marlons Diggs Pics,8=D~,128.58,AWAY,NONE,False,54.88,16,Call 4 Marlons Diggs Pics,128.58,15,Daniel Jones,73.7
-2019,11,63,7,Team Curtis,CURT,58.16,12,Team Jimbalaya,JIM,106.72,AWAY,NONE,False,48.56,12,Team Jimbalaya,106.72,7,Team Curtis,58.16
-2019,11,64,11,One-sided Pestering,MRVP,115.34,5,Team Hodder,A$$,108.92,HOME,NONE,False,6.42,11,One-sided Pestering,115.34,5,Team Hodder,108.92
-2019,11,65,17,Team Johnson,JOHN,96.4,1,Clowntown Jabronis,JOOS,107.64,AWAY,NONE,False,11.24,1,Clowntown Jabronis,107.64,17,Team Johnson,96.4
-2019,12,66,9,Kappa Sig's Basement Floor,SCUM,88.04,10,Fk it chuck it Game time shit,LYDE,94.72,AWAY,NONE,False,6.68,10,Fk it chuck it Game time shit,94.72,9,Kappa Sig's Basement Floor,88.04
-2019,12,67,13,Team Miceli,cjm,94.18,16,Call 4 Marlons Diggs Pics,8=D~,67.46,HOME,NONE,False,26.72,13,Team Miceli,94.18,16,Call 4 Marlons Diggs Pics,67.46
-2019,12,68,15,Daniel Jones,fack,158.38,12,Team Jimbalaya,JIM,68.94,HOME,NONE,False,89.44,15,Daniel Jones,158.38,12,Team Jimbalaya,68.94
-2019,12,69,7,Team Curtis,CURT,105.22,5,Team Hodder,A$$,98.06,HOME,NONE,False,7.16,7,Team Curtis,105.22,5,Team Hodder,98.06
-2019,12,70,11,One-sided Pestering,MRVP,110.8,1,Clowntown Jabronis,JOOS,129.8,AWAY,NONE,False,19.0,1,Clowntown Jabronis,129.8,11,One-sided Pestering,110.8
-2019,12,71,17,Team Johnson,JOHN,100.42,14,Max Top Vic Bottom,GOLA,103.1,AWAY,NONE,False,2.68,14,Max Top Vic Bottom,103.1,17,Team Johnson,100.42
-2019,13,72,16,Call 4 Marlons Diggs Pics,8=D~,67.9,9,Kappa Sig's Basement Floor,SCUM,95.94,AWAY,NONE,False,28.04,9,Kappa Sig's Basement Floor,95.94,16,Call 4 Marlons Diggs Pics,67.9
-2019,13,73,12,Team Jimbalaya,JIM,83.96,13,Team Miceli,cjm,122.56,AWAY,NONE,False,38.6,13,Team Miceli,122.56,12,Team Jimbalaya,83.96
-2019,13,74,5,Team Hodder,A$$,124.82,15,Daniel Jones,fack,107.82,HOME,NONE,False,17.0,5,Team Hodder,124.82,15,Daniel Jones,107.82
-2019,13,75,1,Clowntown Jabronis,JOOS,67.74,7,Team Curtis,CURT,102.56,AWAY,NONE,False,34.82,7,Team Curtis,102.56,1,Clowntown Jabronis,67.74
-2019,13,76,14,Max Top Vic Bottom,GOLA,123.86,11,One-sided Pestering,MRVP,79.4,HOME,NONE,False,44.46,14,Max Top Vic Bottom,123.86,11,One-sided Pestering,79.4
-2019,13,77,10,Fk it chuck it Game time shit,LYDE,95.82,17,Team Johnson,JOHN,122.8,AWAY,NONE,False,26.98,17,Team Johnson,122.8,10,Fk it chuck it Game time shit,95.82
-2019,14,78,14,Max Top Vic Bottom,GOLA,120.24,12,Team Jimbalaya,JIM,84.72,HOME,WINNERS_BRACKET,True,35.52,14,Max Top Vic Bottom,120.24,12,Team Jimbalaya,84.72
-2019,14,79,1,Clowntown Jabronis,JOOS,88.46,11,One-sided Pestering,MRVP,102.3,AWAY,WINNERS_BRACKET,True,13.84,11,One-sided Pestering,102.3,1,Clowntown Jabronis,88.46
-2019,14,80,5,Team Hodder,A$$,68.3,7,Team Curtis,CURT,88.08,AWAY,WINNERS_BRACKET,True,19.78,7,Team Curtis,88.08,5,Team Hodder,68.3
-2019,14,81,9,Kappa Sig's Basement Floor,SCUM,141.9,10,Fk it chuck it Game time shit,LYDE,130.84,HOME,WINNERS_BRACKET,True,11.06,9,Kappa Sig's Basement Floor,141.9,10,Fk it chuck it Game time shit,130.84
-2019,14,82,15,Daniel Jones,fack,96.94,17,Team Johnson,JOHN,110.82,AWAY,LOSERS_CONSOLATION_LADDER,True,13.88,17,Team Johnson,110.82,15,Daniel Jones,96.94
-2019,14,83,13,Team Miceli,cjm,80.82,16,Call 4 Marlons Diggs Pics,8=D~,106.9,AWAY,LOSERS_CONSOLATION_LADDER,True,26.08,16,Call 4 Marlons Diggs Pics,106.9,13,Team Miceli,80.82
-2019,15,84,14,Max Top Vic Bottom,GOLA,125.28,11,One-sided Pestering,MRVP,109.24,HOME,WINNERS_BRACKET,True,16.04,14,Max Top Vic Bottom,125.28,11,One-sided Pestering,109.24
-2019,15,85,9,Kappa Sig's Basement Floor,SCUM,90.84,7,Team Curtis,CURT,128.02,AWAY,WINNERS_BRACKET,True,37.18,7,Team Curtis,128.02,9,Kappa Sig's Basement Floor,90.84
-2019,15,86,5,Team Hodder,A$$,96.52,1,Clowntown Jabronis,JOOS,128.12,AWAY,WINNERS_CONSOLATION_LADDER,True,31.6,1,Clowntown Jabronis,128.12,5,Team Hodder,96.52
-2019,15,87,10,Fk it chuck it Game time shit,LYDE,128.32,12,Team Jimbalaya,JIM,107.2,HOME,WINNERS_CONSOLATION_LADDER,True,21.12,10,Fk it chuck it Game time shit,128.32,12,Team Jimbalaya,107.2
-2019,15,88,17,Team Johnson,JOHN,144.5,16,Call 4 Marlons Diggs Pics,8=D~,76.88,HOME,LOSERS_CONSOLATION_LADDER,True,67.62,17,Team Johnson,144.5,16,Call 4 Marlons Diggs Pics,76.88
-2019,15,89,15,Daniel Jones,fack,138.16,13,Team Miceli,cjm,90.36,HOME,LOSERS_CONSOLATION_LADDER,True,47.8,15,Daniel Jones,138.16,13,Team Miceli,90.36
-2019,16,90,14,Max Top Vic Bottom,GOLA,110.48,7,Team Curtis,CURT,93.26,HOME,WINNERS_BRACKET,True,17.22,14,Max Top Vic Bottom,110.48,7,Team Curtis,93.26
-2019,16,91,9,Kappa Sig's Basement Floor,SCUM,99.46,11,One-sided Pestering,MRVP,90.86,HOME,WINNERS_CONSOLATION_LADDER,True,8.6,9,Kappa Sig's Basement Floor,99.46,11,One-sided Pestering,90.86
-2019,16,92,1,Clowntown Jabronis,JOOS,133.04,10,Fk it chuck it Game time shit,LYDE,101.9,HOME,WINNERS_CONSOLATION_LADDER,True,31.14,1,Clowntown Jabronis,133.04,10,Fk it chuck it Game time shit,101.9
-2019,16,93,5,Team Hodder,A$$,143.94,12,Team Jimbalaya,JIM,69.96,HOME,WINNERS_CONSOLATION_LADDER,True,73.98,5,Team Hodder,143.94,12,Team Jimbalaya,69.96
-2019,16,94,15,Daniel Jones,fack,89.42,17,Team Johnson,JOHN,92.94,AWAY,LOSERS_CONSOLATION_LADDER,True,3.52,17,Team Johnson,92.94,15,Daniel Jones,89.42
-2019,16,95,13,Team Miceli,cjm,120.02,16,Call 4 Marlons Diggs Pics,8=D~,132.22,AWAY,LOSERS_CONSOLATION_LADDER,True,12.2,16,Call 4 Marlons Diggs Pics,132.22,13,Team Miceli,120.02
-2020,1,0,16,DeAndre WAPkins,8=D~,66.3,10,Fk it chuck it Game time shit,LYDE,78.74,AWAY,NONE,False,12.44,10,Fk it chuck it Game time shit,78.74,16,DeAndre WAPkins,66.3
-2020,1,1,14,Max Top Vic Bottom,GOLA,70.4,12,Team Ron Jones Pwns,JIM,121.22,AWAY,NONE,False,50.82,12,Team Ron Jones Pwns,121.22,14,Max Top Vic Bottom,70.4
-2020,1,2,1,Clowntown Jabronis,JOOS,133.9,5,Team Hodder,A$$,127.08,HOME,NONE,False,6.82,1,Clowntown Jabronis,133.9,5,Team Hodder,127.08
-2020,1,3,13,Gotham City Ineffective Cop,GCC,134.6,9,Wet Ass Patrick!,WAP,125.6,HOME,NONE,False,9.0,13,Gotham City Ineffective Cop,134.6,9,Wet Ass Patrick!,125.6
-2020,1,4,17,Vic top Max bottom,KUNt,91.54,15,Daniel Jones,fack,100.76,AWAY,NONE,False,9.22,15,Daniel Jones,100.76,17,Vic top Max bottom,91.54
-2020,1,5,11,The Twins,MRVP,121.06,7,Team Curtis,CURT,147.28,AWAY,NONE,False,26.22,7,Team Curtis,147.28,11,The Twins,121.06
-2020,2,6,10,Fk it chuck it Game time shit,LYDE,160.1,12,Team Ron Jones Pwns,JIM,99.84,HOME,NONE,False,60.26,10,Fk it chuck it Game time shit,160.1,12,Team Ron Jones Pwns,99.84
-2020,2,7,5,Team Hodder,A$$,91.52,16,DeAndre WAPkins,8=D~,97.18,AWAY,NONE,False,5.66,16,DeAndre WAPkins,97.18,5,Team Hodder,91.52
-2020,2,8,1,Clowntown Jabronis,JOOS,89.86,14,Max Top Vic Bottom,GOLA,109.08,AWAY,NONE,False,19.22,14,Max Top Vic Bottom,109.08,1,Clowntown Jabronis,89.86
-2020,2,9,9,Wet Ass Patrick!,WAP,150.54,15,Daniel Jones,fack,150.34,HOME,NONE,False,0.2,9,Wet Ass Patrick!,150.54,15,Daniel Jones,150.34
-2020,2,10,7,Team Curtis,CURT,157.0,13,Gotham City Ineffective Cop,GCC,143.22,HOME,NONE,False,13.78,7,Team Curtis,157.0,13,Gotham City Ineffective Cop,143.22
-2020,2,11,11,The Twins,MRVP,98.58,17,Vic top Max bottom,KUNt,108.88,AWAY,NONE,False,10.3,17,Vic top Max bottom,108.88,11,The Twins,98.58
-2020,3,12,5,Team Hodder,A$$,124.5,10,Fk it chuck it Game time shit,LYDE,142.08,AWAY,NONE,False,17.58,10,Fk it chuck it Game time shit,142.08,5,Team Hodder,124.5
-2020,3,13,12,Team Ron Jones Pwns,JIM,111.68,1,Clowntown Jabronis,JOOS,96.08,HOME,NONE,False,15.6,12,Team Ron Jones Pwns,111.68,1,Clowntown Jabronis,96.08
-2020,3,14,16,DeAndre WAPkins,8=D~,80.7,14,Max Top Vic Bottom,GOLA,108.9,AWAY,NONE,False,28.2,14,Max Top Vic Bottom,108.9,16,DeAndre WAPkins,80.7
-2020,3,15,7,Team Curtis,CURT,131.24,9,Wet Ass Patrick!,WAP,134.2,AWAY,NONE,False,2.96,9,Wet Ass Patrick!,134.2,7,Team Curtis,131.24
-2020,3,16,15,Daniel Jones,fack,101.54,11,The Twins,MRVP,109.58,AWAY,NONE,False,8.04,11,The Twins,109.58,15,Daniel Jones,101.54
-2020,3,17,13,Gotham City Ineffective Cop,GCC,108.92,17,Vic top Max bottom,KUNt,131.5,AWAY,NONE,False,22.58,17,Vic top Max bottom,131.5,13,Gotham City Ineffective Cop,108.92
-2020,4,18,10,Fk it chuck it Game time shit,LYDE,115.58,1,Clowntown Jabronis,JOOS,154.42,AWAY,NONE,False,38.84,1,Clowntown Jabronis,154.42,10,Fk it chuck it Game time shit,115.58
-2020,4,19,14,Max Top Vic Bottom,GOLA,131.24,5,Team Hodder,A$$,135.0,AWAY,NONE,False,3.76,5,Team Hodder,135.0,14,Max Top Vic Bottom,131.24
-2020,4,20,16,DeAndre WAPkins,8=D~,115.74,12,Team Ron Jones Pwns,JIM,90.1,HOME,NONE,False,25.64,16,DeAndre WAPkins,115.74,12,Team Ron Jones Pwns,90.1
-2020,4,21,9,Wet Ass Patrick!,WAP,127.62,11,The Twins,MRVP,139.76,AWAY,NONE,False,12.14,11,The Twins,139.76,9,Wet Ass Patrick!,127.62
-2020,4,22,17,Vic top Max bottom,KUNt,76.44,7,Team Curtis,CURT,87.52,AWAY,NONE,False,11.08,7,Team Curtis,87.52,17,Vic top Max bottom,76.44
-2020,4,23,13,Gotham City Ineffective Cop,GCC,94.3,15,Daniel Jones,fack,93.9,HOME,NONE,False,0.4,13,Gotham City Ineffective Cop,94.3,15,Daniel Jones,93.9
-2020,5,24,14,Max Top Vic Bottom,GOLA,81.64,10,Fk it chuck it Game time shit,LYDE,111.94,AWAY,NONE,False,30.3,10,Fk it chuck it Game time shit,111.94,14,Max Top Vic Bottom,81.64
-2020,5,25,1,Clowntown Jabronis,JOOS,117.5,16,DeAndre WAPkins,8=D~,88.74,HOME,NONE,False,28.76,1,Clowntown Jabronis,117.5,16,DeAndre WAPkins,88.74
-2020,5,26,5,Team Hodder,A$$,131.28,12,Team Ron Jones Pwns,JIM,117.26,HOME,NONE,False,14.02,5,Team Hodder,131.28,12,Team Ron Jones Pwns,117.26
-2020,5,27,17,Vic top Max bottom,KUNt,119.2,9,Wet Ass Patrick!,WAP,135.8,AWAY,NONE,False,16.6,9,Wet Ass Patrick!,135.8,17,Vic top Max bottom,119.2
-2020,5,28,11,The Twins,MRVP,89.66,13,Gotham City Ineffective Cop,GCC,98.84,AWAY,NONE,False,9.18,13,Gotham City Ineffective Cop,98.84,11,The Twins,89.66
-2020,5,29,7,Team Curtis,CURT,101.62,15,Daniel Jones,fack,77.68,HOME,NONE,False,23.94,7,Team Curtis,101.62,15,Daniel Jones,77.68
-2020,6,30,10,Fk it chuck it Game time shit,LYDE,114.42,9,Wet Ass Patrick!,WAP,98.22,HOME,NONE,False,16.2,10,Fk it chuck it Game time shit,114.42,9,Wet Ass Patrick!,98.22
-2020,6,31,16,DeAndre WAPkins,8=D~,85.12,13,Gotham City Ineffective Cop,GCC,102.44,AWAY,NONE,False,17.32,13,Gotham City Ineffective Cop,102.44,16,DeAndre WAPkins,85.12
-2020,6,32,12,Team Ron Jones Pwns,JIM,172.2,15,Daniel Jones,fack,94.06,HOME,NONE,False,78.14,12,Team Ron Jones Pwns,172.2,15,Daniel Jones,94.06
-2020,6,33,5,Team Hodder,A$$,54.54,7,Team Curtis,CURT,97.98,AWAY,NONE,False,43.44,7,Team Curtis,97.98,5,Team Hodder,54.54
-2020,6,34,1,Clowntown Jabronis,JOOS,98.44,11,The Twins,MRVP,72.48,HOME,NONE,False,25.96,1,Clowntown Jabronis,98.44,11,The Twins,72.48
-2020,6,35,14,Max Top Vic Bottom,GOLA,68.22,17,Vic top Max bottom,KUNt,133.0,AWAY,NONE,False,64.78,17,Vic top Max bottom,133.0,14,Max Top Vic Bottom,68.22
-2020,7,36,9,Wet Ass Patrick!,WAP,108.94,16,DeAndre WAPkins,8=D~,106.96,HOME,NONE,False,1.98,9,Wet Ass Patrick!,108.94,16,DeAndre WAPkins,106.96
-2020,7,37,13,Gotham City Ineffective Cop,GCC,132.72,12,Team Ron Jones Pwns,JIM,124.26,HOME,NONE,False,8.46,13,Gotham City Ineffective Cop,132.72,12,Team Ron Jones Pwns,124.26
-2020,7,38,15,Daniel Jones,fack,148.68,5,Team Hodder,A$$,102.02,HOME,NONE,False,46.66,15,Daniel Jones,148.68,5,Team Hodder,102.02
-2020,7,39,7,Team Curtis,CURT,101.58,1,Clowntown Jabronis,JOOS,59.72,HOME,NONE,False,41.86,7,Team Curtis,101.58,1,Clowntown Jabronis,59.72
-2020,7,40,11,The Twins,MRVP,118.16,14,Max Top Vic Bottom,GOLA,76.36,HOME,NONE,False,41.8,11,The Twins,118.16,14,Max Top Vic Bottom,76.36
-2020,7,41,17,Vic top Max bottom,KUNt,70.3,10,Fk it chuck it Game time shit,LYDE,117.6,AWAY,NONE,False,47.3,10,Fk it chuck it Game time shit,117.6,17,Vic top Max bottom,70.3
-2020,8,42,12,Team Ron Jones Pwns,JIM,78.36,9,Wet Ass Patrick!,WAP,96.04,AWAY,NONE,False,17.68,9,Wet Ass Patrick!,96.04,12,Team Ron Jones Pwns,78.36
-2020,8,43,5,Team Hodder,A$$,112.64,13,Gotham City Ineffective Cop,GCC,96.24,HOME,NONE,False,16.4,5,Team Hodder,112.64,13,Gotham City Ineffective Cop,96.24
-2020,8,44,1,Clowntown Jabronis,JOOS,116.32,15,Daniel Jones,fack,98.22,HOME,NONE,False,18.1,1,Clowntown Jabronis,116.32,15,Daniel Jones,98.22
-2020,8,45,14,Max Top Vic Bottom,GOLA,85.12,7,Team Curtis,CURT,98.16,AWAY,NONE,False,13.04,7,Team Curtis,98.16,14,Max Top Vic Bottom,85.12
-2020,8,46,10,Fk it chuck it Game time shit,LYDE,98.0,11,The Twins,MRVP,99.76,AWAY,NONE,False,1.76,11,The Twins,99.76,10,Fk it chuck it Game time shit,98.0
-2020,8,47,16,DeAndre WAPkins,8=D~,84.54,17,Vic top Max bottom,KUNt,122.64,AWAY,NONE,False,38.1,17,Vic top Max bottom,122.64,16,DeAndre WAPkins,84.54
-2020,9,48,9,Wet Ass Patrick!,WAP,111.4,5,Team Hodder,A$$,99.8,HOME,NONE,False,11.6,9,Wet Ass Patrick!,111.4,5,Team Hodder,99.8
-2020,9,49,13,Gotham City Ineffective Cop,GCC,111.16,1,Clowntown Jabronis,JOOS,116.1,AWAY,NONE,False,4.94,1,Clowntown Jabronis,116.1,13,Gotham City Ineffective Cop,111.16
-2020,9,50,15,Daniel Jones,fack,96.94,14,Max Top Vic Bottom,GOLA,48.34,HOME,NONE,False,48.6,15,Daniel Jones,96.94,14,Max Top Vic Bottom,48.34
-2020,9,51,7,Team Curtis,CURT,138.5,10,Fk it chuck it Game time shit,LYDE,135.42,HOME,NONE,False,3.08,7,Team Curtis,138.5,10,Fk it chuck it Game time shit,135.42
-2020,9,52,11,The Twins,MRVP,93.06,16,DeAndre WAPkins,8=D~,82.6,HOME,NONE,False,10.46,11,The Twins,93.06,16,DeAndre WAPkins,82.6
-2020,9,53,17,Vic top Max bottom,KUNt,101.08,12,Team Ron Jones Pwns,JIM,64.04,HOME,NONE,False,37.04,17,Vic top Max bottom,101.08,12,Team Ron Jones Pwns,64.04
-2020,10,54,1,Clowntown Jabronis,JOOS,96.46,9,Wet Ass Patrick!,WAP,119.5,AWAY,NONE,False,23.04,9,Wet Ass Patrick!,119.5,1,Clowntown Jabronis,96.46
-2020,10,55,14,Max Top Vic Bottom,GOLA,74.92,13,Gotham City Ineffective Cop,GCC,106.94,AWAY,NONE,False,32.02,13,Gotham City Ineffective Cop,106.94,14,Max Top Vic Bottom,74.92
-2020,10,56,10,Fk it chuck it Game time shit,LYDE,73.48,15,Daniel Jones,fack,100.38,AWAY,NONE,False,26.9,15,Daniel Jones,100.38,10,Fk it chuck it Game time shit,73.48
-2020,10,57,16,DeAndre WAPkins,8=D~,103.88,7,Team Curtis,CURT,103.06,HOME,NONE,False,0.82,16,DeAndre WAPkins,103.88,7,Team Curtis,103.06
-2020,10,58,12,Team Ron Jones Pwns,JIM,86.32,11,The Twins,MRVP,102.74,AWAY,NONE,False,16.42,11,The Twins,102.74,12,Team Ron Jones Pwns,86.32
-2020,10,59,5,Team Hodder,A$$,68.62,17,Vic top Max bottom,KUNt,83.86,AWAY,NONE,False,15.24,17,Vic top Max bottom,83.86,5,Team Hodder,68.62
-2020,11,60,9,Wet Ass Patrick!,WAP,116.42,14,Max Top Vic Bottom,GOLA,99.9,HOME,NONE,False,16.52,9,Wet Ass Patrick!,116.42,14,Max Top Vic Bottom,99.9
-2020,11,61,13,Gotham City Ineffective Cop,GCC,88.48,10,Fk it chuck it Game time shit,LYDE,121.44,AWAY,NONE,False,32.96,10,Fk it chuck it Game time shit,121.44,13,Gotham City Ineffective Cop,88.48
-2020,11,62,15,Daniel Jones,fack,103.94,16,DeAndre WAPkins,8=D~,79.7,HOME,NONE,False,24.24,15,Daniel Jones,103.94,16,DeAndre WAPkins,79.7
-2020,11,63,7,Team Curtis,CURT,133.86,12,Team Ron Jones Pwns,JIM,119.36,HOME,NONE,False,14.5,7,Team Curtis,133.86,12,Team Ron Jones Pwns,119.36
-2020,11,64,11,The Twins,MRVP,77.48,5,Team Hodder,A$$,122.98,AWAY,NONE,False,45.5,5,Team Hodder,122.98,11,The Twins,77.48
-2020,11,65,17,Vic top Max bottom,KUNt,110.52,1,Clowntown Jabronis,JOOS,107.54,HOME,NONE,False,2.98,17,Vic top Max bottom,110.52,1,Clowntown Jabronis,107.54
-2020,12,66,9,Wet Ass Patrick!,WAP,60.2,10,Fk it chuck it Game time shit,LYDE,173.32,AWAY,NONE,False,113.12,10,Fk it chuck it Game time shit,173.32,9,Wet Ass Patrick!,60.2
-2020,12,67,13,Gotham City Ineffective Cop,GCC,78.9,16,DeAndre WAPkins,8=D~,74.5,HOME,NONE,False,4.4,13,Gotham City Ineffective Cop,78.9,16,DeAndre WAPkins,74.5
-2020,12,68,15,Daniel Jones,fack,103.14,12,Team Ron Jones Pwns,JIM,158.82,AWAY,NONE,False,55.68,12,Team Ron Jones Pwns,158.82,15,Daniel Jones,103.14
-2020,12,69,7,Team Curtis,CURT,91.48,5,Team Hodder,A$$,128.7,AWAY,NONE,False,37.22,5,Team Hodder,128.7,7,Team Curtis,91.48
-2020,12,70,11,The Twins,MRVP,104.1,1,Clowntown Jabronis,JOOS,56.06,HOME,NONE,False,48.04,11,The Twins,104.1,1,Clowntown Jabronis,56.06
-2020,12,71,17,Vic top Max bottom,KUNt,151.48,14,Max Top Vic Bottom,GOLA,93.3,HOME,NONE,False,58.18,17,Vic top Max bottom,151.48,14,Max Top Vic Bottom,93.3
-2020,13,72,16,DeAndre WAPkins,8=D~,80.24,9,Wet Ass Patrick!,WAP,100.02,AWAY,NONE,False,19.78,9,Wet Ass Patrick!,100.02,16,DeAndre WAPkins,80.24
-2020,13,73,12,Team Ron Jones Pwns,JIM,88.24,13,Gotham City Ineffective Cop,GCC,118.8,AWAY,NONE,False,30.56,13,Gotham City Ineffective Cop,118.8,12,Team Ron Jones Pwns,88.24
-2020,13,74,5,Team Hodder,A$$,90.52,15,Daniel Jones,fack,108.46,AWAY,NONE,False,17.94,15,Daniel Jones,108.46,5,Team Hodder,90.52
-2020,13,75,1,Clowntown Jabronis,JOOS,138.68,7,Team Curtis,CURT,89.9,HOME,NONE,False,48.78,1,Clowntown Jabronis,138.68,7,Team Curtis,89.9
-2020,13,76,14,Max Top Vic Bottom,GOLA,77.76,11,The Twins,MRVP,94.88,AWAY,NONE,False,17.12,11,The Twins,94.88,14,Max Top Vic Bottom,77.76
-2020,13,77,10,Fk it chuck it Game time shit,LYDE,95.98,17,Vic top Max bottom,KUNt,97.72,AWAY,NONE,False,1.74,17,Vic top Max bottom,97.72,10,Fk it chuck it Game time shit,95.98
-2020,14,78,9,Wet Ass Patrick!,WAP,143.2,15,Daniel Jones,fack,79.82,HOME,WINNERS_BRACKET,True,63.38,9,Wet Ass Patrick!,143.2,15,Daniel Jones,79.82
-2020,14,79,17,Vic top Max bottom,KUNt,100.52,13,Gotham City Ineffective Cop,GCC,135.16,AWAY,WINNERS_BRACKET,True,34.64,13,Gotham City Ineffective Cop,135.16,17,Vic top Max bottom,100.52
-2020,14,80,7,Team Curtis,CURT,98.02,11,The Twins,MRVP,104.14,AWAY,WINNERS_BRACKET,True,6.12,11,The Twins,104.14,7,Team Curtis,98.02
-2020,14,81,10,Fk it chuck it Game time shit,LYDE,124.08,1,Clowntown Jabronis,JOOS,133.62,AWAY,WINNERS_BRACKET,True,9.54,1,Clowntown Jabronis,133.62,10,Fk it chuck it Game time shit,124.08
-2020,14,82,5,Team Hodder,A$$,117.84,12,Team Ron Jones Pwns,JIM,102.56,HOME,LOSERS_CONSOLATION_LADDER,True,15.28,5,Team Hodder,117.84,12,Team Ron Jones Pwns,102.56
-2020,14,83,16,DeAndre WAPkins,8=D~,62.14,14,Max Top Vic Bottom,GOLA,89.76,AWAY,LOSERS_CONSOLATION_LADDER,True,27.62,14,Max Top Vic Bottom,89.76,16,DeAndre WAPkins,62.14
-2020,15,84,9,Wet Ass Patrick!,WAP,112.62,13,Gotham City Ineffective Cop,GCC,131.52,AWAY,WINNERS_BRACKET,True,18.9,13,Gotham City Ineffective Cop,131.52,9,Wet Ass Patrick!,112.62
-2020,15,85,11,The Twins,MRVP,78.3,1,Clowntown Jabronis,JOOS,131.72,AWAY,WINNERS_BRACKET,True,53.42,1,Clowntown Jabronis,131.72,11,The Twins,78.3
-2020,15,86,10,Fk it chuck it Game time shit,LYDE,94.98,7,Team Curtis,CURT,117.06,AWAY,WINNERS_CONSOLATION_LADDER,True,22.08,7,Team Curtis,117.06,10,Fk it chuck it Game time shit,94.98
-2020,15,87,17,Vic top Max bottom,KUNt,129.36,15,Daniel Jones,fack,132.06,AWAY,WINNERS_CONSOLATION_LADDER,True,2.7,15,Daniel Jones,132.06,17,Vic top Max bottom,129.36
-2020,15,88,5,Team Hodder,A$$,120.34,14,Max Top Vic Bottom,GOLA,103.44,HOME,LOSERS_CONSOLATION_LADDER,True,16.9,5,Team Hodder,120.34,14,Max Top Vic Bottom,103.44
-2020,15,89,12,Team Ron Jones Pwns,JIM,122.62,16,DeAndre WAPkins,8=D~,44.82,HOME,LOSERS_CONSOLATION_LADDER,True,77.8,12,Team Ron Jones Pwns,122.62,16,DeAndre WAPkins,44.82
-2020,16,90,13,Gotham City Ineffective Cop,GCC,146.38,1,Clowntown Jabronis,JOOS,101.12,HOME,WINNERS_BRACKET,True,45.26,13,Gotham City Ineffective Cop,146.38,1,Clowntown Jabronis,101.12
-2020,16,91,9,Wet Ass Patrick!,WAP,178.14,11,The Twins,MRVP,130.32,HOME,WINNERS_CONSOLATION_LADDER,True,47.82,9,Wet Ass Patrick!,178.14,11,The Twins,130.32
-2020,16,92,7,Team Curtis,CURT,141.5,15,Daniel Jones,fack,78.22,HOME,WINNERS_CONSOLATION_LADDER,True,63.28,7,Team Curtis,141.5,15,Daniel Jones,78.22
-2020,16,93,10,Fk it chuck it Game time shit,LYDE,61.1,17,Vic top Max bottom,KUNt,89.02,AWAY,WINNERS_CONSOLATION_LADDER,True,27.92,17,Vic top Max bottom,89.02,10,Fk it chuck it Game time shit,61.1
-2020,16,94,5,Team Hodder,A$$,104.0,12,Team Ron Jones Pwns,JIM,136.26,AWAY,LOSERS_CONSOLATION_LADDER,True,32.26,12,Team Ron Jones Pwns,136.26,5,Team Hodder,104.0
-2020,16,95,16,DeAndre WAPkins,8=D~,78.54,14,Max Top Vic Bottom,GOLA,108.44,AWAY,LOSERS_CONSOLATION_LADDER,True,29.9,14,Max Top Vic Bottom,108.44,16,DeAndre WAPkins,78.54
-2021,1,1,16,Goff Teen Begs  4 Mooney Shot,8=D~,123.36,14,Max Top Vic Bottom,GOLA,96.9,HOME,NONE,False,26.46,16,Goff Teen Begs  4 Mooney Shot,123.36,14,Max Top Vic Bottom,96.9
-2021,1,2,5,Team Hodder,A$$,85.2,1,Clowntown Jabronis,JOOS,100.16,AWAY,NONE,False,14.96,1,Clowntown Jabronis,100.16,5,Team Hodder,85.2
-2021,1,3,12,Team Boink,JIM,120.58,10,Fk it chuck it Game time shit,LYDE,100.64,HOME,NONE,False,19.94,12,Team Boink,120.58,10,Fk it chuck it Game time shit,100.64
-2021,1,4,15,Daniel Jones,fack,69.42,9,Avant Gardner,WAP,152.46,AWAY,NONE,False,83.04,9,Avant Gardner,152.46,15,Daniel Jones,69.42
-2021,1,5,11,The Twins,MRVP,107.08,7,Team Curtis,CURT,139.44,AWAY,NONE,False,32.36,7,Team Curtis,139.44,11,The Twins,107.08
-2021,1,6,17,im diggin that youngho,KUNt,124.02,13,Gotham City Ineffective Cop,GCC,85.92,HOME,NONE,False,38.1,17,im diggin that youngho,124.02,13,Gotham City Ineffective Cop,85.92
-2021,2,7,14,Max Top Vic Bottom,GOLA,130.96,1,Clowntown Jabronis,JOOS,122.32,HOME,NONE,False,8.64,14,Max Top Vic Bottom,130.96,1,Clowntown Jabronis,122.32
-2021,2,8,10,Fk it chuck it Game time shit,LYDE,125.54,16,Goff Teen Begs  4 Mooney Shot,8=D~,110.3,HOME,NONE,False,15.24,10,Fk it chuck it Game time shit,125.54,16,Goff Teen Begs  4 Mooney Shot,110.3
-2021,2,9,12,Team Boink,JIM,106.92,5,Team Hodder,A$$,86.76,HOME,NONE,False,20.16,12,Team Boink,106.92,5,Team Hodder,86.76
-2021,2,10,9,Avant Gardner,WAP,113.64,7,Team Curtis,CURT,110.42,HOME,NONE,False,3.22,9,Avant Gardner,113.64,7,Team Curtis,110.42
-2021,2,11,13,Gotham City Ineffective Cop,GCC,101.9,15,Daniel Jones,fack,106.02,AWAY,NONE,False,4.12,15,Daniel Jones,106.02,13,Gotham City Ineffective Cop,101.9
-2021,2,12,17,im diggin that youngho,KUNt,67.38,11,The Twins,MRVP,128.08,AWAY,NONE,False,60.7,11,The Twins,128.08,17,im diggin that youngho,67.38
-2021,3,13,10,Fk it chuck it Game time shit,LYDE,104.08,14,Max Top Vic Bottom,GOLA,120.18,AWAY,NONE,False,16.1,14,Max Top Vic Bottom,120.18,10,Fk it chuck it Game time shit,104.08
-2021,3,14,1,Clowntown Jabronis,JOOS,132.62,12,Team Boink,JIM,104.7,HOME,NONE,False,27.92,1,Clowntown Jabronis,132.62,12,Team Boink,104.7
-2021,3,15,16,Goff Teen Begs  4 Mooney Shot,8=D~,82.04,5,Team Hodder,A$$,122.12,AWAY,NONE,False,40.08,5,Team Hodder,122.12,16,Goff Teen Begs  4 Mooney Shot,82.04
-2021,3,16,13,Gotham City Ineffective Cop,GCC,116.54,9,Avant Gardner,WAP,97.48,HOME,NONE,False,19.06,13,Gotham City Ineffective Cop,116.54,9,Avant Gardner,97.48
-2021,3,17,7,Team Curtis,CURT,109.22,17,im diggin that youngho,KUNt,52.72,HOME,NONE,False,56.5,7,Team Curtis,109.22,17,im diggin that youngho,52.72
-2021,3,18,15,Daniel Jones,fack,150.44,11,The Twins,MRVP,111.48,HOME,NONE,False,38.96,15,Daniel Jones,150.44,11,The Twins,111.48
-2021,4,19,14,Max Top Vic Bottom,GOLA,114.68,12,Team Boink,JIM,115.42,AWAY,NONE,False,0.74,12,Team Boink,115.42,14,Max Top Vic Bottom,114.68
-2021,4,20,5,Team Hodder,A$$,84.92,10,Fk it chuck it Game time shit,LYDE,82.72,HOME,NONE,False,2.2,5,Team Hodder,84.92,10,Fk it chuck it Game time shit,82.72
-2021,4,21,16,Goff Teen Begs  4 Mooney Shot,8=D~,122.52,1,Clowntown Jabronis,JOOS,140.66,AWAY,NONE,False,18.14,1,Clowntown Jabronis,140.66,16,Goff Teen Begs  4 Mooney Shot,122.52
-2021,4,22,9,Avant Gardner,WAP,122.46,17,im diggin that youngho,KUNt,87.42,HOME,NONE,False,35.04,9,Avant Gardner,122.46,17,im diggin that youngho,87.42
-2021,4,23,11,The Twins,MRVP,130.24,13,Gotham City Ineffective Cop,GCC,108.82,HOME,NONE,False,21.42,11,The Twins,130.24,13,Gotham City Ineffective Cop,108.82
-2021,4,24,15,Daniel Jones,fack,115.08,7,Team Curtis,CURT,121.9,AWAY,NONE,False,6.82,7,Team Curtis,121.9,15,Daniel Jones,115.08
-2021,5,25,5,Team Hodder,A$$,129.4,14,Max Top Vic Bottom,GOLA,178.18,AWAY,NONE,False,48.78,14,Max Top Vic Bottom,178.18,5,Team Hodder,129.4
-2021,5,26,12,Team Boink,JIM,84.98,16,Goff Teen Begs  4 Mooney Shot,8=D~,160.96,AWAY,NONE,False,75.98,16,Goff Teen Begs  4 Mooney Shot,160.96,12,Team Boink,84.98
-2021,5,27,10,Fk it chuck it Game time shit,LYDE,118.74,1,Clowntown Jabronis,JOOS,85.78,HOME,NONE,False,32.96,10,Fk it chuck it Game time shit,118.74,1,Clowntown Jabronis,85.78
-2021,5,28,11,The Twins,MRVP,120.58,9,Avant Gardner,WAP,126.24,AWAY,NONE,False,5.66,9,Avant Gardner,126.24,11,The Twins,120.58
-2021,5,29,17,im diggin that youngho,KUNt,141.68,15,Daniel Jones,fack,162.32,AWAY,NONE,False,20.64,15,Daniel Jones,162.32,17,im diggin that youngho,141.68
-2021,5,30,13,Gotham City Ineffective Cop,GCC,67.76,7,Team Curtis,CURT,88.8,AWAY,NONE,False,21.04,7,Team Curtis,88.8,13,Gotham City Ineffective Cop,67.76
-2021,6,31,14,Max Top Vic Bottom,GOLA,80.98,9,Avant Gardner,WAP,85.38,AWAY,NONE,False,4.4,9,Avant Gardner,85.38,14,Max Top Vic Bottom,80.98
-2021,6,32,16,Goff Teen Begs  4 Mooney Shot,8=D~,101.96,15,Daniel Jones,fack,110.2,AWAY,NONE,False,8.24,15,Daniel Jones,110.2,16,Goff Teen Begs  4 Mooney Shot,101.96
-2021,6,33,1,Clowntown Jabronis,JOOS,113.38,7,Team Curtis,CURT,141.84,AWAY,NONE,False,28.46,7,Team Curtis,141.84,1,Clowntown Jabronis,113.38
-2021,6,34,10,Fk it chuck it Game time shit,LYDE,105.24,13,Gotham City Ineffective Cop,GCC,106.0,AWAY,NONE,False,0.76,13,Gotham City Ineffective Cop,106.0,10,Fk it chuck it Game time shit,105.24
-2021,6,35,12,Team Boink,JIM,81.28,17,im diggin that youngho,KUNt,129.9,AWAY,NONE,False,48.62,17,im diggin that youngho,129.9,12,Team Boink,81.28
-2021,6,36,5,Team Hodder,A$$,125.12,11,The Twins,MRVP,136.78,AWAY,NONE,False,11.66,11,The Twins,136.78,5,Team Hodder,125.12
-2021,7,37,9,Avant Gardner,WAP,114.74,16,Goff Teen Begs  4 Mooney Shot,8=D~,96.94,HOME,NONE,False,17.8,9,Avant Gardner,114.74,16,Goff Teen Begs  4 Mooney Shot,96.94
-2021,7,38,15,Daniel Jones,fack,127.52,1,Clowntown Jabronis,JOOS,109.24,HOME,NONE,False,18.28,15,Daniel Jones,127.52,1,Clowntown Jabronis,109.24
-2021,7,39,7,Team Curtis,CURT,114.46,10,Fk it chuck it Game time shit,LYDE,81.44,HOME,NONE,False,33.02,7,Team Curtis,114.46,10,Fk it chuck it Game time shit,81.44
-2021,7,40,13,Gotham City Ineffective Cop,GCC,83.66,12,Team Boink,JIM,79.44,HOME,NONE,False,4.22,13,Gotham City Ineffective Cop,83.66,12,Team Boink,79.44
-2021,7,41,17,im diggin that youngho,KUNt,117.78,5,Team Hodder,A$$,99.72,HOME,NONE,False,18.06,17,im diggin that youngho,117.78,5,Team Hodder,99.72
-2021,7,42,11,The Twins,MRVP,117.4,14,Max Top Vic Bottom,GOLA,95.78,HOME,NONE,False,21.62,11,The Twins,117.4,14,Max Top Vic Bottom,95.78
-2021,8,43,1,Clowntown Jabronis,JOOS,90.8,9,Avant Gardner,WAP,109.3,AWAY,NONE,False,18.5,9,Avant Gardner,109.3,1,Clowntown Jabronis,90.8
-2021,8,44,10,Fk it chuck it Game time shit,LYDE,108.56,15,Daniel Jones,fack,87.32,HOME,NONE,False,21.24,10,Fk it chuck it Game time shit,108.56,15,Daniel Jones,87.32
-2021,8,45,12,Team Boink,JIM,129.94,7,Team Curtis,CURT,144.8,AWAY,NONE,False,14.86,7,Team Curtis,144.8,12,Team Boink,129.94
-2021,8,46,5,Team Hodder,A$$,82.36,13,Gotham City Ineffective Cop,GCC,83.16,AWAY,NONE,False,0.8,13,Gotham City Ineffective Cop,83.16,5,Team Hodder,82.36
-2021,8,47,14,Max Top Vic Bottom,GOLA,114.52,17,im diggin that youngho,KUNt,88.18,HOME,NONE,False,26.34,14,Max Top Vic Bottom,114.52,17,im diggin that youngho,88.18
-2021,8,48,16,Goff Teen Begs  4 Mooney Shot,8=D~,74.56,11,The Twins,MRVP,111.9,AWAY,NONE,False,37.34,11,The Twins,111.9,16,Goff Teen Begs  4 Mooney Shot,74.56
-2021,9,49,9,Avant Gardner,WAP,118.08,10,Fk it chuck it Game time shit,LYDE,58.68,HOME,NONE,False,59.4,9,Avant Gardner,118.08,10,Fk it chuck it Game time shit,58.68
-2021,9,50,15,Daniel Jones,fack,102.54,12,Team Boink,JIM,85.34,HOME,NONE,False,17.2,15,Daniel Jones,102.54,12,Team Boink,85.34
-2021,9,51,7,Team Curtis,CURT,64.36,5,Team Hodder,A$$,75.26,AWAY,NONE,False,10.9,5,Team Hodder,75.26,7,Team Curtis,64.36
-2021,9,52,13,Gotham City Ineffective Cop,GCC,105.68,14,Max Top Vic Bottom,GOLA,97.24,HOME,NONE,False,8.44,13,Gotham City Ineffective Cop,105.68,14,Max Top Vic Bottom,97.24
-2021,9,53,17,im diggin that youngho,KUNt,94.8,16,Goff Teen Begs  4 Mooney Shot,8=D~,115.5,AWAY,NONE,False,20.7,16,Goff Teen Begs  4 Mooney Shot,115.5,17,im diggin that youngho,94.8
-2021,9,54,11,The Twins,MRVP,108.02,1,Clowntown Jabronis,JOOS,73.3,HOME,NONE,False,34.72,11,The Twins,108.02,1,Clowntown Jabronis,73.3
-2021,10,55,12,Team Boink,JIM,90.34,9,Avant Gardner,WAP,95.7,AWAY,NONE,False,5.36,9,Avant Gardner,95.7,12,Team Boink,90.34
-2021,10,56,5,Team Hodder,A$$,110.8,15,Daniel Jones,fack,90.3,HOME,NONE,False,20.5,5,Team Hodder,110.8,15,Daniel Jones,90.3
-2021,10,57,14,Max Top Vic Bottom,GOLA,96.02,7,Team Curtis,CURT,98.62,AWAY,NONE,False,2.6,7,Team Curtis,98.62,14,Max Top Vic Bottom,96.02
-2021,10,58,16,Goff Teen Begs  4 Mooney Shot,8=D~,97.58,13,Gotham City Ineffective Cop,GCC,95.28,HOME,NONE,False,2.3,16,Goff Teen Begs  4 Mooney Shot,97.58,13,Gotham City Ineffective Cop,95.28
-2021,10,59,1,Clowntown Jabronis,JOOS,44.44,17,im diggin that youngho,KUNt,100.04,AWAY,NONE,False,55.6,17,im diggin that youngho,100.04,1,Clowntown Jabronis,44.44
-2021,10,60,10,Fk it chuck it Game time shit,LYDE,82.04,11,The Twins,MRVP,133.42,AWAY,NONE,False,51.38,11,The Twins,133.42,10,Fk it chuck it Game time shit,82.04
-2021,11,61,9,Avant Gardner,WAP,72.68,5,Team Hodder,A$$,74.96,AWAY,NONE,False,2.28,5,Team Hodder,74.96,9,Avant Gardner,72.68
-2021,11,62,15,Daniel Jones,fack,131.98,14,Max Top Vic Bottom,GOLA,135.18,AWAY,NONE,False,3.2,14,Max Top Vic Bottom,135.18,15,Daniel Jones,131.98
-2021,11,63,7,Team Curtis,CURT,96.16,16,Goff Teen Begs  4 Mooney Shot,8=D~,105.16,AWAY,NONE,False,9.0,16,Goff Teen Begs  4 Mooney Shot,105.16,7,Team Curtis,96.16
-2021,11,64,13,Gotham City Ineffective Cop,GCC,138.5,1,Clowntown Jabronis,JOOS,88.38,HOME,NONE,False,50.12,13,Gotham City Ineffective Cop,138.5,1,Clowntown Jabronis,88.38
-2021,11,65,17,im diggin that youngho,KUNt,38.54,10,Fk it chuck it Game time shit,LYDE,116.32,AWAY,NONE,False,77.78,10,Fk it chuck it Game time shit,116.32,17,im diggin that youngho,38.54
-2021,11,66,11,The Twins,MRVP,150.52,12,Team Boink,JIM,80.6,HOME,NONE,False,69.92,11,The Twins,150.52,12,Team Boink,80.6
-2021,12,67,9,Avant Gardner,WAP,93.84,14,Max Top Vic Bottom,GOLA,86.8,HOME,NONE,False,7.04,9,Avant Gardner,93.84,14,Max Top Vic Bottom,86.8
-2021,12,68,15,Daniel Jones,fack,106.08,16,Goff Teen Begs  4 Mooney Shot,8=D~,98.2,HOME,NONE,False,7.88,15,Daniel Jones,106.08,16,Goff Teen Begs  4 Mooney Shot,98.2
-2021,12,69,7,Team Curtis,CURT,69.58,1,Clowntown Jabronis,JOOS,90.38,AWAY,NONE,False,20.8,1,Clowntown Jabronis,90.38,7,Team Curtis,69.58
-2021,12,70,13,Gotham City Ineffective Cop,GCC,119.68,10,Fk it chuck it Game time shit,LYDE,105.2,HOME,NONE,False,14.48,13,Gotham City Ineffective Cop,119.68,10,Fk it chuck it Game time shit,105.2
-2021,12,71,17,im diggin that youngho,KUNt,105.4,12,Team Boink,JIM,112.62,AWAY,NONE,False,7.22,12,Team Boink,112.62,17,im diggin that youngho,105.4
-2021,12,72,11,The Twins,MRVP,89.4,5,Team Hodder,A$$,138.2,AWAY,NONE,False,48.8,5,Team Hodder,138.2,11,The Twins,89.4
-2021,13,73,16,Goff Teen Begs  4 Mooney Shot,8=D~,112.62,9,Avant Gardner,WAP,130.12,AWAY,NONE,False,17.5,9,Avant Gardner,130.12,16,Goff Teen Begs  4 Mooney Shot,112.62
-2021,13,74,1,Clowntown Jabronis,JOOS,70.94,15,Daniel Jones,fack,98.68,AWAY,NONE,False,27.74,15,Daniel Jones,98.68,1,Clowntown Jabronis,70.94
-2021,13,75,10,Fk it chuck it Game time shit,LYDE,116.7,7,Team Curtis,CURT,91.6,HOME,NONE,False,25.1,10,Fk it chuck it Game time shit,116.7,7,Team Curtis,91.6
-2021,13,76,12,Team Boink,JIM,68.26,13,Gotham City Ineffective Cop,GCC,109.92,AWAY,NONE,False,41.66,13,Gotham City Ineffective Cop,109.92,12,Team Boink,68.26
-2021,13,77,5,Team Hodder,A$$,103.9,17,im diggin that youngho,KUNt,92.42,HOME,NONE,False,11.48,5,Team Hodder,103.9,17,im diggin that youngho,92.42
-2021,13,78,14,Max Top Vic Bottom,GOLA,137.32,11,The Twins,MRVP,127.46,HOME,NONE,False,9.86,14,Max Top Vic Bottom,137.32,11,The Twins,127.46
-2021,14,79,9,Avant Gardner,WAP,113.62,1,Clowntown Jabronis,JOOS,128.6,AWAY,NONE,False,14.98,1,Clowntown Jabronis,128.6,9,Avant Gardner,113.62
-2021,14,80,15,Daniel Jones,fack,112.4,10,Fk it chuck it Game time shit,LYDE,91.72,HOME,NONE,False,20.68,15,Daniel Jones,112.4,10,Fk it chuck it Game time shit,91.72
-2021,14,81,7,Team Curtis,CURT,133.08,12,Team Boink,JIM,83.82,HOME,NONE,False,49.26,7,Team Curtis,133.08,12,Team Boink,83.82
-2021,14,82,13,Gotham City Ineffective Cop,GCC,113.24,5,Team Hodder,A$$,123.52,AWAY,NONE,False,10.28,5,Team Hodder,123.52,13,Gotham City Ineffective Cop,113.24
-2021,14,83,17,im diggin that youngho,KUNt,86.44,14,Max Top Vic Bottom,GOLA,118.08,AWAY,NONE,False,31.64,14,Max Top Vic Bottom,118.08,17,im diggin that youngho,86.44
-2021,14,84,11,The Twins,MRVP,119.5,16,Goff Teen Begs  4 Mooney Shot,8=D~,126.82,AWAY,NONE,False,7.32,16,Goff Teen Begs  4 Mooney Shot,126.82,11,The Twins,119.5
-2021,15,85,9,Avant Gardner,WAP,98.76,16,Goff Teen Begs  4 Mooney Shot,8=D~,104.38,AWAY,WINNERS_BRACKET,True,5.62,16,Goff Teen Begs  4 Mooney Shot,104.38,9,Avant Gardner,98.76
-2021,15,86,7,Team Curtis,CURT,115.66,11,The Twins,MRVP,113.76,HOME,WINNERS_BRACKET,True,1.9,7,Team Curtis,115.66,11,The Twins,113.76
-2021,15,87,15,Daniel Jones,fack,88.74,13,Gotham City Ineffective Cop,GCC,84.42,HOME,WINNERS_BRACKET,True,4.32,15,Daniel Jones,88.74,13,Gotham City Ineffective Cop,84.42
-2021,15,88,5,Team Hodder,A$$,83.3,14,Max Top Vic Bottom,GOLA,81.14,HOME,WINNERS_BRACKET,True,2.16,5,Team Hodder,83.3,14,Max Top Vic Bottom,81.14
-2021,15,89,10,Fk it chuck it Game time shit,LYDE,88.48,1,Clowntown Jabronis,JOOS,80.94,HOME,LOSERS_CONSOLATION_LADDER,True,7.54,10,Fk it chuck it Game time shit,88.48,1,Clowntown Jabronis,80.94
-2021,15,90,12,Team Boink,JIM,104.2,17,im diggin that youngho,KUNt,96.08,HOME,LOSERS_CONSOLATION_LADDER,True,8.12,12,Team Boink,104.2,17,im diggin that youngho,96.08
-2021,16,91,7,Team Curtis,CURT,133.08,16,Goff Teen Begs  4 Mooney Shot,8=D~,119.0,HOME,WINNERS_BRACKET,True,14.08,7,Team Curtis,133.08,16,Goff Teen Begs  4 Mooney Shot,119.0
-2021,16,92,5,Team Hodder,A$$,151.66,15,Daniel Jones,fack,96.74,HOME,WINNERS_BRACKET,True,54.92,5,Team Hodder,151.66,15,Daniel Jones,96.74
-2021,16,93,9,Avant Gardner,WAP,115.88,11,The Twins,MRVP,43.5,HOME,WINNERS_CONSOLATION_LADDER,True,72.38,9,Avant Gardner,115.88,11,The Twins,43.5
-2021,16,94,13,Gotham City Ineffective Cop,GCC,76.98,14,Max Top Vic Bottom,GOLA,96.76,AWAY,WINNERS_CONSOLATION_LADDER,True,19.78,14,Max Top Vic Bottom,96.76,13,Gotham City Ineffective Cop,76.98
-2021,16,95,10,Fk it chuck it Game time shit,LYDE,86.4,12,Team Boink,JIM,153.32,AWAY,LOSERS_CONSOLATION_LADDER,True,66.92,12,Team Boink,153.32,10,Fk it chuck it Game time shit,86.4
-2021,16,96,1,Clowntown Jabronis,JOOS,58.24,17,im diggin that youngho,KUNt,143.0,AWAY,LOSERS_CONSOLATION_LADDER,True,84.76,17,im diggin that youngho,143.0,1,Clowntown Jabronis,58.24
-2021,17,97,5,Team Hodder,A$$,76.6,7,Team Curtis,CURT,84.96,AWAY,WINNERS_BRACKET,True,8.36,7,Team Curtis,84.96,5,Team Hodder,76.6
-2021,17,98,15,Daniel Jones,fack,145.88,16,Goff Teen Begs  4 Mooney Shot,8=D~,101.52,HOME,WINNERS_CONSOLATION_LADDER,True,44.36,15,Daniel Jones,145.88,16,Goff Teen Begs  4 Mooney Shot,101.52
-2021,17,99,9,Avant Gardner,WAP,94.3,14,Max Top Vic Bottom,GOLA,109.26,AWAY,WINNERS_CONSOLATION_LADDER,True,14.96,14,Max Top Vic Bottom,109.26,9,Avant Gardner,94.3
-2021,17,100,11,The Twins,MRVP,83.78,13,Gotham City Ineffective Cop,GCC,105.92,AWAY,WINNERS_CONSOLATION_LADDER,True,22.14,13,Gotham City Ineffective Cop,105.92,11,The Twins,83.78
-2021,17,101,12,Team Boink,JIM,127.06,17,im diggin that youngho,KUNt,85.44,HOME,LOSERS_CONSOLATION_LADDER,True,41.62,12,Team Boink,127.06,17,im diggin that youngho,85.44
-2021,17,102,10,Fk it chuck it Game time shit,LYDE,120.54,1,Clowntown Jabronis,JOOS,81.74,HOME,LOSERS_CONSOLATION_LADDER,True,38.8,10,Fk it chuck it Game time shit,120.54,1,Clowntown Jabronis,81.74
-2022,1,1,16,Hock and Ball Torture,8=D~,114.02,14,Max Top Vic Bottom,GOLA,116.32,AWAY,NONE,False,2.3,14,Max Top Vic Bottom,116.32,16,Hock and Ball Torture,114.02
-2022,1,2,5,Is my team bad?,UGLY,158.7,1,Clowntown Jabronis,JOOS,86.08,HOME,NONE,False,72.62,5,Is my team bad?,158.7,1,Clowntown Jabronis,86.08
-2022,1,3,12,Team Chogi Nanda,JIM,93.02,10,Fk it chuck it Game time shit,LYDE,113.06,AWAY,NONE,False,20.04,10,Fk it chuck it Game time shit,113.06,12,Team Chogi Nanda,93.02
-2022,1,4,15,Daniel Jones,fack,52.96,9,Avant Gardner,WAP,136.82,AWAY,NONE,False,83.86,9,Avant Gardner,136.82,15,Daniel Jones,52.96
-2022,1,5,11,The Twins,MRVP,110.7,7,Team Curtis,CURT,84.86,HOME,NONE,False,25.84,11,The Twins,110.7,7,Team Curtis,84.86
-2022,1,6,17,cook'n lamb 4 my cousins,vkng,78.78,13,Very Formative Pixar Dumptrcks,DUMP,109.38,AWAY,NONE,False,30.6,13,Very Formative Pixar Dumptrcks,109.38,17,cook'n lamb 4 my cousins,78.78
-2022,2,7,14,Max Top Vic Bottom,GOLA,128.96,1,Clowntown Jabronis,JOOS,81.4,HOME,NONE,False,47.56,14,Max Top Vic Bottom,128.96,1,Clowntown Jabronis,81.4
-2022,2,8,10,Fk it chuck it Game time shit,LYDE,159.56,16,Hock and Ball Torture,8=D~,86.92,HOME,NONE,False,72.64,10,Fk it chuck it Game time shit,159.56,16,Hock and Ball Torture,86.92
-2022,2,9,12,Team Chogi Nanda,JIM,122.72,5,Is my team bad?,UGLY,94.7,HOME,NONE,False,28.02,12,Team Chogi Nanda,122.72,5,Is my team bad?,94.7
-2022,2,10,9,Avant Gardner,WAP,106.68,7,Team Curtis,CURT,107.88,AWAY,NONE,False,1.2,7,Team Curtis,107.88,9,Avant Gardner,106.68
-2022,2,11,13,Very Formative Pixar Dumptrcks,DUMP,122.28,15,Daniel Jones,fack,88.54,HOME,NONE,False,33.74,13,Very Formative Pixar Dumptrcks,122.28,15,Daniel Jones,88.54
-2022,2,12,17,cook'n lamb 4 my cousins,vkng,69.14,11,The Twins,MRVP,86.16,AWAY,NONE,False,17.02,11,The Twins,86.16,17,cook'n lamb 4 my cousins,69.14
-2022,3,13,10,Fk it chuck it Game time shit,LYDE,114.78,14,Max Top Vic Bottom,GOLA,123.6,AWAY,NONE,False,8.82,14,Max Top Vic Bottom,123.6,10,Fk it chuck it Game time shit,114.78
-2022,3,14,1,Clowntown Jabronis,JOOS,69.26,12,Team Chogi Nanda,JIM,105.92,AWAY,NONE,False,36.66,12,Team Chogi Nanda,105.92,1,Clowntown Jabronis,69.26
-2022,3,15,16,Hock and Ball Torture,8=D~,62.6,5,Is my team bad?,UGLY,82.28,AWAY,NONE,False,19.68,5,Is my team bad?,82.28,16,Hock and Ball Torture,62.6
-2022,3,16,13,Very Formative Pixar Dumptrcks,DUMP,91.7,9,Avant Gardner,WAP,102.96,AWAY,NONE,False,11.26,9,Avant Gardner,102.96,13,Very Formative Pixar Dumptrcks,91.7
-2022,3,17,7,Team Curtis,CURT,111.52,17,cook'n lamb 4 my cousins,vkng,104.1,HOME,NONE,False,7.42,7,Team Curtis,111.52,17,cook'n lamb 4 my cousins,104.1
-2022,3,18,15,Daniel Jones,fack,72.86,11,The Twins,MRVP,78.66,AWAY,NONE,False,5.8,11,The Twins,78.66,15,Daniel Jones,72.86
-2022,4,19,14,Max Top Vic Bottom,GOLA,88.08,12,Team Chogi Nanda,JIM,157.76,AWAY,NONE,False,69.68,12,Team Chogi Nanda,157.76,14,Max Top Vic Bottom,88.08
-2022,4,20,5,Is my team bad?,UGLY,96.46,10,Fk it chuck it Game time shit,LYDE,85.0,HOME,NONE,False,11.46,5,Is my team bad?,96.46,10,Fk it chuck it Game time shit,85.0
-2022,4,21,16,Hock and Ball Torture,8=D~,85.86,1,Clowntown Jabronis,JOOS,106.2,AWAY,NONE,False,20.34,1,Clowntown Jabronis,106.2,16,Hock and Ball Torture,85.86
-2022,4,22,9,Avant Gardner,WAP,110.98,17,cook'n lamb 4 my cousins,vkng,116.52,AWAY,NONE,False,5.54,17,cook'n lamb 4 my cousins,116.52,9,Avant Gardner,110.98
-2022,4,23,11,The Twins,MRVP,122.38,13,Very Formative Pixar Dumptrcks,DUMP,107.02,HOME,NONE,False,15.36,11,The Twins,122.38,13,Very Formative Pixar Dumptrcks,107.02
-2022,4,24,15,Daniel Jones,fack,91.16,7,Team Curtis,CURT,127.02,AWAY,NONE,False,35.86,7,Team Curtis,127.02,15,Daniel Jones,91.16
-2022,5,25,5,Is my team bad?,UGLY,79.88,14,Max Top Vic Bottom,GOLA,80.78,AWAY,NONE,False,0.9,14,Max Top Vic Bottom,80.78,5,Is my team bad?,79.88
-2022,5,26,12,Team Chogi Nanda,JIM,132.86,16,Hock and Ball Torture,8=D~,97.28,HOME,NONE,False,35.58,12,Team Chogi Nanda,132.86,16,Hock and Ball Torture,97.28
-2022,5,27,10,Fk it chuck it Game time shit,LYDE,99.62,1,Clowntown Jabronis,JOOS,115.94,AWAY,NONE,False,16.32,1,Clowntown Jabronis,115.94,10,Fk it chuck it Game time shit,99.62
-2022,5,28,11,The Twins,MRVP,96.26,9,Avant Gardner,WAP,123.5,AWAY,NONE,False,27.24,9,Avant Gardner,123.5,11,The Twins,96.26
-2022,5,29,17,cook'n lamb 4 my cousins,vkng,93.94,15,Daniel Jones,fack,75.76,HOME,NONE,False,18.18,17,cook'n lamb 4 my cousins,93.94,15,Daniel Jones,75.76
-2022,5,30,13,Very Formative Pixar Dumptrcks,DUMP,127.16,7,Team Curtis,CURT,132.84,AWAY,NONE,False,5.68,7,Team Curtis,132.84,13,Very Formative Pixar Dumptrcks,127.16
-2022,6,31,14,Max Top Vic Bottom,GOLA,124.3,9,Avant Gardner,WAP,116.38,HOME,NONE,False,7.92,14,Max Top Vic Bottom,124.3,9,Avant Gardner,116.38
-2022,6,32,16,Hock and Ball Torture,8=D~,109.1,15,Daniel Jones,fack,76.32,HOME,NONE,False,32.78,16,Hock and Ball Torture,109.1,15,Daniel Jones,76.32
-2022,6,33,1,Clowntown Jabronis,JOOS,71.42,7,Team Curtis,CURT,80.48,AWAY,NONE,False,9.06,7,Team Curtis,80.48,1,Clowntown Jabronis,71.42
-2022,6,34,10,Fk it chuck it Game time shit,LYDE,70.82,13,Very Formative Pixar Dumptrcks,DUMP,90.26,AWAY,NONE,False,19.44,13,Very Formative Pixar Dumptrcks,90.26,10,Fk it chuck it Game time shit,70.82
-2022,6,35,12,Team Chogi Nanda,JIM,91.9,17,cook'n lamb 4 my cousins,vkng,96.5,AWAY,NONE,False,4.6,17,cook'n lamb 4 my cousins,96.5,12,Team Chogi Nanda,91.9
-2022,6,36,5,Is my team bad?,UGLY,104.02,11,The Twins,MRVP,106.06,AWAY,NONE,False,2.04,11,The Twins,106.06,5,Is my team bad?,104.02
-2022,7,37,9,Avant Gardner,WAP,80.76,16,Hock and Ball Torture,8=D~,111.92,AWAY,NONE,False,31.16,16,Hock and Ball Torture,111.92,9,Avant Gardner,80.76
-2022,7,38,15,Daniel Jones,fack,92.88,1,Clowntown Jabronis,JOOS,83.2,HOME,NONE,False,9.68,15,Daniel Jones,92.88,1,Clowntown Jabronis,83.2
-2022,7,39,7,Team Curtis,CURT,95.5,10,Fk it chuck it Game time shit,LYDE,105.82,AWAY,NONE,False,10.32,10,Fk it chuck it Game time shit,105.82,7,Team Curtis,95.5
-2022,7,40,13,Very Formative Pixar Dumptrcks,DUMP,78.92,12,Team Chogi Nanda,JIM,143.3,AWAY,NONE,False,64.38,12,Team Chogi Nanda,143.3,13,Very Formative Pixar Dumptrcks,78.92
-2022,7,41,17,cook'n lamb 4 my cousins,vkng,102.82,5,Is my team bad?,UGLY,91.02,HOME,NONE,False,11.8,17,cook'n lamb 4 my cousins,102.82,5,Is my team bad?,91.02
-2022,7,42,11,The Twins,MRVP,78.76,14,Max Top Vic Bottom,GOLA,128.24,AWAY,NONE,False,49.48,14,Max Top Vic Bottom,128.24,11,The Twins,78.76
-2022,8,43,1,Clowntown Jabronis,JOOS,103.0,9,Avant Gardner,WAP,118.34,AWAY,NONE,False,15.34,9,Avant Gardner,118.34,1,Clowntown Jabronis,103.0
-2022,8,44,10,Fk it chuck it Game time shit,LYDE,128.84,15,Daniel Jones,fack,102.86,HOME,NONE,False,25.98,10,Fk it chuck it Game time shit,128.84,15,Daniel Jones,102.86
-2022,8,45,12,Team Chogi Nanda,JIM,73.52,7,Team Curtis,CURT,114.84,AWAY,NONE,False,41.32,7,Team Curtis,114.84,12,Team Chogi Nanda,73.52
-2022,8,46,5,Is my team bad?,UGLY,161.56,13,Very Formative Pixar Dumptrcks,DUMP,116.02,HOME,NONE,False,45.54,5,Is my team bad?,161.56,13,Very Formative Pixar Dumptrcks,116.02
-2022,8,47,14,Max Top Vic Bottom,GOLA,81.68,17,cook'n lamb 4 my cousins,vkng,141.58,AWAY,NONE,False,59.9,17,cook'n lamb 4 my cousins,141.58,14,Max Top Vic Bottom,81.68
-2022,8,48,16,Hock and Ball Torture,8=D~,127.0,11,The Twins,MRVP,88.72,HOME,NONE,False,38.28,16,Hock and Ball Torture,127.0,11,The Twins,88.72
-2022,9,49,9,Avant Gardner,WAP,109.0,10,Fk it chuck it Game time shit,LYDE,102.92,HOME,NONE,False,6.08,9,Avant Gardner,109.0,10,Fk it chuck it Game time shit,102.92
-2022,9,50,15,Daniel Jones,fack,77.08,12,Team Chogi Nanda,JIM,81.72,AWAY,NONE,False,4.64,12,Team Chogi Nanda,81.72,15,Daniel Jones,77.08
-2022,9,51,7,Team Curtis,CURT,77.9,5,Is my team bad?,UGLY,143.44,AWAY,NONE,False,65.54,5,Is my team bad?,143.44,7,Team Curtis,77.9
-2022,9,52,13,Very Formative Pixar Dumptrcks,DUMP,132.6,14,Max Top Vic Bottom,GOLA,97.94,HOME,NONE,False,34.66,13,Very Formative Pixar Dumptrcks,132.6,14,Max Top Vic Bottom,97.94
-2022,9,53,17,cook'n lamb 4 my cousins,vkng,88.7,16,Hock and Ball Torture,8=D~,114.12,AWAY,NONE,False,25.42,16,Hock and Ball Torture,114.12,17,cook'n lamb 4 my cousins,88.7
-2022,9,54,11,The Twins,MRVP,84.16,1,Clowntown Jabronis,JOOS,118.9,AWAY,NONE,False,34.74,1,Clowntown Jabronis,118.9,11,The Twins,84.16
-2022,10,55,12,Team Chogi Nanda,JIM,111.8,9,Avant Gardner,WAP,69.74,HOME,NONE,False,42.06,12,Team Chogi Nanda,111.8,9,Avant Gardner,69.74
-2022,10,56,5,Is my team bad?,UGLY,105.74,15,Daniel Jones,fack,95.4,HOME,NONE,False,10.34,5,Is my team bad?,105.74,15,Daniel Jones,95.4
-2022,10,57,14,Max Top Vic Bottom,GOLA,93.58,7,Team Curtis,CURT,108.48,AWAY,NONE,False,14.9,7,Team Curtis,108.48,14,Max Top Vic Bottom,93.58
-2022,10,58,16,Hock and Ball Torture,8=D~,99.6,13,Very Formative Pixar Dumptrcks,DUMP,100.2,AWAY,NONE,False,0.6,13,Very Formative Pixar Dumptrcks,100.2,16,Hock and Ball Torture,99.6
-2022,10,59,1,Clowntown Jabronis,JOOS,114.52,17,cook'n lamb 4 my cousins,vkng,133.48,AWAY,NONE,False,18.96,17,cook'n lamb 4 my cousins,133.48,1,Clowntown Jabronis,114.52
-2022,10,60,10,Fk it chuck it Game time shit,LYDE,109.54,11,The Twins,MRVP,69.04,HOME,NONE,False,40.5,10,Fk it chuck it Game time shit,109.54,11,The Twins,69.04
-2022,11,61,9,Avant Gardner,WAP,76.04,5,Is my team bad?,UGLY,142.56,AWAY,NONE,False,66.52,5,Is my team bad?,142.56,9,Avant Gardner,76.04
-2022,11,62,15,Daniel Jones,fack,172.34,14,Max Top Vic Bottom,GOLA,98.4,HOME,NONE,False,73.94,15,Daniel Jones,172.34,14,Max Top Vic Bottom,98.4
-2022,11,63,7,Team Curtis,CURT,85.92,16,Hock and Ball Torture,8=D~,90.3,AWAY,NONE,False,4.38,16,Hock and Ball Torture,90.3,7,Team Curtis,85.92
-2022,11,64,13,Very Formative Pixar Dumptrcks,DUMP,106.98,1,Clowntown Jabronis,JOOS,77.18,HOME,NONE,False,29.8,13,Very Formative Pixar Dumptrcks,106.98,1,Clowntown Jabronis,77.18
-2022,11,65,17,cook'n lamb 4 my cousins,vkng,73.7,10,Fk it chuck it Game time shit,LYDE,87.76,AWAY,NONE,False,14.06,10,Fk it chuck it Game time shit,87.76,17,cook'n lamb 4 my cousins,73.7
-2022,11,66,11,The Twins,MRVP,97.34,12,Team Chogi Nanda,JIM,102.46,AWAY,NONE,False,5.12,12,Team Chogi Nanda,102.46,11,The Twins,97.34
-2022,12,67,9,Avant Gardner,WAP,84.54,14,Max Top Vic Bottom,GOLA,93.1,AWAY,NONE,False,8.56,14,Max Top Vic Bottom,93.1,9,Avant Gardner,84.54
-2022,12,68,15,Daniel Jones,fack,104.84,16,Hock and Ball Torture,8=D~,108.16,AWAY,NONE,False,3.32,16,Hock and Ball Torture,108.16,15,Daniel Jones,104.84
-2022,12,69,7,Team Curtis,CURT,113.62,1,Clowntown Jabronis,JOOS,83.9,HOME,NONE,False,29.72,7,Team Curtis,113.62,1,Clowntown Jabronis,83.9
-2022,12,70,13,Very Formative Pixar Dumptrcks,DUMP,138.92,10,Fk it chuck it Game time shit,LYDE,108.56,HOME,NONE,False,30.36,13,Very Formative Pixar Dumptrcks,138.92,10,Fk it chuck it Game time shit,108.56
-2022,12,71,17,cook'n lamb 4 my cousins,vkng,107.86,12,Team Chogi Nanda,JIM,127.96,AWAY,NONE,False,20.1,12,Team Chogi Nanda,127.96,17,cook'n lamb 4 my cousins,107.86
-2022,12,72,11,The Twins,MRVP,101.66,5,Is my team bad?,UGLY,108.9,AWAY,NONE,False,7.24,5,Is my team bad?,108.9,11,The Twins,101.66
-2022,13,73,16,Hock and Ball Torture,8=D~,72.3,9,Avant Gardner,WAP,91.1,AWAY,NONE,False,18.8,9,Avant Gardner,91.1,16,Hock and Ball Torture,72.3
-2022,13,74,1,Clowntown Jabronis,JOOS,77.18,15,Daniel Jones,fack,102.0,AWAY,NONE,False,24.82,15,Daniel Jones,102.0,1,Clowntown Jabronis,77.18
-2022,13,75,10,Fk it chuck it Game time shit,LYDE,55.8,7,Team Curtis,CURT,122.98,AWAY,NONE,False,67.18,7,Team Curtis,122.98,10,Fk it chuck it Game time shit,55.8
-2022,13,76,12,Team Chogi Nanda,JIM,88.74,13,Very Formative Pixar Dumptrcks,DUMP,159.82,AWAY,NONE,False,71.08,13,Very Formative Pixar Dumptrcks,159.82,12,Team Chogi Nanda,88.74
-2022,13,77,5,Is my team bad?,UGLY,133.52,17,cook'n lamb 4 my cousins,vkng,86.52,HOME,NONE,False,47.0,5,Is my team bad?,133.52,17,cook'n lamb 4 my cousins,86.52
-2022,13,78,14,Max Top Vic Bottom,GOLA,113.64,11,The Twins,MRVP,81.48,HOME,NONE,False,32.16,14,Max Top Vic Bottom,113.64,11,The Twins,81.48
-2022,14,79,9,Avant Gardner,WAP,65.86,1,Clowntown Jabronis,JOOS,33.82,HOME,NONE,False,32.04,9,Avant Gardner,65.86,1,Clowntown Jabronis,33.82
-2022,14,80,15,Daniel Jones,fack,78.86,10,Fk it chuck it Game time shit,LYDE,99.08,AWAY,NONE,False,20.22,10,Fk it chuck it Game time shit,99.08,15,Daniel Jones,78.86
-2022,14,81,7,Team Curtis,CURT,117.16,12,Team Chogi Nanda,JIM,85.7,HOME,NONE,False,31.46,7,Team Curtis,117.16,12,Team Chogi Nanda,85.7
-2022,14,82,13,Very Formative Pixar Dumptrcks,DUMP,105.58,5,Is my team bad?,UGLY,128.78,AWAY,NONE,False,23.2,5,Is my team bad?,128.78,13,Very Formative Pixar Dumptrcks,105.58
-2022,14,83,17,cook'n lamb 4 my cousins,vkng,95.7,14,Max Top Vic Bottom,GOLA,67.16,HOME,NONE,False,28.54,17,cook'n lamb 4 my cousins,95.7,14,Max Top Vic Bottom,67.16
-2022,14,84,11,The Twins,MRVP,147.5,16,Hock and Ball Torture,8=D~,123.48,HOME,NONE,False,24.02,11,The Twins,147.5,16,Hock and Ball Torture,123.48
-2022,15,85,5,Is my team bad?,UGLY,128.84,17,cook'n lamb 4 my cousins,vkng,130.8,AWAY,WINNERS_BRACKET,True,1.96,17,cook'n lamb 4 my cousins,130.8,5,Is my team bad?,128.84
-2022,15,86,13,Very Formative Pixar Dumptrcks,DUMP,112.46,14,Max Top Vic Bottom,GOLA,100.6,HOME,WINNERS_BRACKET,True,11.86,13,Very Formative Pixar Dumptrcks,112.46,14,Max Top Vic Bottom,100.6
-2022,15,87,12,Team Chogi Nanda,JIM,106.52,10,Fk it chuck it Game time shit,LYDE,92.22,HOME,WINNERS_BRACKET,True,14.3,12,Team Chogi Nanda,106.52,10,Fk it chuck it Game time shit,92.22
-2022,15,88,7,Team Curtis,CURT,107.88,9,Avant Gardner,WAP,75.86,HOME,WINNERS_BRACKET,True,32.02,7,Team Curtis,107.88,9,Avant Gardner,75.86
-2022,15,89,16,Hock and Ball Torture,8=D~,177.8,11,The Twins,MRVP,94.38,HOME,LOSERS_CONSOLATION_LADDER,True,83.42,16,Hock and Ball Torture,177.8,11,The Twins,94.38
-2022,15,90,15,Daniel Jones,fack,108.14,1,Clowntown Jabronis,JOOS,81.48,HOME,LOSERS_CONSOLATION_LADDER,True,26.66,15,Daniel Jones,108.14,1,Clowntown Jabronis,81.48
-2022,16,91,13,Very Formative Pixar Dumptrcks,DUMP,85.48,17,cook'n lamb 4 my cousins,vkng,118.96,AWAY,WINNERS_BRACKET,True,33.48,17,cook'n lamb 4 my cousins,118.96,13,Very Formative Pixar Dumptrcks,85.48
-2022,16,92,7,Team Curtis,CURT,87.16,12,Team Chogi Nanda,JIM,131.0,AWAY,WINNERS_BRACKET,True,43.84,12,Team Chogi Nanda,131.0,7,Team Curtis,87.16
-2022,16,93,5,Is my team bad?,UGLY,99.16,14,Max Top Vic Bottom,GOLA,97.8,HOME,WINNERS_CONSOLATION_LADDER,True,1.36,5,Is my team bad?,99.16,14,Max Top Vic Bottom,97.8
-2022,16,94,10,Fk it chuck it Game time shit,LYDE,117.9,9,Avant Gardner,WAP,94.34,HOME,WINNERS_CONSOLATION_LADDER,True,23.56,10,Fk it chuck it Game time shit,117.9,9,Avant Gardner,94.34
-2022,16,95,16,Hock and Ball Torture,8=D~,77.8,15,Daniel Jones,fack,85.08,AWAY,LOSERS_CONSOLATION_LADDER,True,7.28,15,Daniel Jones,85.08,16,Hock and Ball Torture,77.8
-2022,16,96,11,The Twins,MRVP,110.8,1,Clowntown Jabronis,JOOS,100.74,HOME,LOSERS_CONSOLATION_LADDER,True,10.06,11,The Twins,110.8,1,Clowntown Jabronis,100.74
-2022,17,97,12,Team Chogi Nanda,JIM,112.68,17,cook'n lamb 4 my cousins,vkng,72.1,HOME,WINNERS_BRACKET,True,40.58,12,Team Chogi Nanda,112.68,17,cook'n lamb 4 my cousins,72.1
-2022,17,98,7,Team Curtis,CURT,144.9,13,Very Formative Pixar Dumptrcks,DUMP,75.6,HOME,WINNERS_CONSOLATION_LADDER,True,69.3,7,Team Curtis,144.9,13,Very Formative Pixar Dumptrcks,75.6
-2022,17,99,5,Is my team bad?,UGLY,124.72,10,Fk it chuck it Game time shit,LYDE,67.08,HOME,WINNERS_CONSOLATION_LADDER,True,57.64,5,Is my team bad?,124.72,10,Fk it chuck it Game time shit,67.08
-2022,17,100,14,Max Top Vic Bottom,GOLA,70.2,9,Avant Gardner,WAP,59.8,HOME,WINNERS_CONSOLATION_LADDER,True,10.4,14,Max Top Vic Bottom,70.2,9,Avant Gardner,59.8
-2022,17,101,11,The Twins,MRVP,65.1,15,Daniel Jones,fack,103.58,AWAY,LOSERS_CONSOLATION_LADDER,True,38.48,15,Daniel Jones,103.58,11,The Twins,65.1
-2022,17,102,16,Hock and Ball Torture,8=D~,65.1,1,Clowntown Jabronis,JOOS,103.18,AWAY,LOSERS_CONSOLATION_LADDER,True,38.08,1,Clowntown Jabronis,103.18,16,Hock and Ball Torture,65.1
-2023,1,1,16,Amon Ra Dog and the st D's,Oops,83.84,14,Max Top Vic Bottom,GOLA,127.86,AWAY,NONE,False,44.02,14,Max Top Vic Bottom,127.86,16,Amon Ra Dog and the st D's,83.84
-2023,1,2,5,Is my team bad? Yes,UGLY,98.6,1,Clowntown Jabronis,JOOS,86.08,HOME,NONE,False,12.52,5,Is my team bad? Yes,98.6,1,Clowntown Jabronis,86.08
-2023,1,3,12,Team Chogi Nanda,JIM,75.48,10,Fk it chuck it Game time shit,LYDE,97.26,AWAY,NONE,False,21.78,10,Fk it chuck it Game time shit,97.26,12,Team Chogi Nanda,75.48
-2023,1,4,15,Daniel Jones,fack,104.46,9,Who Killed Charbonnet Ramsey,WAP,98.24,HOME,NONE,False,6.22,15,Daniel Jones,104.46,9,Who Killed Charbonnet Ramsey,98.24
-2023,1,5,11,The Twins,MRVP,121.24,7,Team Curtis,CURT,84.24,HOME,NONE,False,37.0,11,The Twins,121.24,7,Team Curtis,84.24
-2023,1,6,17,Magic Skol Bus,vkng,80.46,13,Very Formative Pixar Dumptrcks,DUMP,60.94,HOME,NONE,False,19.52,17,Magic Skol Bus,80.46,13,Very Formative Pixar Dumptrcks,60.94
-2023,2,7,14,Max Top Vic Bottom,GOLA,119.68,1,Clowntown Jabronis,JOOS,147.22,AWAY,NONE,False,27.54,1,Clowntown Jabronis,147.22,14,Max Top Vic Bottom,119.68
-2023,2,8,10,Fk it chuck it Game time shit,LYDE,113.0,16,Amon Ra Dog and the st D's,Oops,115.6,AWAY,NONE,False,2.6,16,Amon Ra Dog and the st D's,115.6,10,Fk it chuck it Game time shit,113.0
-2023,2,9,12,Team Chogi Nanda,JIM,75.58,5,Is my team bad? Yes,UGLY,147.82,AWAY,NONE,False,72.24,5,Is my team bad? Yes,147.82,12,Team Chogi Nanda,75.58
-2023,2,10,9,Who Killed Charbonnet Ramsey,WAP,117.34,7,Team Curtis,CURT,105.66,HOME,NONE,False,11.68,9,Who Killed Charbonnet Ramsey,117.34,7,Team Curtis,105.66
-2023,2,11,13,Very Formative Pixar Dumptrcks,DUMP,127.36,15,Daniel Jones,fack,83.2,HOME,NONE,False,44.16,13,Very Formative Pixar Dumptrcks,127.36,15,Daniel Jones,83.2
-2023,2,12,17,Magic Skol Bus,vkng,128.46,11,The Twins,MRVP,90.14,HOME,NONE,False,38.32,17,Magic Skol Bus,128.46,11,The Twins,90.14
-2023,3,13,10,Fk it chuck it Game time shit,LYDE,127.68,14,Max Top Vic Bottom,GOLA,90.78,HOME,NONE,False,36.9,10,Fk it chuck it Game time shit,127.68,14,Max Top Vic Bottom,90.78
-2023,3,14,1,Clowntown Jabronis,JOOS,99.1,12,Team Chogi Nanda,JIM,98.46,HOME,NONE,False,0.64,1,Clowntown Jabronis,99.1,12,Team Chogi Nanda,98.46
-2023,3,15,16,Amon Ra Dog and the st D's,Oops,91.28,5,Is my team bad? Yes,UGLY,94.98,AWAY,NONE,False,3.7,5,Is my team bad? Yes,94.98,16,Amon Ra Dog and the st D's,91.28
-2023,3,16,13,Very Formative Pixar Dumptrcks,DUMP,146.58,9,Who Killed Charbonnet Ramsey,WAP,126.96,HOME,NONE,False,19.62,13,Very Formative Pixar Dumptrcks,146.58,9,Who Killed Charbonnet Ramsey,126.96
-2023,3,17,7,Team Curtis,CURT,100.56,17,Magic Skol Bus,vkng,129.88,AWAY,NONE,False,29.32,17,Magic Skol Bus,129.88,7,Team Curtis,100.56
-2023,3,18,15,Daniel Jones,fack,103.7,11,The Twins,MRVP,113.26,AWAY,NONE,False,9.56,11,The Twins,113.26,15,Daniel Jones,103.7
-2023,4,19,14,Max Top Vic Bottom,GOLA,171.54,12,Team Chogi Nanda,JIM,82.48,HOME,NONE,False,89.06,14,Max Top Vic Bottom,171.54,12,Team Chogi Nanda,82.48
-2023,4,20,5,Is my team bad? Yes,UGLY,114.36,10,Fk it chuck it Game time shit,LYDE,67.22,HOME,NONE,False,47.14,5,Is my team bad? Yes,114.36,10,Fk it chuck it Game time shit,67.22
-2023,4,21,16,Amon Ra Dog and the st D's,Oops,129.92,1,Clowntown Jabronis,JOOS,119.92,HOME,NONE,False,10.0,16,Amon Ra Dog and the st D's,129.92,1,Clowntown Jabronis,119.92
-2023,4,22,9,Who Killed Charbonnet Ramsey,WAP,131.68,17,Magic Skol Bus,vkng,70.06,HOME,NONE,False,61.62,9,Who Killed Charbonnet Ramsey,131.68,17,Magic Skol Bus,70.06
-2023,4,23,11,The Twins,MRVP,92.0,13,Very Formative Pixar Dumptrcks,DUMP,141.1,AWAY,NONE,False,49.1,13,Very Formative Pixar Dumptrcks,141.1,11,The Twins,92.0
-2023,4,24,15,Daniel Jones,fack,91.38,7,Team Curtis,CURT,70.98,HOME,NONE,False,20.4,15,Daniel Jones,91.38,7,Team Curtis,70.98
-2023,5,25,5,Is my team bad? Yes,UGLY,86.72,14,Max Top Vic Bottom,GOLA,80.04,HOME,NONE,False,6.68,5,Is my team bad? Yes,86.72,14,Max Top Vic Bottom,80.04
-2023,5,26,12,Team Chogi Nanda,JIM,108.68,16,Amon Ra Dog and the st D's,Oops,118.04,AWAY,NONE,False,9.36,16,Amon Ra Dog and the st D's,118.04,12,Team Chogi Nanda,108.68
-2023,5,27,10,Fk it chuck it Game time shit,LYDE,182.48,1,Clowntown Jabronis,JOOS,123.08,HOME,NONE,False,59.4,10,Fk it chuck it Game time shit,182.48,1,Clowntown Jabronis,123.08
-2023,5,28,11,The Twins,MRVP,135.08,9,Who Killed Charbonnet Ramsey,WAP,101.2,HOME,NONE,False,33.88,11,The Twins,135.08,9,Who Killed Charbonnet Ramsey,101.2
-2023,5,29,17,Magic Skol Bus,vkng,91.06,15,Daniel Jones,fack,103.24,AWAY,NONE,False,12.18,15,Daniel Jones,103.24,17,Magic Skol Bus,91.06
-2023,5,30,13,Very Formative Pixar Dumptrcks,DUMP,93.46,7,Team Curtis,CURT,107.22,AWAY,NONE,False,13.76,7,Team Curtis,107.22,13,Very Formative Pixar Dumptrcks,93.46
-2023,6,31,14,Max Top Vic Bottom,GOLA,97.62,9,Who Killed Charbonnet Ramsey,WAP,86.34,HOME,NONE,False,11.28,14,Max Top Vic Bottom,97.62,9,Who Killed Charbonnet Ramsey,86.34
-2023,6,32,16,Amon Ra Dog and the st D's,Oops,104.54,15,Daniel Jones,fack,107.48,AWAY,NONE,False,2.94,15,Daniel Jones,107.48,16,Amon Ra Dog and the st D's,104.54
-2023,6,33,1,Clowntown Jabronis,JOOS,81.9,7,Team Curtis,CURT,108.98,AWAY,NONE,False,27.08,7,Team Curtis,108.98,1,Clowntown Jabronis,81.9
-2023,6,34,10,Fk it chuck it Game time shit,LYDE,115.64,13,Very Formative Pixar Dumptrcks,DUMP,98.06,HOME,NONE,False,17.58,10,Fk it chuck it Game time shit,115.64,13,Very Formative Pixar Dumptrcks,98.06
-2023,6,35,12,Team Chogi Nanda,JIM,114.5,17,Magic Skol Bus,vkng,76.94,HOME,NONE,False,37.56,12,Team Chogi Nanda,114.5,17,Magic Skol Bus,76.94
-2023,6,36,5,Is my team bad? Yes,UGLY,99.8,11,The Twins,MRVP,95.72,HOME,NONE,False,4.08,5,Is my team bad? Yes,99.8,11,The Twins,95.72
-2023,7,37,9,Who Killed Charbonnet Ramsey,WAP,88.76,16,Amon Ra Dog and the st D's,Oops,97.96,AWAY,NONE,False,9.2,16,Amon Ra Dog and the st D's,97.96,9,Who Killed Charbonnet Ramsey,88.76
-2023,7,38,15,Daniel Jones,fack,96.76,1,Clowntown Jabronis,JOOS,117.88,AWAY,NONE,False,21.12,1,Clowntown Jabronis,117.88,15,Daniel Jones,96.76
-2023,7,39,7,Team Curtis,CURT,107.74,10,Fk it chuck it Game time shit,LYDE,104.5,HOME,NONE,False,3.24,7,Team Curtis,107.74,10,Fk it chuck it Game time shit,104.5
-2023,7,40,13,Very Formative Pixar Dumptrcks,DUMP,107.2,12,Team Chogi Nanda,JIM,55.2,HOME,NONE,False,52.0,13,Very Formative Pixar Dumptrcks,107.2,12,Team Chogi Nanda,55.2
-2023,7,41,17,Magic Skol Bus,vkng,108.92,5,Is my team bad? Yes,UGLY,102.86,HOME,NONE,False,6.06,17,Magic Skol Bus,108.92,5,Is my team bad? Yes,102.86
-2023,7,42,11,The Twins,MRVP,92.76,14,Max Top Vic Bottom,GOLA,106.08,AWAY,NONE,False,13.32,14,Max Top Vic Bottom,106.08,11,The Twins,92.76
-2023,8,43,1,Clowntown Jabronis,JOOS,127.1,9,Who Killed Charbonnet Ramsey,WAP,135.08,AWAY,NONE,False,7.98,9,Who Killed Charbonnet Ramsey,135.08,1,Clowntown Jabronis,127.1
-2023,8,44,10,Fk it chuck it Game time shit,LYDE,121.86,15,Daniel Jones,fack,121.52,HOME,NONE,False,0.34,10,Fk it chuck it Game time shit,121.86,15,Daniel Jones,121.52
-2023,8,45,12,Team Chogi Nanda,JIM,91.82,7,Team Curtis,CURT,121.56,AWAY,NONE,False,29.74,7,Team Curtis,121.56,12,Team Chogi Nanda,91.82
-2023,8,46,5,Is my team bad? Yes,UGLY,108.56,13,Very Formative Pixar Dumptrcks,DUMP,118.96,AWAY,NONE,False,10.4,13,Very Formative Pixar Dumptrcks,118.96,5,Is my team bad? Yes,108.56
-2023,8,47,14,Max Top Vic Bottom,GOLA,129.18,17,Magic Skol Bus,vkng,101.76,HOME,NONE,False,27.42,14,Max Top Vic Bottom,129.18,17,Magic Skol Bus,101.76
-2023,8,48,16,Amon Ra Dog and the st D's,Oops,63.2,11,The Twins,MRVP,95.1,AWAY,NONE,False,31.9,11,The Twins,95.1,16,Amon Ra Dog and the st D's,63.2
-2023,9,49,9,Who Killed Charbonnet Ramsey,WAP,78.26,10,Fk it chuck it Game time shit,LYDE,96.4,AWAY,NONE,False,18.14,10,Fk it chuck it Game time shit,96.4,9,Who Killed Charbonnet Ramsey,78.26
-2023,9,50,15,Daniel Jones,fack,98.64,12,Team Chogi Nanda,JIM,81.12,HOME,NONE,False,17.52,15,Daniel Jones,98.64,12,Team Chogi Nanda,81.12
-2023,9,51,7,Team Curtis,CURT,109.42,5,Is my team bad? Yes,UGLY,98.18,HOME,NONE,False,11.24,7,Team Curtis,109.42,5,Is my team bad? Yes,98.18
-2023,9,52,13,Very Formative Pixar Dumptrcks,DUMP,97.02,14,Max Top Vic Bottom,GOLA,83.68,HOME,NONE,False,13.34,13,Very Formative Pixar Dumptrcks,97.02,14,Max Top Vic Bottom,83.68
-2023,9,53,17,Magic Skol Bus,vkng,87.3,16,Amon Ra Dog and the st D's,Oops,73.2,HOME,NONE,False,14.1,17,Magic Skol Bus,87.3,16,Amon Ra Dog and the st D's,73.2
-2023,9,54,11,The Twins,MRVP,120.6,1,Clowntown Jabronis,JOOS,117.72,HOME,NONE,False,2.88,11,The Twins,120.6,1,Clowntown Jabronis,117.72
-2023,10,55,12,Team Chogi Nanda,JIM,66.68,9,Who Killed Charbonnet Ramsey,WAP,101.14,AWAY,NONE,False,34.46,9,Who Killed Charbonnet Ramsey,101.14,12,Team Chogi Nanda,66.68
-2023,10,56,5,Is my team bad? Yes,UGLY,118.26,15,Daniel Jones,fack,113.72,HOME,NONE,False,4.54,5,Is my team bad? Yes,118.26,15,Daniel Jones,113.72
-2023,10,57,14,Max Top Vic Bottom,GOLA,86.02,7,Team Curtis,CURT,119.66,AWAY,NONE,False,33.64,7,Team Curtis,119.66,14,Max Top Vic Bottom,86.02
-2023,10,58,16,Amon Ra Dog and the st D's,Oops,99.52,13,Very Formative Pixar Dumptrcks,DUMP,136.78,AWAY,NONE,False,37.26,13,Very Formative Pixar Dumptrcks,136.78,16,Amon Ra Dog and the st D's,99.52
-2023,10,59,1,Clowntown Jabronis,JOOS,97.94,17,Magic Skol Bus,vkng,97.72,HOME,NONE,False,0.22,1,Clowntown Jabronis,97.94,17,Magic Skol Bus,97.72
-2023,10,60,10,Fk it chuck it Game time shit,LYDE,114.18,11,The Twins,MRVP,120.16,AWAY,NONE,False,5.98,11,The Twins,120.16,10,Fk it chuck it Game time shit,114.18
-2023,11,61,9,Who Killed Charbonnet Ramsey,WAP,91.54,5,Is my team bad? Yes,UGLY,111.5,AWAY,NONE,False,19.96,5,Is my team bad? Yes,111.5,9,Who Killed Charbonnet Ramsey,91.54
-2023,11,62,15,Daniel Jones,fack,63.0,14,Max Top Vic Bottom,GOLA,100.46,AWAY,NONE,False,37.46,14,Max Top Vic Bottom,100.46,15,Daniel Jones,63.0
-2023,11,63,7,Team Curtis,CURT,121.0,16,Amon Ra Dog and the st D's,Oops,107.08,HOME,NONE,False,13.92,7,Team Curtis,121.0,16,Amon Ra Dog and the st D's,107.08
-2023,11,64,13,Very Formative Pixar Dumptrcks,DUMP,98.56,1,Clowntown Jabronis,JOOS,113.02,AWAY,NONE,False,14.46,1,Clowntown Jabronis,113.02,13,Very Formative Pixar Dumptrcks,98.56
-2023,11,65,17,Magic Skol Bus,vkng,112.84,10,Fk it chuck it Game time shit,LYDE,97.64,HOME,NONE,False,15.2,17,Magic Skol Bus,112.84,10,Fk it chuck it Game time shit,97.64
-2023,11,66,11,The Twins,MRVP,152.06,12,Team Chogi Nanda,JIM,73.54,HOME,NONE,False,78.52,11,The Twins,152.06,12,Team Chogi Nanda,73.54
-2023,12,67,9,Who Killed Charbonnet Ramsey,WAP,139.46,14,Max Top Vic Bottom,GOLA,121.58,HOME,NONE,False,17.88,9,Who Killed Charbonnet Ramsey,139.46,14,Max Top Vic Bottom,121.58
-2023,12,68,15,Daniel Jones,fack,109.78,16,Amon Ra Dog and the st D's,Oops,103.52,HOME,NONE,False,6.26,15,Daniel Jones,109.78,16,Amon Ra Dog and the st D's,103.52
-2023,12,69,7,Team Curtis,CURT,114.72,1,Clowntown Jabronis,JOOS,110.16,HOME,NONE,False,4.56,7,Team Curtis,114.72,1,Clowntown Jabronis,110.16
-2023,12,70,13,Very Formative Pixar Dumptrcks,DUMP,139.26,10,Fk it chuck it Game time shit,LYDE,109.5,HOME,NONE,False,29.76,13,Very Formative Pixar Dumptrcks,139.26,10,Fk it chuck it Game time shit,109.5
-2023,12,71,17,Magic Skol Bus,vkng,91.8,12,Team Chogi Nanda,JIM,89.66,HOME,NONE,False,2.14,17,Magic Skol Bus,91.8,12,Team Chogi Nanda,89.66
-2023,12,72,11,The Twins,MRVP,112.14,5,Is my team bad? Yes,UGLY,160.6,AWAY,NONE,False,48.46,5,Is my team bad? Yes,160.6,11,The Twins,112.14
-2023,13,73,16,Amon Ra Dog and the st D's,Oops,130.8,9,Who Killed Charbonnet Ramsey,WAP,132.86,AWAY,NONE,False,2.06,9,Who Killed Charbonnet Ramsey,132.86,16,Amon Ra Dog and the st D's,130.8
-2023,13,74,1,Clowntown Jabronis,JOOS,98.56,15,Daniel Jones,fack,56.78,HOME,NONE,False,41.78,1,Clowntown Jabronis,98.56,15,Daniel Jones,56.78
-2023,13,75,10,Fk it chuck it Game time shit,LYDE,93.6,7,Team Curtis,CURT,94.2,AWAY,NONE,False,0.6,7,Team Curtis,94.2,10,Fk it chuck it Game time shit,93.6
-2023,13,76,12,Team Chogi Nanda,JIM,118.24,13,Very Formative Pixar Dumptrcks,DUMP,129.36,AWAY,NONE,False,11.12,13,Very Formative Pixar Dumptrcks,129.36,12,Team Chogi Nanda,118.24
-2023,13,77,5,Is my team bad? Yes,UGLY,159.62,17,Magic Skol Bus,vkng,76.28,HOME,NONE,False,83.34,5,Is my team bad? Yes,159.62,17,Magic Skol Bus,76.28
-2023,13,78,14,Max Top Vic Bottom,GOLA,81.24,11,The Twins,MRVP,132.3,AWAY,NONE,False,51.06,11,The Twins,132.3,14,Max Top Vic Bottom,81.24
-2023,14,79,9,Who Killed Charbonnet Ramsey,WAP,75.84,1,Clowntown Jabronis,JOOS,134.52,AWAY,NONE,False,58.68,1,Clowntown Jabronis,134.52,9,Who Killed Charbonnet Ramsey,75.84
-2023,14,80,15,Daniel Jones,fack,98.74,10,Fk it chuck it Game time shit,LYDE,108.82,AWAY,NONE,False,10.08,10,Fk it chuck it Game time shit,108.82,15,Daniel Jones,98.74
-2023,14,81,7,Team Curtis,CURT,106.8,12,Team Chogi Nanda,JIM,104.26,HOME,NONE,False,2.54,7,Team Curtis,106.8,12,Team Chogi Nanda,104.26
-2023,14,82,13,Very Formative Pixar Dumptrcks,DUMP,124.74,5,Is my team bad? Yes,UGLY,95.38,HOME,NONE,False,29.36,13,Very Formative Pixar Dumptrcks,124.74,5,Is my team bad? Yes,95.38
-2023,14,83,17,Magic Skol Bus,vkng,73.82,14,Max Top Vic Bottom,GOLA,113.44,AWAY,NONE,False,39.62,14,Max Top Vic Bottom,113.44,17,Magic Skol Bus,73.82
-2023,14,84,11,The Twins,MRVP,79.72,16,Amon Ra Dog and the st D's,Oops,113.94,AWAY,NONE,False,34.22,16,Amon Ra Dog and the st D's,113.94,11,The Twins,79.72
-2023,15,85,13,Very Formative Pixar Dumptrcks,DUMP,132.76,17,Magic Skol Bus,vkng,104.66,HOME,WINNERS_BRACKET,True,28.1,13,Very Formative Pixar Dumptrcks,132.76,17,Magic Skol Bus,104.66
-2023,15,86,11,The Twins,MRVP,76.14,1,Clowntown Jabronis,JOOS,136.18,AWAY,WINNERS_BRACKET,True,60.04,1,Clowntown Jabronis,136.18,11,The Twins,76.14
-2023,15,87,7,Team Curtis,CURT,87.08,10,Fk it chuck it Game time shit,LYDE,104.76,AWAY,WINNERS_BRACKET,True,17.68,10,Fk it chuck it Game time shit,104.76,7,Team Curtis,87.08
-2023,15,88,5,Is my team bad? Yes,UGLY,118.12,14,Max Top Vic Bottom,GOLA,122.34,AWAY,WINNERS_BRACKET,True,4.22,14,Max Top Vic Bottom,122.34,5,Is my team bad? Yes,118.12
-2023,15,89,9,Who Killed Charbonnet Ramsey,WAP,104.26,15,Daniel Jones,fack,93.42,HOME,LOSERS_CONSOLATION_LADDER,True,10.84,9,Who Killed Charbonnet Ramsey,104.26,15,Daniel Jones,93.42
-2023,15,90,16,Amon Ra Dog and the st D's,Oops,100.7,12,Team Chogi Nanda,JIM,95.6,HOME,LOSERS_CONSOLATION_LADDER,True,5.1,16,Amon Ra Dog and the st D's,100.7,12,Team Chogi Nanda,95.6
-2023,16,91,13,Very Formative Pixar Dumptrcks,DUMP,107.72,1,Clowntown Jabronis,JOOS,82.3,HOME,WINNERS_BRACKET,True,25.42,13,Very Formative Pixar Dumptrcks,107.72,1,Clowntown Jabronis,82.3
-2023,16,92,10,Fk it chuck it Game time shit,LYDE,94.56,14,Max Top Vic Bottom,GOLA,111.08,AWAY,WINNERS_BRACKET,True,16.52,14,Max Top Vic Bottom,111.08,10,Fk it chuck it Game time shit,94.56
-2023,16,93,5,Is my team bad? Yes,UGLY,100.44,7,Team Curtis,CURT,129.02,AWAY,WINNERS_CONSOLATION_LADDER,True,28.58,7,Team Curtis,129.02,5,Is my team bad? Yes,100.44
-2023,16,94,11,The Twins,MRVP,114.0,17,Magic Skol Bus,vkng,95.98,HOME,WINNERS_CONSOLATION_LADDER,True,18.02,11,The Twins,114.0,17,Magic Skol Bus,95.98
-2023,16,95,9,Who Killed Charbonnet Ramsey,WAP,67.94,16,Amon Ra Dog and the st D's,Oops,102.9,AWAY,LOSERS_CONSOLATION_LADDER,True,34.96,16,Amon Ra Dog and the st D's,102.9,9,Who Killed Charbonnet Ramsey,67.94
-2023,16,96,15,Daniel Jones,fack,130.72,12,Team Chogi Nanda,JIM,121.2,HOME,LOSERS_CONSOLATION_LADDER,True,9.52,15,Daniel Jones,130.72,12,Team Chogi Nanda,121.2
-2023,17,97,13,Very Formative Pixar Dumptrcks,DUMP,169.2,14,Max Top Vic Bottom,GOLA,106.54,HOME,WINNERS_BRACKET,True,62.66,13,Very Formative Pixar Dumptrcks,169.2,14,Max Top Vic Bottom,106.54
-2023,17,98,1,Clowntown Jabronis,JOOS,122.2,10,Fk it chuck it Game time shit,LYDE,132.04,AWAY,WINNERS_CONSOLATION_LADDER,True,9.84,10,Fk it chuck it Game time shit,132.04,1,Clowntown Jabronis,122.2
-2023,17,99,7,Team Curtis,CURT,91.68,11,The Twins,MRVP,119.02,AWAY,WINNERS_CONSOLATION_LADDER,True,27.34,11,The Twins,119.02,7,Team Curtis,91.68
-2023,17,100,5,Is my team bad? Yes,UGLY,99.38,17,Magic Skol Bus,vkng,72.46,HOME,WINNERS_CONSOLATION_LADDER,True,26.92,5,Is my team bad? Yes,99.38,17,Magic Skol Bus,72.46
-2023,17,101,15,Daniel Jones,fack,103.68,16,Amon Ra Dog and the st D's,Oops,89.8,HOME,LOSERS_CONSOLATION_LADDER,True,13.88,15,Daniel Jones,103.68,16,Amon Ra Dog and the st D's,89.8
-2023,17,102,9,Who Killed Charbonnet Ramsey,WAP,81.56,12,Team Chogi Nanda,JIM,75.8,HOME,LOSERS_CONSOLATION_LADDER,True,5.76,9,Who Killed Charbonnet Ramsey,81.56,12,Team Chogi Nanda,75.8
-2024,1,1,16,Prolapsed Jameis,Oops,113.86,14,Max Top Vic Bottom,GOLA,124.08,AWAY,NONE,False,10.22,14,Max Top Vic Bottom,124.08,16,Prolapsed Jameis,113.86
-2024,1,2,5,I'm Sorry Smith Jaxon,JSN,97.64,1,Clowntown Jabronis,JOOS,112.58,AWAY,NONE,False,14.94,1,Clowntown Jabronis,112.58,5,I'm Sorry Smith Jaxon,97.64
-2024,1,3,12,Will trade for good player pun,JIM,94.76,10,Fk it chuck it Game time shit,LYDE,106.86,AWAY,NONE,False,12.1,10,Fk it chuck it Game time shit,106.86,12,Will trade for good player pun,94.76
-2024,1,4,15,Tommy DeVito,kms,74.66,9,Who Killed Charbonnet Ramsey,WAP,75.52,AWAY,NONE,False,0.86,9,Who Killed Charbonnet Ramsey,75.52,15,Tommy DeVito,74.66
-2024,1,5,11,The Twins,MRVP,109.9,7,2F2F (RIP Rashee),CURT,97.74,HOME,NONE,False,12.16,11,The Twins,109.9,7,2F2F (RIP Rashee),97.74
-2024,1,6,17,Hock Tuah,vkng,132.42,13,We're Onto 2025,DUMP,97.08,HOME,NONE,False,35.34,17,Hock Tuah,132.42,13,We're Onto 2025,97.08
-2024,2,7,14,Max Top Vic Bottom,GOLA,105.94,1,Clowntown Jabronis,JOOS,104.66,HOME,NONE,False,1.28,14,Max Top Vic Bottom,105.94,1,Clowntown Jabronis,104.66
-2024,2,8,10,Fk it chuck it Game time shit,LYDE,95.02,16,Prolapsed Jameis,Oops,94.64,HOME,NONE,False,0.38,10,Fk it chuck it Game time shit,95.02,16,Prolapsed Jameis,94.64
-2024,2,9,12,Will trade for good player pun,JIM,137.0,5,I'm Sorry Smith Jaxon,JSN,112.96,HOME,NONE,False,24.04,12,Will trade for good player pun,137.0,5,I'm Sorry Smith Jaxon,112.96
-2024,2,10,9,Who Killed Charbonnet Ramsey,WAP,101.42,7,2F2F (RIP Rashee),CURT,111.04,AWAY,NONE,False,9.62,7,2F2F (RIP Rashee),111.04,9,Who Killed Charbonnet Ramsey,101.42
-2024,2,11,13,We're Onto 2025,DUMP,60.36,15,Tommy DeVito,kms,78.92,AWAY,NONE,False,18.56,15,Tommy DeVito,78.92,13,We're Onto 2025,60.36
-2024,2,12,17,Hock Tuah,vkng,78.48,11,The Twins,MRVP,115.98,AWAY,NONE,False,37.5,11,The Twins,115.98,17,Hock Tuah,78.48
-2024,3,13,10,Fk it chuck it Game time shit,LYDE,83.56,14,Max Top Vic Bottom,GOLA,83.78,AWAY,NONE,False,0.22,14,Max Top Vic Bottom,83.78,10,Fk it chuck it Game time shit,83.56
-2024,3,14,1,Clowntown Jabronis,JOOS,85.82,12,Will trade for good player pun,JIM,120.5,AWAY,NONE,False,34.68,12,Will trade for good player pun,120.5,1,Clowntown Jabronis,85.82
-2024,3,15,16,Prolapsed Jameis,Oops,98.86,5,I'm Sorry Smith Jaxon,JSN,128.78,AWAY,NONE,False,29.92,5,I'm Sorry Smith Jaxon,128.78,16,Prolapsed Jameis,98.86
-2024,3,16,13,We're Onto 2025,DUMP,121.4,9,Who Killed Charbonnet Ramsey,WAP,122.44,AWAY,NONE,False,1.04,9,Who Killed Charbonnet Ramsey,122.44,13,We're Onto 2025,121.4
-2024,3,17,7,2F2F (RIP Rashee),CURT,109.28,17,Hock Tuah,vkng,101.58,HOME,NONE,False,7.7,7,2F2F (RIP Rashee),109.28,17,Hock Tuah,101.58
-2024,3,18,15,Tommy DeVito,kms,76.62,11,The Twins,MRVP,136.68,AWAY,NONE,False,60.06,11,The Twins,136.68,15,Tommy DeVito,76.62
-2024,4,19,14,Max Top Vic Bottom,GOLA,90.28,12,Will trade for good player pun,JIM,105.68,AWAY,NONE,False,15.4,12,Will trade for good player pun,105.68,14,Max Top Vic Bottom,90.28
-2024,4,20,5,I'm Sorry Smith Jaxon,JSN,126.02,10,Fk it chuck it Game time shit,LYDE,98.78,HOME,NONE,False,27.24,5,I'm Sorry Smith Jaxon,126.02,10,Fk it chuck it Game time shit,98.78
-2024,4,21,16,Prolapsed Jameis,Oops,96.12,1,Clowntown Jabronis,JOOS,123.0,AWAY,NONE,False,26.88,1,Clowntown Jabronis,123.0,16,Prolapsed Jameis,96.12
-2024,4,22,9,Who Killed Charbonnet Ramsey,WAP,101.02,17,Hock Tuah,vkng,117.14,AWAY,NONE,False,16.12,17,Hock Tuah,117.14,9,Who Killed Charbonnet Ramsey,101.02
-2024,4,23,11,The Twins,MRVP,130.48,13,We're Onto 2025,DUMP,108.7,HOME,NONE,False,21.78,11,The Twins,130.48,13,We're Onto 2025,108.7
-2024,4,24,15,Tommy DeVito,kms,91.44,7,2F2F (RIP Rashee),CURT,78.7,HOME,NONE,False,12.74,15,Tommy DeVito,91.44,7,2F2F (RIP Rashee),78.7
-2024,5,25,5,I'm Sorry Smith Jaxon,JSN,114.16,14,Max Top Vic Bottom,GOLA,85.1,HOME,NONE,False,29.06,5,I'm Sorry Smith Jaxon,114.16,14,Max Top Vic Bottom,85.1
-2024,5,26,12,Will trade for good player pun,JIM,103.74,16,Prolapsed Jameis,Oops,72.62,HOME,NONE,False,31.12,12,Will trade for good player pun,103.74,16,Prolapsed Jameis,72.62
-2024,5,27,10,Fk it chuck it Game time shit,LYDE,149.08,1,Clowntown Jabronis,JOOS,118.44,HOME,NONE,False,30.64,10,Fk it chuck it Game time shit,149.08,1,Clowntown Jabronis,118.44
-2024,5,28,11,The Twins,MRVP,82.74,9,Who Killed Charbonnet Ramsey,WAP,97.84,AWAY,NONE,False,15.1,9,Who Killed Charbonnet Ramsey,97.84,11,The Twins,82.74
-2024,5,29,17,Hock Tuah,vkng,106.72,15,Tommy DeVito,kms,115.08,AWAY,NONE,False,8.36,15,Tommy DeVito,115.08,17,Hock Tuah,106.72
-2024,5,30,13,We're Onto 2025,DUMP,86.36,7,2F2F (RIP Rashee),CURT,119.86,AWAY,NONE,False,33.5,7,2F2F (RIP Rashee),119.86,13,We're Onto 2025,86.36
-2024,6,31,14,Max Top Vic Bottom,GOLA,98.46,9,Who Killed Charbonnet Ramsey,WAP,108.56,AWAY,NONE,False,10.1,9,Who Killed Charbonnet Ramsey,108.56,14,Max Top Vic Bottom,98.46
-2024,6,32,16,Prolapsed Jameis,Oops,105.36,15,Tommy DeVito,kms,91.32,HOME,NONE,False,14.04,16,Prolapsed Jameis,105.36,15,Tommy DeVito,91.32
-2024,6,33,1,Clowntown Jabronis,JOOS,128.7,7,2F2F (RIP Rashee),CURT,90.34,HOME,NONE,False,38.36,1,Clowntown Jabronis,128.7,7,2F2F (RIP Rashee),90.34
-2024,6,34,10,Fk it chuck it Game time shit,LYDE,94.22,13,We're Onto 2025,DUMP,87.2,HOME,NONE,False,7.02,10,Fk it chuck it Game time shit,94.22,13,We're Onto 2025,87.2
-2024,6,35,12,Will trade for good player pun,JIM,89.98,17,Hock Tuah,vkng,120.12,AWAY,NONE,False,30.14,17,Hock Tuah,120.12,12,Will trade for good player pun,89.98
-2024,6,36,5,I'm Sorry Smith Jaxon,JSN,114.0,11,The Twins,MRVP,86.3,HOME,NONE,False,27.7,5,I'm Sorry Smith Jaxon,114.0,11,The Twins,86.3
-2024,7,37,9,Who Killed Charbonnet Ramsey,WAP,101.36,16,Prolapsed Jameis,Oops,64.24,HOME,NONE,False,37.12,9,Who Killed Charbonnet Ramsey,101.36,16,Prolapsed Jameis,64.24
-2024,7,38,15,Tommy DeVito,kms,102.0,1,Clowntown Jabronis,JOOS,80.22,HOME,NONE,False,21.78,15,Tommy DeVito,102.0,1,Clowntown Jabronis,80.22
-2024,7,39,7,2F2F (RIP Rashee),CURT,119.06,10,Fk it chuck it Game time shit,LYDE,84.14,HOME,NONE,False,34.92,7,2F2F (RIP Rashee),119.06,10,Fk it chuck it Game time shit,84.14
-2024,7,40,13,We're Onto 2025,DUMP,54.76,12,Will trade for good player pun,JIM,75.88,AWAY,NONE,False,21.12,12,Will trade for good player pun,75.88,13,We're Onto 2025,54.76
-2024,7,41,17,Hock Tuah,vkng,109.14,5,I'm Sorry Smith Jaxon,JSN,135.68,AWAY,NONE,False,26.54,5,I'm Sorry Smith Jaxon,135.68,17,Hock Tuah,109.14
-2024,7,42,11,The Twins,MRVP,133.1,14,Max Top Vic Bottom,GOLA,85.58,HOME,NONE,False,47.52,11,The Twins,133.1,14,Max Top Vic Bottom,85.58
-2024,8,43,1,Clowntown Jabronis,JOOS,87.92,9,Who Killed Charbonnet Ramsey,WAP,113.46,AWAY,NONE,False,25.54,9,Who Killed Charbonnet Ramsey,113.46,1,Clowntown Jabronis,87.92
-2024,8,44,10,Fk it chuck it Game time shit,LYDE,107.46,15,Tommy DeVito,kms,84.9,HOME,NONE,False,22.56,10,Fk it chuck it Game time shit,107.46,15,Tommy DeVito,84.9
-2024,8,45,12,Will trade for good player pun,JIM,132.14,7,2F2F (RIP Rashee),CURT,104.04,HOME,NONE,False,28.1,12,Will trade for good player pun,132.14,7,2F2F (RIP Rashee),104.04
-2024,8,46,5,I'm Sorry Smith Jaxon,JSN,127.2,13,We're Onto 2025,DUMP,88.44,HOME,NONE,False,38.76,5,I'm Sorry Smith Jaxon,127.2,13,We're Onto 2025,88.44
-2024,8,47,14,Max Top Vic Bottom,GOLA,93.28,17,Hock Tuah,vkng,144.86,AWAY,NONE,False,51.58,17,Hock Tuah,144.86,14,Max Top Vic Bottom,93.28
-2024,8,48,16,Prolapsed Jameis,Oops,121.64,11,The Twins,MRVP,103.94,HOME,NONE,False,17.7,16,Prolapsed Jameis,121.64,11,The Twins,103.94
-2024,9,49,9,Who Killed Charbonnet Ramsey,WAP,108.4,10,Fk it chuck it Game time shit,LYDE,95.74,HOME,NONE,False,12.66,9,Who Killed Charbonnet Ramsey,108.4,10,Fk it chuck it Game time shit,95.74
-2024,9,50,15,Tommy DeVito,kms,73.42,12,Will trade for good player pun,JIM,129.98,AWAY,NONE,False,56.56,12,Will trade for good player pun,129.98,15,Tommy DeVito,73.42
-2024,9,51,7,2F2F (RIP Rashee),CURT,113.02,5,I'm Sorry Smith Jaxon,JSN,108.8,HOME,NONE,False,4.22,7,2F2F (RIP Rashee),113.02,5,I'm Sorry Smith Jaxon,108.8
-2024,9,52,13,We're Onto 2025,DUMP,141.8,14,Max Top Vic Bottom,GOLA,86.26,HOME,NONE,False,55.54,13,We're Onto 2025,141.8,14,Max Top Vic Bottom,86.26
-2024,9,53,17,Hock Tuah,vkng,126.1,16,Prolapsed Jameis,Oops,128.36,AWAY,NONE,False,2.26,16,Prolapsed Jameis,128.36,17,Hock Tuah,126.1
-2024,9,54,11,The Twins,MRVP,124.52,1,Clowntown Jabronis,JOOS,112.7,HOME,NONE,False,11.82,11,The Twins,124.52,1,Clowntown Jabronis,112.7
-2024,10,55,12,Will trade for good player pun,JIM,92.94,9,Who Killed Charbonnet Ramsey,WAP,123.28,AWAY,NONE,False,30.34,9,Who Killed Charbonnet Ramsey,123.28,12,Will trade for good player pun,92.94
-2024,10,56,5,I'm Sorry Smith Jaxon,JSN,141.82,15,Tommy DeVito,kms,52.1,HOME,NONE,False,89.72,5,I'm Sorry Smith Jaxon,141.82,15,Tommy DeVito,52.1
-2024,10,57,14,Max Top Vic Bottom,GOLA,110.04,7,2F2F (RIP Rashee),CURT,69.84,HOME,NONE,False,40.2,14,Max Top Vic Bottom,110.04,7,2F2F (RIP Rashee),69.84
-2024,10,58,16,Prolapsed Jameis,Oops,81.78,13,We're Onto 2025,DUMP,120.2,AWAY,NONE,False,38.42,13,We're Onto 2025,120.2,16,Prolapsed Jameis,81.78
-2024,10,59,1,Clowntown Jabronis,JOOS,83.9,17,Hock Tuah,vkng,113.9,AWAY,NONE,False,30.0,17,Hock Tuah,113.9,1,Clowntown Jabronis,83.9
-2024,10,60,10,Fk it chuck it Game time shit,LYDE,110.12,11,The Twins,MRVP,76.1,HOME,NONE,False,34.02,10,Fk it chuck it Game time shit,110.12,11,The Twins,76.1
-2024,11,61,9,Who Killed Charbonnet Ramsey,WAP,111.24,5,I'm Sorry Smith Jaxon,JSN,163.26,AWAY,NONE,False,52.02,5,I'm Sorry Smith Jaxon,163.26,9,Who Killed Charbonnet Ramsey,111.24
-2024,11,62,15,Tommy DeVito,kms,99.48,14,Max Top Vic Bottom,GOLA,112.12,AWAY,NONE,False,12.64,14,Max Top Vic Bottom,112.12,15,Tommy DeVito,99.48
-2024,11,63,7,2F2F (RIP Rashee),CURT,100.84,16,Prolapsed Jameis,Oops,95.54,HOME,NONE,False,5.3,7,2F2F (RIP Rashee),100.84,16,Prolapsed Jameis,95.54
-2024,11,64,13,We're Onto 2025,DUMP,98.4,1,Clowntown Jabronis,JOOS,118.88,AWAY,NONE,False,20.48,1,Clowntown Jabronis,118.88,13,We're Onto 2025,98.4
-2024,11,65,17,Hock Tuah,vkng,100.28,10,Fk it chuck it Game time shit,LYDE,98.04,HOME,NONE,False,2.24,17,Hock Tuah,100.28,10,Fk it chuck it Game time shit,98.04
-2024,11,66,11,The Twins,MRVP,123.38,12,Will trade for good player pun,JIM,130.8,AWAY,NONE,False,7.42,12,Will trade for good player pun,130.8,11,The Twins,123.38
-2024,12,67,9,Who Killed Charbonnet Ramsey,WAP,142.56,14,Max Top Vic Bottom,GOLA,84.4,HOME,NONE,False,58.16,9,Who Killed Charbonnet Ramsey,142.56,14,Max Top Vic Bottom,84.4
-2024,12,68,15,Tommy DeVito,kms,92.46,16,Prolapsed Jameis,Oops,112.2,AWAY,NONE,False,19.74,16,Prolapsed Jameis,112.2,15,Tommy DeVito,92.46
-2024,12,69,7,2F2F (RIP Rashee),CURT,107.66,1,Clowntown Jabronis,JOOS,93.86,HOME,NONE,False,13.8,7,2F2F (RIP Rashee),107.66,1,Clowntown Jabronis,93.86
-2024,12,70,13,We're Onto 2025,DUMP,96.9,10,Fk it chuck it Game time shit,LYDE,88.48,HOME,NONE,False,8.42,13,We're Onto 2025,96.9,10,Fk it chuck it Game time shit,88.48
-2024,12,71,17,Hock Tuah,vkng,125.58,12,Will trade for good player pun,JIM,66.38,HOME,NONE,False,59.2,17,Hock Tuah,125.58,12,Will trade for good player pun,66.38
-2024,12,72,11,The Twins,MRVP,114.62,5,I'm Sorry Smith Jaxon,JSN,135.7,AWAY,NONE,False,21.08,5,I'm Sorry Smith Jaxon,135.7,11,The Twins,114.62
-2024,13,73,16,Prolapsed Jameis,Oops,82.28,9,Who Killed Charbonnet Ramsey,WAP,96.62,AWAY,NONE,False,14.34,9,Who Killed Charbonnet Ramsey,96.62,16,Prolapsed Jameis,82.28
-2024,13,74,1,Clowntown Jabronis,JOOS,119.72,15,Tommy DeVito,kms,85.34,HOME,NONE,False,34.38,1,Clowntown Jabronis,119.72,15,Tommy DeVito,85.34
-2024,13,75,10,Fk it chuck it Game time shit,LYDE,112.56,7,2F2F (RIP Rashee),CURT,129.84,AWAY,NONE,False,17.28,7,2F2F (RIP Rashee),129.84,10,Fk it chuck it Game time shit,112.56
-2024,13,76,12,Will trade for good player pun,JIM,94.0,13,We're Onto 2025,DUMP,96.32,AWAY,NONE,False,2.32,13,We're Onto 2025,96.32,12,Will trade for good player pun,94.0
-2024,13,77,5,I'm Sorry Smith Jaxon,JSN,114.1,17,Hock Tuah,vkng,93.48,HOME,NONE,False,20.62,5,I'm Sorry Smith Jaxon,114.1,17,Hock Tuah,93.48
-2024,13,78,14,Max Top Vic Bottom,GOLA,120.6,11,The Twins,MRVP,132.06,AWAY,NONE,False,11.46,11,The Twins,132.06,14,Max Top Vic Bottom,120.6
-2024,14,79,9,Who Killed Charbonnet Ramsey,WAP,104.72,1,Clowntown Jabronis,JOOS,164.88,AWAY,NONE,False,60.16,1,Clowntown Jabronis,164.88,9,Who Killed Charbonnet Ramsey,104.72
-2024,14,80,15,Tommy DeVito,kms,72.5,10,Fk it chuck it Game time shit,LYDE,103.56,AWAY,NONE,False,31.06,10,Fk it chuck it Game time shit,103.56,15,Tommy DeVito,72.5
-2024,14,81,7,2F2F (RIP Rashee),CURT,136.4,12,Will trade for good player pun,JIM,60.66,HOME,NONE,False,75.74,7,2F2F (RIP Rashee),136.4,12,Will trade for good player pun,60.66
-2024,14,82,13,We're Onto 2025,DUMP,98.42,5,I'm Sorry Smith Jaxon,JSN,139.98,AWAY,NONE,False,41.56,5,I'm Sorry Smith Jaxon,139.98,13,We're Onto 2025,98.42
-2024,14,83,17,Hock Tuah,vkng,112.22,14,Max Top Vic Bottom,GOLA,100.46,HOME,NONE,False,11.76,17,Hock Tuah,112.22,14,Max Top Vic Bottom,100.46
-2024,14,84,11,The Twins,MRVP,102.34,16,Prolapsed Jameis,Oops,127.02,AWAY,NONE,False,24.68,16,Prolapsed Jameis,127.02,11,The Twins,102.34
-2024,15,85,5,I'm Sorry Smith Jaxon,JSN,111.48,1,Clowntown Jabronis,JOOS,153.58,AWAY,WINNERS_BRACKET,True,42.1,1,Clowntown Jabronis,153.58,5,I'm Sorry Smith Jaxon,111.48
-2024,15,86,17,Hock Tuah,vkng,118.2,12,Will trade for good player pun,JIM,122.64,AWAY,WINNERS_BRACKET,True,4.44,12,Will trade for good player pun,122.64,17,Hock Tuah,118.2
-2024,15,87,7,2F2F (RIP Rashee),CURT,128.66,11,The Twins,MRVP,96.2,HOME,WINNERS_BRACKET,True,32.46,7,2F2F (RIP Rashee),128.66,11,The Twins,96.2
-2024,15,88,9,Who Killed Charbonnet Ramsey,WAP,121.9,10,Fk it chuck it Game time shit,LYDE,127.44,AWAY,WINNERS_BRACKET,True,5.54,10,Fk it chuck it Game time shit,127.44,9,Who Killed Charbonnet Ramsey,121.9
-2024,15,89,16,Prolapsed Jameis,Oops,121.34,14,Max Top Vic Bottom,GOLA,84.16,HOME,LOSERS_CONSOLATION_LADDER,True,37.18,16,Prolapsed Jameis,121.34,14,Max Top Vic Bottom,84.16
-2024,15,90,13,We're Onto 2025,DUMP,82.4,15,Tommy DeVito,kms,146.76,AWAY,LOSERS_CONSOLATION_LADDER,True,64.36,15,Tommy DeVito,146.76,13,We're Onto 2025,82.4
-2024,16,91,12,Will trade for good player pun,JIM,128.96,1,Clowntown Jabronis,JOOS,109.46,HOME,WINNERS_BRACKET,True,19.5,12,Will trade for good player pun,128.96,1,Clowntown Jabronis,109.46
-2024,16,92,7,2F2F (RIP Rashee),CURT,150.4,10,Fk it chuck it Game time shit,LYDE,118.28,HOME,WINNERS_BRACKET,True,32.12,7,2F2F (RIP Rashee),150.4,10,Fk it chuck it Game time shit,118.28
-2024,16,93,5,I'm Sorry Smith Jaxon,JSN,144.62,9,Who Killed Charbonnet Ramsey,WAP,107.24,HOME,WINNERS_CONSOLATION_LADDER,True,37.38,5,I'm Sorry Smith Jaxon,144.62,9,Who Killed Charbonnet Ramsey,107.24
-2024,16,94,17,Hock Tuah,vkng,75.38,11,The Twins,MRVP,145.72,AWAY,WINNERS_CONSOLATION_LADDER,True,70.34,11,The Twins,145.72,17,Hock Tuah,75.38
-2024,16,95,16,Prolapsed Jameis,Oops,101.42,15,Tommy DeVito,kms,114.62,AWAY,LOSERS_CONSOLATION_LADDER,True,13.2,15,Tommy DeVito,114.62,16,Prolapsed Jameis,101.42
-2024,16,96,14,Max Top Vic Bottom,GOLA,97.58,13,We're Onto 2025,DUMP,75.7,HOME,LOSERS_CONSOLATION_LADDER,True,21.88,14,Max Top Vic Bottom,97.58,13,We're Onto 2025,75.7
-2024,17,97,7,2F2F (RIP Rashee),CURT,98.7,12,Will trade for good player pun,JIM,138.78,AWAY,WINNERS_BRACKET,True,40.08,12,Will trade for good player pun,138.78,7,2F2F (RIP Rashee),98.7
-2024,17,98,10,Fk it chuck it Game time shit,LYDE,152.18,1,Clowntown Jabronis,JOOS,111.38,HOME,WINNERS_CONSOLATION_LADDER,True,40.8,10,Fk it chuck it Game time shit,152.18,1,Clowntown Jabronis,111.38
-2024,17,99,5,I'm Sorry Smith Jaxon,JSN,175.58,11,The Twins,MRVP,110.46,HOME,WINNERS_CONSOLATION_LADDER,True,65.12,5,I'm Sorry Smith Jaxon,175.58,11,The Twins,110.46
-2024,17,100,9,Who Killed Charbonnet Ramsey,WAP,74.1,17,Hock Tuah,vkng,94.82,AWAY,WINNERS_CONSOLATION_LADDER,True,20.72,17,Hock Tuah,94.82,9,Who Killed Charbonnet Ramsey,74.1
-2024,17,101,14,Max Top Vic Bottom,GOLA,90.44,15,Tommy DeVito,kms,92.36,AWAY,LOSERS_CONSOLATION_LADDER,True,1.92,15,Tommy DeVito,92.36,14,Max Top Vic Bottom,90.44
-2024,17,102,16,Prolapsed Jameis,Oops,98.78,13,We're Onto 2025,DUMP,96.86,HOME,LOSERS_CONSOLATION_LADDER,True,1.92,16,Prolapsed Jameis,98.78,13,We're Onto 2025,96.86
+2018,1,0,4,Team Broache,BROA,115.9,2,Julio Let the Dogs Out,BROA,130.22,AWAY,NONE,False,14.32,2,Julio Let the Dogs Out,130.22,4,Team Broache,115.9
+2018,1,1,1,John Brownâs Army,JBA,128.36,3,Boocaracha Broache,BOOC,91.24,HOME,NONE,False,37.12,1,John Brownâs Army,128.36,3,Boocaracha Broache,91.24
+2018,1,2,6,Wild Blue Yanda,YAND,150.04,7,Team LKN Chillin',MARY,135.08,HOME,NONE,False,14.96,6,Wild Blue Yanda,150.04,7,Team LKN Chillin',135.08
+2018,1,3,5,R.G.3rd String  QB,RG3,101.54,8,Team NC Heathen,BILL,118.76,AWAY,NONE,False,17.22,8,Team NC Heathen,118.76,5,R.G.3rd String  QB,101.54
+2018,2,4,2,Julio Let the Dogs Out,BROA,92.74,3,Boocaracha Broache,BOOC,86.54,HOME,NONE,False,6.2,2,Julio Let the Dogs Out,92.74,3,Boocaracha Broache,86.54
+2018,2,5,1,John Brownâs Army,JBA,118.82,4,Team Broache,BROA,113.08,HOME,NONE,False,5.74,1,John Brownâs Army,118.82,4,Team Broache,113.08
+2018,2,6,7,Team LKN Chillin',MARY,100.36,8,Team NC Heathen,BILL,105.54,AWAY,NONE,False,5.18,8,Team NC Heathen,105.54,7,Team LKN Chillin',100.36
+2018,2,7,5,R.G.3rd String  QB,RG3,155.8,6,Wild Blue Yanda,YAND,113.4,HOME,NONE,False,42.4,5,R.G.3rd String  QB,155.8,6,Wild Blue Yanda,113.4
+2018,3,8,1,John Brownâs Army,JBA,126.04,2,Julio Let the Dogs Out,BROA,83.68,HOME,NONE,False,42.36,1,John Brownâs Army,126.04,2,Julio Let the Dogs Out,83.68
+2018,3,9,3,Boocaracha Broache,BOOC,111.5,4,Team Broache,BROA,123.22,AWAY,NONE,False,11.72,4,Team Broache,123.22,3,Boocaracha Broache,111.5
+2018,3,10,5,R.G.3rd String  QB,RG3,113.2,7,Team LKN Chillin',MARY,102.42,HOME,NONE,False,10.78,5,R.G.3rd String  QB,113.2,7,Team LKN Chillin',102.42
+2018,3,11,8,Team NC Heathen,BILL,126.04,6,Wild Blue Yanda,YAND,124.96,HOME,NONE,False,1.08,8,Team NC Heathen,126.04,6,Wild Blue Yanda,124.96
+2018,4,12,2,Julio Let the Dogs Out,BROA,137.48,7,Team LKN Chillin',MARY,126.26,HOME,NONE,False,11.22,2,Julio Let the Dogs Out,137.48,7,Team LKN Chillin',126.26
+2018,4,13,4,Team Broache,BROA,152.26,6,Wild Blue Yanda,YAND,151.16,HOME,NONE,False,1.1,4,Team Broache,152.26,6,Wild Blue Yanda,151.16
+2018,4,14,3,Boocaracha Broache,BOOC,97.72,8,Team NC Heathen,BILL,96.8,HOME,NONE,False,0.92,3,Boocaracha Broache,97.72,8,Team NC Heathen,96.8
+2018,4,15,1,John Brownâs Army,JBA,71.58,5,R.G.3rd String  QB,RG3,142.26,AWAY,NONE,False,70.68,5,R.G.3rd String  QB,142.26,1,John Brownâs Army,71.58
+2018,5,16,7,Team LKN Chillin',MARY,122.04,4,Team Broache,BROA,103.7,HOME,NONE,False,18.34,7,Team LKN Chillin',122.04,4,Team Broache,103.7
+2018,5,17,6,Wild Blue Yanda,YAND,99.2,3,Boocaracha Broache,BOOC,102.38,AWAY,NONE,False,3.18,3,Boocaracha Broache,102.38,6,Wild Blue Yanda,99.2
+2018,5,18,8,Team NC Heathen,BILL,97.16,1,John Brownâs Army,JBA,155.2,AWAY,NONE,False,58.04,1,John Brownâs Army,155.2,8,Team NC Heathen,97.16
+2018,5,19,5,R.G.3rd String  QB,RG3,95.2,2,Julio Let the Dogs Out,BROA,128.44,AWAY,NONE,False,33.24,2,Julio Let the Dogs Out,128.44,5,R.G.3rd String  QB,95.2
+2018,6,20,3,Boocaracha Broache,BOOC,138.8,7,Team LKN Chillin',MARY,155.7,AWAY,NONE,False,16.9,7,Team LKN Chillin',155.7,3,Boocaracha Broache,138.8
+2018,6,21,1,John Brownâs Army,JBA,152.4,6,Wild Blue Yanda,YAND,129.68,HOME,NONE,False,22.72,1,John Brownâs Army,152.4,6,Wild Blue Yanda,129.68
+2018,6,22,2,Julio Let the Dogs Out,BROA,106.12,8,Team NC Heathen,BILL,81.28,HOME,NONE,False,24.84,2,Julio Let the Dogs Out,106.12,8,Team NC Heathen,81.28
+2018,6,23,4,Team Broache,BROA,105.46,5,R.G.3rd String  QB,RG3,103.9,HOME,NONE,False,1.56,4,Team Broache,105.46,5,R.G.3rd String  QB,103.9
+2018,7,24,7,Team LKN Chillin',MARY,129.18,1,John Brownâs Army,JBA,156.58,AWAY,NONE,False,27.4,1,John Brownâs Army,156.58,7,Team LKN Chillin',129.18
+2018,7,25,6,Wild Blue Yanda,YAND,134.02,2,Julio Let the Dogs Out,BROA,76.28,HOME,NONE,False,57.74,6,Wild Blue Yanda,134.02,2,Julio Let the Dogs Out,76.28
+2018,7,26,8,Team NC Heathen,BILL,83.62,4,Team Broache,BROA,105.7,AWAY,NONE,False,22.08,4,Team Broache,105.7,8,Team NC Heathen,83.62
+2018,7,27,5,R.G.3rd String  QB,RG3,112.46,3,Boocaracha Broache,BOOC,96.02,HOME,NONE,False,16.44,5,R.G.3rd String  QB,112.46,3,Boocaracha Broache,96.02
+2018,8,28,2,Julio Let the Dogs Out,BROA,134.36,4,Team Broache,BROA,154.08,AWAY,NONE,False,19.72,4,Team Broache,154.08,2,Julio Let the Dogs Out,134.36
+2018,8,29,3,Boocaracha Broache,BOOC,72.64,1,John Brownâs Army,JBA,120.9,AWAY,NONE,False,48.26,1,John Brownâs Army,120.9,3,Boocaracha Broache,72.64
+2018,8,30,7,Team LKN Chillin',MARY,130.96,6,Wild Blue Yanda,YAND,114.42,HOME,NONE,False,16.54,7,Team LKN Chillin',130.96,6,Wild Blue Yanda,114.42
+2018,8,31,8,Team NC Heathen,BILL,96.7,5,R.G.3rd String  QB,RG3,124.86,AWAY,NONE,False,28.16,5,R.G.3rd String  QB,124.86,8,Team NC Heathen,96.7
+2018,9,32,3,Boocaracha Broache,BOOC,88.96,2,Julio Let the Dogs Out,BROA,126.36,AWAY,NONE,False,37.4,2,Julio Let the Dogs Out,126.36,3,Boocaracha Broache,88.96
+2018,9,33,4,Team Broache,BROA,112.2,1,John Brownâs Army,JBA,126.74,AWAY,NONE,False,14.54,1,John Brownâs Army,126.74,4,Team Broache,112.2
+2018,9,34,8,Team NC Heathen,BILL,138.12,7,Team LKN Chillin',MARY,118.46,HOME,NONE,False,19.66,8,Team NC Heathen,138.12,7,Team LKN Chillin',118.46
+2018,9,35,6,Wild Blue Yanda,YAND,144.4,5,R.G.3rd String  QB,RG3,98.28,HOME,NONE,False,46.12,6,Wild Blue Yanda,144.4,5,R.G.3rd String  QB,98.28
+2018,10,36,2,Julio Let the Dogs Out,BROA,104.16,1,John Brownâs Army,JBA,127.4,AWAY,NONE,False,23.24,1,John Brownâs Army,127.4,2,Julio Let the Dogs Out,104.16
+2018,10,37,4,Team Broache,BROA,99.42,3,Boocaracha Broache,BOOC,83.06,HOME,NONE,False,16.36,4,Team Broache,99.42,3,Boocaracha Broache,83.06
+2018,10,38,7,Team LKN Chillin',MARY,123.1,5,R.G.3rd String  QB,RG3,152.0,AWAY,NONE,False,28.9,5,R.G.3rd String  QB,152.0,7,Team LKN Chillin',123.1
+2018,10,39,6,Wild Blue Yanda,YAND,157.36,8,Team NC Heathen,BILL,133.92,HOME,NONE,False,23.44,6,Wild Blue Yanda,157.36,8,Team NC Heathen,133.92
+2018,11,40,7,Team LKN Chillin',MARY,162.48,2,Julio Let the Dogs Out,BROA,138.32,HOME,NONE,False,24.16,7,Team LKN Chillin',162.48,2,Julio Let the Dogs Out,138.32
+2018,11,41,6,Wild Blue Yanda,YAND,154.22,4,Team Broache,BROA,147.36,HOME,NONE,False,6.86,6,Wild Blue Yanda,154.22,4,Team Broache,147.36
+2018,11,42,8,Team NC Heathen,BILL,116.24,3,Boocaracha Broache,BOOC,82.78,HOME,NONE,False,33.46,8,Team NC Heathen,116.24,3,Boocaracha Broache,82.78
+2018,11,43,5,R.G.3rd String  QB,RG3,107.74,1,John Brownâs Army,JBA,136.32,AWAY,NONE,False,28.58,1,John Brownâs Army,136.32,5,R.G.3rd String  QB,107.74
+2018,12,44,4,Team Broache,BROA,139.38,7,Team LKN Chillin',MARY,119.72,HOME,NONE,False,19.66,4,Team Broache,139.38,7,Team LKN Chillin',119.72
+2018,12,45,3,Boocaracha Broache,BOOC,62.12,6,Wild Blue Yanda,YAND,148.1,AWAY,NONE,False,85.98,6,Wild Blue Yanda,148.1,3,Boocaracha Broache,62.12
+2018,12,46,1,John Brownâs Army,JBA,110.54,8,Team NC Heathen,BILL,135.86,AWAY,NONE,False,25.32,8,Team NC Heathen,135.86,1,John Brownâs Army,110.54
+2018,12,47,2,Julio Let the Dogs Out,BROA,111.08,5,R.G.3rd String  QB,RG3,159.74,AWAY,NONE,False,48.66,5,R.G.3rd String  QB,159.74,2,Julio Let the Dogs Out,111.08
+2018,13,48,7,Team LKN Chillin',MARY,105.92,3,Boocaracha Broache,BOOC,95.32,HOME,NONE,False,10.6,7,Team LKN Chillin',105.92,3,Boocaracha Broache,95.32
+2018,13,49,6,Wild Blue Yanda,YAND,122.5,1,John Brownâs Army,JBA,120.54,HOME,NONE,False,1.96,6,Wild Blue Yanda,122.5,1,John Brownâs Army,120.54
+2018,13,50,8,Team NC Heathen,BILL,113.56,2,Julio Let the Dogs Out,BROA,94.08,HOME,NONE,False,19.48,8,Team NC Heathen,113.56,2,Julio Let the Dogs Out,94.08
+2018,13,51,5,R.G.3rd String  QB,RG3,118.0,4,Team Broache,BROA,77.34,HOME,NONE,False,40.66,5,R.G.3rd String  QB,118.0,4,Team Broache,77.34
+2018,14,52,1,John Brownâs Army,JBA,132.64,7,Team LKN Chillin',MARY,142.36,AWAY,NONE,False,9.72,7,Team LKN Chillin',142.36,1,John Brownâs Army,132.64
+2018,14,53,2,Julio Let the Dogs Out,BROA,85.3,6,Wild Blue Yanda,YAND,113.48,AWAY,NONE,False,28.18,6,Wild Blue Yanda,113.48,2,Julio Let the Dogs Out,85.3
+2018,14,54,4,Team Broache,BROA,122.18,8,Team NC Heathen,BILL,116.3,HOME,NONE,False,5.88,4,Team Broache,122.18,8,Team NC Heathen,116.3
+2018,14,55,3,Boocaracha Broache,BOOC,67.64,5,R.G.3rd String  QB,RG3,87.8,AWAY,NONE,False,20.16,5,R.G.3rd String  QB,87.8,3,Boocaracha Broache,67.64
+2018,15,56,1,John Brownâs Army,JBA,77.72,4,Team Broache,BROA,101.7,AWAY,WINNERS_BRACKET,True,23.98,4,Team Broache,101.7,1,John Brownâs Army,77.72
+2018,15,57,5,R.G.3rd String  QB,RG3,146.24,6,Wild Blue Yanda,YAND,116.62,HOME,WINNERS_BRACKET,True,29.62,5,R.G.3rd String  QB,146.24,6,Wild Blue Yanda,116.62
+2018,15,58,8,Team NC Heathen,BILL,63.52,7,Team LKN Chillin',MARY,77.88,AWAY,LOSERS_CONSOLATION_LADDER,True,14.36,7,Team LKN Chillin',77.88,8,Team NC Heathen,63.52
+2018,15,59,2,Julio Let the Dogs Out,BROA,114.76,3,Boocaracha Broache,BOOC,59.96,HOME,LOSERS_CONSOLATION_LADDER,True,54.8,2,Julio Let the Dogs Out,114.76,3,Boocaracha Broache,59.96
+2018,16,60,5,R.G.3rd String  QB,RG3,138.26,4,Team Broache,BROA,105.5,HOME,WINNERS_BRACKET,True,32.76,5,R.G.3rd String  QB,138.26,4,Team Broache,105.5
+2018,16,61,1,John Brownâs Army,JBA,102.74,6,Wild Blue Yanda,YAND,120.54,AWAY,WINNERS_CONSOLATION_LADDER,True,17.8,6,Wild Blue Yanda,120.54,1,John Brownâs Army,102.74
+2018,16,62,7,Team LKN Chillin',MARY,148.18,2,Julio Let the Dogs Out,BROA,102.04,HOME,LOSERS_CONSOLATION_LADDER,True,46.14,7,Team LKN Chillin',148.18,2,Julio Let the Dogs Out,102.04
+2018,16,63,8,Team NC Heathen,BILL,114.34,3,Boocaracha Broache,BOOC,92.58,HOME,LOSERS_CONSOLATION_LADDER,True,21.76,8,Team NC Heathen,114.34,3,Boocaracha Broache,92.58
+2019,1,1,4,Team Broache,BROA,112.1,7,Team LKN Chillin',MARY,68.86,HOME,NONE,False,43.24,4,Team Broache,112.1,7,Team LKN Chillin',68.86
+2019,1,2,3,Boocaracha Broache,BOOC,146.02,9,LR Ballhawks *,Ross,128.6,HOME,NONE,False,17.42,3,Boocaracha Broache,146.02,9,LR Ballhawks *,128.6
+2019,1,3,6,Wild Blue Yanda,YAND,130.62,10,Robinson  Robinson,ROBI,77.56,HOME,NONE,False,53.06,6,Wild Blue Yanda,130.62,10,Robinson  Robinson,77.56
+2019,1,4,1,Pile Of Hot Garbage,HotG,100.84,2,Julio Let the Dogs Out,BROA,132.74,AWAY,NONE,False,31.9,2,Julio Let the Dogs Out,132.74,1,Pile Of Hot Garbage,100.84
+2019,1,5,8,Team NC Heathen,BILL,102.3,5,R.G.3rd String  QB,RG3,99.62,HOME,NONE,False,2.68,8,Team NC Heathen,102.3,5,R.G.3rd String  QB,99.62
+2019,2,6,9,LR Ballhawks *,Ross,115.18,10,Robinson  Robinson,ROBI,90.92,HOME,NONE,False,24.26,9,LR Ballhawks *,115.18,10,Robinson  Robinson,90.92
+2019,2,7,2,Julio Let the Dogs Out,BROA,110.96,4,Team Broache,BROA,94.2,HOME,NONE,False,16.76,2,Julio Let the Dogs Out,110.96,4,Team Broache,94.2
+2019,2,8,5,R.G.3rd String  QB,RG3,123.14,7,Team LKN Chillin',MARY,68.8,HOME,NONE,False,54.34,5,R.G.3rd String  QB,123.14,7,Team LKN Chillin',68.8
+2019,2,9,1,Pile Of Hot Garbage,HotG,80.12,3,Boocaracha Broache,BOOC,127.12,AWAY,NONE,False,47.0,3,Boocaracha Broache,127.12,1,Pile Of Hot Garbage,80.12
+2019,2,10,8,Team NC Heathen,BILL,83.82,6,Wild Blue Yanda,YAND,116.86,AWAY,NONE,False,33.04,6,Wild Blue Yanda,116.86,8,Team NC Heathen,83.82
+2019,3,11,2,Julio Let the Dogs Out,BROA,123.14,5,R.G.3rd String  QB,RG3,132.86,AWAY,NONE,False,9.72,5,R.G.3rd String  QB,132.86,2,Julio Let the Dogs Out,123.14
+2019,3,12,9,LR Ballhawks *,Ross,105.68,1,Pile Of Hot Garbage,HotG,166.54,AWAY,NONE,False,60.86,1,Pile Of Hot Garbage,166.54,9,LR Ballhawks *,105.68
+2019,3,13,10,Robinson  Robinson,ROBI,111.84,8,Team NC Heathen,BILL,66.02,HOME,NONE,False,45.82,10,Robinson  Robinson,111.84,8,Team NC Heathen,66.02
+2019,3,14,4,Team Broache,BROA,126.32,3,Boocaracha Broache,BOOC,81.66,HOME,NONE,False,44.66,4,Team Broache,126.32,3,Boocaracha Broache,81.66
+2019,3,15,7,Team LKN Chillin',MARY,115.82,6,Wild Blue Yanda,YAND,122.9,AWAY,NONE,False,7.08,6,Wild Blue Yanda,122.9,7,Team LKN Chillin',115.82
+2019,4,16,1,Pile Of Hot Garbage,HotG,131.7,8,Team NC Heathen,BILL,140.0,AWAY,NONE,False,8.3,8,Team NC Heathen,140.0,1,Pile Of Hot Garbage,131.7
+2019,4,17,3,Boocaracha Broache,BOOC,74.3,2,Julio Let the Dogs Out,BROA,73.9,HOME,NONE,False,0.4,3,Boocaracha Broache,74.3,2,Julio Let the Dogs Out,73.9
+2019,4,18,6,Wild Blue Yanda,YAND,129.78,5,R.G.3rd String  QB,RG3,116.2,HOME,NONE,False,13.58,6,Wild Blue Yanda,129.78,5,R.G.3rd String  QB,116.2
+2019,4,19,4,Team Broache,BROA,85.04,9,LR Ballhawks *,Ross,102.78,AWAY,NONE,False,17.74,9,LR Ballhawks *,102.78,4,Team Broache,85.04
+2019,4,20,7,Team LKN Chillin',MARY,77.68,10,Robinson  Robinson,ROBI,78.72,AWAY,NONE,False,1.04,10,Robinson  Robinson,78.72,7,Team LKN Chillin',77.68
+2019,5,21,3,Boocaracha Broache,BOOC,104.06,6,Wild Blue Yanda,YAND,124.32,AWAY,NONE,False,20.26,6,Wild Blue Yanda,124.32,3,Boocaracha Broache,104.06
+2019,5,22,1,Pile Of Hot Garbage,HotG,149.02,4,Team Broache,BROA,102.82,HOME,NONE,False,46.2,1,Pile Of Hot Garbage,149.02,4,Team Broache,102.82
+2019,5,23,8,Team NC Heathen,BILL,117.96,7,Team LKN Chillin',MARY,106.8,HOME,NONE,False,11.16,8,Team NC Heathen,117.96,7,Team LKN Chillin',106.8
+2019,5,24,2,Julio Let the Dogs Out,BROA,121.42,9,LR Ballhawks *,Ross,128.44,AWAY,NONE,False,7.02,9,LR Ballhawks *,128.44,2,Julio Let the Dogs Out,121.42
+2019,5,25,5,R.G.3rd String  QB,RG3,135.46,10,Robinson  Robinson,ROBI,135.62,AWAY,NONE,False,0.16,10,Robinson  Robinson,135.62,5,R.G.3rd String  QB,135.46
+2019,6,26,7,Team LKN Chillin',MARY,109.24,9,LR Ballhawks *,Ross,118.44,AWAY,NONE,False,9.2,9,LR Ballhawks *,118.44,7,Team LKN Chillin',109.24
+2019,6,27,10,Robinson  Robinson,ROBI,81.42,2,Julio Let the Dogs Out,BROA,73.16,HOME,NONE,False,8.26,10,Robinson  Robinson,81.42,2,Julio Let the Dogs Out,73.16
+2019,6,28,5,R.G.3rd String  QB,RG3,143.44,1,Pile Of Hot Garbage,HotG,106.4,HOME,NONE,False,37.04,5,R.G.3rd String  QB,143.44,1,Pile Of Hot Garbage,106.4
+2019,6,29,8,Team NC Heathen,BILL,137.7,3,Boocaracha Broache,BOOC,90.52,HOME,NONE,False,47.18,8,Team NC Heathen,137.7,3,Boocaracha Broache,90.52
+2019,6,30,6,Wild Blue Yanda,YAND,102.62,4,Team Broache,BROA,85.6,HOME,NONE,False,17.02,6,Wild Blue Yanda,102.62,4,Team Broache,85.6
+2019,7,31,2,Julio Let the Dogs Out,BROA,66.06,7,Team LKN Chillin',MARY,58.86,HOME,NONE,False,7.2,2,Julio Let the Dogs Out,66.06,7,Team LKN Chillin',58.86
+2019,7,32,1,Pile Of Hot Garbage,HotG,62.14,10,Robinson  Robinson,ROBI,85.96,AWAY,NONE,False,23.82,10,Robinson  Robinson,85.96,1,Pile Of Hot Garbage,62.14
+2019,7,33,3,Boocaracha Broache,BOOC,65.64,5,R.G.3rd String  QB,RG3,111.94,AWAY,NONE,False,46.3,5,R.G.3rd String  QB,111.94,3,Boocaracha Broache,65.64
+2019,7,34,4,Team Broache,BROA,87.86,8,Team NC Heathen,BILL,102.48,AWAY,NONE,False,14.62,8,Team NC Heathen,102.48,4,Team Broache,87.86
+2019,7,35,9,LR Ballhawks *,Ross,107.02,6,Wild Blue Yanda,YAND,148.86,AWAY,NONE,False,41.84,6,Wild Blue Yanda,148.86,9,LR Ballhawks *,107.02
+2019,8,36,7,Team LKN Chillin',MARY,125.58,1,Pile Of Hot Garbage,HotG,169.58,AWAY,NONE,False,44.0,1,Pile Of Hot Garbage,169.58,7,Team LKN Chillin',125.58
+2019,8,37,10,Robinson  Robinson,ROBI,115.68,3,Boocaracha Broache,BOOC,112.7,HOME,NONE,False,2.98,10,Robinson  Robinson,115.68,3,Boocaracha Broache,112.7
+2019,8,38,5,R.G.3rd String  QB,RG3,146.36,4,Team Broache,BROA,72.7,HOME,NONE,False,73.66,5,R.G.3rd String  QB,146.36,4,Team Broache,72.7
+2019,8,39,8,Team NC Heathen,BILL,96.96,9,LR Ballhawks *,Ross,134.76,AWAY,NONE,False,37.8,9,LR Ballhawks *,134.76,8,Team NC Heathen,96.96
+2019,8,40,6,Wild Blue Yanda,YAND,138.8,2,Julio Let the Dogs Out,BROA,89.06,HOME,NONE,False,49.74,6,Wild Blue Yanda,138.8,2,Julio Let the Dogs Out,89.06
+2019,9,41,3,Boocaracha Broache,BOOC,93.16,7,Team LKN Chillin',MARY,126.0,AWAY,NONE,False,32.84,7,Team LKN Chillin',126.0,3,Boocaracha Broache,93.16
+2019,9,42,4,Team Broache,BROA,117.44,1,Pile Of Hot Garbage,HotG,130.32,AWAY,NONE,False,12.88,1,Pile Of Hot Garbage,130.32,4,Team Broache,117.44
+2019,9,43,10,Robinson  Robinson,ROBI,118.68,6,Wild Blue Yanda,YAND,83.14,HOME,NONE,False,35.54,10,Robinson  Robinson,118.68,6,Wild Blue Yanda,83.14
+2019,9,44,9,LR Ballhawks *,Ross,99.04,2,Julio Let the Dogs Out,BROA,124.4,AWAY,NONE,False,25.36,2,Julio Let the Dogs Out,124.4,9,LR Ballhawks *,99.04
+2019,9,45,5,R.G.3rd String  QB,RG3,98.86,8,Team NC Heathen,BILL,111.9,AWAY,NONE,False,13.04,8,Team NC Heathen,111.9,5,R.G.3rd String  QB,98.86
+2019,10,46,4,Team Broache,BROA,108.06,10,Robinson  Robinson,ROBI,108.28,AWAY,NONE,False,0.22,10,Robinson  Robinson,108.28,4,Team Broache,108.06
+2019,10,47,9,LR Ballhawks *,Ross,140.12,3,Boocaracha Broache,BOOC,108.22,HOME,NONE,False,31.9,9,LR Ballhawks *,140.12,3,Boocaracha Broache,108.22
+2019,10,48,7,Team LKN Chillin',MARY,135.42,5,R.G.3rd String  QB,RG3,107.94,HOME,NONE,False,27.48,7,Team LKN Chillin',135.42,5,R.G.3rd String  QB,107.94
+2019,10,49,2,Julio Let the Dogs Out,BROA,119.8,1,Pile Of Hot Garbage,HotG,73.98,HOME,NONE,False,45.82,2,Julio Let the Dogs Out,119.8,1,Pile Of Hot Garbage,73.98
+2019,10,50,6,Wild Blue Yanda,YAND,116.32,8,Team NC Heathen,BILL,88.98,HOME,NONE,False,27.34,6,Wild Blue Yanda,116.32,8,Team NC Heathen,88.98
+2019,11,51,9,LR Ballhawks *,Ross,118.68,5,R.G.3rd String  QB,RG3,99.04,HOME,NONE,False,19.64,9,LR Ballhawks *,118.68,5,R.G.3rd String  QB,99.04
+2019,11,52,4,Team Broache,BROA,95.1,2,Julio Let the Dogs Out,BROA,117.44,AWAY,NONE,False,22.34,2,Julio Let the Dogs Out,117.44,4,Team Broache,95.1
+2019,11,53,8,Team NC Heathen,BILL,119.22,10,Robinson  Robinson,ROBI,92.96,HOME,NONE,False,26.26,8,Team NC Heathen,119.22,10,Robinson  Robinson,92.96
+2019,11,54,3,Boocaracha Broache,BOOC,119.18,1,Pile Of Hot Garbage,HotG,95.34,HOME,NONE,False,23.84,3,Boocaracha Broache,119.18,1,Pile Of Hot Garbage,95.34
+2019,11,55,6,Wild Blue Yanda,YAND,138.36,7,Team LKN Chillin',MARY,62.92,HOME,NONE,False,75.44,6,Wild Blue Yanda,138.36,7,Team LKN Chillin',62.92
+2019,12,56,2,Julio Let the Dogs Out,BROA,109.48,8,Team NC Heathen,BILL,159.24,AWAY,NONE,False,49.76,8,Team NC Heathen,159.24,2,Julio Let the Dogs Out,109.48
+2019,12,57,1,Pile Of Hot Garbage,HotG,97.44,9,LR Ballhawks *,Ross,166.86,AWAY,NONE,False,69.42,9,LR Ballhawks *,166.86,1,Pile Of Hot Garbage,97.44
+2019,12,58,5,R.G.3rd String  QB,RG3,90.94,6,Wild Blue Yanda,YAND,79.86,HOME,NONE,False,11.08,5,R.G.3rd String  QB,90.94,6,Wild Blue Yanda,79.86
+2019,12,59,3,Boocaracha Broache,BOOC,94.08,4,Team Broache,BROA,47.0,HOME,NONE,False,47.08,3,Boocaracha Broache,94.08,4,Team Broache,47.0
+2019,12,60,10,Robinson  Robinson,ROBI,89.08,7,Team LKN Chillin',MARY,77.06,HOME,NONE,False,12.02,10,Robinson  Robinson,89.08,7,Team LKN Chillin',77.06
+2019,13,61,1,Pile Of Hot Garbage,HotG,96.3,6,Wild Blue Yanda,YAND,119.12,AWAY,NONE,False,22.82,6,Wild Blue Yanda,119.12,1,Pile Of Hot Garbage,96.3
+2019,13,62,2,Julio Let the Dogs Out,BROA,113.04,3,Boocaracha Broache,BOOC,101.7,HOME,NONE,False,11.34,2,Julio Let the Dogs Out,113.04,3,Boocaracha Broache,101.7
+2019,13,63,7,Team LKN Chillin',MARY,60.54,8,Team NC Heathen,BILL,81.66,AWAY,NONE,False,21.12,8,Team NC Heathen,81.66,7,Team LKN Chillin',60.54
+2019,13,64,9,LR Ballhawks *,Ross,143.74,4,Team Broache,BROA,101.02,HOME,NONE,False,42.72,9,LR Ballhawks *,143.74,4,Team Broache,101.02
+2019,13,65,10,Robinson  Robinson,ROBI,99.9,5,R.G.3rd String  QB,RG3,90.5,HOME,NONE,False,9.4,10,Robinson  Robinson,99.9,5,R.G.3rd String  QB,90.5
+2019,14,66,7,Team LKN Chillin',MARY,78.58,4,Team Broache,BROA,82.66,AWAY,NONE,False,4.08,4,Team Broache,82.66,7,Team LKN Chillin',78.58
+2019,14,67,10,Robinson  Robinson,ROBI,115.86,9,LR Ballhawks *,Ross,143.2,AWAY,NONE,False,27.34,9,LR Ballhawks *,143.2,10,Robinson  Robinson,115.86
+2019,14,68,5,R.G.3rd String  QB,RG3,107.7,2,Julio Let the Dogs Out,BROA,111.56,AWAY,NONE,False,3.86,2,Julio Let the Dogs Out,111.56,5,R.G.3rd String  QB,107.7
+2019,14,69,8,Team NC Heathen,BILL,74.74,1,Pile Of Hot Garbage,HotG,114.9,AWAY,NONE,False,40.16,1,Pile Of Hot Garbage,114.9,8,Team NC Heathen,74.74
+2019,14,70,6,Wild Blue Yanda,YAND,78.9,3,Boocaracha Broache,BOOC,70.82,HOME,NONE,False,8.08,6,Wild Blue Yanda,78.9,3,Boocaracha Broache,70.82
+2019,15,71,6,Wild Blue Yanda,YAND,104.46,8,Team NC Heathen,BILL,137.48,AWAY,WINNERS_BRACKET,True,33.02,8,Team NC Heathen,137.48,6,Wild Blue Yanda,104.46
+2019,15,72,9,LR Ballhawks *,Ross,119.38,10,Robinson  Robinson,ROBI,89.78,HOME,WINNERS_BRACKET,True,29.6,9,LR Ballhawks *,119.38,10,Robinson  Robinson,89.78
+2019,15,73,2,Julio Let the Dogs Out,BROA,137.02,5,R.G.3rd String  QB,RG3,130.4,HOME,LOSERS_CONSOLATION_LADDER,True,6.62,2,Julio Let the Dogs Out,137.02,5,R.G.3rd String  QB,130.4
+2019,15,74,1,Pile Of Hot Garbage,HotG,116.84,3,Boocaracha Broache,BOOC,82.7,HOME,LOSERS_CONSOLATION_LADDER,True,34.14,1,Pile Of Hot Garbage,116.84,3,Boocaracha Broache,82.7
+2019,15,75,4,Team Broache,BROA,101.16,7,Team LKN Chillin',MARY,103.7,AWAY,LOSERS_CONSOLATION_LADDER,True,2.54,7,Team LKN Chillin',103.7,4,Team Broache,101.16
+2019,16,76,9,LR Ballhawks *,Ross,83.92,8,Team NC Heathen,BILL,72.96,HOME,WINNERS_BRACKET,True,10.96,9,LR Ballhawks *,83.92,8,Team NC Heathen,72.96
+2019,16,77,6,Wild Blue Yanda,YAND,126.78,10,Robinson  Robinson,ROBI,88.5,HOME,WINNERS_CONSOLATION_LADDER,True,38.28,6,Wild Blue Yanda,126.78,10,Robinson  Robinson,88.5
+2019,16,78,2,Julio Let the Dogs Out,BROA,111.94,1,Pile Of Hot Garbage,HotG,126.96,AWAY,LOSERS_CONSOLATION_LADDER,True,15.02,1,Pile Of Hot Garbage,126.96,2,Julio Let the Dogs Out,111.94
+2019,16,79,5,R.G.3rd String  QB,RG3,121.72,7,Team LKN Chillin',MARY,133.76,AWAY,LOSERS_CONSOLATION_LADDER,True,12.04,7,Team LKN Chillin',133.76,5,R.G.3rd String  QB,121.72
+2019,16,80,3,Boocaracha Broache,BOOC,115.74,4,Team Broache,BROA,100.92,HOME,LOSERS_CONSOLATION_LADDER,True,14.82,3,Boocaracha Broache,115.74,4,Team Broache,100.92
+2020,1,1,11,Team PrincessGrandma,PG,106.34,9,LR Ballhawks *,Ross,145.2,AWAY,NONE,False,38.86,9,LR Ballhawks *,145.2,11,Team PrincessGrandma,106.34
+2020,1,2,2,Julio Let the Dogs Out,BROA,116.58,3,Boocaracha Broache,BOOC,82.56,HOME,NONE,False,34.02,2,Julio Let the Dogs Out,116.58,3,Boocaracha Broache,82.56
+2020,1,3,1,West Goosington Fancy Boys,WGFB,104.1,4,peepee poopoo,PPPP,63.2,HOME,NONE,False,40.9,1,West Goosington Fancy Boys,104.1,4,peepee poopoo,63.2
+2020,1,4,6,Wild Blue Yanda,YAND,111.22,8,Team Big MO Fan105.7,BILL,110.96,HOME,NONE,False,0.26,6,Wild Blue Yanda,111.22,8,Team Big MO Fan105.7,110.96
+2020,1,5,5,R.G.3rd String  QB,RG3,119.08,10,Robinson  Robinson,ROBI,119.2,AWAY,NONE,False,0.12,10,Robinson  Robinson,119.2,5,R.G.3rd String  QB,119.08
+2020,1,6,12,Big Blue,BLUE,139.1,7,Team LKN Chillin',MARY,94.94,HOME,NONE,False,44.16,12,Big Blue,139.1,7,Team LKN Chillin',94.94
+2020,2,7,9,LR Ballhawks *,Ross,79.86,3,Boocaracha Broache,BOOC,105.8,AWAY,NONE,False,25.94,3,Boocaracha Broache,105.8,9,LR Ballhawks *,79.86
+2020,2,8,4,peepee poopoo,PPPP,144.18,11,Team PrincessGrandma,PG,138.5,HOME,NONE,False,5.68,4,peepee poopoo,144.18,11,Team PrincessGrandma,138.5
+2020,2,9,1,West Goosington Fancy Boys,WGFB,112.98,2,Julio Let the Dogs Out,BROA,132.72,AWAY,NONE,False,19.74,2,Julio Let the Dogs Out,132.72,1,West Goosington Fancy Boys,112.98
+2020,2,10,8,Team Big MO Fan105.7,BILL,105.88,10,Robinson  Robinson,ROBI,104.34,HOME,NONE,False,1.54,8,Team Big MO Fan105.7,105.88,10,Robinson  Robinson,104.34
+2020,2,11,7,Team LKN Chillin',MARY,139.98,6,Wild Blue Yanda,YAND,102.4,HOME,NONE,False,37.58,7,Team LKN Chillin',139.98,6,Wild Blue Yanda,102.4
+2020,2,12,12,Big Blue,BLUE,110.62,5,R.G.3rd String  QB,RG3,147.6,AWAY,NONE,False,36.98,5,R.G.3rd String  QB,147.6,12,Big Blue,110.62
+2020,3,13,4,peepee poopoo,PPPP,90.38,9,LR Ballhawks *,Ross,90.28,HOME,NONE,False,0.1,4,peepee poopoo,90.38,9,LR Ballhawks *,90.28
+2020,3,14,3,Boocaracha Broache,BOOC,82.02,1,West Goosington Fancy Boys,WGFB,105.88,AWAY,NONE,False,23.86,1,West Goosington Fancy Boys,105.88,3,Boocaracha Broache,82.02
+2020,3,15,11,Team PrincessGrandma,PG,95.98,2,Julio Let the Dogs Out,BROA,142.1,AWAY,NONE,False,46.12,2,Julio Let the Dogs Out,142.1,11,Team PrincessGrandma,95.98
+2020,3,16,7,Team LKN Chillin',MARY,161.8,8,Team Big MO Fan105.7,BILL,126.28,HOME,NONE,False,35.52,7,Team LKN Chillin',161.8,8,Team Big MO Fan105.7,126.28
+2020,3,17,10,Robinson  Robinson,ROBI,116.3,12,Big Blue,BLUE,76.92,HOME,NONE,False,39.38,10,Robinson  Robinson,116.3,12,Big Blue,76.92
+2020,3,18,6,Wild Blue Yanda,YAND,125.66,5,R.G.3rd String  QB,RG3,164.84,AWAY,NONE,False,39.18,5,R.G.3rd String  QB,164.84,6,Wild Blue Yanda,125.66
+2020,4,19,9,LR Ballhawks *,Ross,110.52,1,West Goosington Fancy Boys,WGFB,99.74,HOME,NONE,False,10.78,9,LR Ballhawks *,110.52,1,West Goosington Fancy Boys,99.74
+2020,4,20,2,Julio Let the Dogs Out,BROA,139.5,4,peepee poopoo,PPPP,131.6,HOME,NONE,False,7.9,2,Julio Let the Dogs Out,139.5,4,peepee poopoo,131.6
+2020,4,21,11,Team PrincessGrandma,PG,106.38,3,Boocaracha Broache,BOOC,103.28,HOME,NONE,False,3.1,11,Team PrincessGrandma,106.38,3,Boocaracha Broache,103.28
+2020,4,22,8,Team Big MO Fan105.7,BILL,107.66,12,Big Blue,BLUE,87.3,HOME,NONE,False,20.36,8,Team Big MO Fan105.7,107.66,12,Big Blue,87.3
+2020,4,23,5,R.G.3rd String  QB,RG3,110.92,7,Team LKN Chillin',MARY,137.04,AWAY,NONE,False,26.12,7,Team LKN Chillin',137.04,5,R.G.3rd String  QB,110.92
+2020,4,24,6,Wild Blue Yanda,YAND,113.8,10,Robinson  Robinson,ROBI,64.82,HOME,NONE,False,48.98,6,Wild Blue Yanda,113.8,10,Robinson  Robinson,64.82
+2020,5,25,2,Julio Let the Dogs Out,BROA,125.1,9,LR Ballhawks *,Ross,66.5,HOME,NONE,False,58.6,2,Julio Let the Dogs Out,125.1,9,LR Ballhawks *,66.5
+2020,5,26,1,West Goosington Fancy Boys,WGFB,91.4,11,Team PrincessGrandma,PG,106.54,AWAY,NONE,False,15.14,11,Team PrincessGrandma,106.54,1,West Goosington Fancy Boys,91.4
+2020,5,27,4,peepee poopoo,PPPP,98.98,3,Boocaracha Broache,BOOC,121.06,AWAY,NONE,False,22.08,3,Boocaracha Broache,121.06,4,peepee poopoo,98.98
+2020,5,28,5,R.G.3rd String  QB,RG3,105.32,8,Team Big MO Fan105.7,BILL,80.92,HOME,NONE,False,24.4,5,R.G.3rd String  QB,105.32,8,Team Big MO Fan105.7,80.92
+2020,5,29,12,Big Blue,BLUE,105.54,6,Wild Blue Yanda,YAND,127.96,AWAY,NONE,False,22.42,6,Wild Blue Yanda,127.96,12,Big Blue,105.54
+2020,5,30,7,Team LKN Chillin',MARY,113.8,10,Robinson  Robinson,ROBI,90.0,HOME,NONE,False,23.8,7,Team LKN Chillin',113.8,10,Robinson  Robinson,90.0
+2020,6,31,9,LR Ballhawks *,Ross,114.94,8,Team Big MO Fan105.7,BILL,108.64,HOME,NONE,False,6.3,9,LR Ballhawks *,114.94,8,Team Big MO Fan105.7,108.64
+2020,6,32,11,Team PrincessGrandma,PG,85.26,6,Wild Blue Yanda,YAND,117.3,AWAY,NONE,False,32.04,6,Wild Blue Yanda,117.3,11,Team PrincessGrandma,85.26
+2020,6,33,3,Boocaracha Broache,BOOC,66.9,10,Robinson  Robinson,ROBI,81.92,AWAY,NONE,False,15.02,10,Robinson  Robinson,81.92,3,Boocaracha Broache,66.9
+2020,6,34,4,peepee poopoo,PPPP,72.78,7,Team LKN Chillin',MARY,116.8,AWAY,NONE,False,44.02,7,Team LKN Chillin',116.8,4,peepee poopoo,72.78
+2020,6,35,1,West Goosington Fancy Boys,WGFB,108.28,12,Big Blue,BLUE,73.36,HOME,NONE,False,34.92,1,West Goosington Fancy Boys,108.28,12,Big Blue,73.36
+2020,6,36,2,Julio Let the Dogs Out,BROA,83.52,5,R.G.3rd String  QB,RG3,151.78,AWAY,NONE,False,68.26,5,R.G.3rd String  QB,151.78,2,Julio Let the Dogs Out,83.52
+2020,7,37,8,Team Big MO Fan105.7,BILL,134.76,11,Team PrincessGrandma,PG,114.56,HOME,NONE,False,20.2,8,Team Big MO Fan105.7,134.76,11,Team PrincessGrandma,114.56
+2020,7,38,6,Wild Blue Yanda,YAND,120.66,3,Boocaracha Broache,BOOC,98.42,HOME,NONE,False,22.24,6,Wild Blue Yanda,120.66,3,Boocaracha Broache,98.42
+2020,7,39,10,Robinson  Robinson,ROBI,143.7,4,peepee poopoo,PPPP,83.72,HOME,NONE,False,59.98,10,Robinson  Robinson,143.7,4,peepee poopoo,83.72
+2020,7,40,7,Team LKN Chillin',MARY,130.3,1,West Goosington Fancy Boys,WGFB,107.32,HOME,NONE,False,22.98,7,Team LKN Chillin',130.3,1,West Goosington Fancy Boys,107.32
+2020,7,41,12,Big Blue,BLUE,82.92,2,Julio Let the Dogs Out,BROA,114.42,AWAY,NONE,False,31.5,2,Julio Let the Dogs Out,114.42,12,Big Blue,82.92
+2020,7,42,5,R.G.3rd String  QB,RG3,75.38,9,LR Ballhawks *,Ross,65.5,HOME,NONE,False,9.88,5,R.G.3rd String  QB,75.38,9,LR Ballhawks *,65.5
+2020,8,43,3,Boocaracha Broache,BOOC,131.44,8,Team Big MO Fan105.7,BILL,120.46,HOME,NONE,False,10.98,3,Boocaracha Broache,131.44,8,Team Big MO Fan105.7,120.46
+2020,8,44,4,peepee poopoo,PPPP,68.06,6,Wild Blue Yanda,YAND,106.02,AWAY,NONE,False,37.96,6,Wild Blue Yanda,106.02,4,peepee poopoo,68.06
+2020,8,45,1,West Goosington Fancy Boys,WGFB,53.52,10,Robinson  Robinson,ROBI,79.26,AWAY,NONE,False,25.74,10,Robinson  Robinson,79.26,1,West Goosington Fancy Boys,53.52
+2020,8,46,2,Julio Let the Dogs Out,BROA,107.74,7,Team LKN Chillin',MARY,77.84,HOME,NONE,False,29.9,2,Julio Let the Dogs Out,107.74,7,Team LKN Chillin',77.84
+2020,8,47,9,LR Ballhawks *,Ross,126.42,12,Big Blue,BLUE,78.64,HOME,NONE,False,47.78,9,LR Ballhawks *,126.42,12,Big Blue,78.64
+2020,8,48,11,Team PrincessGrandma,PG,103.94,5,R.G.3rd String  QB,RG3,105.16,AWAY,NONE,False,1.22,5,R.G.3rd String  QB,105.16,11,Team PrincessGrandma,103.94
+2020,9,49,8,Team Big MO Fan105.7,BILL,72.36,4,peepee poopoo,PPPP,78.66,AWAY,NONE,False,6.3,4,peepee poopoo,78.66,8,Team Big MO Fan105.7,72.36
+2020,9,50,6,Wild Blue Yanda,YAND,126.64,1,West Goosington Fancy Boys,WGFB,95.04,HOME,NONE,False,31.6,6,Wild Blue Yanda,126.64,1,West Goosington Fancy Boys,95.04
+2020,9,51,10,Robinson  Robinson,ROBI,119.92,2,Julio Let the Dogs Out,BROA,110.6,HOME,NONE,False,9.32,10,Robinson  Robinson,119.92,2,Julio Let the Dogs Out,110.6
+2020,9,52,7,Team LKN Chillin',MARY,82.18,9,LR Ballhawks *,Ross,157.14,AWAY,NONE,False,74.96,9,LR Ballhawks *,157.14,7,Team LKN Chillin',82.18
+2020,9,53,12,Big Blue,BLUE,59.56,11,Team PrincessGrandma,PG,77.5,AWAY,NONE,False,17.94,11,Team PrincessGrandma,77.5,12,Big Blue,59.56
+2020,9,54,5,R.G.3rd String  QB,RG3,114.2,3,Boocaracha Broache,BOOC,125.1,AWAY,NONE,False,10.9,3,Boocaracha Broache,125.1,5,R.G.3rd String  QB,114.2
+2020,10,55,1,West Goosington Fancy Boys,WGFB,106.02,8,Team Big MO Fan105.7,BILL,126.34,AWAY,NONE,False,20.32,8,Team Big MO Fan105.7,126.34,1,West Goosington Fancy Boys,106.02
+2020,10,56,2,Julio Let the Dogs Out,BROA,117.22,6,Wild Blue Yanda,YAND,97.12,HOME,NONE,False,20.1,2,Julio Let the Dogs Out,117.22,6,Wild Blue Yanda,97.12
+2020,10,57,9,LR Ballhawks *,Ross,62.48,10,Robinson  Robinson,ROBI,101.8,AWAY,NONE,False,39.32,10,Robinson  Robinson,101.8,9,LR Ballhawks *,62.48
+2020,10,58,11,Team PrincessGrandma,PG,101.52,7,Team LKN Chillin',MARY,78.58,HOME,NONE,False,22.94,11,Team PrincessGrandma,101.52,7,Team LKN Chillin',78.58
+2020,10,59,3,Boocaracha Broache,BOOC,67.1,12,Big Blue,BLUE,92.76,AWAY,NONE,False,25.66,12,Big Blue,92.76,3,Boocaracha Broache,67.1
+2020,10,60,4,peepee poopoo,PPPP,76.12,5,R.G.3rd String  QB,RG3,101.46,AWAY,NONE,False,25.34,5,R.G.3rd String  QB,101.46,4,peepee poopoo,76.12
+2020,11,61,8,Team Big MO Fan105.7,BILL,97.76,2,Julio Let the Dogs Out,BROA,93.18,HOME,NONE,False,4.58,8,Team Big MO Fan105.7,97.76,2,Julio Let the Dogs Out,93.18
+2020,11,62,6,Wild Blue Yanda,YAND,121.86,9,LR Ballhawks *,Ross,81.34,HOME,NONE,False,40.52,6,Wild Blue Yanda,121.86,9,LR Ballhawks *,81.34
+2020,11,63,10,Robinson  Robinson,ROBI,89.46,11,Team PrincessGrandma,PG,116.76,AWAY,NONE,False,27.3,11,Team PrincessGrandma,116.76,10,Robinson  Robinson,89.46
+2020,11,64,7,Team LKN Chillin',MARY,102.92,3,Boocaracha Broache,BOOC,108.4,AWAY,NONE,False,5.48,3,Boocaracha Broache,108.4,7,Team LKN Chillin',102.92
+2020,11,65,12,Big Blue,BLUE,72.58,4,peepee poopoo,PPPP,107.1,AWAY,NONE,False,34.52,4,peepee poopoo,107.1,12,Big Blue,72.58
+2020,11,66,5,R.G.3rd String  QB,RG3,123.86,1,West Goosington Fancy Boys,WGFB,133.48,AWAY,NONE,False,9.62,1,West Goosington Fancy Boys,133.48,5,R.G.3rd String  QB,123.86
+2020,12,67,8,Team Big MO Fan105.7,BILL,111.12,9,LR Ballhawks *,Ross,107.44,HOME,NONE,False,3.68,8,Team Big MO Fan105.7,111.12,9,LR Ballhawks *,107.44
+2020,12,68,6,Wild Blue Yanda,YAND,107.02,11,Team PrincessGrandma,PG,48.8,HOME,NONE,False,58.22,6,Wild Blue Yanda,107.02,11,Team PrincessGrandma,48.8
+2020,12,69,10,Robinson  Robinson,ROBI,93.2,3,Boocaracha Broache,BOOC,141.64,AWAY,NONE,False,48.44,3,Boocaracha Broache,141.64,10,Robinson  Robinson,93.2
+2020,12,70,7,Team LKN Chillin',MARY,87.88,4,peepee poopoo,PPPP,102.16,AWAY,NONE,False,14.28,4,peepee poopoo,102.16,7,Team LKN Chillin',87.88
+2020,12,71,12,Big Blue,BLUE,86.5,1,West Goosington Fancy Boys,WGFB,134.8,AWAY,NONE,False,48.3,1,West Goosington Fancy Boys,134.8,12,Big Blue,86.5
+2020,12,72,5,R.G.3rd String  QB,RG3,145.58,2,Julio Let the Dogs Out,BROA,100.4,HOME,NONE,False,45.18,5,R.G.3rd String  QB,145.58,2,Julio Let the Dogs Out,100.4
+2020,13,73,11,Team PrincessGrandma,PG,110.1,8,Team Big MO Fan105.7,BILL,145.08,AWAY,NONE,False,34.98,8,Team Big MO Fan105.7,145.08,11,Team PrincessGrandma,110.1
+2020,13,74,3,Boocaracha Broache,BOOC,110.9,6,Wild Blue Yanda,YAND,80.64,HOME,NONE,False,30.26,3,Boocaracha Broache,110.9,6,Wild Blue Yanda,80.64
+2020,13,75,4,peepee poopoo,PPPP,112.36,10,Robinson  Robinson,ROBI,86.82,HOME,NONE,False,25.54,4,peepee poopoo,112.36,10,Robinson  Robinson,86.82
+2020,13,76,1,West Goosington Fancy Boys,WGFB,71.8,7,Team LKN Chillin',MARY,72.62,AWAY,NONE,False,0.82,7,Team LKN Chillin',72.62,1,West Goosington Fancy Boys,71.8
+2020,13,77,2,Julio Let the Dogs Out,BROA,108.72,12,Big Blue,BLUE,99.92,HOME,NONE,False,8.8,2,Julio Let the Dogs Out,108.72,12,Big Blue,99.92
+2020,13,78,9,LR Ballhawks *,Ross,96.18,5,R.G.3rd String  QB,RG3,113.7,AWAY,NONE,False,17.52,5,R.G.3rd String  QB,113.7,9,LR Ballhawks *,96.18
+2020,14,79,8,Team Big MO Fan105.7,BILL,110.34,3,Boocaracha Broache,BOOC,134.5,AWAY,NONE,False,24.16,3,Boocaracha Broache,134.5,8,Team Big MO Fan105.7,110.34
+2020,14,80,6,Wild Blue Yanda,YAND,87.16,4,peepee poopoo,PPPP,70.66,HOME,NONE,False,16.5,6,Wild Blue Yanda,87.16,4,peepee poopoo,70.66
+2020,14,81,10,Robinson  Robinson,ROBI,109.96,1,West Goosington Fancy Boys,WGFB,109.88,HOME,NONE,False,0.08,10,Robinson  Robinson,109.96,1,West Goosington Fancy Boys,109.88
+2020,14,82,7,Team LKN Chillin',MARY,84.32,2,Julio Let the Dogs Out,BROA,108.84,AWAY,NONE,False,24.52,2,Julio Let the Dogs Out,108.84,7,Team LKN Chillin',84.32
+2020,14,83,12,Big Blue,BLUE,106.86,9,LR Ballhawks *,Ross,91.82,HOME,NONE,False,15.04,12,Big Blue,106.86,9,LR Ballhawks *,91.82
+2020,14,84,5,R.G.3rd String  QB,RG3,149.42,11,Team PrincessGrandma,PG,67.3,HOME,NONE,False,82.12,5,R.G.3rd String  QB,149.42,11,Team PrincessGrandma,67.3
+2020,15,85,5,R.G.3rd String  QB,RG3,131.36,3,Boocaracha Broache,BOOC,92.42,HOME,WINNERS_BRACKET,True,38.94,5,R.G.3rd String  QB,131.36,3,Boocaracha Broache,92.42
+2020,15,86,2,Julio Let the Dogs Out,BROA,101.74,6,Wild Blue Yanda,YAND,104.12,AWAY,WINNERS_BRACKET,True,2.38,6,Wild Blue Yanda,104.12,2,Julio Let the Dogs Out,101.74
+2020,15,87,10,Robinson  Robinson,ROBI,97.94,8,Team Big MO Fan105.7,BILL,109.4,AWAY,LOSERS_CONSOLATION_LADDER,True,11.46,8,Team Big MO Fan105.7,109.4,10,Robinson  Robinson,97.94
+2020,15,88,7,Team LKN Chillin',MARY,94.36,4,peepee poopoo,PPPP,87.86,HOME,LOSERS_CONSOLATION_LADDER,True,6.5,7,Team LKN Chillin',94.36,4,peepee poopoo,87.86
+2020,15,89,1,West Goosington Fancy Boys,WGFB,71.5,9,LR Ballhawks *,Ross,83.52,AWAY,LOSERS_CONSOLATION_LADDER,True,12.02,9,LR Ballhawks *,83.52,1,West Goosington Fancy Boys,71.5
+2020,15,90,11,Team PrincessGrandma,PG,141.24,12,Big Blue,BLUE,120.92,HOME,LOSERS_CONSOLATION_LADDER,True,20.32,11,Team PrincessGrandma,141.24,12,Big Blue,120.92
+2020,16,91,5,R.G.3rd String  QB,RG3,113.5,6,Wild Blue Yanda,YAND,141.76,AWAY,WINNERS_BRACKET,True,28.26,6,Wild Blue Yanda,141.76,5,R.G.3rd String  QB,113.5
+2020,16,92,2,Julio Let the Dogs Out,BROA,140.28,3,Boocaracha Broache,BOOC,112.74,HOME,WINNERS_CONSOLATION_LADDER,True,27.54,2,Julio Let the Dogs Out,140.28,3,Boocaracha Broache,112.74
+2020,16,93,8,Team Big MO Fan105.7,BILL,70.9,7,Team LKN Chillin',MARY,88.52,AWAY,LOSERS_CONSOLATION_LADDER,True,17.62,7,Team LKN Chillin',88.52,8,Team Big MO Fan105.7,70.9
+2020,16,94,10,Robinson  Robinson,ROBI,111.38,9,LR Ballhawks *,Ross,89.42,HOME,LOSERS_CONSOLATION_LADDER,True,21.96,10,Robinson  Robinson,111.38,9,LR Ballhawks *,89.42
+2020,16,95,4,peepee poopoo,PPPP,70.76,11,Team PrincessGrandma,PG,121.34,AWAY,LOSERS_CONSOLATION_LADDER,True,50.58,11,Team PrincessGrandma,121.34,4,peepee poopoo,70.76
+2020,16,96,1,West Goosington Fancy Boys,WGFB,105.34,12,Big Blue,BLUE,91.6,HOME,LOSERS_CONSOLATION_LADDER,True,13.74,1,West Goosington Fancy Boys,105.34,12,Big Blue,91.6
+2021,1,1,11,Team PrincessGrandma,PG,109.78,6,Wild Blue Yanda,YAND,111.14,AWAY,NONE,False,1.36,6,Wild Blue Yanda,111.14,11,Team PrincessGrandma,109.78
+2021,1,2,1,The Titanic,SAD,116.38,2,Julio Let the Dogs Out,BROA,105.4,HOME,NONE,False,10.98,1,The Titanic,116.38,2,Julio Let the Dogs Out,105.4
+2021,1,3,8,More Than A  Thielen,BILL,112.76,7,Team LKN Chillin',MARY,107.46,HOME,NONE,False,5.3,8,More Than A  Thielen,112.76,7,Team LKN Chillin',107.46
+2021,1,4,3,Boocaracha Broache,BOOC,108.72,4,CeeDee Cee Guidelines,CDC,126.46,AWAY,NONE,False,17.74,4,CeeDee Cee Guidelines,126.46,3,Boocaracha Broache,108.72
+2021,1,5,5,Baskin Dobbins,RB1,132.02,12,Big Blue,BLUE,127.78,HOME,NONE,False,4.24,5,Baskin Dobbins,132.02,12,Big Blue,127.78
+2021,2,6,2,Julio Let the Dogs Out,BROA,133.96,7,Team LKN Chillin',MARY,117.6,HOME,NONE,False,16.36,2,Julio Let the Dogs Out,133.96,7,Team LKN Chillin',117.6
+2021,2,7,4,CeeDee Cee Guidelines,CDC,100.52,11,Team PrincessGrandma,PG,136.12,AWAY,NONE,False,35.6,11,Team PrincessGrandma,136.12,4,CeeDee Cee Guidelines,100.52
+2021,2,8,12,Big Blue,BLUE,110.92,6,Wild Blue Yanda,YAND,136.56,AWAY,NONE,False,25.64,6,Wild Blue Yanda,136.56,12,Big Blue,110.92
+2021,2,9,3,Boocaracha Broache,BOOC,98.0,1,The Titanic,SAD,89.92,HOME,NONE,False,8.08,3,Boocaracha Broache,98.0,1,The Titanic,89.92
+2021,2,10,5,Baskin Dobbins,RB1,125.18,8,More Than A  Thielen,BILL,128.34,AWAY,NONE,False,3.16,8,More Than A  Thielen,128.34,5,Baskin Dobbins,125.18
+2021,3,11,4,CeeDee Cee Guidelines,CDC,76.82,12,Big Blue,BLUE,127.04,AWAY,NONE,False,50.22,12,Big Blue,127.04,4,CeeDee Cee Guidelines,76.82
+2021,3,12,2,Julio Let the Dogs Out,BROA,149.72,3,Boocaracha Broache,BOOC,100.34,HOME,NONE,False,49.38,2,Julio Let the Dogs Out,149.72,3,Boocaracha Broache,100.34
+2021,3,13,7,Team LKN Chillin',MARY,82.24,5,Baskin Dobbins,RB1,100.62,AWAY,NONE,False,18.38,5,Baskin Dobbins,100.62,7,Team LKN Chillin',82.24
+2021,3,14,11,Team PrincessGrandma,PG,122.3,1,The Titanic,SAD,103.74,HOME,NONE,False,18.56,11,Team PrincessGrandma,122.3,1,The Titanic,103.74
+2021,3,15,6,Wild Blue Yanda,YAND,101.78,8,More Than A  Thielen,BILL,118.08,AWAY,NONE,False,16.3,8,More Than A  Thielen,118.08,6,Wild Blue Yanda,101.78
+2021,4,16,3,Boocaracha Broache,BOOC,169.62,5,Baskin Dobbins,RB1,138.32,HOME,NONE,False,31.3,3,Boocaracha Broache,169.62,5,Baskin Dobbins,138.32
+2021,4,17,1,The Titanic,SAD,80.14,4,CeeDee Cee Guidelines,CDC,86.76,AWAY,NONE,False,6.62,4,CeeDee Cee Guidelines,86.76,1,The Titanic,80.14
+2021,4,18,8,More Than A  Thielen,BILL,62.86,12,Big Blue,BLUE,107.98,AWAY,NONE,False,45.12,12,Big Blue,107.98,8,More Than A  Thielen,62.86
+2021,4,19,11,Team PrincessGrandma,PG,100.72,2,Julio Let the Dogs Out,BROA,123.02,AWAY,NONE,False,22.3,2,Julio Let the Dogs Out,123.02,11,Team PrincessGrandma,100.72
+2021,4,20,6,Wild Blue Yanda,YAND,105.04,7,Team LKN Chillin',MARY,119.12,AWAY,NONE,False,14.08,7,Team LKN Chillin',119.12,6,Wild Blue Yanda,105.04
+2021,5,21,1,The Titanic,SAD,83.6,8,More Than A  Thielen,BILL,153.84,AWAY,NONE,False,70.24,8,More Than A  Thielen,153.84,1,The Titanic,83.6
+2021,5,22,3,Boocaracha Broache,BOOC,112.36,11,Team PrincessGrandma,PG,133.98,AWAY,NONE,False,21.62,11,Team PrincessGrandma,133.98,3,Boocaracha Broache,112.36
+2021,5,23,5,Baskin Dobbins,RB1,140.38,6,Wild Blue Yanda,YAND,156.18,AWAY,NONE,False,15.8,6,Wild Blue Yanda,156.18,5,Baskin Dobbins,140.38
+2021,5,24,4,CeeDee Cee Guidelines,CDC,98.28,2,Julio Let the Dogs Out,BROA,107.3,AWAY,NONE,False,9.02,2,Julio Let the Dogs Out,107.3,4,CeeDee Cee Guidelines,98.28
+2021,5,25,12,Big Blue,BLUE,153.72,7,Team LKN Chillin',MARY,131.46,HOME,NONE,False,22.26,12,Big Blue,153.72,7,Team LKN Chillin',131.46
+2021,6,26,6,Wild Blue Yanda,YAND,101.78,2,Julio Let the Dogs Out,BROA,99.72,HOME,NONE,False,2.06,6,Wild Blue Yanda,101.78,2,Julio Let the Dogs Out,99.72
+2021,6,27,7,Team LKN Chillin',MARY,108.96,4,CeeDee Cee Guidelines,CDC,144.18,AWAY,NONE,False,35.22,4,CeeDee Cee Guidelines,144.18,7,Team LKN Chillin',108.96
+2021,6,28,12,Big Blue,BLUE,78.3,3,Boocaracha Broache,BOOC,106.7,AWAY,NONE,False,28.4,3,Boocaracha Broache,106.7,12,Big Blue,78.3
+2021,6,29,5,Baskin Dobbins,RB1,123.6,1,The Titanic,SAD,106.62,HOME,NONE,False,16.98,5,Baskin Dobbins,123.6,1,The Titanic,106.62
+2021,6,30,8,More Than A  Thielen,BILL,135.68,11,Team PrincessGrandma,PG,100.58,HOME,NONE,False,35.1,8,More Than A  Thielen,135.68,11,Team PrincessGrandma,100.58
+2021,7,31,4,CeeDee Cee Guidelines,CDC,93.72,6,Wild Blue Yanda,YAND,111.08,AWAY,NONE,False,17.36,6,Wild Blue Yanda,111.08,4,CeeDee Cee Guidelines,93.72
+2021,7,32,3,Boocaracha Broache,BOOC,91.06,7,Team LKN Chillin',MARY,136.64,AWAY,NONE,False,45.58,7,Team LKN Chillin',136.64,3,Boocaracha Broache,91.06
+2021,7,33,1,The Titanic,SAD,118.92,12,Big Blue,BLUE,86.78,HOME,NONE,False,32.14,1,The Titanic,118.92,12,Big Blue,86.78
+2021,7,34,11,Team PrincessGrandma,PG,137.34,5,Baskin Dobbins,RB1,70.8,HOME,NONE,False,66.54,11,Team PrincessGrandma,137.34,5,Baskin Dobbins,70.8
+2021,7,35,2,Julio Let the Dogs Out,BROA,94.44,8,More Than A  Thielen,BILL,121.14,AWAY,NONE,False,26.7,8,More Than A  Thielen,121.14,2,Julio Let the Dogs Out,94.44
+2021,8,36,6,Wild Blue Yanda,YAND,82.86,3,Boocaracha Broache,BOOC,98.96,AWAY,NONE,False,16.1,3,Boocaracha Broache,98.96,6,Wild Blue Yanda,82.86
+2021,8,37,7,Team LKN Chillin',MARY,90.96,1,The Titanic,SAD,84.04,HOME,NONE,False,6.92,7,Team LKN Chillin',90.96,1,The Titanic,84.04
+2021,8,38,12,Big Blue,BLUE,92.42,11,Team PrincessGrandma,PG,89.2,HOME,NONE,False,3.22,12,Big Blue,92.42,11,Team PrincessGrandma,89.2
+2021,8,39,5,Baskin Dobbins,RB1,95.96,2,Julio Let the Dogs Out,BROA,133.26,AWAY,NONE,False,37.3,2,Julio Let the Dogs Out,133.26,5,Baskin Dobbins,95.96
+2021,8,40,8,More Than A  Thielen,BILL,92.0,4,CeeDee Cee Guidelines,CDC,117.0,AWAY,NONE,False,25.0,4,CeeDee Cee Guidelines,117.0,8,More Than A  Thielen,92.0
+2021,9,41,1,The Titanic,SAD,115.34,6,Wild Blue Yanda,YAND,117.24,AWAY,NONE,False,1.9,6,Wild Blue Yanda,117.24,1,The Titanic,115.34
+2021,9,42,11,Team PrincessGrandma,PG,51.64,3,Boocaracha Broache,BOOC,77.58,AWAY,NONE,False,25.94,3,Boocaracha Broache,77.58,11,Team PrincessGrandma,51.64
+2021,9,43,7,Team LKN Chillin',MARY,103.56,8,More Than A  Thielen,BILL,84.58,HOME,NONE,False,18.98,7,Team LKN Chillin',103.56,8,More Than A  Thielen,84.58
+2021,9,44,2,Julio Let the Dogs Out,BROA,64.66,4,CeeDee Cee Guidelines,CDC,110.48,AWAY,NONE,False,45.82,4,CeeDee Cee Guidelines,110.48,2,Julio Let the Dogs Out,64.66
+2021,9,45,12,Big Blue,BLUE,115.14,5,Baskin Dobbins,RB1,61.48,HOME,NONE,False,53.66,12,Big Blue,115.14,5,Baskin Dobbins,61.48
+2021,10,46,11,Team PrincessGrandma,PG,118.44,7,Team LKN Chillin',MARY,73.22,HOME,NONE,False,45.22,11,Team PrincessGrandma,118.44,7,Team LKN Chillin',73.22
+2021,10,47,2,Julio Let the Dogs Out,BROA,89.2,1,The Titanic,SAD,113.84,AWAY,NONE,False,24.64,1,The Titanic,113.84,2,Julio Let the Dogs Out,89.2
+2021,10,48,6,Wild Blue Yanda,YAND,119.42,12,Big Blue,BLUE,90.7,HOME,NONE,False,28.72,6,Wild Blue Yanda,119.42,12,Big Blue,90.7
+2021,10,49,4,CeeDee Cee Guidelines,CDC,113.96,3,Boocaracha Broache,BOOC,64.98,HOME,NONE,False,48.98,4,CeeDee Cee Guidelines,113.96,3,Boocaracha Broache,64.98
+2021,10,50,8,More Than A  Thielen,BILL,87.1,5,Baskin Dobbins,RB1,71.04,HOME,NONE,False,16.06,8,More Than A  Thielen,87.1,5,Baskin Dobbins,71.04
+2021,11,51,2,Julio Let the Dogs Out,BROA,116.76,12,Big Blue,BLUE,121.28,AWAY,NONE,False,4.52,12,Big Blue,121.28,2,Julio Let the Dogs Out,116.76
+2021,11,52,11,Team PrincessGrandma,PG,106.3,4,CeeDee Cee Guidelines,CDC,91.58,HOME,NONE,False,14.72,11,Team PrincessGrandma,106.3,4,CeeDee Cee Guidelines,91.58
+2021,11,53,5,Baskin Dobbins,RB1,103.34,7,Team LKN Chillin',MARY,105.42,AWAY,NONE,False,2.08,7,Team LKN Chillin',105.42,5,Baskin Dobbins,103.34
+2021,11,54,1,The Titanic,SAD,92.42,3,Boocaracha Broache,BOOC,118.4,AWAY,NONE,False,25.98,3,Boocaracha Broache,118.4,1,The Titanic,92.42
+2021,11,55,8,More Than A  Thielen,BILL,116.98,6,Wild Blue Yanda,YAND,127.46,AWAY,NONE,False,10.48,6,Wild Blue Yanda,127.46,8,More Than A  Thielen,116.98
+2021,12,56,4,CeeDee Cee Guidelines,CDC,116.58,5,Baskin Dobbins,RB1,80.8,HOME,NONE,False,35.78,4,CeeDee Cee Guidelines,116.58,5,Baskin Dobbins,80.8
+2021,12,57,3,Boocaracha Broache,BOOC,104.88,2,Julio Let the Dogs Out,BROA,101.0,HOME,NONE,False,3.88,3,Boocaracha Broache,104.88,2,Julio Let the Dogs Out,101.0
+2021,12,58,12,Big Blue,BLUE,131.82,8,More Than A  Thielen,BILL,68.84,HOME,NONE,False,62.98,12,Big Blue,131.82,8,More Than A  Thielen,68.84
+2021,12,59,1,The Titanic,SAD,93.02,11,Team PrincessGrandma,PG,122.8,AWAY,NONE,False,29.78,11,Team PrincessGrandma,122.8,1,The Titanic,93.02
+2021,12,60,7,Team LKN Chillin',MARY,102.88,6,Wild Blue Yanda,YAND,82.86,HOME,NONE,False,20.02,7,Team LKN Chillin',102.88,6,Wild Blue Yanda,82.86
+2021,13,61,3,Boocaracha Broache,BOOC,88.54,8,More Than A  Thielen,BILL,96.62,AWAY,NONE,False,8.08,8,More Than A  Thielen,96.62,3,Boocaracha Broache,88.54
+2021,13,62,4,CeeDee Cee Guidelines,CDC,116.24,1,The Titanic,SAD,132.16,AWAY,NONE,False,15.92,1,The Titanic,132.16,4,CeeDee Cee Guidelines,116.24
+2021,13,63,6,Wild Blue Yanda,YAND,143.52,5,Baskin Dobbins,RB1,73.12,HOME,NONE,False,70.4,6,Wild Blue Yanda,143.52,5,Baskin Dobbins,73.12
+2021,13,64,2,Julio Let the Dogs Out,BROA,92.9,11,Team PrincessGrandma,PG,101.26,AWAY,NONE,False,8.36,11,Team PrincessGrandma,101.26,2,Julio Let the Dogs Out,92.9
+2021,13,65,7,Team LKN Chillin',MARY,155.82,12,Big Blue,BLUE,118.58,HOME,NONE,False,37.24,7,Team LKN Chillin',155.82,12,Big Blue,118.58
+2021,14,66,6,Wild Blue Yanda,YAND,106.48,11,Team PrincessGrandma,PG,131.82,AWAY,NONE,False,25.34,11,Team PrincessGrandma,131.82,6,Wild Blue Yanda,106.48
+2021,14,67,7,Team LKN Chillin',MARY,110.52,2,Julio Let the Dogs Out,BROA,93.02,HOME,NONE,False,17.5,7,Team LKN Chillin',110.52,2,Julio Let the Dogs Out,93.02
+2021,14,68,12,Big Blue,BLUE,117.4,4,CeeDee Cee Guidelines,CDC,96.2,HOME,NONE,False,21.2,12,Big Blue,117.4,4,CeeDee Cee Guidelines,96.2
+2021,14,69,5,Baskin Dobbins,RB1,103.54,3,Boocaracha Broache,BOOC,123.84,AWAY,NONE,False,20.3,3,Boocaracha Broache,123.84,5,Baskin Dobbins,103.54
+2021,14,70,8,More Than A  Thielen,BILL,118.92,1,The Titanic,SAD,112.42,HOME,NONE,False,6.5,8,More Than A  Thielen,118.92,1,The Titanic,112.42
+2021,15,71,6,Wild Blue Yanda,YAND,124.14,12,Big Blue,BLUE,83.64,HOME,WINNERS_BRACKET,True,40.5,6,Wild Blue Yanda,124.14,12,Big Blue,83.64
+2021,15,72,11,Team PrincessGrandma,PG,110.9,8,More Than A  Thielen,BILL,92.36,HOME,WINNERS_BRACKET,True,18.54,11,Team PrincessGrandma,110.9,8,More Than A  Thielen,92.36
+2021,15,73,7,Team LKN Chillin',MARY,64.38,3,Boocaracha Broache,BOOC,118.82,AWAY,LOSERS_CONSOLATION_LADDER,True,54.44,3,Boocaracha Broache,118.82,7,Team LKN Chillin',64.38
+2021,15,74,4,CeeDee Cee Guidelines,CDC,73.58,2,Julio Let the Dogs Out,BROA,80.2,AWAY,LOSERS_CONSOLATION_LADDER,True,6.62,2,Julio Let the Dogs Out,80.2,4,CeeDee Cee Guidelines,73.58
+2021,15,75,1,The Titanic,SAD,73.54,5,Baskin Dobbins,RB1,105.08,AWAY,LOSERS_CONSOLATION_LADDER,True,31.54,5,Baskin Dobbins,105.08,1,The Titanic,73.54
+2021,16,76,6,Wild Blue Yanda,YAND,133.06,11,Team PrincessGrandma,PG,109.12,HOME,WINNERS_BRACKET,True,23.94,6,Wild Blue Yanda,133.06,11,Team PrincessGrandma,109.12
+2021,16,77,8,More Than A  Thielen,BILL,111.58,12,Big Blue,BLUE,86.84,HOME,WINNERS_CONSOLATION_LADDER,True,24.74,8,More Than A  Thielen,111.58,12,Big Blue,86.84
+2021,16,78,3,Boocaracha Broache,BOOC,86.28,2,Julio Let the Dogs Out,BROA,69.86,HOME,LOSERS_CONSOLATION_LADDER,True,16.42,3,Boocaracha Broache,86.28,2,Julio Let the Dogs Out,69.86
+2021,16,79,7,Team LKN Chillin',MARY,116.5,5,Baskin Dobbins,RB1,137.5,AWAY,LOSERS_CONSOLATION_LADDER,True,21.0,5,Baskin Dobbins,137.5,7,Team LKN Chillin',116.5
+2021,16,80,4,CeeDee Cee Guidelines,CDC,89.8,1,The Titanic,SAD,91.96,AWAY,LOSERS_CONSOLATION_LADDER,True,2.16,1,The Titanic,91.96,4,CeeDee Cee Guidelines,89.8
+2022,1,1,11,Princess Grandma,PG,117.6,6,Wild Blue Yanda,YAND,120.16,AWAY,NONE,False,2.56,6,Wild Blue Yanda,120.16,11,Princess Grandma,117.6
+2022,1,2,1,Marlon  Humphrey's Cat,CAT,139.0,2,Julio Let the Dogs Out,BROA,99.28,HOME,NONE,False,39.72,1,Marlon  Humphrey's Cat,139.0,2,Julio Let the Dogs Out,99.28
+2022,1,3,8,More Than A  Thielen,BILL,105.12,7,LKN Ngata Chance,MARY,88.32,HOME,NONE,False,16.8,8,More Than A  Thielen,105.12,7,LKN Ngata Chance,88.32
+2022,1,4,3,Boocaracha Broache,BOOC,95.92,4,CeeDee Cee Guidelines,CDC,111.2,AWAY,NONE,False,15.28,4,CeeDee Cee Guidelines,111.2,3,Boocaracha Broache,95.92
+2022,1,5,5,Baskin Dobbins,RB1,87.56,12,Big Blue,BLUE,102.22,AWAY,NONE,False,14.66,12,Big Blue,102.22,5,Baskin Dobbins,87.56
+2022,2,6,2,Julio Let the Dogs Out,BROA,69.68,7,LKN Ngata Chance,MARY,123.08,AWAY,NONE,False,53.4,7,LKN Ngata Chance,123.08,2,Julio Let the Dogs Out,69.68
+2022,2,7,4,CeeDee Cee Guidelines,CDC,131.58,11,Princess Grandma,PG,141.4,AWAY,NONE,False,9.82,11,Princess Grandma,141.4,4,CeeDee Cee Guidelines,131.58
+2022,2,8,12,Big Blue,BLUE,99.76,6,Wild Blue Yanda,YAND,88.06,HOME,NONE,False,11.7,12,Big Blue,99.76,6,Wild Blue Yanda,88.06
+2022,2,9,3,Boocaracha Broache,BOOC,156.22,1,Marlon  Humphrey's Cat,CAT,102.16,HOME,NONE,False,54.06,3,Boocaracha Broache,156.22,1,Marlon  Humphrey's Cat,102.16
+2022,2,10,5,Baskin Dobbins,RB1,95.38,8,More Than A  Thielen,BILL,96.02,AWAY,NONE,False,0.64,8,More Than A  Thielen,96.02,5,Baskin Dobbins,95.38
+2022,3,11,4,CeeDee Cee Guidelines,CDC,86.86,12,Big Blue,BLUE,108.4,AWAY,NONE,False,21.54,12,Big Blue,108.4,4,CeeDee Cee Guidelines,86.86
+2022,3,12,2,Julio Let the Dogs Out,BROA,82.5,3,Boocaracha Broache,BOOC,127.12,AWAY,NONE,False,44.62,3,Boocaracha Broache,127.12,2,Julio Let the Dogs Out,82.5
+2022,3,13,7,LKN Ngata Chance,MARY,116.16,5,Baskin Dobbins,RB1,99.04,HOME,NONE,False,17.12,7,LKN Ngata Chance,116.16,5,Baskin Dobbins,99.04
+2022,3,14,11,Princess Grandma,PG,95.18,1,Marlon  Humphrey's Cat,CAT,96.56,AWAY,NONE,False,1.38,1,Marlon  Humphrey's Cat,96.56,11,Princess Grandma,95.18
+2022,3,15,6,Wild Blue Yanda,YAND,91.8,8,More Than A  Thielen,BILL,122.7,AWAY,NONE,False,30.9,8,More Than A  Thielen,122.7,6,Wild Blue Yanda,91.8
+2022,4,16,3,Boocaracha Broache,BOOC,137.76,5,Baskin Dobbins,RB1,134.12,HOME,NONE,False,3.64,3,Boocaracha Broache,137.76,5,Baskin Dobbins,134.12
+2022,4,17,1,Marlon  Humphrey's Cat,CAT,114.98,4,CeeDee Cee Guidelines,CDC,103.06,HOME,NONE,False,11.92,1,Marlon  Humphrey's Cat,114.98,4,CeeDee Cee Guidelines,103.06
+2022,4,18,8,More Than A  Thielen,BILL,87.06,12,Big Blue,BLUE,139.58,AWAY,NONE,False,52.52,12,Big Blue,139.58,8,More Than A  Thielen,87.06
+2022,4,19,11,Princess Grandma,PG,106.46,2,Julio Let the Dogs Out,BROA,85.82,HOME,NONE,False,20.64,11,Princess Grandma,106.46,2,Julio Let the Dogs Out,85.82
+2022,4,20,6,Wild Blue Yanda,YAND,106.7,7,LKN Ngata Chance,MARY,101.48,HOME,NONE,False,5.22,6,Wild Blue Yanda,106.7,7,LKN Ngata Chance,101.48
+2022,5,21,1,Marlon  Humphrey's Cat,CAT,108.84,8,More Than A  Thielen,BILL,119.76,AWAY,NONE,False,10.92,8,More Than A  Thielen,119.76,1,Marlon  Humphrey's Cat,108.84
+2022,5,22,3,Boocaracha Broache,BOOC,109.66,11,Princess Grandma,PG,134.08,AWAY,NONE,False,24.42,11,Princess Grandma,134.08,3,Boocaracha Broache,109.66
+2022,5,23,5,Baskin Dobbins,RB1,87.26,6,Wild Blue Yanda,YAND,125.62,AWAY,NONE,False,38.36,6,Wild Blue Yanda,125.62,5,Baskin Dobbins,87.26
+2022,5,24,4,CeeDee Cee Guidelines,CDC,100.34,2,Julio Let the Dogs Out,BROA,107.86,AWAY,NONE,False,7.52,2,Julio Let the Dogs Out,107.86,4,CeeDee Cee Guidelines,100.34
+2022,5,25,12,Big Blue,BLUE,116.48,7,LKN Ngata Chance,MARY,106.8,HOME,NONE,False,9.68,12,Big Blue,116.48,7,LKN Ngata Chance,106.8
+2022,6,26,6,Wild Blue Yanda,YAND,104.82,2,Julio Let the Dogs Out,BROA,125.76,AWAY,NONE,False,20.94,2,Julio Let the Dogs Out,125.76,6,Wild Blue Yanda,104.82
+2022,6,27,7,LKN Ngata Chance,MARY,97.58,4,CeeDee Cee Guidelines,CDC,85.62,HOME,NONE,False,11.96,7,LKN Ngata Chance,97.58,4,CeeDee Cee Guidelines,85.62
+2022,6,28,12,Big Blue,BLUE,106.0,3,Boocaracha Broache,BOOC,107.2,AWAY,NONE,False,1.2,3,Boocaracha Broache,107.2,12,Big Blue,106.0
+2022,6,29,5,Baskin Dobbins,RB1,69.3,1,Marlon  Humphrey's Cat,CAT,111.56,AWAY,NONE,False,42.26,1,Marlon  Humphrey's Cat,111.56,5,Baskin Dobbins,69.3
+2022,6,30,8,More Than A  Thielen,BILL,104.9,11,Princess Grandma,PG,101.32,HOME,NONE,False,3.58,8,More Than A  Thielen,104.9,11,Princess Grandma,101.32
+2022,7,31,4,CeeDee Cee Guidelines,CDC,87.32,6,Wild Blue Yanda,YAND,79.12,HOME,NONE,False,8.2,4,CeeDee Cee Guidelines,87.32,6,Wild Blue Yanda,79.12
+2022,7,32,3,Boocaracha Broache,BOOC,104.3,7,LKN Ngata Chance,MARY,75.56,HOME,NONE,False,28.74,3,Boocaracha Broache,104.3,7,LKN Ngata Chance,75.56
+2022,7,33,1,Marlon  Humphrey's Cat,CAT,83.5,12,Big Blue,BLUE,141.94,AWAY,NONE,False,58.44,12,Big Blue,141.94,1,Marlon  Humphrey's Cat,83.5
+2022,7,34,11,Princess Grandma,PG,116.32,5,Baskin Dobbins,RB1,81.18,HOME,NONE,False,35.14,11,Princess Grandma,116.32,5,Baskin Dobbins,81.18
+2022,7,35,2,Julio Let the Dogs Out,BROA,123.2,8,More Than A  Thielen,BILL,105.04,HOME,NONE,False,18.16,2,Julio Let the Dogs Out,123.2,8,More Than A  Thielen,105.04
+2022,8,36,6,Wild Blue Yanda,YAND,78.18,3,Boocaracha Broache,BOOC,149.82,AWAY,NONE,False,71.64,3,Boocaracha Broache,149.82,6,Wild Blue Yanda,78.18
+2022,8,37,7,LKN Ngata Chance,MARY,107.24,1,Marlon  Humphrey's Cat,CAT,159.94,AWAY,NONE,False,52.7,1,Marlon  Humphrey's Cat,159.94,7,LKN Ngata Chance,107.24
+2022,8,38,12,Big Blue,BLUE,102.98,11,Princess Grandma,PG,119.68,AWAY,NONE,False,16.7,11,Princess Grandma,119.68,12,Big Blue,102.98
+2022,8,39,5,Baskin Dobbins,RB1,91.54,2,Julio Let the Dogs Out,BROA,130.02,AWAY,NONE,False,38.48,2,Julio Let the Dogs Out,130.02,5,Baskin Dobbins,91.54
+2022,8,40,8,More Than A  Thielen,BILL,126.5,4,CeeDee Cee Guidelines,CDC,109.2,HOME,NONE,False,17.3,8,More Than A  Thielen,126.5,4,CeeDee Cee Guidelines,109.2
+2022,9,41,1,Marlon  Humphrey's Cat,CAT,88.92,6,Wild Blue Yanda,YAND,127.2,AWAY,NONE,False,38.28,6,Wild Blue Yanda,127.2,1,Marlon  Humphrey's Cat,88.92
+2022,9,42,11,Princess Grandma,PG,133.74,3,Boocaracha Broache,BOOC,103.32,HOME,NONE,False,30.42,11,Princess Grandma,133.74,3,Boocaracha Broache,103.32
+2022,9,43,7,LKN Ngata Chance,MARY,94.1,8,More Than A  Thielen,BILL,126.02,AWAY,NONE,False,31.92,8,More Than A  Thielen,126.02,7,LKN Ngata Chance,94.1
+2022,9,44,2,Julio Let the Dogs Out,BROA,94.1,4,CeeDee Cee Guidelines,CDC,90.6,HOME,NONE,False,3.5,2,Julio Let the Dogs Out,94.1,4,CeeDee Cee Guidelines,90.6
+2022,9,45,12,Big Blue,BLUE,115.04,5,Baskin Dobbins,RB1,80.44,HOME,NONE,False,34.6,12,Big Blue,115.04,5,Baskin Dobbins,80.44
+2022,10,46,11,Princess Grandma,PG,95.54,7,LKN Ngata Chance,MARY,72.08,HOME,NONE,False,23.46,11,Princess Grandma,95.54,7,LKN Ngata Chance,72.08
+2022,10,47,2,Julio Let the Dogs Out,BROA,63.6,1,Marlon  Humphrey's Cat,CAT,106.82,AWAY,NONE,False,43.22,1,Marlon  Humphrey's Cat,106.82,2,Julio Let the Dogs Out,63.6
+2022,10,48,6,Wild Blue Yanda,YAND,126.68,12,Big Blue,BLUE,79.82,HOME,NONE,False,46.86,6,Wild Blue Yanda,126.68,12,Big Blue,79.82
+2022,10,49,4,CeeDee Cee Guidelines,CDC,109.48,3,Boocaracha Broache,BOOC,128.24,AWAY,NONE,False,18.76,3,Boocaracha Broache,128.24,4,CeeDee Cee Guidelines,109.48
+2022,10,50,8,More Than A  Thielen,BILL,119.0,5,Baskin Dobbins,RB1,92.3,HOME,NONE,False,26.7,8,More Than A  Thielen,119.0,5,Baskin Dobbins,92.3
+2022,11,51,2,Julio Let the Dogs Out,BROA,97.08,12,Big Blue,BLUE,102.7,AWAY,NONE,False,5.62,12,Big Blue,102.7,2,Julio Let the Dogs Out,97.08
+2022,11,52,11,Princess Grandma,PG,103.52,4,CeeDee Cee Guidelines,CDC,76.4,HOME,NONE,False,27.12,11,Princess Grandma,103.52,4,CeeDee Cee Guidelines,76.4
+2022,11,53,5,Baskin Dobbins,RB1,116.54,7,LKN Ngata Chance,MARY,85.44,HOME,NONE,False,31.1,5,Baskin Dobbins,116.54,7,LKN Ngata Chance,85.44
+2022,11,54,1,Marlon  Humphrey's Cat,CAT,85.34,3,Boocaracha Broache,BOOC,128.36,AWAY,NONE,False,43.02,3,Boocaracha Broache,128.36,1,Marlon  Humphrey's Cat,85.34
+2022,11,55,8,More Than A  Thielen,BILL,100.8,6,Wild Blue Yanda,YAND,130.82,AWAY,NONE,False,30.02,6,Wild Blue Yanda,130.82,8,More Than A  Thielen,100.8
+2022,12,56,4,CeeDee Cee Guidelines,CDC,136.2,5,Baskin Dobbins,RB1,79.04,HOME,NONE,False,57.16,4,CeeDee Cee Guidelines,136.2,5,Baskin Dobbins,79.04
+2022,12,57,3,Boocaracha Broache,BOOC,140.96,2,Julio Let the Dogs Out,BROA,72.42,HOME,NONE,False,68.54,3,Boocaracha Broache,140.96,2,Julio Let the Dogs Out,72.42
+2022,12,58,12,Big Blue,BLUE,113.0,8,More Than A  Thielen,BILL,107.82,HOME,NONE,False,5.18,12,Big Blue,113.0,8,More Than A  Thielen,107.82
+2022,12,59,1,Marlon  Humphrey's Cat,CAT,94.54,11,Princess Grandma,PG,116.4,AWAY,NONE,False,21.86,11,Princess Grandma,116.4,1,Marlon  Humphrey's Cat,94.54
+2022,12,60,7,LKN Ngata Chance,MARY,143.64,6,Wild Blue Yanda,YAND,132.36,HOME,NONE,False,11.28,7,LKN Ngata Chance,143.64,6,Wild Blue Yanda,132.36
+2022,13,61,3,Boocaracha Broache,BOOC,109.74,8,More Than A  Thielen,BILL,144.6,AWAY,NONE,False,34.86,8,More Than A  Thielen,144.6,3,Boocaracha Broache,109.74
+2022,13,62,4,CeeDee Cee Guidelines,CDC,86.22,1,Marlon  Humphrey's Cat,CAT,140.54,AWAY,NONE,False,54.32,1,Marlon  Humphrey's Cat,140.54,4,CeeDee Cee Guidelines,86.22
+2022,13,63,6,Wild Blue Yanda,YAND,110.0,5,Baskin Dobbins,RB1,93.9,HOME,NONE,False,16.1,6,Wild Blue Yanda,110.0,5,Baskin Dobbins,93.9
+2022,13,64,2,Julio Let the Dogs Out,BROA,108.92,11,Princess Grandma,PG,96.82,HOME,NONE,False,12.1,2,Julio Let the Dogs Out,108.92,11,Princess Grandma,96.82
+2022,13,65,7,LKN Ngata Chance,MARY,125.16,12,Big Blue,BLUE,103.64,HOME,NONE,False,21.52,7,LKN Ngata Chance,125.16,12,Big Blue,103.64
+2022,14,66,6,Wild Blue Yanda,YAND,97.58,11,Princess Grandma,PG,101.98,AWAY,NONE,False,4.4,11,Princess Grandma,101.98,6,Wild Blue Yanda,97.58
+2022,14,67,7,LKN Ngata Chance,MARY,79.36,2,Julio Let the Dogs Out,BROA,88.18,AWAY,NONE,False,8.82,2,Julio Let the Dogs Out,88.18,7,LKN Ngata Chance,79.36
+2022,14,68,12,Big Blue,BLUE,72.06,4,CeeDee Cee Guidelines,CDC,102.6,AWAY,NONE,False,30.54,4,CeeDee Cee Guidelines,102.6,12,Big Blue,72.06
+2022,14,69,5,Baskin Dobbins,RB1,122.56,3,Boocaracha Broache,BOOC,105.92,HOME,NONE,False,16.64,5,Baskin Dobbins,122.56,3,Boocaracha Broache,105.92
+2022,14,70,8,More Than A  Thielen,BILL,100.08,1,Marlon  Humphrey's Cat,CAT,137.1,AWAY,NONE,False,37.02,1,Marlon  Humphrey's Cat,137.1,8,More Than A  Thielen,100.08
+2022,15,71,11,Princess Grandma,PG,127.24,12,Big Blue,BLUE,123.2,HOME,WINNERS_BRACKET,True,4.04,11,Princess Grandma,127.24,12,Big Blue,123.2
+2022,15,72,8,More Than A  Thielen,BILL,110.9,3,Boocaracha Broache,BOOC,89.66,HOME,WINNERS_BRACKET,True,21.24,8,More Than A  Thielen,110.9,3,Boocaracha Broache,89.66
+2022,15,73,1,Marlon  Humphrey's Cat,CAT,123.98,6,Wild Blue Yanda,YAND,89.28,HOME,LOSERS_CONSOLATION_LADDER,True,34.7,1,Marlon  Humphrey's Cat,123.98,6,Wild Blue Yanda,89.28
+2022,15,74,2,Julio Let the Dogs Out,BROA,150.86,7,LKN Ngata Chance,MARY,86.38,HOME,LOSERS_CONSOLATION_LADDER,True,64.48,2,Julio Let the Dogs Out,150.86,7,LKN Ngata Chance,86.38
+2022,15,75,4,CeeDee Cee Guidelines,CDC,117.7,5,Baskin Dobbins,RB1,92.04,HOME,LOSERS_CONSOLATION_LADDER,True,25.66,4,CeeDee Cee Guidelines,117.7,5,Baskin Dobbins,92.04
+2022,16,76,11,Princess Grandma,PG,80.76,8,More Than A  Thielen,BILL,87.9,AWAY,WINNERS_BRACKET,True,7.14,8,More Than A  Thielen,87.9,11,Princess Grandma,80.76
+2022,16,77,3,Boocaracha Broache,BOOC,99.32,12,Big Blue,BLUE,114.4,AWAY,WINNERS_CONSOLATION_LADDER,True,15.08,12,Big Blue,114.4,3,Boocaracha Broache,99.32
+2022,16,78,1,Marlon  Humphrey's Cat,CAT,87.84,2,Julio Let the Dogs Out,BROA,112.98,AWAY,LOSERS_CONSOLATION_LADDER,True,25.14,2,Julio Let the Dogs Out,112.98,1,Marlon  Humphrey's Cat,87.84
+2022,16,79,6,Wild Blue Yanda,YAND,87.8,4,CeeDee Cee Guidelines,CDC,139.46,AWAY,LOSERS_CONSOLATION_LADDER,True,51.66,4,CeeDee Cee Guidelines,139.46,6,Wild Blue Yanda,87.8
+2022,16,80,7,LKN Ngata Chance,MARY,84.2,5,Baskin Dobbins,RB1,139.06,AWAY,LOSERS_CONSOLATION_LADDER,True,54.86,5,Baskin Dobbins,139.06,7,LKN Ngata Chance,84.2
+2023,1,1,11,Princess Grandma,PG,108.24,6,The Bam Belles,SPRO,55.88,HOME,NONE,False,52.36,11,Princess Grandma,108.24,6,The Bam Belles,55.88
+2023,1,2,1,Marlon  Humphrey's Cat,CAT,78.26,2,Julio Let the Dogs Out,BROA,99.54,AWAY,NONE,False,21.28,2,Julio Let the Dogs Out,99.54,1,Marlon  Humphrey's Cat,78.26
+2023,1,3,8,Slim Pickens,BILL,114.96,7, Ngata Chance,MARY,76.1,HOME,NONE,False,38.86,8,Slim Pickens,114.96,7, Ngata Chance,76.1
+2023,1,4,3,Boocaracha Broache,BOOC,113.6,4,White Ford Broncos,OJ,87.16,HOME,NONE,False,26.44,3,Boocaracha Broache,113.6,4,White Ford Broncos,87.16
+2023,1,5,5,Baskin Dobbins,RB1,125.84,12,Big Blue,BLUE,103.24,HOME,NONE,False,22.6,5,Baskin Dobbins,125.84,12,Big Blue,103.24
+2023,2,6,2,Julio Let the Dogs Out,BROA,107.96,7, Ngata Chance,MARY,93.72,HOME,NONE,False,14.24,2,Julio Let the Dogs Out,107.96,7, Ngata Chance,93.72
+2023,2,7,4,White Ford Broncos,OJ,85.0,11,Princess Grandma,PG,121.7,AWAY,NONE,False,36.7,11,Princess Grandma,121.7,4,White Ford Broncos,85.0
+2023,2,8,12,Big Blue,BLUE,114.74,6,The Bam Belles,SPRO,102.58,HOME,NONE,False,12.16,12,Big Blue,114.74,6,The Bam Belles,102.58
+2023,2,9,3,Boocaracha Broache,BOOC,109.52,1,Marlon  Humphrey's Cat,CAT,108.18,HOME,NONE,False,1.34,3,Boocaracha Broache,109.52,1,Marlon  Humphrey's Cat,108.18
+2023,2,10,5,Baskin Dobbins,RB1,76.64,8,Slim Pickens,BILL,100.8,AWAY,NONE,False,24.16,8,Slim Pickens,100.8,5,Baskin Dobbins,76.64
+2023,3,11,4,White Ford Broncos,OJ,125.36,12,Big Blue,BLUE,111.42,HOME,NONE,False,13.94,4,White Ford Broncos,125.36,12,Big Blue,111.42
+2023,3,12,2,Julio Let the Dogs Out,BROA,121.92,3,Boocaracha Broache,BOOC,100.2,HOME,NONE,False,21.72,2,Julio Let the Dogs Out,121.92,3,Boocaracha Broache,100.2
+2023,3,13,7, Ngata Chance,MARY,80.68,5,Baskin Dobbins,RB1,109.26,AWAY,NONE,False,28.58,5,Baskin Dobbins,109.26,7, Ngata Chance,80.68
+2023,3,14,11,Princess Grandma,PG,136.48,1,Marlon  Humphrey's Cat,CAT,129.28,HOME,NONE,False,7.2,11,Princess Grandma,136.48,1,Marlon  Humphrey's Cat,129.28
+2023,3,15,6,The Bam Belles,SPRO,69.06,8,Slim Pickens,BILL,110.8,AWAY,NONE,False,41.74,8,Slim Pickens,110.8,6,The Bam Belles,69.06
+2023,4,16,3,Boocaracha Broache,BOOC,107.32,5,Baskin Dobbins,RB1,118.1,AWAY,NONE,False,10.78,5,Baskin Dobbins,118.1,3,Boocaracha Broache,107.32
+2023,4,17,1,Marlon  Humphrey's Cat,CAT,156.14,4,White Ford Broncos,OJ,77.9,HOME,NONE,False,78.24,1,Marlon  Humphrey's Cat,156.14,4,White Ford Broncos,77.9
+2023,4,18,8,Slim Pickens,BILL,79.98,12,Big Blue,BLUE,103.7,AWAY,NONE,False,23.72,12,Big Blue,103.7,8,Slim Pickens,79.98
+2023,4,19,11,Princess Grandma,PG,82.42,2,Julio Let the Dogs Out,BROA,178.2,AWAY,NONE,False,95.78,2,Julio Let the Dogs Out,178.2,11,Princess Grandma,82.42
+2023,4,20,6,The Bam Belles,SPRO,63.08,7, Ngata Chance,MARY,79.76,AWAY,NONE,False,16.68,7, Ngata Chance,79.76,6,The Bam Belles,63.08
+2023,5,21,1,Marlon  Humphrey's Cat,CAT,98.44,8,Slim Pickens,BILL,85.66,HOME,NONE,False,12.78,1,Marlon  Humphrey's Cat,98.44,8,Slim Pickens,85.66
+2023,5,22,3,Boocaracha Broache,BOOC,135.68,11,Princess Grandma,PG,101.04,HOME,NONE,False,34.64,3,Boocaracha Broache,135.68,11,Princess Grandma,101.04
+2023,5,23,5,Baskin Dobbins,RB1,115.92,6,The Bam Belles,SPRO,92.38,HOME,NONE,False,23.54,5,Baskin Dobbins,115.92,6,The Bam Belles,92.38
+2023,5,24,4,White Ford Broncos,OJ,79.68,2,Julio Let the Dogs Out,BROA,105.66,AWAY,NONE,False,25.98,2,Julio Let the Dogs Out,105.66,4,White Ford Broncos,79.68
+2023,5,25,12,Big Blue,BLUE,106.28,7, Ngata Chance,MARY,149.22,AWAY,NONE,False,42.94,7, Ngata Chance,149.22,12,Big Blue,106.28
+2023,6,26,6,The Bam Belles,SPRO,105.48,2,Julio Let the Dogs Out,BROA,102.26,HOME,NONE,False,3.22,6,The Bam Belles,105.48,2,Julio Let the Dogs Out,102.26
+2023,6,27,7, Ngata Chance,MARY,122.7,4,White Ford Broncos,OJ,81.14,HOME,NONE,False,41.56,7, Ngata Chance,122.7,4,White Ford Broncos,81.14
+2023,6,28,12,Big Blue,BLUE,113.92,3,Boocaracha Broache,BOOC,109.3,HOME,NONE,False,4.62,12,Big Blue,113.92,3,Boocaracha Broache,109.3
+2023,6,29,5,Baskin Dobbins,RB1,100.54,1,Marlon  Humphrey's Cat,CAT,116.12,AWAY,NONE,False,15.58,1,Marlon  Humphrey's Cat,116.12,5,Baskin Dobbins,100.54
+2023,6,30,8,Slim Pickens,BILL,69.84,11,Princess Grandma,PG,86.94,AWAY,NONE,False,17.1,11,Princess Grandma,86.94,8,Slim Pickens,69.84
+2023,7,31,4,White Ford Broncos,OJ,102.44,6,The Bam Belles,SPRO,41.04,HOME,NONE,False,61.4,4,White Ford Broncos,102.44,6,The Bam Belles,41.04
+2023,7,32,3,Boocaracha Broache,BOOC,75.78,7, Ngata Chance,MARY,111.06,AWAY,NONE,False,35.28,7, Ngata Chance,111.06,3,Boocaracha Broache,75.78
+2023,7,33,1,Marlon  Humphrey's Cat,CAT,117.68,12,Big Blue,BLUE,88.0,HOME,NONE,False,29.68,1,Marlon  Humphrey's Cat,117.68,12,Big Blue,88.0
+2023,7,34,11,Princess Grandma,PG,128.26,5,Baskin Dobbins,RB1,99.06,HOME,NONE,False,29.2,11,Princess Grandma,128.26,5,Baskin Dobbins,99.06
+2023,7,35,2,Julio Let the Dogs Out,BROA,124.7,8,Slim Pickens,BILL,105.26,HOME,NONE,False,19.44,2,Julio Let the Dogs Out,124.7,8,Slim Pickens,105.26
+2023,8,36,6,The Bam Belles,SPRO,145.76,3,Boocaracha Broache,BOOC,98.2,HOME,NONE,False,47.56,6,The Bam Belles,145.76,3,Boocaracha Broache,98.2
+2023,8,37,7, Ngata Chance,MARY,108.56,1,Marlon  Humphrey's Cat,CAT,81.18,HOME,NONE,False,27.38,7, Ngata Chance,108.56,1,Marlon  Humphrey's Cat,81.18
+2023,8,38,12,Big Blue,BLUE,102.4,11,Princess Grandma,PG,56.3,HOME,NONE,False,46.1,12,Big Blue,102.4,11,Princess Grandma,56.3
+2023,8,39,5,Baskin Dobbins,RB1,114.88,2,Julio Let the Dogs Out,BROA,178.36,AWAY,NONE,False,63.48,2,Julio Let the Dogs Out,178.36,5,Baskin Dobbins,114.88
+2023,8,40,8,Slim Pickens,BILL,109.22,4,White Ford Broncos,OJ,89.88,HOME,NONE,False,19.34,8,Slim Pickens,109.22,4,White Ford Broncos,89.88
+2023,9,41,1,Marlon  Humphrey's Cat,CAT,97.28,6,The Bam Belles,SPRO,131.22,AWAY,NONE,False,33.94,6,The Bam Belles,131.22,1,Marlon  Humphrey's Cat,97.28
+2023,9,42,11,Princess Grandma,PG,83.4,3,Boocaracha Broache,BOOC,85.14,AWAY,NONE,False,1.74,3,Boocaracha Broache,85.14,11,Princess Grandma,83.4
+2023,9,43,7, Ngata Chance,MARY,96.98,8,Slim Pickens,BILL,95.04,HOME,NONE,False,1.94,7, Ngata Chance,96.98,8,Slim Pickens,95.04
+2023,9,44,2,Julio Let the Dogs Out,BROA,95.52,4,White Ford Broncos,OJ,41.5,HOME,NONE,False,54.02,2,Julio Let the Dogs Out,95.52,4,White Ford Broncos,41.5
+2023,9,45,12,Big Blue,BLUE,92.2,5,Baskin Dobbins,RB1,89.42,HOME,NONE,False,2.78,12,Big Blue,92.2,5,Baskin Dobbins,89.42
+2023,10,46,11,Princess Grandma,PG,127.26,7, Ngata Chance,MARY,90.66,HOME,NONE,False,36.6,11,Princess Grandma,127.26,7, Ngata Chance,90.66
+2023,10,47,2,Julio Let the Dogs Out,BROA,120.68,1,Marlon  Humphrey's Cat,CAT,118.12,HOME,NONE,False,2.56,2,Julio Let the Dogs Out,120.68,1,Marlon  Humphrey's Cat,118.12
+2023,10,48,6,The Bam Belles,SPRO,123.78,12,Big Blue,BLUE,123.24,HOME,NONE,False,0.54,6,The Bam Belles,123.78,12,Big Blue,123.24
+2023,10,49,4,White Ford Broncos,OJ,117.92,3,Boocaracha Broache,BOOC,91.24,HOME,NONE,False,26.68,4,White Ford Broncos,117.92,3,Boocaracha Broache,91.24
+2023,10,50,8,Slim Pickens,BILL,107.22,5,Baskin Dobbins,RB1,87.9,HOME,NONE,False,19.32,8,Slim Pickens,107.22,5,Baskin Dobbins,87.9
+2023,11,51,2,Julio Let the Dogs Out,BROA,113.3,12,Big Blue,BLUE,117.54,AWAY,NONE,False,4.24,12,Big Blue,117.54,2,Julio Let the Dogs Out,113.3
+2023,11,52,11,Princess Grandma,PG,105.18,4,White Ford Broncos,OJ,126.86,AWAY,NONE,False,21.68,4,White Ford Broncos,126.86,11,Princess Grandma,105.18
+2023,11,53,5,Baskin Dobbins,RB1,102.24,7, Ngata Chance,MARY,101.2,HOME,NONE,False,1.04,5,Baskin Dobbins,102.24,7, Ngata Chance,101.2
+2023,11,54,1,Marlon  Humphrey's Cat,CAT,88.16,3,Boocaracha Broache,BOOC,117.92,AWAY,NONE,False,29.76,3,Boocaracha Broache,117.92,1,Marlon  Humphrey's Cat,88.16
+2023,11,55,8,Slim Pickens,BILL,97.0,6,The Bam Belles,SPRO,90.3,HOME,NONE,False,6.7,8,Slim Pickens,97.0,6,The Bam Belles,90.3
+2023,12,56,4,White Ford Broncos,OJ,102.76,5,Baskin Dobbins,RB1,134.06,AWAY,NONE,False,31.3,5,Baskin Dobbins,134.06,4,White Ford Broncos,102.76
+2023,12,57,3,Boocaracha Broache,BOOC,133.56,2,Julio Let the Dogs Out,BROA,139.86,AWAY,NONE,False,6.3,2,Julio Let the Dogs Out,139.86,3,Boocaracha Broache,133.56
+2023,12,58,12,Big Blue,BLUE,133.96,8,Slim Pickens,BILL,93.88,HOME,NONE,False,40.08,12,Big Blue,133.96,8,Slim Pickens,93.88
+2023,12,59,1,Marlon  Humphrey's Cat,CAT,96.58,11,Princess Grandma,PG,110.14,AWAY,NONE,False,13.56,11,Princess Grandma,110.14,1,Marlon  Humphrey's Cat,96.58
+2023,12,60,7, Ngata Chance,MARY,111.2,6,The Bam Belles,SPRO,99.42,HOME,NONE,False,11.78,7, Ngata Chance,111.2,6,The Bam Belles,99.42
+2023,13,61,3,Boocaracha Broache,BOOC,117.46,8,Slim Pickens,BILL,73.48,HOME,NONE,False,43.98,3,Boocaracha Broache,117.46,8,Slim Pickens,73.48
+2023,13,62,4,White Ford Broncos,OJ,117.84,1,Marlon  Humphrey's Cat,CAT,83.68,HOME,NONE,False,34.16,4,White Ford Broncos,117.84,1,Marlon  Humphrey's Cat,83.68
+2023,13,63,6,The Bam Belles,SPRO,121.8,5,Baskin Dobbins,RB1,143.44,AWAY,NONE,False,21.64,5,Baskin Dobbins,143.44,6,The Bam Belles,121.8
+2023,13,64,2,Julio Let the Dogs Out,BROA,116.82,11,Princess Grandma,PG,141.66,AWAY,NONE,False,24.84,11,Princess Grandma,141.66,2,Julio Let the Dogs Out,116.82
+2023,13,65,7, Ngata Chance,MARY,105.22,12,Big Blue,BLUE,101.26,HOME,NONE,False,3.96,7, Ngata Chance,105.22,12,Big Blue,101.26
+2023,14,66,6,The Bam Belles,SPRO,101.4,11,Princess Grandma,PG,103.44,AWAY,NONE,False,2.04,11,Princess Grandma,103.44,6,The Bam Belles,101.4
+2023,14,67,7, Ngata Chance,MARY,123.28,2,Julio Let the Dogs Out,BROA,120.22,HOME,NONE,False,3.06,7, Ngata Chance,123.28,2,Julio Let the Dogs Out,120.22
+2023,14,68,12,Big Blue,BLUE,93.02,4,White Ford Broncos,OJ,96.36,AWAY,NONE,False,3.34,4,White Ford Broncos,96.36,12,Big Blue,93.02
+2023,14,69,5,Baskin Dobbins,RB1,96.86,3,Boocaracha Broache,BOOC,92.62,HOME,NONE,False,4.24,5,Baskin Dobbins,96.86,3,Boocaracha Broache,92.62
+2023,14,70,8,Slim Pickens,BILL,56.74,1,Marlon  Humphrey's Cat,CAT,131.34,AWAY,NONE,False,74.6,1,Marlon  Humphrey's Cat,131.34,8,Slim Pickens,56.74
+2023,15,71,2,Julio Let the Dogs Out,BROA,103.46,5,Baskin Dobbins,RB1,113.38,AWAY,WINNERS_BRACKET,True,9.92,5,Baskin Dobbins,113.38,2,Julio Let the Dogs Out,103.46
+2023,15,72,7, Ngata Chance,MARY,142.32,11,Princess Grandma,PG,119.56,HOME,WINNERS_BRACKET,True,22.76,7, Ngata Chance,142.32,11,Princess Grandma,119.56
+2023,15,73,12,Big Blue,BLUE,67.74,3,Boocaracha Broache,BOOC,65.88,HOME,LOSERS_CONSOLATION_LADDER,True,1.86,12,Big Blue,67.74,3,Boocaracha Broache,65.88
+2023,15,74,4,White Ford Broncos,OJ,107.02,8,Slim Pickens,BILL,103.52,HOME,LOSERS_CONSOLATION_LADDER,True,3.5,4,White Ford Broncos,107.02,8,Slim Pickens,103.52
+2023,15,75,1,Marlon  Humphrey's Cat,CAT,108.74,6,The Bam Belles,SPRO,83.66,HOME,LOSERS_CONSOLATION_LADDER,True,25.08,1,Marlon  Humphrey's Cat,108.74,6,The Bam Belles,83.66
+2023,16,76,7, Ngata Chance,MARY,88.44,5,Baskin Dobbins,RB1,76.12,HOME,WINNERS_BRACKET,True,12.32,7, Ngata Chance,88.44,5,Baskin Dobbins,76.12
+2023,16,77,2,Julio Let the Dogs Out,BROA,120.98,11,Princess Grandma,PG,85.7,HOME,WINNERS_CONSOLATION_LADDER,True,35.28,2,Julio Let the Dogs Out,120.98,11,Princess Grandma,85.7
+2023,16,78,12,Big Blue,BLUE,117.3,4,White Ford Broncos,OJ,112.92,HOME,LOSERS_CONSOLATION_LADDER,True,4.38,12,Big Blue,117.3,4,White Ford Broncos,112.92
+2023,16,79,3,Boocaracha Broache,BOOC,101.9,1,Marlon  Humphrey's Cat,CAT,114.18,AWAY,LOSERS_CONSOLATION_LADDER,True,12.28,1,Marlon  Humphrey's Cat,114.18,3,Boocaracha Broache,101.9
+2023,16,80,8,Slim Pickens,BILL,98.62,6,The Bam Belles,SPRO,167.7,AWAY,LOSERS_CONSOLATION_LADDER,True,69.08,6,The Bam Belles,167.7,8,Slim Pickens,98.62
+2024,1,1,11,Princess Grandma,PG,80.52,6,The Bam Belles,SPRO,145.24,AWAY,NONE,False,64.72,6,The Bam Belles,145.24,11,Princess Grandma,80.52
+2024,1,2,1,Marlon  Humphrey's Cat,CAT,104.78,2,Julio Let the Dogs Out,BROA,112.08,AWAY,NONE,False,7.3,2,Julio Let the Dogs Out,112.08,1,Marlon  Humphrey's Cat,104.78
+2024,1,3,8,Slim Pickens,BILL,96.16,7, Ngata Chance,MARY,87.96,HOME,NONE,False,8.2,8,Slim Pickens,96.16,7, Ngata Chance,87.96
+2024,1,4,3,Boocaracha Broache,BOOC,79.52,4,White Ford Broncos,OJ,97.26,AWAY,NONE,False,17.74,4,White Ford Broncos,97.26,3,Boocaracha Broache,79.52
+2024,1,5,5,King Henry's Court,RB1,109.68,12,Big Blue,BLUE,118.96,AWAY,NONE,False,9.28,12,Big Blue,118.96,5,King Henry's Court,109.68
+2024,2,6,2,Julio Let the Dogs Out,BROA,132.46,7, Ngata Chance,MARY,121.5,HOME,NONE,False,10.96,2,Julio Let the Dogs Out,132.46,7, Ngata Chance,121.5
+2024,2,7,4,White Ford Broncos,OJ,94.34,11,Princess Grandma,PG,141.52,AWAY,NONE,False,47.18,11,Princess Grandma,141.52,4,White Ford Broncos,94.34
+2024,2,8,12,Big Blue,BLUE,104.06,6,The Bam Belles,SPRO,59.64,HOME,NONE,False,44.42,12,Big Blue,104.06,6,The Bam Belles,59.64
+2024,2,9,3,Boocaracha Broache,BOOC,90.48,1,Marlon  Humphrey's Cat,CAT,66.36,HOME,NONE,False,24.12,3,Boocaracha Broache,90.48,1,Marlon  Humphrey's Cat,66.36
+2024,2,10,5,King Henry's Court,RB1,164.14,8,Slim Pickens,BILL,120.22,HOME,NONE,False,43.92,5,King Henry's Court,164.14,8,Slim Pickens,120.22
+2024,3,11,4,White Ford Broncos,OJ,130.86,12,Big Blue,BLUE,119.78,HOME,NONE,False,11.08,4,White Ford Broncos,130.86,12,Big Blue,119.78
+2024,3,12,2,Julio Let the Dogs Out,BROA,139.82,3,Boocaracha Broache,BOOC,107.38,HOME,NONE,False,32.44,2,Julio Let the Dogs Out,139.82,3,Boocaracha Broache,107.38
+2024,3,13,7, Ngata Chance,MARY,127.9,5,King Henry's Court,RB1,66.48,HOME,NONE,False,61.42,7, Ngata Chance,127.9,5,King Henry's Court,66.48
+2024,3,14,11,Princess Grandma,PG,84.64,1,Marlon  Humphrey's Cat,CAT,76.68,HOME,NONE,False,7.96,11,Princess Grandma,84.64,1,Marlon  Humphrey's Cat,76.68
+2024,3,15,6,The Bam Belles,SPRO,99.8,8,Slim Pickens,BILL,103.06,AWAY,NONE,False,3.26,8,Slim Pickens,103.06,6,The Bam Belles,99.8
+2024,4,16,3,Boocaracha Broache,BOOC,102.12,5,King Henry's Court,RB1,114.78,AWAY,NONE,False,12.66,5,King Henry's Court,114.78,3,Boocaracha Broache,102.12
+2024,4,17,1,Marlon  Humphrey's Cat,CAT,113.46,4,White Ford Broncos,OJ,122.62,AWAY,NONE,False,9.16,4,White Ford Broncos,122.62,1,Marlon  Humphrey's Cat,113.46
+2024,4,18,8,Slim Pickens,BILL,126.78,12,Big Blue,BLUE,107.22,HOME,NONE,False,19.56,8,Slim Pickens,126.78,12,Big Blue,107.22
+2024,4,19,11,Princess Grandma,PG,71.02,2,Julio Let the Dogs Out,BROA,90.3,AWAY,NONE,False,19.28,2,Julio Let the Dogs Out,90.3,11,Princess Grandma,71.02
+2024,4,20,6,The Bam Belles,SPRO,89.8,7, Ngata Chance,MARY,110.5,AWAY,NONE,False,20.7,7, Ngata Chance,110.5,6,The Bam Belles,89.8
+2024,5,21,1,Marlon  Humphrey's Cat,CAT,142.76,8,Slim Pickens,BILL,131.48,HOME,NONE,False,11.28,1,Marlon  Humphrey's Cat,142.76,8,Slim Pickens,131.48
+2024,5,22,3,Boocaracha Broache,BOOC,114.62,11,Princess Grandma,PG,105.76,HOME,NONE,False,8.86,3,Boocaracha Broache,114.62,11,Princess Grandma,105.76
+2024,5,23,5,King Henry's Court,RB1,100.1,6,The Bam Belles,SPRO,104.84,AWAY,NONE,False,4.74,6,The Bam Belles,104.84,5,King Henry's Court,100.1
+2024,5,24,4,White Ford Broncos,OJ,83.82,2,Julio Let the Dogs Out,BROA,129.74,AWAY,NONE,False,45.92,2,Julio Let the Dogs Out,129.74,4,White Ford Broncos,83.82
+2024,5,25,12,Big Blue,BLUE,113.36,7, Ngata Chance,MARY,131.04,AWAY,NONE,False,17.68,7, Ngata Chance,131.04,12,Big Blue,113.36
+2024,6,26,6,The Bam Belles,SPRO,81.32,2,Julio Let the Dogs Out,BROA,156.5,AWAY,NONE,False,75.18,2,Julio Let the Dogs Out,156.5,6,The Bam Belles,81.32
+2024,6,27,7, Ngata Chance,MARY,111.1,4,White Ford Broncos,OJ,119.96,AWAY,NONE,False,8.86,4,White Ford Broncos,119.96,7, Ngata Chance,111.1
+2024,6,28,12,Big Blue,BLUE,106.2,3,Boocaracha Broache,BOOC,89.72,HOME,NONE,False,16.48,12,Big Blue,106.2,3,Boocaracha Broache,89.72
+2024,6,29,5,King Henry's Court,RB1,100.06,1,Marlon  Humphrey's Cat,CAT,115.72,AWAY,NONE,False,15.66,1,Marlon  Humphrey's Cat,115.72,5,King Henry's Court,100.06
+2024,6,30,8,Slim Pickens,BILL,137.42,11,Princess Grandma,PG,78.76,HOME,NONE,False,58.66,8,Slim Pickens,137.42,11,Princess Grandma,78.76
+2024,7,31,4,White Ford Broncos,OJ,93.24,6,The Bam Belles,SPRO,91.36,HOME,NONE,False,1.88,4,White Ford Broncos,93.24,6,The Bam Belles,91.36
+2024,7,32,3,Boocaracha Broache,BOOC,73.24,7, Ngata Chance,MARY,92.14,AWAY,NONE,False,18.9,7, Ngata Chance,92.14,3,Boocaracha Broache,73.24
+2024,7,33,1,Marlon  Humphrey's Cat,CAT,111.0,12,Big Blue,BLUE,112.68,AWAY,NONE,False,1.68,12,Big Blue,112.68,1,Marlon  Humphrey's Cat,111.0
+2024,7,34,11,Princess Grandma,PG,102.66,5,King Henry's Court,RB1,89.5,HOME,NONE,False,13.16,11,Princess Grandma,102.66,5,King Henry's Court,89.5
+2024,7,35,2,Julio Let the Dogs Out,BROA,112.52,8,Slim Pickens,BILL,116.24,AWAY,NONE,False,3.72,8,Slim Pickens,116.24,2,Julio Let the Dogs Out,112.52
+2024,8,36,6,The Bam Belles,SPRO,96.98,3,Boocaracha Broache,BOOC,89.96,HOME,NONE,False,7.02,6,The Bam Belles,96.98,3,Boocaracha Broache,89.96
+2024,8,37,7, Ngata Chance,MARY,110.5,1,Marlon  Humphrey's Cat,CAT,117.64,AWAY,NONE,False,7.14,1,Marlon  Humphrey's Cat,117.64,7, Ngata Chance,110.5
+2024,8,38,12,Big Blue,BLUE,145.4,11,Princess Grandma,PG,125.14,HOME,NONE,False,20.26,12,Big Blue,145.4,11,Princess Grandma,125.14
+2024,8,39,5,King Henry's Court,RB1,138.9,2,Julio Let the Dogs Out,BROA,113.04,HOME,NONE,False,25.86,5,King Henry's Court,138.9,2,Julio Let the Dogs Out,113.04
+2024,8,40,8,Slim Pickens,BILL,112.06,4,White Ford Broncos,OJ,87.22,HOME,NONE,False,24.84,8,Slim Pickens,112.06,4,White Ford Broncos,87.22
+2024,9,41,1,Marlon  Humphrey's Cat,CAT,91.32,6,The Bam Belles,SPRO,106.14,AWAY,NONE,False,14.82,6,The Bam Belles,106.14,1,Marlon  Humphrey's Cat,91.32
+2024,9,42,11,Princess Grandma,PG,96.1,3,Boocaracha Broache,BOOC,91.9,HOME,NONE,False,4.2,11,Princess Grandma,96.1,3,Boocaracha Broache,91.9
+2024,9,43,7, Ngata Chance,MARY,115.4,8,Slim Pickens,BILL,125.42,AWAY,NONE,False,10.02,8,Slim Pickens,125.42,7, Ngata Chance,115.4
+2024,9,44,2,Julio Let the Dogs Out,BROA,125.38,4,White Ford Broncos,OJ,118.56,HOME,NONE,False,6.82,2,Julio Let the Dogs Out,125.38,4,White Ford Broncos,118.56
+2024,9,45,12,Big Blue,BLUE,98.62,5,King Henry's Court,RB1,152.1,AWAY,NONE,False,53.48,5,King Henry's Court,152.1,12,Big Blue,98.62
+2024,10,46,11,Princess Grandma,PG,107.28,7, Ngata Chance,MARY,81.54,HOME,NONE,False,25.74,11,Princess Grandma,107.28,7, Ngata Chance,81.54
+2024,10,47,2,Julio Let the Dogs Out,BROA,107.4,1,Marlon  Humphrey's Cat,CAT,126.72,AWAY,NONE,False,19.32,1,Marlon  Humphrey's Cat,126.72,2,Julio Let the Dogs Out,107.4
+2024,10,48,6,The Bam Belles,SPRO,67.34,12,Big Blue,BLUE,107.62,AWAY,NONE,False,40.28,12,Big Blue,107.62,6,The Bam Belles,67.34
+2024,10,49,4,White Ford Broncos,OJ,85.28,3,Boocaracha Broache,BOOC,117.0,AWAY,NONE,False,31.72,3,Boocaracha Broache,117.0,4,White Ford Broncos,85.28
+2024,10,50,8,Slim Pickens,BILL,138.72,5,King Henry's Court,RB1,70.24,HOME,NONE,False,68.48,8,Slim Pickens,138.72,5,King Henry's Court,70.24
+2024,11,51,2,Julio Let the Dogs Out,BROA,126.7,12,Big Blue,BLUE,147.66,AWAY,NONE,False,20.96,12,Big Blue,147.66,2,Julio Let the Dogs Out,126.7
+2024,11,52,11,Princess Grandma,PG,132.34,4,White Ford Broncos,OJ,70.44,HOME,NONE,False,61.9,11,Princess Grandma,132.34,4,White Ford Broncos,70.44
+2024,11,53,5,King Henry's Court,RB1,109.08,7, Ngata Chance,MARY,66.68,HOME,NONE,False,42.4,5,King Henry's Court,109.08,7, Ngata Chance,66.68
+2024,11,54,1,Marlon  Humphrey's Cat,CAT,105.64,3,Boocaracha Broache,BOOC,104.58,HOME,NONE,False,1.06,1,Marlon  Humphrey's Cat,105.64,3,Boocaracha Broache,104.58
+2024,11,55,8,Slim Pickens,BILL,118.24,6,The Bam Belles,SPRO,99.34,HOME,NONE,False,18.9,8,Slim Pickens,118.24,6,The Bam Belles,99.34
+2024,12,56,4,White Ford Broncos,OJ,119.8,5,King Henry's Court,RB1,96.1,HOME,NONE,False,23.7,4,White Ford Broncos,119.8,5,King Henry's Court,96.1
+2024,12,57,3,Boocaracha Broache,BOOC,116.68,2,Julio Let the Dogs Out,BROA,101.08,HOME,NONE,False,15.6,3,Boocaracha Broache,116.68,2,Julio Let the Dogs Out,101.08
+2024,12,58,12,Big Blue,BLUE,123.78,8,Slim Pickens,BILL,99.32,HOME,NONE,False,24.46,12,Big Blue,123.78,8,Slim Pickens,99.32
+2024,12,59,1,Marlon  Humphrey's Cat,CAT,130.66,11,Princess Grandma,PG,80.76,HOME,NONE,False,49.9,1,Marlon  Humphrey's Cat,130.66,11,Princess Grandma,80.76
+2024,12,60,7, Ngata Chance,MARY,105.26,6,The Bam Belles,SPRO,129.76,AWAY,NONE,False,24.5,6,The Bam Belles,129.76,7, Ngata Chance,105.26
+2024,13,61,3,Boocaracha Broache,BOOC,103.08,8,Slim Pickens,BILL,159.26,AWAY,NONE,False,56.18,8,Slim Pickens,159.26,3,Boocaracha Broache,103.08
+2024,13,62,4,White Ford Broncos,OJ,77.14,1,Marlon  Humphrey's Cat,CAT,113.44,AWAY,NONE,False,36.3,1,Marlon  Humphrey's Cat,113.44,4,White Ford Broncos,77.14
+2024,13,63,6,The Bam Belles,SPRO,88.84,5,King Henry's Court,RB1,111.9,AWAY,NONE,False,23.06,5,King Henry's Court,111.9,6,The Bam Belles,88.84
+2024,13,64,2,Julio Let the Dogs Out,BROA,132.52,11,Princess Grandma,PG,102.02,HOME,NONE,False,30.5,2,Julio Let the Dogs Out,132.52,11,Princess Grandma,102.02
+2024,13,65,7, Ngata Chance,MARY,98.3,12,Big Blue,BLUE,128.6,AWAY,NONE,False,30.3,12,Big Blue,128.6,7, Ngata Chance,98.3
+2024,14,66,6,The Bam Belles,SPRO,52.1,11,Princess Grandma,PG,121.72,AWAY,NONE,False,69.62,11,Princess Grandma,121.72,6,The Bam Belles,52.1
+2024,14,67,7, Ngata Chance,MARY,127.2,2,Julio Let the Dogs Out,BROA,155.08,AWAY,NONE,False,27.88,2,Julio Let the Dogs Out,155.08,7, Ngata Chance,127.2
+2024,14,68,12,Big Blue,BLUE,106.44,4,White Ford Broncos,OJ,76.92,HOME,NONE,False,29.52,12,Big Blue,106.44,4,White Ford Broncos,76.92
+2024,14,69,5,King Henry's Court,RB1,146.36,3,Boocaracha Broache,BOOC,87.22,HOME,NONE,False,59.14,5,King Henry's Court,146.36,3,Boocaracha Broache,87.22
+2024,14,70,8,Slim Pickens,BILL,104.96,1,Marlon  Humphrey's Cat,CAT,144.74,AWAY,NONE,False,39.78,1,Marlon  Humphrey's Cat,144.74,8,Slim Pickens,104.96
+2024,15,71,8,Slim Pickens,BILL,134.54,1,Marlon  Humphrey's Cat,CAT,108.36,HOME,WINNERS_BRACKET,True,26.18,8,Slim Pickens,134.54,1,Marlon  Humphrey's Cat,108.36
+2024,15,72,2,Julio Let the Dogs Out,BROA,139.48,12,Big Blue,BLUE,122.44,HOME,WINNERS_BRACKET,True,17.04,2,Julio Let the Dogs Out,139.48,12,Big Blue,122.44
+2024,15,73,5,King Henry's Court,RB1,118.36,11,Princess Grandma,PG,98.3,HOME,LOSERS_CONSOLATION_LADDER,True,20.06,5,King Henry's Court,118.36,11,Princess Grandma,98.3
+2024,15,74,4,White Ford Broncos,OJ,105.94,6,The Bam Belles,SPRO,92.26,HOME,LOSERS_CONSOLATION_LADDER,True,13.68,4,White Ford Broncos,105.94,6,The Bam Belles,92.26
+2024,15,75,7, Ngata Chance,MARY,117.12,3,Boocaracha Broache,BOOC,100.5,HOME,LOSERS_CONSOLATION_LADDER,True,16.62,7, Ngata Chance,117.12,3,Boocaracha Broache,100.5
+2024,16,76,8,Slim Pickens,BILL,125.78,2,Julio Let the Dogs Out,BROA,122.96,HOME,WINNERS_BRACKET,True,2.82,8,Slim Pickens,125.78,2,Julio Let the Dogs Out,122.96
+2024,16,77,12,Big Blue,BLUE,128.04,1,Marlon  Humphrey's Cat,CAT,117.38,HOME,WINNERS_CONSOLATION_LADDER,True,10.66,12,Big Blue,128.04,1,Marlon  Humphrey's Cat,117.38
+2024,16,78,5,King Henry's Court,RB1,115.28,4,White Ford Broncos,OJ,139.72,AWAY,LOSERS_CONSOLATION_LADDER,True,24.44,4,White Ford Broncos,139.72,5,King Henry's Court,115.28
+2024,16,79,11,Princess Grandma,PG,86.64,7, Ngata Chance,MARY,111.42,AWAY,LOSERS_CONSOLATION_LADDER,True,24.78,7, Ngata Chance,111.42,11,Princess Grandma,86.64
+2024,16,80,6,The Bam Belles,SPRO,122.3,3,Boocaracha Broache,BOOC,66.36,HOME,LOSERS_CONSOLATION_LADDER,True,55.94,6,The Bam Belles,122.3,3,Boocaracha Broache,66.36
